@@ -62,6 +62,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BIDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BIDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Classes\CountMonday.cs" />
     <Compile Include="Classes\NewButton.cs" />
     <Compile Include="Classes\RatioConverter.cs" />
@@ -72,6 +77,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\FirstTime.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -82,6 +91,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MenuBuilderDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FirstTime.xaml.cs">
+      <DependentUpon>FirstTime.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
@@ -103,6 +115,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="BIDataSet.xsc">
+      <DependentUpon>BIDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BIDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BIDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BIDataSet.xss">
+      <DependentUpon>BIDataSet.xsd</DependentUpon>
+    </None>
     <None Include="MenuBuilderDataSet.xsc">
       <DependentUpon>MenuBuilderDataSet.xsd</DependentUpon>
     </None>

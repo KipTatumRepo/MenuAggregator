@@ -22,7 +22,21 @@ namespace MenuAggregator
     {
         public MainWindow()
         {
+            string UserName = Environment.UserName;
+            MenuBuilderDataSet ds = new MenuBuilderDataSet();
+            MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter userAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter();
+
             InitializeComponent();
+
+            if (userAdapter.IsAuth(ds._MenuBuilder_Users, UserName) > 0)
+            {
+                mainFrame.Source = new Uri("pages\\Home.xaml", UriKind.Relative);
+            }
+            else
+            {
+                mainFrame.Source = new Uri("pages\\FirstTime.xaml", UriKind.Relative);
+            }
+
         }
     }
 }

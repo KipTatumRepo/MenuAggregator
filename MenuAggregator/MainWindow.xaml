@@ -11,6 +11,8 @@
         WindowStartupLocation="CenterScreen"
         Title="MainWindow" MinHeight="745" MinWidth="1200">
     <Grid Background="OldLace">
-        <Frame Source="pages\Home.xaml"/>
+        <!--<Frame x:Name="mainFrame" Source="pages\Home.xaml"/>
+        <Frame Source="pages\FirstTime.xaml"/>-->
+        <Frame x:Name="mainFrame" />
     </Grid>
 </Window>
