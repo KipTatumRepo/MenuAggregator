@@ -1,0 +1,16 @@
+﻿<Window x:Class="MenuAggregator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MenuAggregator"
+        xmlns:tools="clr-namespace:MenuAggregator.Classes"
+        mc:Ignorable="d"
+        Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={tools:RatioConverter}, ConverterParameter='.8' }" 
+        Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={tools:RatioConverter}, ConverterParameter='.8' }"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" MinHeight="745" MinWidth="1200">
+    <Grid Background="OldLace">
+        <Frame Source="pages\Home.xaml"/>
+    </Grid>
+</Window>
