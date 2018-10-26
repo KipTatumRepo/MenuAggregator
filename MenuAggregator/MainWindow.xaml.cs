@@ -20,7 +20,7 @@ namespace MenuAggregator
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static string UserName = "haah";//Environment.UserName; //"v-fitatu";  //
+        public static string UserName = Environment.UserName; // //"v-fitatu";  //"haah"
         public static string Cafe;
         public MainWindow()
         {

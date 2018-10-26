@@ -37,7 +37,16 @@ namespace MenuAggregator.Pages
         List<string> items = new List<string>();
         List<string> price = new List<string>();
         string notes;
+        List<string> menuItemToAdd = new List<string>();
+        List<string> priceItemToAdd = new List<string>();
+        List<string> notesToAdd = new List<string>();
+        List<string> buttonNames = new List<string>();
+        List<string> dayNames = new List<string>();
+        string itemToAdd;
+        string dayToAdd;
+        string conceptToAdd;
         
+
         public Home()
         {
 
@@ -67,6 +76,7 @@ namespace MenuAggregator.Pages
             #region Database Stuff
             MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter da = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
             MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter builtCafeAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
+            
             MenuBuilderDataSet._MenuBuilder_ConceptsDataTable table = new MenuBuilderDataSet._MenuBuilder_ConceptsDataTable();
 
             da.Fill(ds._MenuBuilder_Concepts);
@@ -83,6 +93,7 @@ namespace MenuAggregator.Pages
                 conceptStackPanel.Children.Add(button);
                 i++;
             }
+
         }
         #region Custom Methods
 
@@ -90,7 +101,7 @@ namespace MenuAggregator.Pages
         //determining how many groupboxes we need, 1 for weekly menu, 5 for daily menuu
         private GroupBox BuildGroupBox(string day, List<string> item, List<string> price, string notes, int bid)
         {
-
+            int i = 0;
             MenuBuilderDataSetTableAdapters.MenuBuilder_PriceTableAdapter priceAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_PriceTableAdapter();
             MenuBuilderDataSetTableAdapters.MenuBuilder_SubMenusTableAdapter subMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_SubMenusTableAdapter();
             GroupBox box = new GroupBox();
@@ -111,19 +122,25 @@ namespace MenuAggregator.Pages
             grid.ColumnDefinitions.Add(column3);
 
             ComboBox menucb = new ComboBox();
-            menucb.Text = "Pick an Option";
             menucb.FontSize = 16;
             menucb.Width = 155;
             menucb.Height = 30;
+            
+
             ComboBox pricecb = new ComboBox();
             pricecb.Width = 90;
             pricecb.FontSize = 16;
             pricecb.Height = 30;
+
             TextBox text = new TextBox();
             text.FontSize = 16;
             text.Height = 30;
-
+             
             box.Header = day;
+
+
+            menucb.AddHandler(ComboBox.SelectionChangedEvent, new SelectionChangedEventHandler(menucb_SelectionChanged));
+            pricecb.AddHandler(ComboBox.SelectionChangedEvent, new SelectionChangedEventHandler(pricecb_SelectionChanged));
 
             //get menu's associated with selected concept from available concepts and fill menucb with those items
             #region fill menucb
@@ -160,7 +177,7 @@ namespace MenuAggregator.Pages
 
             //add grid to groupbox
             box.Content = grid;
-
+            i++;
             return box;
         }
 
@@ -215,26 +232,31 @@ namespace MenuAggregator.Pages
                         {
                             string day = "Monday";
                             itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid));
+                            dayNames.Add(day);
                         }
                         else if (j == 1)
                         {
                             string day = "Tuesday";
                             itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid));
+                            dayNames.Add(day);
                         }
                         else if (j == 2)
                         {
                             string day = "Wednesday";
                             itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid));
+                            dayNames.Add(day);
                         }
                         else if (j == 3)
                         {
                             string day = "Thursday";
                             itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid));
+                            dayNames.Add(day);
                         }
                         else if (j == 4)
                         {
                             string day = "Friday";
                             itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid));
+                            dayNames.Add(day);
                         }
                     }
                 }
@@ -242,9 +264,56 @@ namespace MenuAggregator.Pages
                 {
                     string day = "Weekly";
                     itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid));
+                    dayNames.Add(day);
                 }
+
+                buttonNames.Add(b.Content.ToString());
             }
         }
+
+        private void menucb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cb = new ComboBox();
+            cb = e.OriginalSource as ComboBox;
+            itemToAdd = cb.SelectedItem.ToString();
+            menuItemToAdd.Add(itemToAdd);
+        }
+
+        private void pricecb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cb = new ComboBox();
+            cb = e.OriginalSource as ComboBox;
+            itemToAdd = cb.SelectedItem.ToString();
+            priceItemToAdd.Add(itemToAdd);
+        }
+
         #endregion
+
+        private void saveButton_Click(object sender, RoutedEventArgs e)
+        {
+            MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter menuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
+            if (itemStackPanel.Children.Count <= 1)
+            {
+                menuAdapter.Insert(10, 5, getMenuItem(dayNames, 0), MainWindow.Cafe, getMenuItem(buttonNames, 0), getMenuItem(menuItemToAdd, 0), getMenuItem(priceItemToAdd, 0), "Note");
+
+            }
+            else
+            {
+                for (int i = 0; i <= 4; i++)
+                {
+                    menuAdapter.Insert(10, 5, getMenuItem(dayNames, i), MainWindow.Cafe, getMenuItem(buttonNames, 0), getMenuItem(menuItemToAdd, i), getMenuItem(priceItemToAdd, i), "Note");
+                }
+            }
+
+           
+        }
+
+        //extract strings from supplied lists
+        private string getMenuItem(List<string> list, int i)
+        {
+            string returnItem;
+            returnItem = list[i];
+            return returnItem;
+        }
     }
 }
