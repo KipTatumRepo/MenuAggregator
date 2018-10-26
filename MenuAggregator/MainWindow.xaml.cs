@@ -20,9 +20,26 @@ namespace MenuAggregator
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static string UserName = Environment.UserName; // //"v-fitatu";  //"haah"
+        public static string Cafe;
         public MainWindow()
         {
+            
+            MenuBuilderDataSet ds = new MenuBuilderDataSet();
+            MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter userAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter();
+
             InitializeComponent();
+
+            if (userAdapter.IsAuth(ds._MenuBuilder_Users, UserName) > 0)
+            {
+                mainFrame.Source = new Uri("pages\\Home.xaml", UriKind.Relative);
+                Cafe = ds._MenuBuilder_Users.Rows[0][2].ToString();
+            }
+            else
+            {
+                mainFrame.Source = new Uri("pages\\FirstTime.xaml", UriKind.Relative);
+            }
+
         }
     }
 }

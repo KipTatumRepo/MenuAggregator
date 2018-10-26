@@ -31,16 +31,29 @@ namespace MenuAggregator.Pages
                                                         DateTime.DaysInMonth(today.Year,
                                                                  today.Month));
 
-        private int minWeek = 1;
+        int minWeek = 1;
         MenuBuilderDataSet ds = new MenuBuilderDataSet();
         DataTable dt = new DataTable();
-        public List<string> items = new List<string>();
-        public List<string> price = new List<string>();
-        public string notes;
+        List<string> items = new List<string>();
+        List<string> price = new List<string>();
+        string notes;
+        List<string> menuItemToAdd = new List<string>();
+        List<string> priceItemToAdd = new List<string>();
+        List<string> notesToAdd = new List<string>();
+        List<string> buttonNames = new List<string>();
+        List<string> dayNames = new List<string>();
+        string itemToAdd;
+        string dayToAdd;
+        string conceptToAdd;
+        
+
         public Home()
         {
 
             InitializeComponent();
+
+            //Fill Textbox at top of screen with Cafe name
+            headerTextBox.Text = MainWindow.Cafe;
 
             CountMonday countMonday = new CountMonday();
             int mondayCount = 0;
@@ -53,31 +66,42 @@ namespace MenuAggregator.Pages
             string space = "             ";
             
             Separator sep = new Separator();
-            tlbFlash.Items.Add(Pk); //Children.Add(Pk); //
+            tlbFlash.Items.Add(Pk); 
             tlbFlash.Items.Add(space);
-            tlbFlash.Items.Add(sep); //Children.Add(sep); //
+            tlbFlash.Items.Add(sep); 
             tlbFlash.Items.Add(space);
-            tlbFlash.Items.Add(Wk); //Children.Add(Wk); //
+            tlbFlash.Items.Add(Wk); 
             Pk.SelectAllEnabled = false;
 
+            #region Database Stuff
             MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter da = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
+            MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter builtCafeAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
             
+            MenuBuilderDataSet._MenuBuilder_ConceptsDataTable table = new MenuBuilderDataSet._MenuBuilder_ConceptsDataTable();
 
             da.Fill(ds._MenuBuilder_Concepts);
-           
+            
+            builtCafeAdapter.FillByCafe(table, MainWindow.Cafe);
+            #endregion
+
             int i = 0;
 
-            foreach ( DataRow row in ds._MenuBuilder_Concepts.Rows)
+            //create NewButtons and add to left Stack Panel for cafe based on what concepts are used in that cafe, these concepts were selected by user first time they started program
+            foreach ( DataRow row in table) 
             {
-                NewButton button = CreateButton( ds._MenuBuilder_Concepts, i);
+                NewButton button = CreateButton(table, i);     
                 conceptStackPanel.Children.Add(button);
                 i++;
             }
-        }
 
+        }
+        #region Custom Methods
+
+        //Build groupbox fill with 2 comboboxes; 1 for menu items and 1 for price.  Also fill with on textbox for notes.  bid parameter is for
+        //determining how many groupboxes we need, 1 for weekly menu, 5 for daily menuu
         private GroupBox BuildGroupBox(string day, List<string> item, List<string> price, string notes, int bid)
         {
-
+            int i = 0;
             MenuBuilderDataSetTableAdapters.MenuBuilder_PriceTableAdapter priceAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_PriceTableAdapter();
             MenuBuilderDataSetTableAdapters.MenuBuilder_SubMenusTableAdapter subMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_SubMenusTableAdapter();
             GroupBox box = new GroupBox();
@@ -98,20 +122,28 @@ namespace MenuAggregator.Pages
             grid.ColumnDefinitions.Add(column3);
 
             ComboBox menucb = new ComboBox();
-            menucb.Text = "Pick an Option";
             menucb.FontSize = 16;
             menucb.Width = 155;
             menucb.Height = 30;
+            
+
             ComboBox pricecb = new ComboBox();
             pricecb.Width = 90;
             pricecb.FontSize = 16;
             pricecb.Height = 30;
+
             TextBox text = new TextBox();
             text.FontSize = 16;
             text.Height = 30;
-
+             
             box.Header = day;
 
+
+            menucb.AddHandler(ComboBox.SelectionChangedEvent, new SelectionChangedEventHandler(menucb_SelectionChanged));
+            pricecb.AddHandler(ComboBox.SelectionChangedEvent, new SelectionChangedEventHandler(pricecb_SelectionChanged));
+
+            //get menu's associated with selected concept from available concepts and fill menucb with those items
+            #region fill menucb
             subMenuAdapter.FillByConceptId(ds._MenuBuilder_SubMenus, bid);
 
             DataTable subMenuTable = ds._MenuBuilder_SubMenus as DataTable;
@@ -120,7 +152,9 @@ namespace MenuAggregator.Pages
             {
                 menucb.Items.Add(row[1]);
             }
-
+            #endregion
+            //get prices and fill pricecb with those items
+            #region pricecb
             priceAdapter.Fill(ds._MenuBuilder_Price);
 
             DataTable priceTable = ds._MenuBuilder_Price as DataTable;
@@ -129,7 +163,9 @@ namespace MenuAggregator.Pages
             {
                 pricecb.Items.Add(row[1]);
             }
+            #endregion
 
+            //add menucb and price cb to grid created in groupbox 
             grid.Children.Add(menucb);
             Grid.SetColumn(menucb, 0);
 
@@ -139,12 +175,14 @@ namespace MenuAggregator.Pages
             grid.Children.Add(text);
             Grid.SetColumn(text, 2);
 
+            //add grid to groupbox
             box.Content = grid;
-
+            i++;
             return box;
         }
 
-        private NewButton CreateButton(MenuBuilderDataSet._MenuBuilder_ConceptsDataTable ds, int i)
+        //creates buttons of custom type NewButton which as assignable bid.  Takes a MenuBuilder.ConceptsDataTable and counter as parameters
+        private NewButton CreateButton(MenuBuilderDataSet._MenuBuilder_ConceptsDataTable ds, int i) 
         {
             string bid;
             NewButton button = new NewButton();
@@ -161,6 +199,7 @@ namespace MenuAggregator.Pages
             return button;
         }
 
+        
         public int GetPeriod()
         {
             string sMonth = DateTime.Now.ToString("MM");
@@ -175,7 +214,9 @@ namespace MenuAggregator.Pages
             
             return currentMonday;
         }
+        #endregion
 
+        #region Button Events
         private void NewButton_Click(object sender, RoutedEventArgs e)
         {
             NewButton b = new NewButton();
@@ -191,26 +232,31 @@ namespace MenuAggregator.Pages
                         {
                             string day = "Monday";
                             itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid));
+                            dayNames.Add(day);
                         }
                         else if (j == 1)
                         {
                             string day = "Tuesday";
                             itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid));
+                            dayNames.Add(day);
                         }
                         else if (j == 2)
                         {
                             string day = "Wednesday";
                             itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid));
+                            dayNames.Add(day);
                         }
                         else if (j == 3)
                         {
                             string day = "Thursday";
                             itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid));
+                            dayNames.Add(day);
                         }
                         else if (j == 4)
                         {
                             string day = "Friday";
                             itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid));
+                            dayNames.Add(day);
                         }
                     }
                 }
@@ -218,8 +264,56 @@ namespace MenuAggregator.Pages
                 {
                     string day = "Weekly";
                     itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid));
+                    dayNames.Add(day);
+                }
+
+                buttonNames.Add(b.Content.ToString());
+            }
+        }
+
+        private void menucb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cb = new ComboBox();
+            cb = e.OriginalSource as ComboBox;
+            itemToAdd = cb.SelectedItem.ToString();
+            menuItemToAdd.Add(itemToAdd);
+        }
+
+        private void pricecb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cb = new ComboBox();
+            cb = e.OriginalSource as ComboBox;
+            itemToAdd = cb.SelectedItem.ToString();
+            priceItemToAdd.Add(itemToAdd);
+        }
+
+        #endregion
+
+        private void saveButton_Click(object sender, RoutedEventArgs e)
+        {
+            MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter menuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
+            if (itemStackPanel.Children.Count <= 1)
+            {
+                menuAdapter.Insert(10, 5, getMenuItem(dayNames, 0), MainWindow.Cafe, getMenuItem(buttonNames, 0), getMenuItem(menuItemToAdd, 0), getMenuItem(priceItemToAdd, 0), "Note");
+
+            }
+            else
+            {
+                for (int i = 0; i <= 4; i++)
+                {
+                    menuAdapter.Insert(10, 5, getMenuItem(dayNames, i), MainWindow.Cafe, getMenuItem(buttonNames, 0), getMenuItem(menuItemToAdd, i), getMenuItem(priceItemToAdd, i), "Note");
                 }
             }
+
+           
+        }
+
+        //extract strings from supplied lists
+        private string getMenuItem(List<string> list, int i)
+        {
+            string returnItem;
+            returnItem = list[i];
+            return returnItem;
         }
     }
 }
