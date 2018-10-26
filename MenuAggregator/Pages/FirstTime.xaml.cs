@@ -21,9 +21,11 @@ namespace MenuAggregator.Pages
     /// </summary>
     public partial class FirstTime : Page
     {
-        public static string Cafe;
-        public static string User;
-        public static string UserName;
+        private string Cafe;
+        private string User;
+        private string UserName;
+        private CheckBox conceptCheckBox;
+        private List<int> activeConcepts = new List<int>();
 
         public FirstTime()
         {
@@ -52,21 +54,24 @@ namespace MenuAggregator.Pages
 
             foreach (DataRow row in ds1._MenuBuilder_Concepts)
             {
-                CheckBox conceptCheckBox = MakeCheckbox(ds1._MenuBuilder_Concepts, i);
+                conceptCheckBox = MakeCheckbox(ds1._MenuBuilder_Concepts, i);
                 i++;
             }
 
-           
         }
 
         private CheckBox MakeCheckbox(MenuBuilderDataSet._MenuBuilder_ConceptsDataTable ds, int i)
         {
             CheckBox conceptCheckBox = new CheckBox();
             conceptCheckBox.Margin = new Thickness(0, 0, 25, 15);
-            conceptCheckBox.FontSize = 24;
+            conceptCheckBox.FontSize = 36;
             conceptCheckBox.VerticalContentAlignment = VerticalAlignment.Center;
             conceptCheckBox.Content = ds.Rows[i][1].ToString();
+            conceptCheckBox.Tag = ds.Rows[i][0].ToString();
             conceptWrapPanel.Children.Add(conceptCheckBox);
+            conceptCheckBox.AddHandler(CheckBox.CheckedEvent, new RoutedEventHandler(conceptCheckBox_Checked));
+            conceptCheckBox.AddHandler(CheckBox.UncheckedEvent, new RoutedEventHandler(conceptCheckBox_Unchecked));
+
             return conceptCheckBox;
         }
 
@@ -86,7 +91,47 @@ namespace MenuAggregator.Pages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter userAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter();
+            MenuBuilderDataSetTableAdapters.MenuBuilder_BuiltCafesTableAdapter cafeAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_BuiltCafesTableAdapter();
             userAdapter.Insert(UserName, Cafe, User);
+            for(int j = 0; j <= activeConcepts.Count() - 1; j++)
+            {
+                cafeAdapter.Insert(Cafe, activeConcepts[j]);
+            }
+
+            NavigationService.Navigate(
+                new Uri("Pages/Home.xaml", UriKind.Relative));
+        }
+
+        private void conceptCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            string stationId;
+            int StationId;
+            CheckBox cb = new CheckBox();
+            cb = e.OriginalSource as CheckBox;
+            stationId = cb.Tag.ToString();
+            StationId = Int32.Parse(stationId);
+            activeConcepts.Add(StationId);
+            
+        }
+
+        private void conceptCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            string stationId;
+            int StationId;
+            CheckBox cb = new CheckBox();
+            cb = e.OriginalSource as CheckBox;
+            stationId = cb.Tag.ToString();
+            StationId = Int32.Parse(stationId);
+
+            for (int i = 0; i <= activeConcepts.Count() - 1; i++)
+            {
+                if (StationId == activeConcepts[i])
+                {
+                    activeConcepts.RemoveAt(i);
+                    return;
+                }
+            }
+
         }
     }
 }

@@ -9,21 +9,21 @@
       Title="FirstTime">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="44*"/>
-            <RowDefinition Height="45*"/>
-            <RowDefinition Height="44*"/>
-            <RowDefinition Height="262*"/>
+            <RowDefinition Height="106*"/>
+            <RowDefinition Height="69*"/>
+            <RowDefinition Height="106*"/>
+            <RowDefinition Height="114*"/>
             <RowDefinition Height="55*" />
 
 
         </Grid.RowDefinitions>
-        <TextBlock x:Name="topRow" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="780" Height="33"/>
-        <ComboBox x:Name="cafeCombobox" HorizontalAlignment="Left" Margin="276,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="236" Height="22" SelectionChanged="cafeCombobox_SelectionChanged"/>
-        <WrapPanel x:Name="conceptWrapPanel" HorizontalAlignment="Left" Height="180" Margin="0,10,0,0" Grid.Row="3" VerticalAlignment="Top" Visibility="Hidden">
+        <TextBlock x:Name="topRow" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Center" Width="780" Height="165" FontSize="36" Margin="10,0" Grid.RowSpan="2"/>
+        <ComboBox x:Name="cafeCombobox" HorizontalAlignment="Center" Margin="165,0,166,0" Grid.Row="1" VerticalAlignment="Top" Width="469" Height="59" SelectionChanged="cafeCombobox_SelectionChanged" FontSize="36"/>
+        <WrapPanel x:Name="conceptWrapPanel" HorizontalAlignment="Center" Height="180" Grid.Row="3" VerticalAlignment="Top" Visibility="Hidden" Width="auto">
 
         </WrapPanel>
-        <TextBlock x:Name="thirdRow" HorizontalAlignment="Left" Margin="0,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="800" Height="25" Visibility="Hidden"/>
-        <Button Grid.Row="4" Content="Set Up My Cafe" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Margin="685,10,0,0" Height="20" Click="Button_Click"/>
+        <TextBlock x:Name="thirdRow" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Width="780" Text="TextBlock" VerticalAlignment="Top" TextAlignment="Center" Height="125" Visibility="Hidden" FontSize="36" Margin="10,0" Grid.RowSpan="2"/>
+        <Button Grid.Row="4" Content="Set Up My Cafe" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,5" Width="105" Height="45" Click="Button_Click"/>
 
     </Grid>
 
