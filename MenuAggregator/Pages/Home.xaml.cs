@@ -5,6 +5,7 @@ using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,7 +24,6 @@ namespace MenuAggregator.Pages
     /// </summary>
     public partial class Home : Page
     {
-       
         public static DateTime today = DateTime.Today;  
         public static DateTime firstOfMonth = new DateTime(today.Year, today.Month, 1);
         public static DateTime endOfMonth = new DateTime(today.Year,
@@ -42,28 +42,84 @@ namespace MenuAggregator.Pages
         List<string> notesToAdd = new List<string>();
         List<string> buttonNames = new List<string>();
         List<string> dayNames = new List<string>();
+        public WeekChooser Wk;
+        
         string itemToAdd;
         string dayToAdd;
         string conceptToAdd;
-        
+        int currentPeriod;
+        int currentWeek;
 
         public Home()
         {
-
+            
             InitializeComponent();
 
-            //Fill Textbox at top of screen with Cafe name
-            headerTextBox.Text = MainWindow.Cafe;
+            #region Database Stuff
+            MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter da = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
+           
+            MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter usersTableAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter();
+
+           
+            MenuBuilderDataSet._MenuBuilder_UsersDataTable userTable = new MenuBuilderDataSet._MenuBuilder_UsersDataTable();
+
+            da.Fill(ds._MenuBuilder_Concepts);
+
+           
+            #endregion
+
+            if (MainWindow.numberOfCafes == 1)
+            {
+                MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter builtCafeAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
+                MenuBuilderDataSet._MenuBuilder_ConceptsDataTable table = new MenuBuilderDataSet._MenuBuilder_ConceptsDataTable();
+
+                //Fill Textbox at top of screen with Cafe name
+                headerTextBox.Text = "Cafe " + MainWindow.Cafe;
+                builtCafeAdapter.FillByCafe(table, MainWindow.Cafe);
+
+                //create NewButtons and add to left Stack Panel for cafe based on what concepts are used in that cafe, these concepts were selected by user first time they started program
+                int i = 0;
+                foreach (DataRow row in table)
+                {
+                    NewButton button = CreateButton(table, i);
+                    conceptStackPanel.Children.Add(button);
+                    i++;
+                }
+            }
+            else
+            {
+                int j = 0;
+                usersTableAdapter.UserHasMultipleCafes(userTable, MainWindow.UserName);
+
+                multipleCafeCombobox.FontSize = 24;
+                headerTextBox.Width = 690;
+                headerTextBox.TextAlignment = TextAlignment.Center;
+                headerTextBox.HorizontalAlignment = HorizontalAlignment.Left;
+                headerTextBox.Text = "Select a Cafe ->";
+
+                foreach (DataRow row in userTable)
+                {
+                    multipleCafeCombobox.Items.Add(row[2].ToString());
+                    j++;
+                }
+
+                multipleCafeCombobox.Visibility = Visibility.Visible;
+                multipleCafeCombobox.SelectedItem = -1;
+            }
 
             CountMonday countMonday = new CountMonday();
             int mondayCount = 0;
             mondayCount = countMonday.CountMondays(firstOfMonth, endOfMonth);
-            int currentPeriod = GetPeriod();
+            currentPeriod = GetPeriod();
+            currentWeek = GetWeek();
 
-            int currentWeek = GetWeek();
             WeekChooser Wk = new WeekChooser(minWeek, mondayCount, currentWeek);
+            
             PeriodChooser Pk = new PeriodChooser(Wk, 1, currentPeriod, currentPeriod);
             string space = "             ";
+
+            //currentWeek = Wk.;
+            currentPeriod = Pk.CurrentPeriod;
             
             Separator sep = new Separator();
             tlbFlash.Items.Add(Pk); 
@@ -71,28 +127,7 @@ namespace MenuAggregator.Pages
             tlbFlash.Items.Add(sep); 
             tlbFlash.Items.Add(space);
             tlbFlash.Items.Add(Wk); 
-            Pk.SelectAllEnabled = false;
-
-            #region Database Stuff
-            MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter da = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
-            MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter builtCafeAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
-            
-            MenuBuilderDataSet._MenuBuilder_ConceptsDataTable table = new MenuBuilderDataSet._MenuBuilder_ConceptsDataTable();
-
-            da.Fill(ds._MenuBuilder_Concepts);
-            
-            builtCafeAdapter.FillByCafe(table, MainWindow.Cafe);
-            #endregion
-
-            int i = 0;
-
-            //create NewButtons and add to left Stack Panel for cafe based on what concepts are used in that cafe, these concepts were selected by user first time they started program
-            foreach ( DataRow row in table) 
-            {
-                NewButton button = CreateButton(table, i);     
-                conceptStackPanel.Children.Add(button);
-                i++;
-            }
+            Pk.SelectAllEnabled = true;
 
         }
         #region Custom Methods
@@ -135,12 +170,16 @@ namespace MenuAggregator.Pages
             TextBox text = new TextBox();
             text.FontSize = 16;
             text.Height = 30;
+            
              
             box.Header = day;
 
 
             menucb.AddHandler(ComboBox.SelectionChangedEvent, new SelectionChangedEventHandler(menucb_SelectionChanged));
             pricecb.AddHandler(ComboBox.SelectionChangedEvent, new SelectionChangedEventHandler(pricecb_SelectionChanged));
+            text.AddHandler(TextBox.LostKeyboardFocusEvent, new KeyboardFocusChangedEventHandler(text_LostFocus));
+
+            //text.AddHandler(TextBox.MouseLeaveEvent, new MouseEventHandler(text_MouseLeave));
 
             //get menu's associated with selected concept from available concepts and fill menucb with those items
             #region fill menucb
@@ -199,7 +238,6 @@ namespace MenuAggregator.Pages
             return button;
         }
 
-        
         public int GetPeriod()
         {
             string sMonth = DateTime.Now.ToString("MM");
@@ -211,12 +249,21 @@ namespace MenuAggregator.Pages
         {
             CountMonday monday = new CountMonday();
             int currentMonday = monday.CountMondays(firstOfMonth, today);
+
             
             return currentMonday;
         }
+
+        //extract strings from supplied lists
+        private string getMenuItem(List<string> list, int i)
+        {
+            string returnItem;
+            returnItem = list[i];
+            return returnItem;
+        }
         #endregion
 
-        #region Button Events
+        #region Button and Selection Events
         private void NewButton_Click(object sender, RoutedEventArgs e)
         {
             NewButton b = new NewButton();
@@ -266,7 +313,10 @@ namespace MenuAggregator.Pages
                     itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid));
                     dayNames.Add(day);
                 }
-
+                if (buttonNames.Count > 0)
+                {
+                    buttonNames.Clear();
+                }
                 buttonNames.Add(b.Content.ToString());
             }
         }
@@ -287,33 +337,55 @@ namespace MenuAggregator.Pages
             priceItemToAdd.Add(itemToAdd);
         }
 
-        #endregion
+        private void text_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = new TextBox();
+            string text;
+            tb = e.OriginalSource as TextBox;
+            text = tb.Text;
+            notesToAdd.Add(text);
+
+        }
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
             MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter menuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
             if (itemStackPanel.Children.Count <= 1)
             {
-                menuAdapter.Insert(10, 5, getMenuItem(dayNames, 0), MainWindow.Cafe, getMenuItem(buttonNames, 0), getMenuItem(menuItemToAdd, 0), getMenuItem(priceItemToAdd, 0), "Note");
-
+                menuAdapter.Insert(currentPeriod, currentWeek, getMenuItem(dayNames, 0), MainWindow.Cafe, getMenuItem(buttonNames, 0), getMenuItem(menuItemToAdd, 0), getMenuItem(priceItemToAdd, 0), getMenuItem(notesToAdd, 0));
+                
             }
             else
             {
                 for (int i = 0; i <= 4; i++)
                 {
-                    menuAdapter.Insert(10, 5, getMenuItem(dayNames, i), MainWindow.Cafe, getMenuItem(buttonNames, 0), getMenuItem(menuItemToAdd, i), getMenuItem(priceItemToAdd, i), "Note");
+                    menuAdapter.Insert(currentPeriod, currentWeek, getMenuItem(dayNames, i), MainWindow.Cafe, getMenuItem(buttonNames, 0), getMenuItem(menuItemToAdd, i), getMenuItem(priceItemToAdd, i), getMenuItem(notesToAdd, i));
                 }
             }
-
-           
+            dayNames.Clear();
+            buttonNames.Clear();
+            menuItemToAdd.Clear();
+            priceItemToAdd.Clear();
+            notesToAdd.Clear();
         }
 
-        //extract strings from supplied lists
-        private string getMenuItem(List<string> list, int i)
+        private void multipleCafeCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string returnItem;
-            returnItem = list[i];
-            return returnItem;
+            MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter builtCafeAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
+            MenuBuilderDataSet._MenuBuilder_ConceptsDataTable table = new MenuBuilderDataSet._MenuBuilder_ConceptsDataTable();
+            builtCafeAdapter.FillByCafe(table, multipleCafeCombobox.SelectedItem.ToString());
+            headerTextBox.Text = "Cafe " + multipleCafeCombobox.SelectedItem.ToString();
+
+            int i = 0;
+            conceptStackPanel.Children.Clear();
+
+            foreach (DataRow row in table)
+            {
+                NewButton button = CreateButton(table, i);
+                conceptStackPanel.Children.Add(button);
+                i++;
+            }
         }
+        #endregion
     }
 }

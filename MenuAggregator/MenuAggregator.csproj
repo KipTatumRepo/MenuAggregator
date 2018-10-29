@@ -69,6 +69,7 @@
     </Compile>
     <Compile Include="Classes\CountMonday.cs" />
     <Compile Include="Classes\NewButton.cs" />
+    <Compile Include="Classes\PropertySupport.cs" />
     <Compile Include="Classes\RatioConverter.cs" />
     <Compile Include="Classes\WeekCounter.cs" />
     <Compile Include="Classes\PeriodChooser.cs" />
@@ -87,6 +88,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MenuBuilderDataSet.cs">
+      <DependentUpon>MenuBuilderDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MenuBuilderDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

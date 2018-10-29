@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -10,7 +13,7 @@ using System.Windows.Media;
 
 namespace MenuAggregator.Classes
 {
-    public class WeekChooser : DockPanel
+    public class WeekChooser : DockPanel, INotifyPropertyChanged
     {
         private int _currentweek;
         private int maxWeek = WeekCounter.MondayCounter(firstOfMonth, endOfMonth);
@@ -29,16 +32,17 @@ namespace MenuAggregator.Classes
             }
             set
             {
+                HeldWeek = _currentweek;
                 _currentweek = value;
 
                 foreach (Border b in Children)
                 {
-                    b.Tag = "Label"; // force the tag for the border to be Label
-                    if(b.Tag.ToString() != "Label")
+                   
+                    if(b.Tag == null)
                     {
                         TextBlock tb = (TextBlock) b.Child;
 
-                        if (int.Parse(tb.Text) != value) //Parse is the same as FormatNumber(tb.Text, 0) 
+                        if (int.Parse(tb.Text) != value) 
                         {
                             tb.Foreground = Brushes.LightGray;
                             tb.FontSize = 24;
@@ -52,11 +56,13 @@ namespace MenuAggregator.Classes
                         }
                     }
                 }
+                RaisePropertyChanged("CurrentWeek");
             }
         }
 
         public int MinWeek { get; set; }
         public int MaxWeek { get; set; }
+        public int HeldWeek { get; set; }
 
         public WeekChooser(int MinW, int MaxW, int CurW)
         {
@@ -82,14 +88,13 @@ namespace MenuAggregator.Classes
                 brdWeek.MouseLeave += LeaveWeek;
                 tbWeek.MouseLeave += LeaveWeek;
                 tbWeek.PreviewMouseDown += ChooseWeek;
+                
                 brdWeek.Child = tbWeek;
                 Children.Add(brdWeek);
             }
             CurrentWeek = CurW;
           
         }
-
-
 
         private void HoverOverWeek(object sender, MouseEventArgs e)
         {
@@ -135,6 +140,7 @@ namespace MenuAggregator.Classes
 
             if (int.Parse(tb.Text) != CurrentWeek)
                 CurrentWeek = int.Parse(tb.Text);
+
             else if (CurrentWeek != 0)
                 Reset();
         }
@@ -145,7 +151,7 @@ namespace MenuAggregator.Classes
             foreach (Border brd in Children)
             {
                 TextBlock tb = (TextBlock) brd.Child;
-                if (brd.Tag.ToString() != "Label")
+                if (brd.Tag == null)
                 {
                     tb.Foreground = Brushes.Black;
                     tb.FontSize = 24;
@@ -153,6 +159,68 @@ namespace MenuAggregator.Classes
                 }
             }
         }
+
+        #region INotifyPropertyChanged Members
+
+        /// <summary>
+        /// Raises the PropertyChange event for the property specified
+        /// </summary>
+        /// <param name="propertyName">Property name to update. Is case-sensitive.</param>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(PropertyChangedEventArgs e)
+        {
+            var handler = this.PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        protected void RaisePropertyChanged<T>(Expression<Func<T>> propertyExpresssion)
+        {
+            var propertyName = PropertySupport.ExtractPropertyName(propertyExpresssion);
+            this.RaisePropertyChanged(propertyName);
+        }
+
+        protected void RaisePropertyChanged(String propertyName)
+        {
+            VerifyPropertyName(propertyName);
+            OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion // INotifyPropertyChanged Members
+
+        #region Degugging
+        /// <summary>
+        /// Warns the developer if this object does not have
+        /// a public property with the specified name. This 
+        /// method does not exist in a Release build.
+        /// </summary>
+        [Conditional("DEBUG")]
+        [DebuggerStepThrough]
+        public virtual void VerifyPropertyName(string propertyName)
+        {
+            // Verify that the property name matches a real,  
+            // public, instance property on this object.
+            if (TypeDescriptor.GetProperties(this)[propertyName] == null)
+            {
+                string msg = "Invalid property name: " + propertyName;
+
+                if (this.ThrowOnInvalidPropertyName)
+                    throw new Exception(msg);
+                else
+                    Debug.Fail(msg);
+            }
+        }
+
+        /// <summary>
+        /// Returns whether an exception is thrown, or if a Debug.Fail() is used
+        /// when an invalid property name is passed to the VerifyPropertyName method.
+        /// The default value is false, but subclasses used by unit tests might 
+        /// override this property's getter to return true.
+        /// </summary>
+        protected virtual bool ThrowOnInvalidPropertyName { get; private set; }
+        #endregion
     }
 }
 
