@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace MenuAggregator.Pages
 {
@@ -24,37 +25,45 @@ namespace MenuAggregator.Pages
     /// </summary>
     public partial class Home : Page
     {
+        #region Variable initialization
         public static DateTime today = DateTime.Today;  
         public static DateTime firstOfMonth = new DateTime(today.Year, today.Month, 1);
         public static DateTime endOfMonth = new DateTime(today.Year,
                                            today.Month,
                                                         DateTime.DaysInMonth(today.Year,
                                                                  today.Month));
+        PeriodChooser Pk;
+        static WeekChooser Wk;
+        WeekChooser WkObject = new WeekChooser(0, 0, 0);
+        PeriodChooser PkObject = new PeriodChooser(Wk, 0,0,0);
 
+        //private int CurrentWeek;
         int minWeek = 1;
-        MenuBuilderDataSet ds = new MenuBuilderDataSet();
-        DataTable dt = new DataTable();
+        int currentPeriod;
+        int currentWeek;
+        string notes;
+        string itemToAdd;
+
         List<string> items = new List<string>();
         List<string> price = new List<string>();
-        string notes;
         List<string> menuItemToAdd = new List<string>();
         List<string> priceItemToAdd = new List<string>();
         List<string> notesToAdd = new List<string>();
         List<string> buttonNames = new List<string>();
         List<string> dayNames = new List<string>();
-        public WeekChooser Wk;
-        
-        string itemToAdd;
-        string dayToAdd;
-        string conceptToAdd;
-        int currentPeriod;
-        int currentWeek;
+        List<GroupBox> gbList = new List<GroupBox>();
+        GroupBox GBObject = new GroupBox();
 
+        //TextBox textObject = new TextBox();
+
+        MenuBuilderDataSet ds = new MenuBuilderDataSet();
+        DataTable dt = new DataTable();
+        #endregion
         public Home()
         {
             
             InitializeComponent();
-
+            
             #region Database Stuff
             MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter da = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
            
@@ -113,12 +122,11 @@ namespace MenuAggregator.Pages
             currentPeriod = GetPeriod();
             currentWeek = GetWeek();
 
-            WeekChooser Wk = new WeekChooser(minWeek, mondayCount, currentWeek);
-            
-            PeriodChooser Pk = new PeriodChooser(Wk, 1, currentPeriod, currentPeriod);
+            Wk = new WeekChooser(minWeek, mondayCount, currentWeek);
+            Pk = new PeriodChooser(Wk, 1, currentPeriod, currentPeriod);
             string space = "             ";
 
-            //currentWeek = Wk.;
+            currentWeek = Wk.CurrentWeek;
             currentPeriod = Pk.CurrentPeriod;
             
             Separator sep = new Separator();
@@ -128,6 +136,8 @@ namespace MenuAggregator.Pages
             tlbFlash.Items.Add(space);
             tlbFlash.Items.Add(Wk); 
             Pk.SelectAllEnabled = true;
+
+           
 
         }
         #region Custom Methods
@@ -170,6 +180,7 @@ namespace MenuAggregator.Pages
             TextBox text = new TextBox();
             text.FontSize = 16;
             text.Height = 30;
+            
             
              
             box.Header = day;
@@ -216,7 +227,10 @@ namespace MenuAggregator.Pages
 
             //add grid to groupbox
             box.Content = grid;
+            
             i++;
+
+           
             return box;
         }
 
@@ -255,10 +269,17 @@ namespace MenuAggregator.Pages
         }
 
         //extract strings from supplied lists
-        private string getMenuItem(List<string> list, int i)
+        private string getItem(List<string> list, int i)
         {
             string returnItem;
-            returnItem = list[i];
+            if (list.Count == 0 || list.Count < i)
+            {
+                returnItem =  null;
+            }
+            else
+            { 
+                returnItem = list[i];
+            }
             return returnItem;
         }
         #endregion
@@ -335,31 +356,59 @@ namespace MenuAggregator.Pages
             cb = e.OriginalSource as ComboBox;
             itemToAdd = cb.SelectedItem.ToString();
             priceItemToAdd.Add(itemToAdd);
+            
+            //cb.MouseLeftButtonUp += ChangeFocus;
         }
+
+        /*private void ChangeFocus(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Released)
+            {
+                Dispatcher.BeginInvoke(
+                DispatcherPriority.ContextIdle,
+                new Action(delegate ()
+                {
+                    textObject.Focus();
+                }));
+            }
+        }*/
 
         private void text_LostFocus(object sender, RoutedEventArgs e)
         {
             TextBox tb = new TextBox();
             string text;
             tb = e.OriginalSource as TextBox;
-            text = tb.Text;
+           
+            if (tb.Text == null || tb.Text == " ")
+            {
+                text = null;
+            }
+            else
+            { 
+                text = tb.Text;
+            }
             notesToAdd.Add(text);
-
         }
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
             MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter menuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
+            WkObject.CurrentWeek = Wk.CurrentWeek;
+            PkObject.CurrentPeriod = Pk.CurrentPeriod;
+           
+
+            //If there is only 1 item in itemStackPanel, the selected concept is a weekly menu so there is only 1 row to insert in DB
             if (itemStackPanel.Children.Count <= 1)
             {
-                menuAdapter.Insert(currentPeriod, currentWeek, getMenuItem(dayNames, 0), MainWindow.Cafe, getMenuItem(buttonNames, 0), getMenuItem(menuItemToAdd, 0), getMenuItem(priceItemToAdd, 0), getMenuItem(notesToAdd, 0));
+                menuAdapter.Insert(PkObject.CurrentPeriod, WkObject.CurrentWeek, getItem(dayNames, 0), MainWindow.Cafe, getItem(buttonNames, 0), getItem(menuItemToAdd, 0), getItem(priceItemToAdd, 0), getItem(notesToAdd, 0));
                 
             }
+            //If there is more than 1 item in itemStackPanel, the selected concept has daily menu's and we must insert Mon-Fri into the DB
             else
             {
                 for (int i = 0; i <= 4; i++)
                 {
-                    menuAdapter.Insert(currentPeriod, currentWeek, getMenuItem(dayNames, i), MainWindow.Cafe, getMenuItem(buttonNames, 0), getMenuItem(menuItemToAdd, i), getMenuItem(priceItemToAdd, i), getMenuItem(notesToAdd, i));
+                    menuAdapter.Insert(PkObject.CurrentPeriod, WkObject.CurrentWeek, dayNames[i]/*getItem(dayNames, i)*/, MainWindow.Cafe, getItem(buttonNames, 0), getItem(menuItemToAdd, i), getItem(priceItemToAdd, i), getItem(notesToAdd, i));
                 }
             }
             dayNames.Clear();
@@ -367,6 +416,7 @@ namespace MenuAggregator.Pages
             menuItemToAdd.Clear();
             priceItemToAdd.Clear();
             notesToAdd.Clear();
+            itemStackPanel.Children.Clear();
         }
 
         private void multipleCafeCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
