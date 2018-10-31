@@ -62,79 +62,90 @@ namespace MenuAggregator.Pages
         {
             
             InitializeComponent();
-            
-            #region Database Stuff
-            MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter da = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
-           
-            MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter usersTableAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter();
 
-           
-            MenuBuilderDataSet._MenuBuilder_UsersDataTable userTable = new MenuBuilderDataSet._MenuBuilder_UsersDataTable();
-
-            da.Fill(ds._MenuBuilder_Concepts);
-
-           
-            #endregion
-
-            if (MainWindow.numberOfCafes <= 1)
+            try
             {
-                MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter builtCafeAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
-                MenuBuilderDataSet._MenuBuilder_ConceptsDataTable table = new MenuBuilderDataSet._MenuBuilder_ConceptsDataTable();
+                #region Database Stuff
 
-                //Fill Textbox at top of screen with Cafe name
-                headerTextBox.Text = "Cafe " + MainWindow.Cafe;
-                builtCafeAdapter.FillByCafe(table, MainWindow.Cafe);
 
-                //create NewButtons and add to left Stack Panel for cafe based on what concepts are used in that cafe, these concepts were selected by user first time they started program
-                int i = 0;
-                foreach (DataRow row in table)
+                MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter da = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
+                MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter usersTableAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter();
+
+                MenuBuilderDataSet._MenuBuilder_UsersDataTable userTable = new MenuBuilderDataSet._MenuBuilder_UsersDataTable();
+
+                da.Fill(ds._MenuBuilder_Concepts);
+                #endregion
+
+                #region If there is more than 1 cafe associated with the user, THIS WILL BE RARE
+                if (MainWindow.numberOfCafes <= 1)
                 {
-                    NewButton button = CreateButton(table, i);
-                    conceptStackPanel.Children.Add(button);
-                    i++;
-                }
-            }
-            else
-            {
-                int j = 0;
-                usersTableAdapter.UserHasMultipleCafes(userTable, MainWindow.UserName);
+                    MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter builtCafeAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
+                    MenuBuilderDataSet._MenuBuilder_ConceptsDataTable table = new MenuBuilderDataSet._MenuBuilder_ConceptsDataTable();
 
-                multipleCafeCombobox.FontSize = 24;
-                headerTextBox.Width = 690;
-                headerTextBox.TextAlignment = TextAlignment.Center;
-                headerTextBox.HorizontalAlignment = HorizontalAlignment.Left;
-                headerTextBox.Text = "Select a Cafe ->";
+                    //Fill Textbox at top of screen with Cafe name
+                    headerTextBox.Text = "Cafe " + MainWindow.Cafe;
+                    builtCafeAdapter.FillByCafe(table, MainWindow.Cafe);
 
-                foreach (DataRow row in userTable)
-                {
-                    multipleCafeCombobox.Items.Add(row[2].ToString());
-                    j++;
+                    //create NewButtons and add to left Stack Panel for cafe based on what concepts are used in that cafe, these concepts were selected by user first time they started program
+                    int i = 0;
+                    foreach (DataRow row in table)
+                    {
+                        NewButton button = CreateButton(table, i);
+                        conceptStackPanel.Children.Add(button);
+                        i++;
+                    }
                 }
 
-                multipleCafeCombobox.Visibility = Visibility.Visible;
-                multipleCafeCombobox.SelectedItem = -1;
+                #endregion
+
+                else
+                {
+                    int j = 0;
+                    usersTableAdapter.UserHasMultipleCafes(userTable, MainWindow.UserName);
+
+                    multipleCafeCombobox.FontSize = 24;
+                    headerTextBox.Width = 690;
+                    headerTextBox.TextAlignment = TextAlignment.Center;
+                    headerTextBox.HorizontalAlignment = HorizontalAlignment.Left;
+                    headerTextBox.Text = "Select a Cafe ->";
+
+                    foreach (DataRow row in userTable)
+                    {
+                        multipleCafeCombobox.Items.Add(row[2].ToString());
+                        j++;
+                    }
+
+                    multipleCafeCombobox.Visibility = Visibility.Visible;
+                    multipleCafeCombobox.SelectedItem = -1;
+                }
+
+                CountMonday countMonday = new CountMonday();
+                int mondayCount = 0;
+                mondayCount = countMonday.CountMondays(firstOfMonth, endOfMonth);
+                currentPeriod = GetPeriod();
+                currentWeek = GetWeek();
+
+                Wk = new WeekChooser(minWeek, mondayCount, currentWeek);
+                Pk = new PeriodChooser(Wk, 1, currentPeriod, currentPeriod);
+                string space = "             ";
+
+                currentWeek = Wk.CurrentWeek;
+                currentPeriod = Pk.CurrentPeriod;
+
+                Separator sep = new Separator();
+                tlbFlash.Items.Add(Pk);
+                tlbFlash.Items.Add(space);
+                tlbFlash.Items.Add(sep);
+                tlbFlash.Items.Add(space);
+                tlbFlash.Items.Add(Wk);
+                Pk.SelectAllEnabled = true;
             }
 
-            CountMonday countMonday = new CountMonday();
-            int mondayCount = 0;
-            mondayCount = countMonday.CountMondays(firstOfMonth, endOfMonth);
-            currentPeriod = GetPeriod();
-            currentWeek = GetWeek();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong while trying to load the page " + ex);
+            }
 
-            Wk = new WeekChooser(minWeek, mondayCount, currentWeek);
-            Pk = new PeriodChooser(Wk, 1, currentPeriod, currentPeriod);
-            string space = "             ";
-
-            currentWeek = Wk.CurrentWeek;
-            currentPeriod = Pk.CurrentPeriod;
-            
-            Separator sep = new Separator();
-            tlbFlash.Items.Add(Pk); 
-            tlbFlash.Items.Add(space);
-            tlbFlash.Items.Add(sep); 
-            tlbFlash.Items.Add(space);
-            tlbFlash.Items.Add(Wk); 
-            Pk.SelectAllEnabled = true;
         }
         #region Custom Methods
 
@@ -476,20 +487,29 @@ namespace MenuAggregator.Pages
 
         private void multipleCafeCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter builtCafeAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
-            MenuBuilderDataSet._MenuBuilder_ConceptsDataTable table = new MenuBuilderDataSet._MenuBuilder_ConceptsDataTable();
-            builtCafeAdapter.FillByCafe(table, multipleCafeCombobox.SelectedItem.ToString());
-            headerTextBox.Text = "Cafe " + multipleCafeCombobox.SelectedItem.ToString();
-
-            int i = 0;
-            conceptStackPanel.Children.Clear();
-
-            foreach (DataRow row in table)
+            try
             {
-                NewButton button = CreateButton(table, i);
-                conceptStackPanel.Children.Add(button);
-                i++;
+                MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter builtCafeAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
+                MenuBuilderDataSet._MenuBuilder_ConceptsDataTable table = new MenuBuilderDataSet._MenuBuilder_ConceptsDataTable();
+                builtCafeAdapter.FillByCafe(table, multipleCafeCombobox.SelectedItem.ToString());
+                headerTextBox.Text = "Cafe " + multipleCafeCombobox.SelectedItem.ToString();
+
+                int i = 0;
+                conceptStackPanel.Children.Clear();
+
+                foreach (DataRow row in table)
+                {
+                    NewButton button = CreateButton(table, i);
+                    conceptStackPanel.Children.Add(button);
+                    i++;
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was a problem with selecting a cafe when there are multiple available " + ex);
+            }
+            
+           
         }
         #endregion
     }

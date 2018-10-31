@@ -25,22 +25,29 @@ namespace MenuAggregator
         public static int numberOfCafes;
         public MainWindow()
         {
-            
-            MenuBuilderDataSet ds = new MenuBuilderDataSet();
-            MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter userAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter();
+            try
+            { 
+                MenuBuilderDataSet ds = new MenuBuilderDataSet();
+                MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter userAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter();
 
-            InitializeComponent();
+                InitializeComponent();
 
-            numberOfCafes = userAdapter.IsAuth(ds._MenuBuilder_Users, UserName);
-            if ( numberOfCafes >= 1)
-            {
-                mainFrame.Source = new Uri("pages\\Home.xaml", UriKind.Relative);
-                Cafe = ds._MenuBuilder_Users.Rows[0][2].ToString();
+                numberOfCafes = userAdapter.IsAuth(ds._MenuBuilder_Users, UserName);
+                if ( numberOfCafes >= 1)
+                {
+                    mainFrame.Source = new Uri("pages\\Home.xaml", UriKind.Relative);
+                    Cafe = ds._MenuBuilder_Users.Rows[0][2].ToString();
+                }
+                else
+                {
+                    mainFrame.Source = new Uri("pages\\FirstTime.xaml", UriKind.Relative);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                mainFrame.Source = new Uri("pages\\FirstTime.xaml", UriKind.Relative);
+                MessageBox.Show("There was a problem trying to load the first page: \n" + ex);
             }
+
 
         }
     }
