@@ -29,8 +29,8 @@ namespace MenuAggregator.Classes
                 _currentperiod = value;
                 foreach (Border b in Children)
                 {
-                    b.Tag = "Label"; // force the tag for the border to be Label
-                    if (b.Tag.ToString() != "Label")
+                    //b.Tag = "Label"; // force the tag for the border to be Label
+                    if (b.Tag == null)
                     {
                         TextBlock tb = (TextBlock)b.Child;
                         if (int.Parse(tb.Text) != value)
@@ -72,8 +72,8 @@ namespace MenuAggregator.Classes
             {
                 Border brdPeriod = new Border() { BorderBrush = Brushes.Black, Width = 40, VerticalAlignment = VerticalAlignment.Center, Name = "brdP" + ct };
                 TextBlock tbPeriod = new TextBlock() { Text = ct.ToString(), TextAlignment = TextAlignment.Center, HorizontalAlignment = HorizontalAlignment.Center, FontSize = 24, Tag = ct, Name = "tbP" + ct };
-                if ((ct < MinPeriod) | (ct > MaxPeriod))
-                    brdPeriod.IsEnabled = false;
+                /*if ((ct < MinPeriod) | (ct > MaxPeriod))
+                    brdPeriod.IsEnabled = false;*/
                 brdPeriod.MouseEnter += HoverOverPeriod;
                 tbPeriod.MouseEnter += HoverOverPeriod;
                 brdPeriod.MouseLeave += LeavePeriod;
@@ -147,7 +147,7 @@ namespace MenuAggregator.Classes
             foreach (Border brd in Children)
             {
                 TextBlock tb = (TextBlock) brd.Child;
-                if (brd.Tag.ToString() != "Label")
+                if (brd.Tag == null)
                 {
                     tb.Foreground = Brushes.Black;
                     tb.FontSize = 24;
@@ -160,7 +160,7 @@ namespace MenuAggregator.Classes
         {
             foreach (Border brd in Children)
             {
-                if (brd.Tag.ToString() != "Label")
+                if (brd.Tag == null)
                 {
                     TextBlock tb = (TextBlock)brd.Child;
                     //if ((FormatNumber(tb.Tag, 0) < MinWeek) | (FormatNumber(tb.Tag, 0) > MaxWeek))
