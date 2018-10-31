@@ -23,8 +23,8 @@
                 <ColumnDefinition Width="72*" />
                 <ColumnDefinition Width="103*" />
             </Grid.ColumnDefinitions>
-            <TextBox Margin="10,5,10,0" FontSize="25"  TextAlignment="Center" Text="Concept" VerticalAlignment="Top" Height="33" Grid.Column="0"/>
-            <TextBox Margin="10,5,10,0" FontSize="25"  TextAlignment="Center" Text="Menu Options" VerticalAlignment="Top" Height="33" Grid.Column="1" />
+            <TextBox Margin="10,5,10,0" FontSize="25"  TextAlignment="Center" Text="Available Cafe Concepts" VerticalAlignment="Top" Height="33" Grid.Column="0"/>
+            <TextBox x:Name="menuInput" Margin="10,5,10,0" FontSize="25"  TextAlignment="Center" VerticalAlignment="Top" Height="33" Grid.Column="1" />
         </Grid>
 
         <Grid Grid.Row="3">
