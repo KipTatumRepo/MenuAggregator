@@ -78,6 +78,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\BackendHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\FirstTime.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -95,6 +99,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MenuBuilderDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BackendHome.xaml.cs">
+      <DependentUpon>BackendHome.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\FirstTime.xaml.cs">
       <DependentUpon>FirstTime.xaml</DependentUpon>

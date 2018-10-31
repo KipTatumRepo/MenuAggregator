@@ -14,8 +14,8 @@
             <RowDefinition Height="71*"/>
             <RowDefinition Height="48*"/>
             <RowDefinition Height="536*"/>
-            <RowDefinition Height="48*"/>
-            <RowDefinition Height="25*"/>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="20*"/>
         </Grid.RowDefinitions>
         <TextBox x:Name="headerTextBox" HorizontalAlignment="Stretch" Margin="5,11" Grid.Row="0" TextAlignment="Center"  FontSize="25" VerticalAlignment="Center" Height="50" />
         <ToolBar x:Name="tlbFlash" HorizontalAlignment="Stretch" Margin="5,13,5,8" Grid.Row="1" VerticalAlignment="Center" Height="50"/>
@@ -38,10 +38,10 @@
                     <StackPanel x:Name="conceptStackPanel" Height="Auto" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" Background="AliceBlue" Grid.RowSpan="2" />
                 </ScrollViewer>
             </Border>
-            <Border Grid.Column="1" BorderBrush="LightSlateGray" BorderThickness="1" CornerRadius="8" Margin="10,10,10,71" Background="AliceBlue">
-                <ScrollViewer x:Name="MenuScrollViewer" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" Margin="0,6,0,-1" Grid.Row="3">
+            <Border Grid.Column="1" BorderBrush="LightSlateGray" BorderThickness="1" CornerRadius="8" Margin="10,10,10,10" Background="AliceBlue" Grid.RowSpan="2">
+                <ScrollViewer x:Name="MenuScrollViewer" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" Margin="0,6,0,9" Grid.Row="3" Grid.RowSpan="2">
                     <StackPanel x:Name="itemStackPanel" Height="auto" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" 
-                       ScrollViewer.HorizontalScrollBarVisibility="Auto" Background="AliceBlue" >
+                       ScrollViewer.HorizontalScrollBarVisibility="Auto" Background="AliceBlue" Grid.RowSpan="2">
                     </StackPanel>
                 </ScrollViewer>
             </Border>

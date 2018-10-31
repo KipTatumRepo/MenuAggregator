@@ -1,0 +1,54 @@
+﻿<Page x:Class="MenuAggregator.Pages.BackendHome"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MenuAggregator.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1400"
+      Title="BackendHome">
+
+
+    <Grid x:Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="71*" />
+            <RowDefinition Height="600*"/>
+            <RowDefinition Height="71*"/>
+        </Grid.RowDefinitions>
+        <ToolBar x:Name="tlbFlash" HorizontalAlignment="Stretch" Margin="5,13,5,8" Grid.Row="0" VerticalAlignment="Center" Height="50"/>
+        <Grid x:Name="secondRowGrid" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="71*"/>
+                <RowDefinition Height="576*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".5*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border BorderBrush="LightSlateGray" BorderThickness="1" CornerRadius="8" Margin="10,10,10,10" Background="AliceBlue" Grid.Row="1">
+                <ScrollViewer x:Name="MyScrollViewer" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" Margin="0,6,0,6" Grid.Row="3" Grid.RowSpan="2">
+                    <StackPanel x:Name="conceptStackPanel" Height="Auto" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" Background="AliceBlue" Grid.RowSpan="2" />
+                </ScrollViewer>
+            </Border>
+            <Border Grid.Column="1" BorderBrush="LightSlateGray" BorderThickness="1" CornerRadius="8" Margin="10,10,10,10" Background="AliceBlue" Grid.Row="1">
+                <ScrollViewer x:Name="MenuScrollViewer" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" Margin="0,6,0,9" Grid.Row="3" Grid.RowSpan="2">
+                    <StackPanel x:Name="itemStackPanel" Height="auto" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                       ScrollViewer.HorizontalScrollBarVisibility="Auto" Background="AliceBlue" Grid.RowSpan="2">
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+            <TextBox HorizontalAlignment="Left" Height="71" Margin="10,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="447" />
+            <TextBox Grid.Column="1" HorizontalAlignment="Right" Height="71" Margin="0,0,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="911" >
+                <TextBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.352"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBox.RenderTransform>
+            </TextBox>
+        </Grid>
+
+    </Grid>
+</Page>

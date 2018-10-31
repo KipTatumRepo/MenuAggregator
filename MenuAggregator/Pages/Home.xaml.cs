@@ -260,18 +260,17 @@ namespace MenuAggregator.Pages
             return button;
         }
 
-        public int GetPeriod()
+        public static int GetPeriod()
         {
             string sMonth = DateTime.Now.ToString("MM");
             int currentPeriod = Convert.ToInt32(sMonth);
             return currentPeriod;
         }
 
-        public int GetWeek()
+        public static int GetWeek()
         {
             CountMonday monday = new CountMonday();
             int currentMonday = monday.CountMondays(firstOfMonth, today);
-            
             return currentMonday;
         }
 
