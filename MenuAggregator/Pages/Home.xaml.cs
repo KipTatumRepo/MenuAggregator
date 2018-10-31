@@ -439,15 +439,31 @@ namespace MenuAggregator.Pages
             //If there is only 1 item in itemStackPanel, the selected concept is a weekly menu so there is only 1 row to insert in DB
             if (itemStackPanel.Children.Count <= 1)
             {
-                menuAdapter.Insert(PkObject.CurrentPeriod, WkObject.CurrentWeek, dayNames[0], MainWindow.Cafe, buttonNames[0], menuItemToAdd[0], priceItemToAdd[0], notesToAdd[0], today);
+                try
+                {
+                    menuAdapter.Insert(PkObject.CurrentPeriod, WkObject.CurrentWeek, dayNames[0], MainWindow.Cafe, buttonNames[0], menuItemToAdd[0], priceItemToAdd[0], notesToAdd[0], today);
+                    MessageBox.Show(buttonNames[0] + " Has been updated");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Something went wrong " + ex);
+                }
             }
 
             //If there is more than 1 item in itemStackPanel, the selected concept has daily menu's and we must insert Mon-Fri into the DB
             else
             {
-                for (int i = 0; i <= 4; i++)
+                try
                 {
-                    menuAdapter.Insert(PkObject.CurrentPeriod, WkObject.CurrentWeek, dayNames[i], MainWindow.Cafe, buttonNames[0], getItem(menuItemToAdd, i), getItem(priceItemToAdd, i), getItem(notesToAdd, i), today);
+                    for (int i = 0; i <= 4; i++)
+                    {
+                        menuAdapter.Insert(PkObject.CurrentPeriod, WkObject.CurrentWeek, dayNames[i], MainWindow.Cafe, buttonNames[0], getItem(menuItemToAdd, i), getItem(priceItemToAdd, i), getItem(notesToAdd, i), today);
+                    }
+                    MessageBox.Show(buttonNames[0] + " Has been updated");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Something went wrong " + ex);
                 }
             }
             dayNames.Clear();
