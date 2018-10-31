@@ -21,7 +21,7 @@ namespace MenuAggregator.Pages
     /// </summary>
     public partial class FirstTime : Page
     {
-        private string Cafe;
+        private static string Cafe;
         private string User;
         private string UserName;
         int CafeBuilt;
@@ -136,6 +136,7 @@ namespace MenuAggregator.Pages
                 userAdapter.Insert(UserName, Cafe, User);
             }
 
+            MainWindow.Cafe = Cafe;
             NavigationService.Navigate(
                 new Uri("Pages/Home.xaml", UriKind.Relative));
         }

@@ -23,7 +23,7 @@
 
         </WrapPanel>
         <TextBlock x:Name="thirdRow" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Width="780" Text="TextBlock" VerticalAlignment="Top" TextAlignment="Center" Height="125" Visibility="Hidden" FontSize="36" Margin="10,0" Grid.RowSpan="2"/>
-        <Button x:Name="sendButton" Grid.Row="4"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,5" Width="105" Height="45" Click="Button_Click" Visibility="Hidden"/>
+        <Button x:Name="sendButton" Grid.Row="4"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,5" Width="105" Height="45" Click="Button_Click" Visibility="Hidden" Style="{StaticResource custButton1}"/>
 
     </Grid>
 
