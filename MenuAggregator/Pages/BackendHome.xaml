@@ -27,28 +27,18 @@
             </Grid.ColumnDefinitions>
             <Border BorderBrush="LightSlateGray" BorderThickness="1" CornerRadius="8" Margin="10,10,10,10" Background="AliceBlue" Grid.Row="1">
                 <ScrollViewer x:Name="MyScrollViewer" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" Margin="0,6,0,6" Grid.Row="3" Grid.RowSpan="2">
-                    <StackPanel x:Name="conceptStackPanel" Height="Auto" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" Background="AliceBlue" Grid.RowSpan="2" />
+                    <StackPanel x:Name="withChangesStackPanel" Height="Auto" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" Background="AliceBlue" Grid.RowSpan="2" />
                 </ScrollViewer>
             </Border>
             <Border Grid.Column="1" BorderBrush="LightSlateGray" BorderThickness="1" CornerRadius="8" Margin="10,10,10,10" Background="AliceBlue" Grid.Row="1">
                 <ScrollViewer x:Name="MenuScrollViewer" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" Margin="0,6,0,9" Grid.Row="3" Grid.RowSpan="2">
-                    <StackPanel x:Name="itemStackPanel" Height="auto" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                    <StackPanel x:Name="changesStackPanel" Height="auto" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" 
                        ScrollViewer.HorizontalScrollBarVisibility="Auto" Background="AliceBlue" Grid.RowSpan="2">
                     </StackPanel>
                 </ScrollViewer>
             </Border>
-            <TextBox HorizontalAlignment="Left" Height="71" Margin="10,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="447" />
-            <TextBox Grid.Column="1" HorizontalAlignment="Right" Height="71" Margin="0,0,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="911" >
-                <TextBox.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="0.352"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </TextBox.RenderTransform>
-            </TextBox>
+            <TextBox HorizontalAlignment="Stretch" Height="50" Margin="10,0,10,0" TextWrapping="Wrap" Text="Cafe's With Changes" VerticalAlignment="Center" Grid.Column="0" TextAlignment="Center"  FontSize="25" />
+            <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Height="50" Margin="10,0,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" TextAlignment="Center"  FontSize="25" />
         </Grid>
-
     </Grid>
 </Page>
