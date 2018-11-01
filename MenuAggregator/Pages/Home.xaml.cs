@@ -26,7 +26,8 @@ namespace MenuAggregator.Pages
     public partial class Home : Page
     {
         #region Variable initialization
-        public static DateTime today = DateTime.Today;  
+        //static DateTime test = new DateTime(2019, 1, 7, 00, 00, 00);
+        public static DateTime today = DateTime.Today;
         public static DateTime firstOfMonth = new DateTime(today.Year, today.Month, 1);
         public static DateTime endOfMonth = new DateTime(today.Year,
                                            today.Month,
@@ -40,7 +41,7 @@ namespace MenuAggregator.Pages
         int minWeek = 1;
         int k = 0;
         int currentPeriod;
-        int currentWeek;
+        static int currentWeek;
         string notes;
         string itemToAdd;
         string heldCBTag;
@@ -83,7 +84,7 @@ namespace MenuAggregator.Pages
                     MenuBuilderDataSet._MenuBuilder_ConceptsDataTable table = new MenuBuilderDataSet._MenuBuilder_ConceptsDataTable();
 
                     //Fill Textbox at top of screen with Cafe name
-                    headerTextBox.Text = "Cafe " + MainWindow.Cafe;
+                    headerTextBox.Text = MainWindow.Cafe;
                     builtCafeAdapter.FillByCafe(table, MainWindow.Cafe);
 
                     //create NewButtons and add to left Stack Panel for cafe based on what concepts are used in that cafe, these concepts were selected by user first time they started program
@@ -122,11 +123,20 @@ namespace MenuAggregator.Pages
                 CountMonday countMonday = new CountMonday();
                 int mondayCount = 0;
                 mondayCount = countMonday.CountMondays(firstOfMonth, endOfMonth);
-                currentPeriod = GetPeriod();
-                currentWeek = GetWeek();
 
-                Wk = new WeekChooser(minWeek, mondayCount, currentWeek);
-                Pk = new PeriodChooser(Wk, 1, currentPeriod, currentPeriod);
+                currentPeriod = GetPeriod(today);
+
+                if (currentWeek == 0)
+                {
+                    currentWeek = GetWeek();
+                    Wk = new WeekChooser(minWeek, mondayCount, currentWeek);
+                }
+                else
+                {
+                    Wk = new WeekChooser(0, 5, 5);
+                }
+                
+                Pk = new PeriodChooser(Wk, 1, 12, currentPeriod);
                 string space = "             ";
 
                 currentWeek = Wk.CurrentWeek;
@@ -157,6 +167,7 @@ namespace MenuAggregator.Pages
            
             MenuBuilderDataSetTableAdapters.MenuBuilder_PriceTableAdapter priceAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_PriceTableAdapter();
             MenuBuilderDataSetTableAdapters.MenuBuilder_SubMenusTableAdapter subMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_SubMenusTableAdapter();
+            MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
             GroupBox box = new GroupBox();
             box.BorderBrush = Brushes.Black;
             box.BorderThickness = new Thickness(2);
@@ -179,6 +190,7 @@ namespace MenuAggregator.Pages
             menucb.Width = 155;
             menucb.Height = 30;
             menucb.Tag = "MenuCb" + j;
+            
 
             ComboBox pricecb = new ComboBox();
             pricecb.Width = 90;
@@ -203,8 +215,10 @@ namespace MenuAggregator.Pages
             //get menu's associated with selected concept from available concepts and fill menucb with those items
             #region fill menucb
             subMenuAdapter.FillByConceptId(ds._MenuBuilder_SubMenus, bid);
+            //weeklyMenuAdapter
 
             DataTable subMenuTable = ds._MenuBuilder_SubMenus as DataTable;
+            //DataTable table = 
 
             foreach (DataRow row in subMenuTable.Rows)
             {
@@ -260,11 +274,30 @@ namespace MenuAggregator.Pages
             return button;
         }
 
-        public static int GetPeriod()
+        public static int GetPeriod(DateTime today)
         {
-            string sMonth = DateTime.Now.ToString("MM");
-            int currentPeriod = Convert.ToInt32(sMonth);
-            return currentPeriod;
+
+            string dayOfWeek = today.DayOfWeek.ToString();
+            int returnedPeriod = 0;
+            int currentPeriod;
+            string sMonth;
+            if (dayOfWeek == "Monday" && today < firstOfMonth.AddDays(7))
+            {
+                
+                sMonth = DateTime.Now.ToString("MM");
+                currentPeriod = Convert.ToInt32(sMonth);
+                returnedPeriod = currentPeriod;
+                currentWeek = 0;
+            }
+            else
+            {
+                sMonth = DateTime.Today.AddMonths(-1).ToString("MM");
+                currentPeriod = Convert.ToInt32(sMonth);
+                returnedPeriod = currentPeriod;
+                currentWeek = 5;
+            }
+
+            return returnedPeriod;
         }
 
         public static int GetWeek()
@@ -449,9 +482,18 @@ namespace MenuAggregator.Pages
             //If there is only 1 item in itemStackPanel, the selected concept is a weekly menu so there is only 1 row to insert in DB
             if (itemStackPanel.Children.Count <= 1)
             {
+                string LastWeekMenuItem = "";
                 try
                 {
-                    menuAdapter.Insert(PkObject.CurrentPeriod, WkObject.CurrentWeek, dayNames[0], MainWindow.Cafe, buttonNames[0], menuItemToAdd[0], priceItemToAdd[0], notesToAdd[0], today);
+                    //need to get last weeks menu items to insert into current weeks row
+                    menuAdapter.GetMenuItemForLastMenu(ds._MenuBuilder_WeeklyMenus, MainWindow.Cafe, buttonNames[0]);
+
+                    foreach (DataRow row in ds._MenuBuilder_WeeklyMenus.Rows)
+                    {
+                        LastWeekMenuItem = row[6].ToString();
+                    }
+
+                    menuAdapter.Insert(PkObject.CurrentPeriod, WkObject.CurrentWeek, dayNames[0], MainWindow.Cafe, buttonNames[0], menuItemToAdd[0], priceItemToAdd[0], notesToAdd[0], today, LastWeekMenuItem);
                     MessageBox.Show(buttonNames[0] + " Has been updated");
                 }
                 catch (Exception ex)
@@ -463,11 +505,20 @@ namespace MenuAggregator.Pages
             //If there is more than 1 item in itemStackPanel, the selected concept has daily menu's and we must insert Mon-Fri into the DB
             else
             {
+                List<string> LastWeekMenuList = new List<string>();
                 try
                 {
+                    //need to get last weeks menu items to insert into current weeks row
+                    menuAdapter.GetMenuItemForLastMenu(ds._MenuBuilder_WeeklyMenus, MainWindow.Cafe, buttonNames[0]);
+
+                    foreach (DataRow row in ds._MenuBuilder_WeeklyMenus.Rows)
+                    {
+                        LastWeekMenuList.Add(row[6].ToString());
+                    }
+
                     for (int i = 0; i <= 4; i++)
                     {
-                        menuAdapter.Insert(PkObject.CurrentPeriod, WkObject.CurrentWeek, dayNames[i], MainWindow.Cafe, buttonNames[0], getItem(menuItemToAdd, i), getItem(priceItemToAdd, i), getItem(notesToAdd, i), today);
+                        menuAdapter.Insert(PkObject.CurrentPeriod, WkObject.CurrentWeek, dayNames[i], MainWindow.Cafe, buttonNames[0], getItem(menuItemToAdd, i), getItem(priceItemToAdd, i), getItem(notesToAdd, i), today, getItem(LastWeekMenuList, i));
                     }
                     MessageBox.Show(buttonNames[0] + " Has been updated");
                 }
