@@ -40,9 +40,19 @@ namespace MenuAggregator.Pages
             InitializeComponent();
 
             #region Database Stuff
-            BIDataSetTableAdapters.MasterBuildingListTableAdapter cafeAdapter = new BIDataSetTableAdapters.MasterBuildingListTableAdapter();
+            BIDataSetTableAdapters.LOCATIONSTableAdapter cafeAdapter = new BIDataSetTableAdapters.LOCATIONSTableAdapter();
+            BIDataSet.LOCATIONSDataTable table = new BIDataSet.LOCATIONSDataTable();
             MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter conceptAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
-            cafeAdapter.Fill(ds.MasterBuildingList);
+            try
+            {
+                cafeAdapter.Fill(table);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+                
+
             conceptAdapter.Fill(ds1._MenuBuilder_Concepts);
             #endregion
 
@@ -50,9 +60,9 @@ namespace MenuAggregator.Pages
             topRow.Text = "Hello " + User + " This is your first time using the program, please select your cafe from the options below";
 
             //build combobox with all available cafes from MasterBuildingList in DB
-            foreach (DataRow row in ds.MasterBuildingList)
+            foreach (DataRow row in table) //ds.LOCATIONS)
             {
-                cafeCombobox.Items.Add(row[1]);
+                cafeCombobox.Items.Add(row[2]);
             }
             
             //add checkboxes to screen after a cafe is selected

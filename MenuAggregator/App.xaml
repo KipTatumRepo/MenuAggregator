@@ -4,6 +4,20 @@
              xmlns:local="clr-namespace:MenuAggregator"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <!-- Data Grid Styling-->
+        <Style x:Key="CenterGridHeader" TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Background" Value="LightGray" />
+            <Setter Property="BorderBrush" Value="Black" />
+        </Style>
+        
+        <Style x:Key="CenterCellText" TargetType="{x:Type DataGridCell}">
+            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+        <!-- End Data Grid Styling-->
         <Style TargetType="{x:Type StackPanel}">
             <Style.Resources>
                 <Style TargetType="{x:Type Border}">

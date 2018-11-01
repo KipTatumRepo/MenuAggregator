@@ -42,6 +42,7 @@ namespace MenuAggregator
                 {
                     mainFrame.Source = new Uri("pages\\FirstTime.xaml", UriKind.Relative);
                 }
+                //mainFrame.Source = new Uri("pages\\BackendHome.xaml", UriKind.Relative);
             }
             catch (Exception ex)
             {
