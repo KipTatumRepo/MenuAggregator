@@ -64,7 +64,7 @@ namespace MenuAggregator.Classes
             MaxPeriod = maxP;
 
             Border BorderLabel = new Border() { BorderBrush = Brushes.Black, VerticalAlignment = VerticalAlignment.Center, Name = "brdLabel", Tag = "Label" };
-            TextBlock TextLabel = new TextBlock() { Text = "     MS Period: ", TextAlignment = TextAlignment.Center, HorizontalAlignment = HorizontalAlignment.Center, FontSize = 24, Name = "tbLabel", Tag = "Label" };
+            TextBlock TextLabel = new TextBlock() { Text = "     Month: ", TextAlignment = TextAlignment.Center, HorizontalAlignment = HorizontalAlignment.Center, FontSize = 24, Name = "tbLabel", Tag = "Label" };
             BorderLabel.Child = TextLabel;
             Children.Add(BorderLabel);
 

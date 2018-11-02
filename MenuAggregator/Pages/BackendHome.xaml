@@ -40,6 +40,17 @@
                             <DataGridTextColumn x:Name="menuItem" Header="This Week's Item" Binding="{Binding menuItem}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
                             <DataGridTextColumn x:Name="price" Header="Price" Binding="{Binding Price}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
                             <DataGridTextColumn x:Name="notes" Header="Notes" Binding="{Binding Notes}" Width="*" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
+                            <!--<DataGridCheckBoxColumn x:Name="isCompleteCheckBox" Binding="{Binding isComplete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsThreeState="False" />-->
+                            <!--<DataGridTemplateColumn >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox x:Name="isCompleteCheckBox" Checked="CheckBox_Checked"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>-->
+
+
+
                         </DataGrid.Columns>
                     </DataGrid>
                 </ScrollViewer>

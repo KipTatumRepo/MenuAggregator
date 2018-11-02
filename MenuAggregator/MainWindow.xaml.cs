@@ -33,7 +33,7 @@ namespace MenuAggregator
                 InitializeComponent();
 
                 numberOfCafes = userAdapter.IsAuth(ds._MenuBuilder_Users, UserName);
-                if ( numberOfCafes >= 1)
+                /*if ( numberOfCafes >= 1)
                 {
                     mainFrame.Source = new Uri("pages\\Home.xaml", UriKind.Relative);
                     Cafe = ds._MenuBuilder_Users.Rows[0][2].ToString();
@@ -41,8 +41,8 @@ namespace MenuAggregator
                 else
                 {
                     mainFrame.Source = new Uri("pages\\FirstTime.xaml", UriKind.Relative);
-                }
-                //mainFrame.Source = new Uri("pages\\BackendHome.xaml", UriKind.Relative);
+                }*/
+                mainFrame.Source = new Uri("pages\\BackendHome.xaml", UriKind.Relative);
             }
             catch (Exception ex)
             {
