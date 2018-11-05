@@ -68,6 +68,7 @@ namespace MenuAggregator.Pages
         MenuBuilderDataSet ds = new MenuBuilderDataSet();
         DataTable dt = new DataTable();
         #endregion
+
         public Home()
         {
             
@@ -77,7 +78,6 @@ namespace MenuAggregator.Pages
             {
                 #region Database Stuff
 
-
                 MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter da = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
                 MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter usersTableAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter();
 
@@ -86,7 +86,7 @@ namespace MenuAggregator.Pages
                 da.Fill(ds._MenuBuilder_Concepts);
                 #endregion
 
-                #region If there is more than 1 cafe associated with the user, THIS WILL BE RARE
+                
                 if (MainWindow.numberOfCafes <= 1)
                 {
                     MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter builtCafeAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
@@ -105,28 +105,53 @@ namespace MenuAggregator.Pages
                         i++;
                     }
                 }
-                #endregion
 
+                #region Admin has navigated from BackendHome.xaml or if there is more than 1 cafe associated with the user. 
                 else
                 {
-                    int j = 0;
-                    usersTableAdapter.UserHasMultipleCafes(userTable, MainWindow.UserName);
-
-                    multipleCafeCombobox.FontSize = 24;
-                    headerTextBox.Width = 690;
-                    headerTextBox.TextAlignment = TextAlignment.Center;
-                    headerTextBox.HorizontalAlignment = HorizontalAlignment.Left;
-                    headerTextBox.Text = "Select a Cafe ->";
-
-                    foreach (DataRow row in userTable)
+                    if (BackendHome.NavigateFrom == "BackendHome")
                     {
-                        multipleCafeCombobox.Items.Add(row[2].ToString());
-                        j++;
+                        BIDataSet ds = new BIDataSet();
+                        BIDataSetTableAdapters.LOCATIONSTableAdapter builtCafes = new BIDataSetTableAdapters.LOCATIONSTableAdapter();
+                        BIDataSet.LOCATIONSDataTable cafeTable = new BIDataSet.LOCATIONSDataTable();
+                        builtCafes.Fill(cafeTable);
+
+                        multipleCafeCombobox.FontSize = 24;
+                        headerTextBox.Width = 690;
+                        headerTextBox.TextAlignment = TextAlignment.Center;
+                        headerTextBox.HorizontalAlignment = HorizontalAlignment.Left;
+                        headerTextBox.Text = "Select a Cafe ->";
+
+                        foreach (DataRow row in cafeTable)
+                        {
+                            multipleCafeCombobox.Items.Add(row[2].ToString());
+                        }
+
+                    }
+                    else
+                    {
+
+                        int j = 0;
+                        usersTableAdapter.UserHasMultipleCafes(userTable, MainWindow.UserName);
+
+                        multipleCafeCombobox.FontSize = 24;
+                        headerTextBox.Width = 690;
+                        headerTextBox.TextAlignment = TextAlignment.Center;
+                        headerTextBox.HorizontalAlignment = HorizontalAlignment.Left;
+                        headerTextBox.Text = "Select a Cafe ->";
+
+                        foreach (DataRow row in userTable)
+                        {
+                            multipleCafeCombobox.Items.Add(row[2].ToString());
+                            j++;
+                        }
                     }
 
                     multipleCafeCombobox.Visibility = Visibility.Visible;
                     multipleCafeCombobox.SelectedItem = -1;
+                    
                 }
+                #endregion
 
                 CountMonday countMonday = new CountMonday();
                

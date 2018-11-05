@@ -17,15 +17,15 @@
             <RowDefinition Height="53*"/>
             <RowDefinition Height="20*"/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="headerTextBox" HorizontalAlignment="Stretch" Margin="5,11" Grid.Row="0" TextAlignment="Center"  FontSize="25" VerticalAlignment="Center" Height="50" />
+        <TextBox x:Name="headerTextBox" HorizontalAlignment="Stretch" Margin="5,11" Grid.Row="0" TextAlignment="Center"  FontSize="25" VerticalAlignment="Center" Height="50" IsReadOnly="True" />
         <ToolBar x:Name="tlbFlash" HorizontalAlignment="Stretch" Margin="5,13,5,8" Grid.Row="1" VerticalAlignment="Center" Height="50"/>
         <Grid Grid.Row ="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="72*" />
                 <ColumnDefinition Width="103*" />
             </Grid.ColumnDefinitions>
-            <TextBox Margin="10,5,10,0" FontSize="25"  TextAlignment="Center" Text="Available Cafe Concepts" VerticalAlignment="Top" Height="33" Grid.Column="0"/>
-            <TextBox x:Name="menuInput" Margin="10,5,10,0" FontSize="25"  TextAlignment="Center" VerticalAlignment="Top" Height="33" Grid.Column="1" />
+            <TextBox Margin="10,5,10,0" FontSize="25"  TextAlignment="Center" Text="Available Cafe Concepts" VerticalAlignment="Top" Height="33" Grid.Column="0" IsReadOnly="True"/>
+            <TextBox x:Name="menuInput" Margin="10,5,10,0" FontSize="25"  TextAlignment="Center" VerticalAlignment="Top" Height="33" Grid.Column="1" IsReadOnly="True"/>
         </Grid>
 
         <Grid Grid.Row="3">

@@ -25,6 +25,7 @@ namespace MenuAggregator.Pages
         private string User;
         private string UserName;
         int CafeBuilt;
+        int AdminLevel;
         private CheckBox conceptCheckBox;
         private List<int> activeConcepts = new List<int>();
         BIDataSet ds = new BIDataSet();
@@ -130,10 +131,15 @@ namespace MenuAggregator.Pages
             MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter userAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter();
             MenuBuilderDataSetTableAdapters.MenuBuilder_BuiltCafesTableAdapter cafeAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_BuiltCafesTableAdapter();
 
+            if (User == "v-datatu" || User == "v-chluzi" || User == "v-brif" || User == "v-laive")
+            {
+                AdminLevel = 1;
+            }
+            
             if (CafeBuilt <= 0)
             {
                 
-                userAdapter.Insert(UserName, Cafe, User);
+                userAdapter.Insert(UserName, Cafe, User, AdminLevel);
 
                 for (int j = 0; j <= activeConcepts.Count() - 1; j++)
                 {
@@ -143,7 +149,7 @@ namespace MenuAggregator.Pages
 
             else
             {
-                userAdapter.Insert(UserName, Cafe, User);
+                userAdapter.Insert(UserName, Cafe, User, AdminLevel);
             }
 
             MainWindow.Cafe = Cafe;

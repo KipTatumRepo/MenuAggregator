@@ -10,3 +10,10 @@ namespace MenuAggregator
     {
     }
 }
+
+namespace MenuAggregator.MenuBuilderDataSetTableAdapters {
+    
+    
+    public partial class MenuBuilder_WeeklyMenusTableAdapter {
+    }
+}

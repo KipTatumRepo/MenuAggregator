@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,17 +24,29 @@ namespace MenuAggregator
         public static string UserName = Environment.UserName; // "haah";   //"v-fitatu";  
         public static string Cafe;
         public static int numberOfCafes;
+        
         public MainWindow()
         {
             try
             { 
                 MenuBuilderDataSet ds = new MenuBuilderDataSet();
+                MenuBuilderDataSet._MenuBuilder_UsersDataTable table = new MenuBuilderDataSet._MenuBuilder_UsersDataTable();
                 MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter userAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter();
 
                 InitializeComponent();
 
-                numberOfCafes = userAdapter.IsAuth(ds._MenuBuilder_Users, UserName);
-                /*if ( numberOfCafes >= 1)
+                userAdapter.IsAuth(table, UserName);
+                numberOfCafes = table.Count;
+
+                string isAdmin = table.Rows[0][4].ToString();
+                int IsAdmin = Int32.Parse(isAdmin);
+
+                if (IsAdmin == 1)
+                {
+                    mainFrame.Source = new Uri("pages\\BackendHome.xaml", UriKind.Relative);
+                }
+
+                else if ( numberOfCafes >= 1)
                 {
                     mainFrame.Source = new Uri("pages\\Home.xaml", UriKind.Relative);
                     Cafe = ds._MenuBuilder_Users.Rows[0][2].ToString();
@@ -41,8 +54,8 @@ namespace MenuAggregator
                 else
                 {
                     mainFrame.Source = new Uri("pages\\FirstTime.xaml", UriKind.Relative);
-                }*/
-                mainFrame.Source = new Uri("pages\\BackendHome.xaml", UriKind.Relative);
+                }
+                
             }
             catch (Exception ex)
             {
