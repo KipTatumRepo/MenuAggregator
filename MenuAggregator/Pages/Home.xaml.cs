@@ -49,7 +49,9 @@ namespace MenuAggregator.Pages
         string priceHeldCBTag;
         int isChanged = 0;
         int mondayCount = 0;
+        int insertCount;
         string selectedConceptName;
+        string cafe;
 
         List<string> items = new List<string>();
         List<string> price = new List<string>();
@@ -74,6 +76,8 @@ namespace MenuAggregator.Pages
             
             InitializeComponent();
 
+            cafe = MainWindow.Cafe;
+
             try
             {
                 #region Database Stuff
@@ -87,14 +91,14 @@ namespace MenuAggregator.Pages
                 #endregion
 
                 
-                if (MainWindow.numberOfCafes <= 1)
+                if (MainWindow.numberOfCafes <= 1 && MainWindow.IsAdmin != 1)
                 {
                     MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter builtCafeAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
                     MenuBuilderDataSet._MenuBuilder_ConceptsDataTable table = new MenuBuilderDataSet._MenuBuilder_ConceptsDataTable();
 
                     //Fill Textbox at top of screen with Cafe name
-                    headerTextBox.Text = MainWindow.Cafe;
-                    builtCafeAdapter.FillByCafe(table, MainWindow.Cafe);
+                    headerTextBox.Text = cafe;
+                    builtCafeAdapter.FillByCafe(table, cafe);
 
                     //create NewButtons and add to left Stack Panel for cafe based on what concepts are used in that cafe, these concepts were selected by user first time they started program
                     int i = 0;
@@ -126,7 +130,7 @@ namespace MenuAggregator.Pages
                         {
                             multipleCafeCombobox.Items.Add(row[2].ToString());
                         }
-
+                        backendButton.Visibility = Visibility.Visible;
                     }
                     else
                     {
@@ -197,6 +201,8 @@ namespace MenuAggregator.Pages
         private GroupBox BuildGroupBox(string day, List<string> item, List<string> price, string notes, int bid, int j, string conceptName)
         {
             int i = 0;
+            int gridRowCount;
+            string concept = conceptName;
             string setMenuCBDispaly = "";
             string setPriceCBDisplay = "";
             string setNotesTBDisplay = "";
@@ -205,6 +211,19 @@ namespace MenuAggregator.Pages
             int fillCBPeriod = 0;
             int fillCBWeek = 0;
 
+            if (concept == "Chefs Table")
+            {
+                gridRowCount = 3;
+            }
+            else if (concept == "Street Eats")
+            {
+                gridRowCount = 2;
+            }
+            else
+            {
+                gridRowCount = 1;
+            }
+            insertCount = gridRowCount * 5;
 
             WkObject.CurrentWeek = Wk.CurrentWeek;
             PkObject.CurrentPeriod = Pk.CurrentPeriod;
@@ -212,6 +231,46 @@ namespace MenuAggregator.Pages
             MenuBuilderDataSetTableAdapters.MenuBuilder_PriceTableAdapter priceAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_PriceTableAdapter();
             MenuBuilderDataSetTableAdapters.MenuBuilder_SubMenusTableAdapter subMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_SubMenusTableAdapter();
             MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
+
+            //create a table and fill with all prices
+            priceAdapter.Fill(ds._MenuBuilder_Price);
+            DataTable priceTable = ds._MenuBuilder_Price as DataTable;
+
+            //create a table that only fills with menu items associated with the button pressed
+            DataTable subMenuTable = ds._MenuBuilder_SubMenus as DataTable;
+            subMenuAdapter.FillByConceptId(ds._MenuBuilder_SubMenus, bid);
+
+            //create a table that fills with items from the selected period and week
+            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable table = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            weeklyMenuAdapter.FillComboBox(table, conceptName, fillCBPeriod, fillCBWeek);  //currentPeriod, currentWeek); //currentPeriod, currentWeek instead of 11, 1
+            if (table.Rows.Count == 0)
+            {
+                setMenuCBDispalyList.Add("Select Menu");
+                setPriceCBDisplayList.Add("Price");
+                setNotesTBDisplayList.Add("");
+            }
+            else
+            {
+                foreach (DataRow rows in table)
+                {
+                    setMenuCBDispalyList.Add(rows["menuItem"].ToString());
+                    setPriceCBDisplayList.Add(rows["Price"].ToString());
+                    setNotesTBDisplayList.Add(rows["Notes"].ToString());
+                }
+            }
+
+            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable periodWeekTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            weeklyMenuAdapter.GetLastWeek(periodWeekTable, selectedConceptName);
+            if (periodWeekTable.Rows.Count >= 1)
+            {
+                DataRow rows = periodWeekTable.Rows[0];
+                sFillCBPeriod = rows["Period"].ToString();
+                sFillCBWeek = rows["Week"].ToString();
+                fillCBPeriod = Int32.Parse(sFillCBPeriod);
+                fillCBWeek = Int32.Parse(sFillCBWeek);
+            }
+
+
             GroupBox box = new GroupBox();
             box.BorderBrush = Brushes.Black;
             box.BorderThickness = new Thickness(2);
@@ -224,105 +283,134 @@ namespace MenuAggregator.Pages
             ColumnDefinition column2 = new ColumnDefinition();
             column2.Width = new GridLength(95);
             ColumnDefinition column3 = new ColumnDefinition();
+            //if we need to add rows
+            
 
             grid.ColumnDefinitions.Add(column1);
             grid.ColumnDefinitions.Add(column2);
             grid.ColumnDefinitions.Add(column3);
 
-            ComboBox menucb = new ComboBox();
-            menucb.FontSize = 16;
-            menucb.Width = 230;
-            menucb.Height = 30;
-            menucb.Tag = "MenuCb" + j;
-            
+            for (int c = 0; c <= gridRowCount - 1; c++)
+            {
+                if (gridRowCount == 3)
+                {
+                    box.Height = 160;
+                    RowDefinition row1 = new RowDefinition();
+                    row1.Height = new GridLength(40);
+                    RowDefinition row2 = new RowDefinition();
+                    row2.Height = new GridLength(40);
 
-            ComboBox pricecb = new ComboBox();
-            pricecb.Width = 90;
-            pricecb.FontSize = 16;
-            pricecb.Height = 30;
-            pricecb.Tag = "PriceCb" + j;
+                    grid.RowDefinitions.Add(row1);
+                    grid.RowDefinitions.Add(row2);
+                }
+                else if (gridRowCount == 2)
+                {
+                    box.Height = 130;
+                    RowDefinition row1 = new RowDefinition();
+                    row1.Height = new GridLength(40);
+                    grid.RowDefinitions.Add(row1);
+                }
+                
+                
+                ComboBox menucb = new ComboBox();
+                //var menuPadding = menucb.Padding;
+                menucb.FontSize = 16;
+                menucb.Width = 230;
+                menucb.Height = 30;
+                //menuPadding.Bottom = 3;
+                menucb.Tag = "MenuCb" + j;
 
-            TextBox text = new TextBox();
-            text.FontSize = 16;
-            text.Height = 30;
-            text.Text = null;
-            text.Tag = k; //tag is set to iterator for accessing later
-            notesToAdd.Add(text.Text); //text is set to null and added to notesToAdd for inserting to dB later
-            k++;
+
+                ComboBox pricecb = new ComboBox();
+                //var pricePadding = pricecb.Padding;
+                pricecb.Width = 90;
+                pricecb.FontSize = 16;
+                pricecb.Height = 30;
+                //pricePadding.Bottom = 3;
+                pricecb.Tag = "PriceCb" + j;
+
+                TextBox text = new TextBox();
+                //var textPadding = text.Padding;
+                text.FontSize = 16;
+                text.Height = 30;
+                //textPadding.Bottom = 3;
+                text.Text = null;
+                text.Tag = k; //tag is set to iterator for accessing later
+                notesToAdd.Add(text.Text); //text is set to null and added to notesToAdd for inserting to dB later
+
+                //add menu name from sub menu table to the combobox
+                foreach (DataRow row in subMenuTable.Rows)
+                {
+                    menucb.Items.Add(row[1]);
+                }
+
+                //add price text from price table to combobox
+                foreach (DataRow row in priceTable.Rows)
+                {
+                    pricecb.Items.Add(row[1]);
+                }
+
+                //set display text of combo and text boxes 
+                menucb.Text = setMenuCBDispalyList[l]; //setMenuCBDispaly;
+                pricecb.Text = setPriceCBDisplayList[l]; //setPriceCBDisplay;
+                text.Text = setNotesTBDisplayList[l]; //setNotesTBDisplay;
+
+                //add menucb and price cb to grid created in groupbox 
+                Grid.SetColumn(menucb, 0);
+                Grid.SetRow(menucb, c);
+                grid.Children.Add(menucb);
+                
+                Grid.SetColumn(pricecb, 1);
+                Grid.SetRow(pricecb, c);
+                grid.Children.Add(pricecb);
+               
+                Grid.SetColumn(text, 2);
+                Grid.SetRow(text, c);
+                grid.Children.Add(text);
+
+                menucb.AddHandler(ComboBox.SelectionChangedEvent, new SelectionChangedEventHandler(menucb_SelectionChanged));
+                pricecb.AddHandler(ComboBox.SelectionChangedEvent, new SelectionChangedEventHandler(pricecb_SelectionChanged));
+                text.AddHandler(TextBox.LostKeyboardFocusEvent, new KeyboardFocusChangedEventHandler(text_LostFocus));
+                k++;
+            }
             
             box.Header = day;
 
             //get menu's associated with selected concept from available concepts and fill menucb with those items
             #region fill menucb
 
-            subMenuAdapter.FillByConceptId(ds._MenuBuilder_SubMenus, bid);
             
-            DataTable subMenuTable = ds._MenuBuilder_SubMenus as DataTable;
-            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable table = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
-            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable periodWeekTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
-
-
-            weeklyMenuAdapter.GetLastWeek(periodWeekTable, selectedConceptName);
-            if (periodWeekTable.Rows.Count >= 1)
-            {
-                DataRow rows = periodWeekTable.Rows[0];
-                sFillCBPeriod = rows["Period"].ToString();
-                sFillCBWeek = rows["Week"].ToString();
-                fillCBPeriod = Int32.Parse(sFillCBPeriod);
-                fillCBWeek = Int32.Parse(sFillCBWeek);
-            }
-
-            weeklyMenuAdapter.FillComboBox(table, conceptName, fillCBPeriod , fillCBWeek);  //currentPeriod, currentWeek); //currentPeriod, currentWeek instead of 11, 1
+            
             
 
-            if (table.Rows.Count >= 1)
-            {
-                foreach (DataRow rows in table)
-                {
-                    setMenuCBDispalyList.Add(rows["menuItem"].ToString());
-                    setPriceCBDisplayList.Add(rows["Price"].ToString());
-                    setNotesTBDisplayList.Add(rows["Notes"].ToString());
-                }
-            }
 
-            foreach (DataRow row in subMenuTable.Rows)
-            {
-                menucb.Items.Add(row[1]);
-            }
+            
+            
+
+           
+
+            
+
+            
            
             #endregion
             //get prices and fill pricecb with those items
             #region pricecb
-            priceAdapter.Fill(ds._MenuBuilder_Price);
+            
 
-            DataTable priceTable = ds._MenuBuilder_Price as DataTable;
-
-            foreach (DataRow row in priceTable.Rows)
-            {
-                pricecb.Items.Add(row[1]);
-            }
+            
             #endregion
 
-            menucb.Text = setMenuCBDispalyList[l]; //setMenuCBDispaly;
-            pricecb.Text = setPriceCBDisplayList[l]; //setPriceCBDisplay;
-            text.Text = setNotesTBDisplayList[l]; //setNotesTBDisplay;
+            
 
-            //add menucb and price cb to grid created in groupbox 
-            grid.Children.Add(menucb);
-            Grid.SetColumn(menucb, 0);
+           
 
-            grid.Children.Add(pricecb);
-            Grid.SetColumn(pricecb, 1);
+            
 
-            grid.Children.Add(text);
-            Grid.SetColumn(text, 2);
 
             //add grid to groupbox
             box.Content = grid;
-
-            menucb.AddHandler(ComboBox.SelectionChangedEvent, new SelectionChangedEventHandler(menucb_SelectionChanged));
-            pricecb.AddHandler(ComboBox.SelectionChangedEvent, new SelectionChangedEventHandler(pricecb_SelectionChanged));
-            text.AddHandler(TextBox.LostKeyboardFocusEvent, new KeyboardFocusChangedEventHandler(text_LostFocus));
+           
 
             i++;
            
@@ -583,7 +671,7 @@ namespace MenuAggregator.Pages
                 try
                 {
                     //need to get last weeks menu items to insert into current weeks row
-                    menuAdapter.GetMenuItemForLastMenu(ds._MenuBuilder_WeeklyMenus, MainWindow.Cafe, buttonNames[0]);
+                    menuAdapter.GetMenuItemForLastMenu(ds._MenuBuilder_WeeklyMenus, cafe, buttonNames[0]);
 
                     foreach (DataRow row in ds._MenuBuilder_WeeklyMenus.Rows)
                     {
@@ -601,7 +689,7 @@ namespace MenuAggregator.Pages
                         priceItemToAdd.Add(LastWeekPriceItem);
                     }
 
-                    menuAdapter.Insert(PkObject.CurrentPeriod, WkObject.CurrentWeek, dayNames[0], MainWindow.Cafe, buttonNames[0], menuItemToAdd[0], priceItemToAdd[0], notesToAdd[0], today, LastWeekMenuItemAdd, isChanged, 0);
+                    menuAdapter.Insert(PkObject.CurrentPeriod, WkObject.CurrentWeek, dayNames[0], cafe, buttonNames[0], menuItemToAdd[0], priceItemToAdd[0], notesToAdd[0], today, LastWeekMenuItemAdd, isChanged, 0);
                     isChanged = 0;
                     MessageBox.Show(buttonNames[0] + " Has been updated");
                 }
@@ -618,17 +706,22 @@ namespace MenuAggregator.Pages
                 try
                 {
                     //need to get last weeks menu items to insert into current weeks row
-                    menuAdapter.GetMenuItemForLastMenu(ds._MenuBuilder_WeeklyMenus, MainWindow.Cafe, buttonNames[0]);
+                    menuAdapter.GetMenuItemForLastMenu(ds._MenuBuilder_WeeklyMenus, cafe, buttonNames[0]);
 
                     foreach (DataRow row in ds._MenuBuilder_WeeklyMenus.Rows)
                     {
-                        LastWeekMenuList.Add("Maybe Delete This Column" /*row[6].ToString()*/);
+                        LastWeekMenuList.Add(row[6].ToString());
                     }
 
-                    for (int i = 0; i <= 4; i++)
+                    for (int i = 0; i <= insertCount-1; i++)
                     {
-                        menuAdapter.Insert(PkObject.CurrentPeriod, WkObject.CurrentWeek, dayNames[i], MainWindow.Cafe, buttonNames[0], getItem(menuItemToAdd, i), getItem(priceItemToAdd, i), getItem(notesToAdd, i), today, getItem(LastWeekMenuList, i), isChanged, 0);
-                        
+                        int dayNameiterator = 0;
+                        menuAdapter.Insert(PkObject.CurrentPeriod, WkObject.CurrentWeek, dayNames[dayNameiterator], cafe, buttonNames[0], getItem(menuItemToAdd, i), getItem(priceItemToAdd, i), getItem(notesToAdd, i), today, getItem(LastWeekMenuList, i), isChanged, 0);
+                        dayNameiterator++;
+                        if (i == 5 || i == 10 || i == 15)
+                        {
+                            dayNameiterator = 0;
+                        }
                     }
                     MessageBox.Show(buttonNames[0] + " Has been updated");
                     isChanged = 0;
@@ -679,8 +772,13 @@ namespace MenuAggregator.Pages
             conceptStackPanel.Visibility = Visibility.Visible;
             cancelButton.Visibility = Visibility.Hidden;
         }
+
         #endregion
 
-
+        private void backendButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(
+                new Uri("Pages/BAckendHome.xaml", UriKind.Relative));
+        }
     }
 }

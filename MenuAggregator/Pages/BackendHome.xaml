@@ -65,9 +65,9 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="dbButton" Content="Update Database" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="175" Height="Auto" Style="{StaticResource custButton1}"/>
+            <Button x:Name="dbButton" Content="Update Database" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="175" Height="Auto" Style="{StaticResource custButton1}" Click="dbButton_Click"/>
             <Button x:Name="cafeButton" Content="Go To Cafe View" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="175" Height="Auto" Style="{StaticResource custButton1}" Click="cafeButton_Click"/>
-            <Button x:Name="exitButton" Content="Exit" Grid.Column="6"  Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="175" Height="{Binding ElementName=cafeButton, Path=ActualHeight}" Style="{StaticResource custButton1}"/>
+            <Button x:Name="exitButton" Content="Exit" Grid.Column="6"  Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="175" Height="{Binding ElementName=cafeButton, Path=ActualHeight}" Style="{StaticResource custButton1}" Click="exitButton_Click"/>
         </Grid>
 
     </Grid>

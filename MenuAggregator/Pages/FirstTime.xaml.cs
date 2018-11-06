@@ -117,7 +117,7 @@ namespace MenuAggregator.Pages
             else if (cafeCombobox.SelectedItem != null)
             {
                 thirdRow.Visibility = Visibility.Visible;
-                thirdRow.Text = "Great please select the stations that are CURRENTLY available at " + Cafe;
+                thirdRow.Text = "Great, now please select the stations that are CURRENTLY available at " + Cafe;
                 conceptWrapPanel.Visibility = Visibility.Visible;
             }
             //This make userId however, this might be useless

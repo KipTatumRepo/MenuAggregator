@@ -209,5 +209,15 @@ namespace MenuAggregator.Pages
             NavigationService.Navigate(
                 new Uri("Pages/Home.xaml", UriKind.Relative));
         }
+
+        private void dbButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Psych This Button Doesn't Actually Do Anything Yet, but Will Allow DB Updates When Complete!!!!!!!");
+        }
+
+        private void exitButton_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
     }
 }

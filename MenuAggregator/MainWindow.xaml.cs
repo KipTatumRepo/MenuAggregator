@@ -24,6 +24,7 @@ namespace MenuAggregator
         public static string UserName = Environment.UserName; // "haah";   //"v-fitatu";  
         public static string Cafe;
         public static int numberOfCafes;
+        public static int IsAdmin;
         
         public MainWindow()
         {
@@ -38,8 +39,11 @@ namespace MenuAggregator
                 userAdapter.IsAuth(table, UserName);
                 numberOfCafes = table.Count;
 
-                string isAdmin = table.Rows[0][4].ToString();
-                int IsAdmin = Int32.Parse(isAdmin);
+                if(table.Count >= 1)
+                { 
+                    string isAdmin = table.Rows[0][4].ToString();
+                    IsAdmin = Int32.Parse(isAdmin);
+                }
 
                 if (IsAdmin == 1)
                 {
