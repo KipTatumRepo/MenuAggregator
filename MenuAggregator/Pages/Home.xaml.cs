@@ -280,8 +280,6 @@ namespace MenuAggregator.Pages
                 }
             }
 
-            
-
             GroupBox box = new GroupBox();
             box.BorderBrush = Brushes.Black;
             box.BorderThickness = new Thickness(2);
@@ -374,6 +372,10 @@ namespace MenuAggregator.Pages
                 //dictionaryListIsChanged.Add(pricecb.Tag.ToString(), 0);
                 //dictionaryListIsChanged.Add(text.Tag.ToString(), 0);
 
+                dictionaryMenuItemToAdd.Add(menucb.Tag.ToString(), menucb.Text);
+                dictionaryPriceItemToAdd.Add(pricecb.Tag.ToString(), pricecb.Text);
+               
+
                 //add menucb and price cb to grid created in groupbox 
                 Grid.SetColumn(menucb, 0);
                 Grid.SetRow(menucb, c);
@@ -387,16 +389,19 @@ namespace MenuAggregator.Pages
                 Grid.SetRow(text, c);
                 grid.Children.Add(text);
 
-                Grid.SetColumn(change, 2);
-                Grid.SetRow(change, c);
-                grid.Children.Add(change);
+
+                menucb.SelectedItem = -1;
+                pricecb.SelectedItem = -1;
+               
+
 
                 menucb.AddHandler(ComboBox.SelectionChangedEvent, new SelectionChangedEventHandler(menucb_SelectionChanged));
                 pricecb.AddHandler(ComboBox.SelectionChangedEvent, new SelectionChangedEventHandler(pricecb_SelectionChanged));
                 text.AddHandler(TextBox.LostKeyboardFocusEvent, new KeyboardFocusChangedEventHandler(text_LostFocus));
 
-                //menucb.SelectedItem = setMenuCBDispalyList[l];
-                //pricecb.SelectedItem = setPriceCBDisplayList[l];
+
+                menucb.SelectedItem = setMenuCBDispalyList[l];
+                pricecb.SelectedItem = setPriceCBDisplayList[l];
 
                 k++;
                 m++;
@@ -407,9 +412,7 @@ namespace MenuAggregator.Pages
 
             //add grid to groupbox
             box.Content = grid;
-           
             i++;
-           
             return box;
         }
 
@@ -752,9 +755,8 @@ namespace MenuAggregator.Pages
             dictionaryPriceItemToAdd.Clear();
             dictionaryTextItemToAdd.Clear();
             itemStackPanel.Children.Clear();
-            
-            cancelButton.Visibility = Visibility.Hidden;
-            menuInput.Text = "";
+
+
             l = 0;
         }
 
