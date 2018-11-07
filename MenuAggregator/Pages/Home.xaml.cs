@@ -281,8 +281,6 @@ namespace MenuAggregator.Pages
                 }
             }
 
-            
-
             GroupBox box = new GroupBox();
             box.BorderBrush = Brushes.Black;
             box.BorderThickness = new Thickness(2);
@@ -362,6 +360,10 @@ namespace MenuAggregator.Pages
                 pricecb.Text = setPriceCBDisplayList[l]; //setPriceCBDisplay;
                 text.Text = setNotesTBDisplayList[l]; //setNotesTBDisplay;
 
+                dictionaryMenuItemToAdd.Add(menucb.Tag.ToString(), menucb.Text);
+                dictionaryPriceItemToAdd.Add(pricecb.Tag.ToString(), pricecb.Text);
+               
+
                 //add menucb and price cb to grid created in groupbox 
                 Grid.SetColumn(menucb, 0);
                 Grid.SetRow(menucb, c);
@@ -375,11 +377,20 @@ namespace MenuAggregator.Pages
                 Grid.SetRow(text, c);
                 grid.Children.Add(text);
 
+                menucb.SelectedItem = -1;
+                pricecb.SelectedItem = -1;
+               
+
                 menucb.AddHandler(ComboBox.SelectionChangedEvent, new SelectionChangedEventHandler(menucb_SelectionChanged));
                 pricecb.AddHandler(ComboBox.SelectionChangedEvent, new SelectionChangedEventHandler(pricecb_SelectionChanged));
                 text.AddHandler(TextBox.LostKeyboardFocusEvent, new KeyboardFocusChangedEventHandler(text_LostFocus));
+
+                menucb.SelectedItem = setMenuCBDispalyList[l];
+                pricecb.SelectedItem = setPriceCBDisplayList[l];
+
                 k++;
                 m++;
+                l++;
             }
             
             box.Header = day;
@@ -411,9 +422,7 @@ namespace MenuAggregator.Pages
 
             //add grid to groupbox
             box.Content = grid;
-           
             i++;
-           
             return box;
         }
 
@@ -534,35 +543,35 @@ namespace MenuAggregator.Pages
                             itemStackPanel.Children.Add(BuiltGroupBox);
                             gbList.Add(BuiltGroupBox);*/
                             dayNames.Add(day);
-                            l++;
+                            //l++;
                         }
                         else if (j == 1)
                         {
                             string day = "Tuesday";
                             itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid, j, selectedConceptName));
                             dayNames.Add(day);
-                            l++;
+                            //l++;
                         }
                         else if (j == 2)
                         {
                             string day = "Wednesday";
                             itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid, j, selectedConceptName));
                             dayNames.Add(day);
-                            l++;
+                            //l++;
                         }
                         else if (j == 3)
                         {
                             string day = "Thursday";
                             itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid, j, selectedConceptName));
                             dayNames.Add(day);
-                            l++;
+                            //l++;
                         }
                         else if (j == 4)
                         {
                             string day = "Friday";
                             itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid, j, selectedConceptName));
                             dayNames.Add(day);
-                            l = 0;
+                            //l = 0;
                         }
                     }
                 }
@@ -797,6 +806,7 @@ namespace MenuAggregator.Pages
             dictionaryPriceItemToAdd.Clear();
             dictionaryTextItemToAdd.Clear();
             itemStackPanel.Children.Clear();
+            l = 0;
         }
 
         private void multipleCafeCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -836,6 +846,7 @@ namespace MenuAggregator.Pages
             dictionaryMenuItemToAdd.Clear();
             dictionaryPriceItemToAdd.Clear();
             dictionaryTextItemToAdd.Clear();
+            l = 0;
             conceptStackPanel.Visibility = Visibility.Visible;
             cancelButton.Visibility = Visibility.Hidden;
         }
