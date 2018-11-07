@@ -21,7 +21,7 @@ namespace MenuAggregator
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static string UserName = Environment.UserName; // "haah";   //"v-fitatu";  
+        public static string UserName = "haah";    //Environment.UserName;  //    //"v-fitatu";  
         public static string Cafe;
         public static int numberOfCafes;
         public static int IsAdmin;
@@ -53,7 +53,7 @@ namespace MenuAggregator
                 else if ( numberOfCafes >= 1)
                 {
                     mainFrame.Source = new Uri("pages\\Home.xaml", UriKind.Relative);
-                    Cafe = ds._MenuBuilder_Users.Rows[0][2].ToString();
+                    Cafe = table.Rows[0][2].ToString(); //ds._MenuBuilder_Users.Rows[0][2].ToString();
                 }
                 else
                 {

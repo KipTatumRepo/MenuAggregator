@@ -146,20 +146,20 @@ namespace MenuAggregator.Pages
             int returnedPeriod = 0;
             int currentPeriod;
             string sMonth;
-            if (dayOfWeek == "Monday" && today < firstOfMonth.AddDays(7))
-            {
-
-                sMonth = DateTime.Now.ToString("MM");
-                currentPeriod = Convert.ToInt32(sMonth);
-                returnedPeriod = currentPeriod;
-                currentWeek = 0;
-            }
-            else
+            if (dayOfWeek == "Monday" && today > firstOfMonth.AddDays(7))
             {
                 sMonth = DateTime.Today.AddMonths(-1).ToString("MM");
                 currentPeriod = Convert.ToInt32(sMonth);
                 returnedPeriod = currentPeriod;
                 currentWeek = 5;
+
+            }
+            else
+            {
+                sMonth = DateTime.Now.ToString("MM");
+                currentPeriod = Convert.ToInt32(sMonth);
+                returnedPeriod = currentPeriod;
+                currentWeek = 0;
             }
 
             return returnedPeriod;
