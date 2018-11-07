@@ -29,7 +29,7 @@ namespace MenuAggregator.Classes
                 _currentperiod = value;
                 foreach (Border b in Children)
                 {
-                    //b.Tag = "Label"; // force the tag for the border to be Label
+                    
                     if (b.Tag == null)
                     {
                         TextBlock tb = (TextBlock)b.Child;
@@ -53,7 +53,7 @@ namespace MenuAggregator.Classes
         public int MinPeriod { get; set; }
         public int MaxPeriod { get; set; }
         public bool SelectAllEnabled;
-        //public WeekChooser RelatedWeek = WeekChooser.
+        
         public int SelectedCount { get; set; }
 
         public PeriodChooser(WeekChooser w, int minP, int maxP, int curP)
@@ -72,8 +72,7 @@ namespace MenuAggregator.Classes
             {
                 Border brdPeriod = new Border() { BorderBrush = Brushes.Black, Width = 40, VerticalAlignment = VerticalAlignment.Center, Name = "brdP" + ct };
                 TextBlock tbPeriod = new TextBlock() { Text = ct.ToString(), TextAlignment = TextAlignment.Center, HorizontalAlignment = HorizontalAlignment.Center, FontSize = 24, Tag = ct, Name = "tbP" + ct };
-                /*if ((ct < MinPeriod) | (ct > MaxPeriod))
-                    brdPeriod.IsEnabled = false;*/
+                
                 brdPeriod.MouseEnter += HoverOverPeriod;
                 tbPeriod.MouseEnter += HoverOverPeriod;
                 brdPeriod.MouseLeave += LeavePeriod;
@@ -128,17 +127,6 @@ namespace MenuAggregator.Classes
                 CurrentPeriod = int.Parse(tb.Text);
             else if (CurrentPeriod != 0)
                 Reset();
-            /*if (CurrentPeriod < MaxPeriod)
-            {
-                Week.MaxWeek = GetMaxWeeks(CurrentPeriod);
-                Week.CurrentWeek = 1;
-            }
-            else
-            {
-                Week.MaxWeek = GetCurrentWeek(Strings.FormatDateTime(DateTime.Now(), DateFormat.ShortDate));
-                Week.CurrentWeek = GetCurrentWeek(Strings.FormatDateTime(DateTime.Now(), DateFormat.ShortDate));
-            }*/
-            //Week.EnableWeeks();
         }
 
         public void Reset()
@@ -163,7 +151,7 @@ namespace MenuAggregator.Classes
                 if (brd.Tag == null)
                 {
                     TextBlock tb = (TextBlock)brd.Child;
-                    //if ((FormatNumber(tb.Tag, 0) < MinWeek) | (FormatNumber(tb.Tag, 0) > MaxWeek))
+                   
                     if (int.Parse(tb.Text) < 0 || int.Parse(tb.Text) > 5)
                     {
                         brd.IsEnabled = false;

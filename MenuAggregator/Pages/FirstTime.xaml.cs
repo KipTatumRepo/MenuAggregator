@@ -58,7 +58,7 @@ namespace MenuAggregator.Pages
             #endregion
 
             //Greet User with user V-
-            topRow.Text = "Hello " + User + " This is your first time using the program, please select your cafe from the options below";
+            topRow.Text = "Hello " + User + " I see this is your first time using the program, please select your cafe from the options below";
 
             //build combobox with all available cafes from MasterBuildingList in DB
             foreach (DataRow row in table) //ds.LOCATIONS)

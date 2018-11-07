@@ -38,7 +38,6 @@ namespace MenuAggregator.Pages
         static int currentWeek;
         int minWeek = 1;
         int mondayCount = 0;
-        int isChecked;
         MenuBuilderDataSet ds = new MenuBuilderDataSet();
 
         public BackendHome()
@@ -76,9 +75,6 @@ namespace MenuAggregator.Pages
             tlbFlash.Items.Add(space);
             tlbFlash.Items.Add(Wk);
             Pk.SelectAllEnabled = true;
-
-            //WkObject.CurrentWeek = Wk.CurrentWeek;
-            //PkObject.CurrentPeriod = Pk.CurrentPeriod;
 
             weeklyMenuAdapter.MakeBackendButtons(ds._MenuBuilder_WeeklyMenus, currentPeriod, currentWeek);
 
