@@ -305,17 +305,16 @@ namespace MenuAggregator.Pages
 
                 if (gridRowCount == 3)
                 {
-                    box.Height = 200;
+                    box.Height = 160;
                     RowDefinition row1 = new RowDefinition();
                     row1.Height = new GridLength(40);
                     RowDefinition row2 = new RowDefinition();
                     row2.Height = new GridLength(40);
-                    RowDefinition row3 = new RowDefinition();
-                    row3.Height = new GridLength(40);
+                   
                   
                     grid.RowDefinitions.Add(row1);
                     grid.RowDefinitions.Add(row2);
-                    grid.RowDefinitions.Add(row3);
+                    
 
                     if (table.Rows.Count == 0)
                     {
@@ -329,14 +328,13 @@ namespace MenuAggregator.Pages
                 }
                 else if (gridRowCount == 2)
                 {
-                    box.Height = 160;
+                    box.Height = 130;
                     RowDefinition row1 = new RowDefinition();
                     row1.Height = new GridLength(40);
-                    RowDefinition row2 = new RowDefinition();
-                    row2.Height = new GridLength(40);
+                    
 
                     grid.RowDefinitions.Add(row1);
-                    grid.RowDefinitions.Add(row2);
+                    
 
                     if (table.Rows.Count == 0)
                     {
@@ -347,14 +345,8 @@ namespace MenuAggregator.Pages
                 }
                 else
                 {
-                    box.Height = 120;
-                    RowDefinition row1 = new RowDefinition();
-                    row1.Height = new GridLength(40);
-                    RowDefinition row2 = new RowDefinition();
-                    row2.Height = new GridLength(40);
-
-                    grid.RowDefinitions.Add(row1);
-                    grid.RowDefinitions.Add(row2);
+                    box.Height = 80;
+                    
 
                     if (table.Rows.Count == 0)
                     {
@@ -365,7 +357,7 @@ namespace MenuAggregator.Pages
                 }
 
                 ComboBox menucb = new ComboBox();
-                menucb.Width = 90;
+                menucb.Width = 230;
                 menucb.FontSize = 16;
                 menucb.Height = 30;
                 menucb.Tag = "PriceCb" + j + m;
@@ -385,14 +377,6 @@ namespace MenuAggregator.Pages
                 text.Text = null;
                 text.Tag = "TextBox" + j + m; //tag is set to iterator for accessing later
 
-                Button copyButton = new Button();
-                copyButton.Content = "Copy To Next Week";
-                copyButton.Height = 40;
-                copyButton.Width = 100;
-                copyButton.FontSize = 10;
-                copyButton.HorizontalAlignment = HorizontalAlignment.Right;
-                copyButton.Margin = new Thickness(0, 0, 3, 0);
-                
                 //notesToAdd.Add(text.Text); //text is set to null and added to notesToAdd for inserting to dB later
                 dictionaryTextItemToAdd.Add(text.Tag.ToString(), text.Text);
 
@@ -440,9 +424,6 @@ namespace MenuAggregator.Pages
                 Grid.SetRow(text, c);
                 grid.Children.Add(text);
 
-                Grid.SetColumn(copyButton, 2);
-                Grid.SetRow(copyButton, gridRowCount);
-                grid.Children.Add(copyButton);
 
 
                 menucb.SelectedItem = -1;
@@ -453,8 +434,7 @@ namespace MenuAggregator.Pages
                 menucb.AddHandler(ComboBox.SelectionChangedEvent, new SelectionChangedEventHandler(menucb_SelectionChanged));
                 pricecb.AddHandler(ComboBox.SelectionChangedEvent, new SelectionChangedEventHandler(pricecb_SelectionChanged));
                 text.AddHandler(TextBox.LostKeyboardFocusEvent, new KeyboardFocusChangedEventHandler(text_LostFocus));
-                copyButton.AddHandler(Button.ClickEvent, new RoutedEventHandler(copyButton_Click));
-
+              
                 menucb.SelectedItem = setMenuCBDispalyList[l];
                 pricecb.SelectedItem = setPriceCBDisplayList[l];
 
