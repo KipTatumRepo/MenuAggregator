@@ -68,7 +68,7 @@ namespace MenuAggregator.Pages
         Dictionary<string, string> dictionaryPriceItemToAdd = new Dictionary<string, string>();
         Dictionary<string, string> dictionaryTextItemToAdd = new Dictionary<string, string>();
         Dictionary<string, int> dictionaryListIsChanged = new Dictionary<string, int>();
-        public ComboBox menucb = new ComboBox();
+       
 
 
         List<GroupBox> gbList = new List<GroupBox>();
@@ -86,11 +86,7 @@ namespace MenuAggregator.Pages
             cafe = MainWindow.Cafe;
 
             
-            menucb.FontSize = 16;
-            menucb.Width = 230;
-            menucb.Height = 30;
-            //menucb.Tag = "MenuCb" + j + m;
-
+           
             try
             {
                 #region Database Stuff
@@ -212,7 +208,7 @@ namespace MenuAggregator.Pages
 
         //Build groupbox fill with 2 comboboxes; 1 for menu items and 1 for price.  Also fill with on textbox for notes.  bid parameter is for
         //determining how many groupboxes we need, 1 for weekly menu, 5 for daily menuu
-        private GroupBox BuildGroupBox(string day, List<string> item, List<string> price, string notes, int bid, int j, string conceptName, ComboBox cb)
+        private GroupBox BuildGroupBox(string day, List<string> item, List<string> price, string notes, int bid, int j, string conceptName)
         {
             int i = 0;
             int gridRowCount;
@@ -368,16 +364,13 @@ namespace MenuAggregator.Pages
                     }
                 }
 
-                //ComboBox menucb = new ComboBox();
-                //menucb.Width = 90;
-                //menucb.FontSize = 16;
-                //menucb.Height = 30;
-                //menucb.Tag = "PriceCb" + j + m;
-                cb.FontSize = 16;
-                cb.Width = 230;
-                cb.Height = 30;
-                cb.Tag = "MenuCb" + j + m;
-               
+                ComboBox menucb = new ComboBox();
+                menucb.Width = 90;
+                menucb.FontSize = 16;
+                menucb.Height = 30;
+                menucb.Tag = "PriceCb" + j + m;
+
+
 
                 ComboBox pricecb = new ComboBox();
                 pricecb.Width = 90;
@@ -406,8 +399,8 @@ namespace MenuAggregator.Pages
                 //add menu name from sub menu table to the combobox
                 foreach (DataRow row in subMenuTable.Rows)
                 {
-                    cb.Items.Add(row[1]);
-                    //menucb.Items.Add(row[1]);
+
+                    menucb.Items.Add(row[1]);
                 }
 
                 //add price text from price table to combobox
@@ -417,13 +410,13 @@ namespace MenuAggregator.Pages
                 }
 
                 //set display text of combo and text boxes 
-                cb.Text = setMenuCBDispalyList[l];
-                //menucb.Text = setMenuCBDispalyList[l]; //setMenuCBDispaly;
+                
+                menucb.Text = setMenuCBDispalyList[l]; //setMenuCBDispaly;
                 pricecb.Text = setPriceCBDisplayList[l]; //setPriceCBDisplay;
                 text.Text = setNotesTBDisplayList[l]; //setNotesTBDisplay;
 
-                dictionaryMenuItemToAdd.Add(cb.Tag.ToString(), cb.Text);
-                //dictionaryMenuItemToAdd.Add(menucb.Tag.ToString(), menucb.Text);
+                
+                dictionaryMenuItemToAdd.Add(menucb.Tag.ToString(), menucb.Text);
                 dictionaryPriceItemToAdd.Add(pricecb.Tag.ToString(), pricecb.Text);
                 //dictionaryListIsChanged.Add(menucb.Tag.ToString(), 0);
                 //dictionaryListIsChanged.Add(pricecb.Tag.ToString(), 0);
@@ -434,13 +427,11 @@ namespace MenuAggregator.Pages
 
 
                 //add menucb and price cb to grid created in groupbox 
-                Grid.SetColumn(cb, 0);
-                Grid.SetRow(cb, c);
-                grid.Children.Add(cb);
-                //Grid.SetColumn(menucb, 0);
-                //Grid.SetRow(menucb, c);
-                //grid.Children.Add(menucb);
-                
+               
+                Grid.SetColumn(menucb, 0);
+                Grid.SetRow(menucb, c);
+                grid.Children.Add(menucb);
+
                 Grid.SetColumn(pricecb, 1);
                 Grid.SetRow(pricecb, c);
                 grid.Children.Add(pricecb);
@@ -453,19 +444,18 @@ namespace MenuAggregator.Pages
                 Grid.SetRow(copyButton, gridRowCount);
                 grid.Children.Add(copyButton);
 
-                cb.SelectedItem = -1;
-                //menucb.SelectedItem = -1;
+
+                menucb.SelectedItem = -1;
                 pricecb.SelectedItem = -1;
 
 
-                cb.AddHandler(ComboBox.SelectionChangedEvent, new SelectionChangedEventHandler(menucb_SelectionChanged));
-                //menucb.AddHandler(ComboBox.SelectionChangedEvent, new SelectionChangedEventHandler(menucb_SelectionChanged));
+
+                menucb.AddHandler(ComboBox.SelectionChangedEvent, new SelectionChangedEventHandler(menucb_SelectionChanged));
                 pricecb.AddHandler(ComboBox.SelectionChangedEvent, new SelectionChangedEventHandler(pricecb_SelectionChanged));
                 text.AddHandler(TextBox.LostKeyboardFocusEvent, new KeyboardFocusChangedEventHandler(text_LostFocus));
                 copyButton.AddHandler(Button.ClickEvent, new RoutedEventHandler(copyButton_Click));
 
-                cb.SelectedItem = setMenuCBDispalyList[l];
-                //menucb.SelectedItem = setMenuCBDispalyList[l];
+                menucb.SelectedItem = setMenuCBDispalyList[l];
                 pricecb.SelectedItem = setPriceCBDisplayList[l];
 
                 k++;
@@ -615,35 +605,35 @@ namespace MenuAggregator.Pages
                         if (j == 0)
                         {
                             string day = "Monday";
-                            itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid, j, selectedConceptName, menucb));
+                            itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid, j, selectedConceptName));
                             dayNames.Add(day);
                             //l++;
                         }
                         else if (j == 1)
                         {
                             string day = "Tuesday";
-                            itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid, j, selectedConceptName, menucb));
+                            itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid, j, selectedConceptName));
                             dayNames.Add(day);
                             //l++;
                         }
                         else if (j == 2)
                         {
                             string day = "Wednesday";
-                            itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid, j, selectedConceptName, menucb));
+                            itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid, j, selectedConceptName));
                             dayNames.Add(day);
                             //l++;
                         }
                         else if (j == 3)
                         {
                             string day = "Thursday";
-                            itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid, j, selectedConceptName, menucb));
+                            itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid, j, selectedConceptName));
                             dayNames.Add(day);
                             //l++;
                         }
                         else if (j == 4)
                         {
                             string day = "Friday";
-                            itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid, j, selectedConceptName, menucb));
+                            itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid, j, selectedConceptName));
                             dayNames.Add(day);
                             //l = 0;
                         }
@@ -652,7 +642,7 @@ namespace MenuAggregator.Pages
                 else
                 {
                     string day = "Weekly";
-                    itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid, 0, selectedConceptName, menucb));
+                    itemStackPanel.Children.Add(BuildGroupBox(day, items, price, notes, b.Bid, 0, selectedConceptName));
                     dayNames.Add(day);
                 }
                 if (buttonNames.Count > 0)
