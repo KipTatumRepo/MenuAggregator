@@ -69,6 +69,7 @@
     </Compile>
     <Compile Include="Classes\CountMonday.cs" />
     <Compile Include="Classes\NewButton.cs" />
+    <Compile Include="Classes\NewGroupBox.cs" />
     <Compile Include="Classes\PropertySupport.cs" />
     <Compile Include="Classes\RatioConverter.cs" />
     <Compile Include="Classes\WeekCounter.cs" />
