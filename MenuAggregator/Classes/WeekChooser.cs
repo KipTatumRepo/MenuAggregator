@@ -17,20 +17,15 @@ namespace MenuAggregator.Classes
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void NotifyChange(PropertyChangedEventArgs e)
+        public void NotifyPropertyChanged(PropertyChangedEventArgs e)
         {
             if (PropertyChanged != null)
+            {
                 PropertyChanged(this, e);
+            }
         }
 
         private int _currentweek;
-        //private int maxWeek = WeekCounter.MondayCounter(firstOfMonth, endOfMonth);
-        //public static DateTime today = DateTime.Today;
-        //public static DateTime firstOfMonth = new DateTime(today.Year, today.Month, 1);
-        /*public static DateTime endOfMonth = new DateTime(today.Year,
-                                           today.Month,
-                                                        DateTime.DaysInMonth(today.Year,
-                                                                 today.Month));*/
 
         public int CurrentWeek
         {
@@ -65,7 +60,7 @@ namespace MenuAggregator.Classes
                         }
                     }
                 }
-                NotifyChange(new PropertyChangedEventArgs("CurrentWeek"));
+                NotifyPropertyChanged(new PropertyChangedEventArgs("Week"));
             }
         }
 

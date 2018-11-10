@@ -8,12 +8,13 @@
         mc:Ignorable="d"
         Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={tools:RatioConverter}, ConverterParameter='.8' }" 
         Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={tools:RatioConverter}, ConverterParameter='.8' }"
+        MinHeight= "745" 
+        MinWidth=  "1300"
         FontFamily="Segoe UI Emoji"
         WindowStartupLocation="CenterScreen"
-        Title="Menu Aggregator" MinHeight="745" MinWidth="1200">
+        Title="Menu Aggregator"
+        >
     <Grid Background="OldLace">
-        <!--<Frame x:Name="mainFrame" Source="pages\Home.xaml"/>
-        <Frame Source="pages\FirstTime.xaml"/>-->
         <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
