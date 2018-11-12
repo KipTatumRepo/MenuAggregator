@@ -23,6 +23,8 @@ namespace MenuAggregator.Pages
     /// </summary>
     public partial class BackendHome : Page
     {
+        //static DateTime test = new DateTime(2019, 11, 7, 00, 00, 00);
+        //public static DateTime today = test;
         public static DateTime today = DateTime.Today;
         public static DateTime firstOfMonth = new DateTime(today.Year, today.Month, 1);
         public static DateTime endOfMonth = new DateTime(today.Year,
@@ -55,7 +57,7 @@ namespace MenuAggregator.Pages
 
             if (currentWeek == 0)
             {
-                currentWeek = Home.GetWeek();
+                currentWeek = GetWeek();
                 Wk = new WeekChooser(minWeek, mondayCount, currentWeek);
             }
             else
@@ -142,7 +144,7 @@ namespace MenuAggregator.Pages
             int returnedPeriod = 0;
             int currentPeriod;
             string sMonth;
-            if (dayOfWeek == "Monday" && today > firstOfMonth.AddDays(7))
+            if (dayOfWeek == "Monday" && today >= today.AddDays(7))
             {
                 sMonth = DateTime.Today.AddMonths(-1).ToString("MM");
                 currentPeriod = Convert.ToInt32(sMonth);

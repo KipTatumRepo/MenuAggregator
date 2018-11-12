@@ -460,6 +460,8 @@ namespace MenuAggregator {
             
             private global::System.Data.DataColumn columnisDaily;
             
+            private global::System.Data.DataColumn columnpriceEditable;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public _MenuBuilder_ConceptsDataTable() {
@@ -519,6 +521,14 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn priceEditableColumn {
+                get {
+                    return this.columnpriceEditable;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -554,12 +564,13 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_ConceptsRow Add_MenuBuilder_ConceptsRow(string stationName, byte isDaily) {
+            public _MenuBuilder_ConceptsRow Add_MenuBuilder_ConceptsRow(string stationName, byte isDaily, byte priceEditable) {
                 _MenuBuilder_ConceptsRow row_MenuBuilder_ConceptsRow = ((_MenuBuilder_ConceptsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         stationName,
-                        isDaily};
+                        isDaily,
+                        priceEditable};
                 row_MenuBuilder_ConceptsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(row_MenuBuilder_ConceptsRow);
                 return row_MenuBuilder_ConceptsRow;
@@ -585,6 +596,7 @@ namespace MenuAggregator {
                 this.columnPID = base.Columns["PID"];
                 this.columnstationName = base.Columns["stationName"];
                 this.columnisDaily = base.Columns["isDaily"];
+                this.columnpriceEditable = base.Columns["priceEditable"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -596,6 +608,8 @@ namespace MenuAggregator {
                 base.Columns.Add(this.columnstationName);
                 this.columnisDaily = new global::System.Data.DataColumn("isDaily", typeof(byte), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnisDaily);
+                this.columnpriceEditable = new global::System.Data.DataColumn("priceEditable", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpriceEditable);
                 this.columnPID.AutoIncrement = true;
                 this.columnPID.AutoIncrementSeed = -1;
                 this.columnPID.AutoIncrementStep = -1;
@@ -2362,6 +2376,22 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public byte priceEditable {
+                get {
+                    try {
+                        return ((byte)(this[this._tableMenuBuilder_Concepts.priceEditableColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'priceEditable\' in table \'MenuBuilder.Concepts\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this._tableMenuBuilder_Concepts.priceEditableColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsisDailyNull() {
                 return this.IsNull(this._tableMenuBuilder_Concepts.isDailyColumn);
             }
@@ -2370,6 +2400,18 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetisDailyNull() {
                 this[this._tableMenuBuilder_Concepts.isDailyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IspriceEditableNull() {
+                return this.IsNull(this._tableMenuBuilder_Concepts.priceEditableColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetpriceEditableNull() {
+                this[this._tableMenuBuilder_Concepts.priceEditableColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3424,14 +3466,16 @@ namespace MenuAggregator.MenuBuilderDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("PID", "PID");
             tableMapping.ColumnMappings.Add("stationName", "stationName");
             tableMapping.ColumnMappings.Add("isDaily", "isDaily");
+            tableMapping.ColumnMappings.Add("priceEditable", "priceEditable");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [MenuBuilder.Concepts] ([stationName], [isDaily]) VALUES (@stationNam" +
-                "e, @isDaily)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [MenuBuilder.Concepts] ([stationName], [isDaily], [priceEditable]) VA" +
+                "LUES (@stationName, @isDaily, @priceEditable)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stationName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stationName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isDaily", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "isDaily", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@priceEditable", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "priceEditable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3444,10 +3488,10 @@ namespace MenuAggregator.MenuBuilderDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT PID, stationName, isDaily FROM [MenuBuilder.Concepts]";
+            this._commandCollection[0].CommandText = "SELECT PID, stationName, isDaily, priceEditable FROM [MenuBuilder.Concepts]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -3456,6 +3500,12 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
                          [MenuBuilder.BuiltCafes] ON [MenuBuilder.Concepts].PID = [MenuBuilder.BuiltCafes].conceptId AND [MenuBuilder.BuiltCafes].Cafe = @Cafe";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cafe", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cafe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT PID, stationName, isDaily, priceEditable \r\nFROM [MenuBuilder.Concepts]\r\nWH" +
+                "ERE (stationName = @conceptName)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@conceptName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "stationName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3521,6 +3571,42 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int GetPriceEditable(MenuBuilderDataSet._MenuBuilder_ConceptsDataTable dataTable, string conceptName) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((conceptName == null)) {
+                throw new global::System.ArgumentNullException("conceptName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(conceptName));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual MenuBuilderDataSet._MenuBuilder_ConceptsDataTable GetDataBy1(string conceptName) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((conceptName == null)) {
+                throw new global::System.ArgumentNullException("conceptName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(conceptName));
+            }
+            MenuBuilderDataSet._MenuBuilder_ConceptsDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_ConceptsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(MenuBuilderDataSet._MenuBuilder_ConceptsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
@@ -3551,7 +3637,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string stationName, global::System.Nullable<byte> isDaily) {
+        public virtual int Insert(string stationName, global::System.Nullable<byte> isDaily, global::System.Nullable<long> priceEditable) {
             if ((stationName == null)) {
                 throw new global::System.ArgumentNullException("stationName");
             }
@@ -3563,6 +3649,12 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((priceEditable.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((long)(priceEditable.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 

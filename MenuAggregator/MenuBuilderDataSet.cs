@@ -8,12 +8,18 @@ namespace MenuAggregator
 
     public partial class MenuBuilderDataSet
     {
+        partial class _MenuBuilder_ConceptsDataTable
+        {
+        }
     }
 }
 
-namespace MenuAggregator.MenuBuilderDataSetTableAdapters {
-    
-    
+namespace MenuAggregator.MenuBuilderDataSetTableAdapters
+{
+    partial class MenuBuilder_ConceptsTableAdapter
+    {
+    }
+
     public partial class MenuBuilder_WeeklyMenusTableAdapter {
     }
 }
