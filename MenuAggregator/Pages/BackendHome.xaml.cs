@@ -23,11 +23,11 @@ namespace MenuAggregator.Pages
     /// </summary>
     public partial class BackendHome : Page
     {
-        //static DateTime test = new DateTime(2019, 11, 7, 00, 00, 00);
-        //public static DateTime today = test;
-        public static DateTime today = DateTime.Today;
-        public static DateTime firstOfMonth = new DateTime(today.Year, today.Month, 1);
-        public static DateTime endOfMonth = new DateTime(today.Year,
+        static DateTime test = new DateTime(2019, 11, 7, 00, 00, 00);
+        static DateTime today = test;
+        //static DateTime today = DateTime.Today;
+        static DateTime firstOfMonth = new DateTime(today.Year, today.Month, 1);
+        static DateTime endOfMonth = new DateTime(today.Year,
                                            today.Month,
                                                         DateTime.DaysInMonth(today.Year,
                                                                  today.Month));
@@ -39,7 +39,7 @@ namespace MenuAggregator.Pages
         int currentPeriod;
         static int currentWeek;
         int minWeek = 1;
-        int mondayCount = 0;
+        public static int mondayCount = 0;
         MenuBuilderDataSet ds = new MenuBuilderDataSet();
 
         public BackendHome()
@@ -62,7 +62,7 @@ namespace MenuAggregator.Pages
             }
             else
             {
-                Wk = new WeekChooser(0, 5, 5);
+                Wk = new WeekChooser(0, mondayCount, 5);
             }
             Pk = new PeriodChooser(Wk, 1, currentPeriod, currentPeriod);
             string space = "             ";

@@ -7,7 +7,6 @@
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1400"
       Title="BackendHome">
-   
 
     <Grid x:Name="mainGrid">
                 <Grid.RowDefinitions>
@@ -39,16 +38,14 @@
                                 <DataGridTextColumn x:Name="lastWeekMenuItem" Header="Last Week's Item" Binding="{Binding lastMenuItem}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
                                 <DataGridTextColumn x:Name="menuItem" Header="This Week's Item" Binding="{Binding menuItem}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
                                 <DataGridTextColumn x:Name="price" Header="Price" Binding="{Binding Price}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
-                                <DataGridTextColumn x:Name="notes" Header="Notes" Binding="{Binding Notes}" Width="*" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
-                                <!--<DataGridCheckBoxColumn x:Name="isCompleteCheckBox" Binding="{Binding isComplete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsThreeState="False" />-->
-                                <!--<DataGridTemplateColumn >
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <CheckBox x:Name="isCompleteCheckBox" IsChecked="{Binding isComplete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Checked="CheckBox_Checked"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>-->
-                            </DataGrid.Columns>
+                            <DataGridTextColumn x:Name="notes" Header="Notes" Binding="{Binding Notes}" Width="*" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}" FontSize="12" >
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="TextWrapping" Value="Wrap"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
                         </DataGrid>
                     </ScrollViewer>
                 </Border>

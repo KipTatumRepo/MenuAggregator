@@ -81,7 +81,7 @@ namespace MenuAggregator.Classes
             BorderLabel.Child = TextLabel;
             Children.Add(BorderLabel);
 
-            for (ct = 1; ct <= Home.mondayCount; ct++)//CHECK HERE
+            for (ct = 1; ct <= BackendHome.mondayCount; ct++)//CHECK HERE
             {
                 Border brdWeek = new Border() { BorderBrush = Brushes.Black, Width = 40, VerticalAlignment = VerticalAlignment.Center, Name = "brdW" + ct };
                 TextBlock tbWeek = new TextBlock() { Text = ct.ToString(), TextAlignment = TextAlignment.Center, HorizontalAlignment = HorizontalAlignment.Center, FontSize = 24, Tag = ct, Name = "tbW" + ct };

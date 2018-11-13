@@ -27,11 +27,11 @@ namespace MenuAggregator.Pages
     public partial class Home : Page
     {
         #region Variable initialization
-        //static DateTime test = new DateTime(2018, 12, 3, 00, 00, 00);
-        //public static DateTime today = test;    
-        public static DateTime today = DateTime.Today;
-        public static DateTime firstOfMonth = new DateTime(today.Year, today.Month, 1);
-        public static DateTime endOfMonth = new DateTime(today.Year,
+        //static DateTime test = new DateTime(2018, 11, 5, 00, 00, 00);
+        //static DateTime today = test;    
+        static DateTime today = DateTime.Today;
+        static DateTime firstOfMonth = new DateTime(today.Year, today.Month, 1);
+        static DateTime endOfMonth = new DateTime(today.Year,
                                            today.Month,
                                                         DateTime.DaysInMonth(today.Year,
                                                                  today.Month));
@@ -55,6 +55,7 @@ namespace MenuAggregator.Pages
         string cafe;
         //string notes;
         int? BID;
+        int textBoxHasValue = 0;
 
         List<string> items = new List<string>();
         List<string> price = new List<string>();
@@ -405,7 +406,6 @@ namespace MenuAggregator.Pages
                 menucb.Text = setMenuCBDispalyList[l];
                 pricecb.Text = setPriceCBDisplayList[l];
                 text.Text = setNotesTBDisplayList[l];
-
                 
                 dictionaryMenuItemToAdd.Add(menucb.Tag.ToString(), menucb.Text);
                 dictionaryPriceItemToAdd.Add(pricecb.Tag.ToString(), pricecb.Text);
@@ -696,12 +696,9 @@ namespace MenuAggregator.Pages
         //the correct value can be found and replaced
         private void menucb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MainWindow.changesMade = 1;
-           
             ComboBox cb = new ComboBox();
             string selectedCBTag;
             cb = e.OriginalSource as ComboBox;
-            //cb.SelectedItem = "";
             tb = e.OriginalSource as TextBlock;
             selectedCBTag = cb.Tag.ToString();
 
@@ -735,8 +732,7 @@ namespace MenuAggregator.Pages
 
         private void pricecb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MainWindow.changesMade = 1;
-            //isChanged = 1;
+            
             ComboBox cb = new ComboBox();
             string selectedCBTag;
            
@@ -751,7 +747,6 @@ namespace MenuAggregator.Pages
 
             if (dictionaryPriceItemToAdd.Count < 1)
             {
-                
                 dictionaryPriceItemToAdd.Add(selectedCBTag, itemToAdd);
                 dictionaryListIsChanged.Add(selectedCBTag, 1);
             }
@@ -775,21 +770,15 @@ namespace MenuAggregator.Pages
 
         private void text_LostFocus(object sender, RoutedEventArgs e)
         {
-            MainWindow.changesMade = 1;
-            //isChanged = 1;
             TextBox Tb = new TextBox();
             string selectedTBTag;
             string text;
             Tb = e.OriginalSource as TextBox;
-            tb = e.OriginalSource as TextBlock;
 
             selectedTBTag = Tb.Tag.ToString(); //get tag from textbox so we can get to the right place in the List
             text = Tb.Text;
             dictionaryTextItemToAdd[selectedTBTag] = text;
             dictionaryListIsChanged[selectedTBTag] = 1;
-            //dictionaryListIsChanged.Add(selectedTBTag, 1);
-            //listIsChanged.Add(isChanged);
-
         }
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
