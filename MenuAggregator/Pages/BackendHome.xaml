@@ -45,7 +45,7 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn x:Name="time" Header="Date" Binding="{Binding dateEdit, StringFormat='{}{0:MM/dd h:mm t}'}" Width=".25*" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}" FontSize="12" />
+                            <DataGridTextColumn x:Name="time" Header="Date" Binding="{Binding dateEdit, StringFormat='{}{0:MM/dd h:mm:ss t}'}" Width=".25*" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}" FontSize="12" />
                         </DataGrid.Columns>
                         </DataGrid>
                     </ScrollViewer>
