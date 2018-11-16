@@ -33,11 +33,11 @@
                     <ScrollViewer x:Name="MenuScrollViewer" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" Margin="0,6,0,9" Grid.Row="3" Grid.RowSpan="2">
                         <DataGrid x:Name="backEndDataGrid" Grid.Row="1" Margin="10,10,10,10" AutoGenerateColumns="False" CanUserAddRows="False" SelectionUnit="FullRow">
                             <DataGrid.Columns>
-                                <DataGridTextColumn x:Name="day" Header="Day" Binding="{Binding Day}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}" />
-                                <DataGridTextColumn x:Name="conceptName" Header="Concept" Binding="{Binding conceptName}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
-                                <DataGridTextColumn x:Name="lastWeekMenuItem" Header="Last Week's Item" Binding="{Binding lastMenuItem}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
-                                <DataGridTextColumn x:Name="menuItem" Header="This Week's Item" Binding="{Binding menuItem}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
-                                <DataGridTextColumn x:Name="price" Header="Price" Binding="{Binding Price}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
+                            <DataGridTextColumn x:Name="conceptName" Header="Concept" Binding="{Binding conceptName}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
+                            <DataGridTextColumn x:Name="day" Header="Day" Binding="{Binding Day}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}" />
+                            <DataGridTextColumn x:Name="lastWeekMenuItem" Header="Last Week's Item" Binding="{Binding lastMenuItem}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
+                            <DataGridTextColumn x:Name="menuItem" Header="This Week's Item" Binding="{Binding menuItem}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
+                            <DataGridTextColumn x:Name="price" Header="Price" Binding="{Binding Price}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
                             <DataGridTextColumn x:Name="notes" Header="Notes" Binding="{Binding Notes}" Width="*" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}" FontSize="12" >
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
@@ -45,6 +45,7 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
+                            <DataGridTextColumn x:Name="time" Header="Date" Binding="{Binding dateEdit, StringFormat='{}{0:MM/dd h:mm t}'}" Width=".25*" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}" FontSize="12" />
                         </DataGrid.Columns>
                         </DataGrid>
                     </ScrollViewer>

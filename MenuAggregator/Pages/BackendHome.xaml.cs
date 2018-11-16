@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -23,9 +24,9 @@ namespace MenuAggregator.Pages
     /// </summary>
     public partial class BackendHome : Page
     {
-        static DateTime test = new DateTime(2019, 11, 7, 00, 00, 00);
-        static DateTime today = test;
-        //static DateTime today = DateTime.Today;
+        //static DateTime test = new DateTime(2019, 11, 7, 00, 00, 00);
+        //static DateTime today = test;
+        static DateTime today = DateTime.Today;
         static DateTime firstOfMonth = new DateTime(today.Year, today.Month, 1);
         static DateTime endOfMonth = new DateTime(today.Year,
                                            today.Month,
@@ -40,6 +41,7 @@ namespace MenuAggregator.Pages
         static int currentWeek;
         int minWeek = 1;
         public static int mondayCount = 0;
+        public string Cafe;
         MenuBuilderDataSet ds = new MenuBuilderDataSet();
 
         public BackendHome()
@@ -125,7 +127,7 @@ namespace MenuAggregator.Pages
             NewButton b = new NewButton();
             MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable table = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
             MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
-            string Cafe;
+            
             b = e.OriginalSource as NewButton;
             Cafe = b.Content.ToString();
 
@@ -134,6 +136,8 @@ namespace MenuAggregator.Pages
             weeklyMenuAdapter.FillDataGrid(table, Cafe);
 
             backEndDataGrid.ItemsSource = table;
+
+            Wk.PropertyChanged += new PropertyChangedEventHandler(WeekChanged);
 
         }
 
@@ -186,7 +190,6 @@ namespace MenuAggregator.Pages
             updateRow.UpdateIsComplete(currentPeriod, currentWeek, dayToUpdate, menuItemToUpdate);
             button.IsEnabled = false;
             button.Content = "Done";
-
         }
 
         public IEnumerable<DataGridRow> GetDataGridRows(DataGrid grid)
@@ -216,6 +219,15 @@ namespace MenuAggregator.Pages
         private void exitButton_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
+        }
+
+        private void WeekChanged(object sender, PropertyChangedEventArgs e)
+        {
+            
+            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable table = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
+            weeklyMenuAdapter.FillDataGridByDate(table, Cafe, Pk.CurrentPeriod, Wk.CurrentWeek);
+            backEndDataGrid.ItemsSource = table;
         }
     }
 }

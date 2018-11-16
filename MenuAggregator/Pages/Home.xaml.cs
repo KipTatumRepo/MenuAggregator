@@ -29,7 +29,7 @@ namespace MenuAggregator.Pages
         #region Variable initialization
         //static DateTime test = new DateTime(2018, 11, 5, 00, 00, 00);
         //static DateTime today = test;    
-        static DateTime today = DateTime.Today;
+        static DateTime today = DateTime.Now;
         static DateTime firstOfMonth = new DateTime(today.Year, today.Month, 1);
         static DateTime endOfMonth = new DateTime(today.Year,
                                            today.Month,
@@ -264,7 +264,10 @@ namespace MenuAggregator.Pages
 
             //since with got the previous week and period above we create a table that fills with items from the previous week
             MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable table = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable compareTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
             weeklyMenuAdapter.FillComboBox(table, conceptName, fillCBPeriod, fillCBWeek, cafe);
+            weeklyMenuAdapter.FillComboBox(compareTable, conceptName, fillCBPeriod, Wk.CurrentWeek, cafe);
+            
 
             //Look at the conepts table to determine if the the price of this concept is editable by the cafe
             MenuBuilderDataSet._MenuBuilder_ConceptsDataTable cTable = new MenuBuilderDataSet._MenuBuilder_ConceptsDataTable();
@@ -283,11 +286,23 @@ namespace MenuAggregator.Pages
             }
             else
             {
-                foreach (DataRow rows in table)
+                if (compareTable.Count < 1)
                 {
-                    setMenuCBDispalyList.Add(rows["menuItem"].ToString());
-                    setPriceCBDisplayList.Add(rows["Price"].ToString());
-                    setNotesTBDisplayList.Add(rows["Notes"].ToString());
+                    foreach (DataRow rows in table)
+                    {
+                        setMenuCBDispalyList.Add(rows["menuItem"].ToString());
+                        setPriceCBDisplayList.Add(rows["Price"].ToString());
+                        setNotesTBDisplayList.Add(rows["Notes"].ToString());
+                    }
+                }
+                else
+                {
+                    foreach(DataRow rows in compareTable)
+                    {
+                        setMenuCBDispalyList.Add(rows["menuItem"].ToString());
+                        setPriceCBDisplayList.Add(rows["Price"].ToString());
+                        setNotesTBDisplayList.Add(rows["Notes"].ToString());
+                    }
                 }
             }
 
@@ -801,7 +816,6 @@ namespace MenuAggregator.Pages
                 priceItemToAdd = GetDictionaryItem(dictionaryPriceItemToAdd);
                 notesToAdd = GetDictionaryItem(dictionaryTextItemToAdd);
                 
-                
                 try
                 {
                     //need to get last weeks menu items to insert into current weeks row
@@ -824,7 +838,7 @@ namespace MenuAggregator.Pages
                         {
                             int u = 0;
                             isChangedLists = GetIsChangedFromDictionary(dictionaryListIsChanged, i);
-                            menuAdapter.Insert(PkObject.CurrentPeriod, WkObject.CurrentWeek, dayNames[dayNameiterator], cafe, buttonNames[0], getItem(menuItemToAdd, addIterator), getItem(priceItemToAdd, addIterator), getItem(notesToAdd, addIterator), today, getItem(LastWeekMenuList, addIterator), isChangedLists[j], 0);
+                            menuAdapter.Insert(PkObject.CurrentPeriod, WkObject.CurrentWeek, dayNames[dayNameiterator], cafe, buttonNames[0], getItem(menuItemToAdd, addIterator), getItem(priceItemToAdd, addIterator), getItem(notesToAdd, addIterator), getItem(LastWeekMenuList, addIterator), isChangedLists[j], "Open", today);
                             addIterator++;
                             u++;
 
@@ -859,7 +873,6 @@ namespace MenuAggregator.Pages
             dictionaryListIsChanged.Clear();
             itemStackPanel.Children.Clear();
             cancelButton.Visibility = Visibility.Hidden;
-           
             
         }
 
@@ -925,7 +938,7 @@ namespace MenuAggregator.Pages
             setMenuCBDispalyList.Clear();
             setNotesTBDisplayList.Clear();
             setPriceCBDisplayList.Clear();
-            buttonNames.Clear();
+            //buttonNames.Clear();
             menuItemToAdd.Clear();
             priceItemToAdd.Clear();
             notesToAdd.Clear();
@@ -937,6 +950,12 @@ namespace MenuAggregator.Pages
             dictionaryPriceItemToAdd.Clear();
             dictionaryTextItemToAdd.Clear();
             dictionaryListIsChanged.Clear();
+
+            if (buttonNames.Count < 1)
+            {
+                return;
+            }
+
             if (isWeekly == "1")
             {
                 for (int j = 0; j <= 4; j++)
