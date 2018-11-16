@@ -266,7 +266,7 @@ namespace MenuAggregator.Pages
             MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable table = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
             MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable compareTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
             weeklyMenuAdapter.FillComboBox(table, conceptName, fillCBPeriod, fillCBWeek, cafe);
-            weeklyMenuAdapter.FillComboBox(compareTable, conceptName, fillCBPeriod, Wk.CurrentWeek, cafe);
+            weeklyMenuAdapter.FillComboBoxCompare(compareTable, conceptName, fillCBPeriod, Wk.CurrentWeek, cafe);
             
 
             //Look at the conepts table to determine if the the price of this concept is editable by the cafe
