@@ -102,6 +102,7 @@ namespace MenuAggregator.Pages
                  
             });
             Wk.PropertyChanged += new PropertyChangedEventHandler(WeekChanged);
+            Pk.PropertyChanged += new PropertyChangedEventHandler(PeriodChanged);
         }
 
         
@@ -139,7 +140,8 @@ namespace MenuAggregator.Pages
             backEndDataGrid.ItemsSource = table;
 
             //this might need to get moved back to cafeButton_Click
-            Wk.PropertyChanged += new PropertyChangedEventHandler(WeekChanged);
+            //Wk.PropertyChanged += new PropertyChangedEventHandler(WeekChanged);
+            //Pk.PropertyChanged += new PropertyChangedEventHandler(PeriodChanged);
 
         }
 
@@ -227,6 +229,24 @@ namespace MenuAggregator.Pages
         {
             withChangesStackPanel.Children.Clear();
             
+            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable table = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
+            weeklyMenuAdapter.FillDataGridByDate(table, Cafe, Pk.CurrentPeriod, Wk.CurrentWeek);
+            weeklyMenuAdapter.MakeBackendButtons(ds._MenuBuilder_WeeklyMenus, Pk.CurrentPeriod, Wk.CurrentWeek);
+            int i = 0;
+            foreach (var row in ds._MenuBuilder_WeeklyMenus)
+            {
+                NewButton button = CreateButton(ds._MenuBuilder_WeeklyMenus, i);
+                withChangesStackPanel.Children.Add(button);
+                i++;
+            }
+            backEndDataGrid.ItemsSource = table;
+        }
+
+        private void PeriodChanged(object sender, PropertyChangedEventArgs e)
+        {
+            withChangesStackPanel.Children.Clear();
+
             MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable table = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
             MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
             weeklyMenuAdapter.FillDataGridByDate(table, Cafe, Pk.CurrentPeriod, Wk.CurrentWeek);

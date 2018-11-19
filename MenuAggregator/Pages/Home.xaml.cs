@@ -705,6 +705,7 @@ namespace MenuAggregator.Pages
             setPriceCBDisplayList.Clear();
             k = 0;
             Wk.PropertyChanged += new PropertyChangedEventHandler(WeekChanged);
+            Pk.PropertyChanged += new PropertyChangedEventHandler(PeriodChanged);
         }
 
         //when a selection from the menu box is made the value is put into a dictionary(where the name of the combobox is the key and the selected value is the value) so that if the selection is changed(either right away or later)
@@ -1004,6 +1005,82 @@ namespace MenuAggregator.Pages
                 dayNames.Add(day);
             }
            
+        }
+
+        private void PeriodChanged(object sender, PropertyChangedEventArgs e)
+        {
+            l = 0;
+
+            dayNames.Clear();
+            setMenuCBDispalyList.Clear();
+            setNotesTBDisplayList.Clear();
+            setPriceCBDisplayList.Clear();
+            //buttonNames.Clear();
+            menuItemToAdd.Clear();
+            priceItemToAdd.Clear();
+            notesToAdd.Clear();
+            listIsChanged.Clear();
+            menuInput.Clear();
+            returnList.Clear();
+            itemStackPanel.Children.Clear();
+            dictionaryMenuItemToAdd.Clear();
+            dictionaryPriceItemToAdd.Clear();
+            dictionaryTextItemToAdd.Clear();
+            dictionaryListIsChanged.Clear();
+
+            if (buttonNames.Count < 1)
+            {
+                return;
+            }
+
+            if (isWeekly == "1")
+            {
+                for (int j = 0; j <= 4; j++)
+                {
+                    if (j == 0)
+                    {
+                        string day = "Monday";
+                        itemStackPanel.Children.Add(BuildGroupBox(day, /*items, price, notes, */ BID, j, selectedConceptName));
+                        dayNames.Add(day);
+                        //l++;
+                    }
+                    else if (j == 1)
+                    {
+                        string day = "Tuesday";
+                        itemStackPanel.Children.Add(BuildGroupBox(day, /*items, price, notes, */ BID, j, selectedConceptName));
+                        dayNames.Add(day);
+                        //l++;
+                    }
+                    else if (j == 2)
+                    {
+                        string day = "Wednesday";
+                        itemStackPanel.Children.Add(BuildGroupBox(day, /*items, price, notes, */ BID, j, selectedConceptName));
+                        dayNames.Add(day);
+                        //l++;
+                    }
+                    else if (j == 3)
+                    {
+                        string day = "Thursday";
+                        itemStackPanel.Children.Add(BuildGroupBox(day, /*items, price, notes, */ BID, j, selectedConceptName));
+                        dayNames.Add(day);
+                        //l++;
+                    }
+                    else if (j == 4)
+                    {
+                        string day = "Friday";
+                        itemStackPanel.Children.Add(BuildGroupBox(day, /*items, price, notes, */ BID, j, selectedConceptName));
+                        dayNames.Add(day);
+                        //l = 0;
+                    }
+                }
+            }
+            else
+            {
+                string day = "Weekly";
+                itemStackPanel.Children.Add(BuildGroupBox(day, /*items, price, notes, */ BID, 0, selectedConceptName));
+                dayNames.Add(day);
+            }
+
         }
 
         #endregion

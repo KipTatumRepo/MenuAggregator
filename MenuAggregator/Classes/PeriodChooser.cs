@@ -11,8 +11,18 @@ using System.Windows.Media;
 
 namespace MenuAggregator.Classes
 {
-    public class PeriodChooser : DockPanel
+    public class PeriodChooser : DockPanel, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(PropertyChangedEventArgs e)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, e);
+            }
+        }
+
         private int _currentperiod;
         private WeekChooser Week;
         public int HeldPeriod;
@@ -47,6 +57,7 @@ namespace MenuAggregator.Classes
                         }
                     }
                 }
+                NotifyPropertyChanged(new PropertyChangedEventArgs("Week"));
             }
         }
 
