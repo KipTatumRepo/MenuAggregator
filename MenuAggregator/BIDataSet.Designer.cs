@@ -24,7 +24,7 @@ namespace MenuAggregator {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class BIDataSet : global::System.Data.DataSet {
         
-        private MasterBuildingListDataTable tableMasterBuildingList;
+        private LOCATIONSDataTable tableLOCATIONS;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace MenuAggregator {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["MasterBuildingList"] != null)) {
-                    base.Tables.Add(new MasterBuildingListDataTable(ds.Tables["MasterBuildingList"]));
+                if ((ds.Tables["LOCATIONS"] != null)) {
+                    base.Tables.Add(new LOCATIONSDataTable(ds.Tables["LOCATIONS"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace MenuAggregator {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public MasterBuildingListDataTable MasterBuildingList {
+        public LOCATIONSDataTable LOCATIONS {
             get {
-                return this.tableMasterBuildingList;
+                return this.tableLOCATIONS;
             }
         }
         
@@ -152,8 +152,8 @@ namespace MenuAggregator {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["MasterBuildingList"] != null)) {
-                    base.Tables.Add(new MasterBuildingListDataTable(ds.Tables["MasterBuildingList"]));
+                if ((ds.Tables["LOCATIONS"] != null)) {
+                    base.Tables.Add(new LOCATIONSDataTable(ds.Tables["LOCATIONS"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace MenuAggregator {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableMasterBuildingList = ((MasterBuildingListDataTable)(base.Tables["MasterBuildingList"]));
+            this.tableLOCATIONS = ((LOCATIONSDataTable)(base.Tables["LOCATIONS"]));
             if ((initTable == true)) {
-                if ((this.tableMasterBuildingList != null)) {
-                    this.tableMasterBuildingList.InitVars();
+                if ((this.tableLOCATIONS != null)) {
+                    this.tableLOCATIONS.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace MenuAggregator {
             this.Namespace = "http://tempuri.org/BIDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableMasterBuildingList = new MasterBuildingListDataTable();
-            base.Tables.Add(this.tableMasterBuildingList);
+            this.tableLOCATIONS = new LOCATIONSDataTable();
+            base.Tables.Add(this.tableLOCATIONS);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeMasterBuildingList() {
+        private bool ShouldSerializeLOCATIONS() {
             return false;
         }
         
@@ -270,35 +270,57 @@ namespace MenuAggregator {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void MasterBuildingListRowChangeEventHandler(object sender, MasterBuildingListRowChangeEvent e);
+        public delegate void LOCATIONSRowChangeEventHandler(object sender, LOCATIONSRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class MasterBuildingListDataTable : global::System.Data.TypedTableBase<MasterBuildingListRow> {
+        public partial class LOCATIONSDataTable : global::System.Data.TypedTableBase<LOCATIONSRow> {
             
-            private global::System.Data.DataColumn columnPID;
+            private global::System.Data.DataColumn columnprofit_center_id;
             
-            private global::System.Data.DataColumn columnBuildingName;
+            private global::System.Data.DataColumn columnprofit_center_name;
             
-            private global::System.Data.DataColumn columnMSCampus;
+            private global::System.Data.DataColumn columnUnit;
             
-            private global::System.Data.DataColumn columnParticipationCampus;
+            private global::System.Data.DataColumn columnGroup;
             
-            private global::System.Data.DataColumn columnTotalSeats;
+            private global::System.Data.DataColumn columnUnit_Number;
             
-            private global::System.Data.DataColumn columnSqFt;
+            private global::System.Data.DataColumn columnLatitude;
             
-            private global::System.Data.DataColumn columnLat;
+            private global::System.Data.DataColumn columnLongitude;
             
-            private global::System.Data.DataColumn columnLong;
+            private global::System.Data.DataColumn columnAddress;
+            
+            private global::System.Data.DataColumn columnCity;
+            
+            private global::System.Data.DataColumn columnState;
+            
+            private global::System.Data.DataColumn columnZIP_Code;
+            
+            private global::System.Data.DataColumn columnDM;
+            
+            private global::System.Data.DataColumn columnFlashType;
+            
+            private global::System.Data.DataColumn columnTotalSqFt;
+            
+            private global::System.Data.DataColumn columnBOHSqFt;
+            
+            private global::System.Data.DataColumn columnFOHSqFt;
+            
+            private global::System.Data.DataColumn columnEspressoSqFt;
+            
+            private global::System.Data.DataColumn columnMSNeighborhood;
+            
+            private global::System.Data.DataColumn columnParticipationNeighborhood;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MasterBuildingListDataTable() {
-                this.TableName = "MasterBuildingList";
+            public LOCATIONSDataTable() {
+                this.TableName = "LOCATIONS";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -306,7 +328,7 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal MasterBuildingListDataTable(global::System.Data.DataTable table) {
+            internal LOCATIONSDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -323,72 +345,160 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected MasterBuildingListDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected LOCATIONSDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn PIDColumn {
+            public global::System.Data.DataColumn profit_center_idColumn {
                 get {
-                    return this.columnPID;
+                    return this.columnprofit_center_id;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn BuildingNameColumn {
+            public global::System.Data.DataColumn profit_center_nameColumn {
                 get {
-                    return this.columnBuildingName;
+                    return this.columnprofit_center_name;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn MSCampusColumn {
+            public global::System.Data.DataColumn UnitColumn {
                 get {
-                    return this.columnMSCampus;
+                    return this.columnUnit;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ParticipationCampusColumn {
+            public global::System.Data.DataColumn GroupColumn {
                 get {
-                    return this.columnParticipationCampus;
+                    return this.columnGroup;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn TotalSeatsColumn {
+            public global::System.Data.DataColumn Unit_NumberColumn {
                 get {
-                    return this.columnTotalSeats;
+                    return this.columnUnit_Number;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn SqFtColumn {
+            public global::System.Data.DataColumn LatitudeColumn {
                 get {
-                    return this.columnSqFt;
+                    return this.columnLatitude;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn LatColumn {
+            public global::System.Data.DataColumn LongitudeColumn {
                 get {
-                    return this.columnLat;
+                    return this.columnLongitude;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn LongColumn {
+            public global::System.Data.DataColumn AddressColumn {
                 get {
-                    return this.columnLong;
+                    return this.columnAddress;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CityColumn {
+                get {
+                    return this.columnCity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn StateColumn {
+                get {
+                    return this.columnState;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ZIP_CodeColumn {
+                get {
+                    return this.columnZIP_Code;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DMColumn {
+                get {
+                    return this.columnDM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn FlashTypeColumn {
+                get {
+                    return this.columnFlashType;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn TotalSqFtColumn {
+                get {
+                    return this.columnTotalSqFt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn BOHSqFtColumn {
+                get {
+                    return this.columnBOHSqFt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn FOHSqFtColumn {
+                get {
+                    return this.columnFOHSqFt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn EspressoSqFtColumn {
+                get {
+                    return this.columnEspressoSqFt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn MSNeighborhoodColumn {
+                get {
+                    return this.columnMSNeighborhood;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ParticipationNeighborhoodColumn {
+                get {
+                    return this.columnParticipationNeighborhood;
                 }
             }
             
@@ -403,59 +513,90 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MasterBuildingListRow this[int index] {
+            public LOCATIONSRow this[int index] {
                 get {
-                    return ((MasterBuildingListRow)(this.Rows[index]));
+                    return ((LOCATIONSRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event MasterBuildingListRowChangeEventHandler MasterBuildingListRowChanging;
+            public event LOCATIONSRowChangeEventHandler LOCATIONSRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event MasterBuildingListRowChangeEventHandler MasterBuildingListRowChanged;
+            public event LOCATIONSRowChangeEventHandler LOCATIONSRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event MasterBuildingListRowChangeEventHandler MasterBuildingListRowDeleting;
+            public event LOCATIONSRowChangeEventHandler LOCATIONSRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event MasterBuildingListRowChangeEventHandler MasterBuildingListRowDeleted;
+            public event LOCATIONSRowChangeEventHandler LOCATIONSRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddMasterBuildingListRow(MasterBuildingListRow row) {
+            public void AddLOCATIONSRow(LOCATIONSRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MasterBuildingListRow AddMasterBuildingListRow(string BuildingName, string MSCampus, string ParticipationCampus, int TotalSeats, long SqFt, decimal Lat, decimal Long) {
-                MasterBuildingListRow rowMasterBuildingListRow = ((MasterBuildingListRow)(this.NewRow()));
+            public LOCATIONSRow AddLOCATIONSRow(
+                        int profit_center_id, 
+                        string profit_center_name, 
+                        string Unit, 
+                        string Group, 
+                        int Unit_Number, 
+                        decimal Latitude, 
+                        decimal Longitude, 
+                        string Address, 
+                        string City, 
+                        string State, 
+                        string ZIP_Code, 
+                        string DM, 
+                        byte FlashType, 
+                        long TotalSqFt, 
+                        long BOHSqFt, 
+                        long FOHSqFt, 
+                        long EspressoSqFt, 
+                        string MSNeighborhood, 
+                        string ParticipationNeighborhood) {
+                LOCATIONSRow rowLOCATIONSRow = ((LOCATIONSRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
-                        BuildingName,
-                        MSCampus,
-                        ParticipationCampus,
-                        TotalSeats,
-                        SqFt,
-                        Lat,
-                        Long};
-                rowMasterBuildingListRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowMasterBuildingListRow);
-                return rowMasterBuildingListRow;
+                        profit_center_id,
+                        profit_center_name,
+                        Unit,
+                        Group,
+                        Unit_Number,
+                        Latitude,
+                        Longitude,
+                        Address,
+                        City,
+                        State,
+                        ZIP_Code,
+                        DM,
+                        FlashType,
+                        TotalSqFt,
+                        BOHSqFt,
+                        FOHSqFt,
+                        EspressoSqFt,
+                        MSNeighborhood,
+                        ParticipationNeighborhood};
+                rowLOCATIONSRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowLOCATIONSRow);
+                return rowLOCATIONSRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MasterBuildingListRow FindByPID(long PID) {
-                return ((MasterBuildingListRow)(this.Rows.Find(new object[] {
-                            PID})));
+            public LOCATIONSRow FindByprofit_center_idUnit_Number(int profit_center_id, int Unit_Number) {
+                return ((LOCATIONSRow)(this.Rows.Find(new object[] {
+                            profit_center_id,
+                            Unit_Number})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                MasterBuildingListDataTable cln = ((MasterBuildingListDataTable)(base.Clone()));
+                LOCATIONSDataTable cln = ((LOCATIONSDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -463,83 +604,115 @@ namespace MenuAggregator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new MasterBuildingListDataTable();
+                return new LOCATIONSDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
-                this.columnPID = base.Columns["PID"];
-                this.columnBuildingName = base.Columns["BuildingName"];
-                this.columnMSCampus = base.Columns["MSCampus"];
-                this.columnParticipationCampus = base.Columns["ParticipationCampus"];
-                this.columnTotalSeats = base.Columns["TotalSeats"];
-                this.columnSqFt = base.Columns["SqFt"];
-                this.columnLat = base.Columns["Lat"];
-                this.columnLong = base.Columns["Long"];
+                this.columnprofit_center_id = base.Columns["profit_center_id"];
+                this.columnprofit_center_name = base.Columns["profit_center_name"];
+                this.columnUnit = base.Columns["Unit"];
+                this.columnGroup = base.Columns["Group"];
+                this.columnUnit_Number = base.Columns["Unit_Number"];
+                this.columnLatitude = base.Columns["Latitude"];
+                this.columnLongitude = base.Columns["Longitude"];
+                this.columnAddress = base.Columns["Address"];
+                this.columnCity = base.Columns["City"];
+                this.columnState = base.Columns["State"];
+                this.columnZIP_Code = base.Columns["ZIP Code"];
+                this.columnDM = base.Columns["DM"];
+                this.columnFlashType = base.Columns["FlashType"];
+                this.columnTotalSqFt = base.Columns["TotalSqFt"];
+                this.columnBOHSqFt = base.Columns["BOHSqFt"];
+                this.columnFOHSqFt = base.Columns["FOHSqFt"];
+                this.columnEspressoSqFt = base.Columns["EspressoSqFt"];
+                this.columnMSNeighborhood = base.Columns["MSNeighborhood"];
+                this.columnParticipationNeighborhood = base.Columns["ParticipationNeighborhood"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnPID = new global::System.Data.DataColumn("PID", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPID);
-                this.columnBuildingName = new global::System.Data.DataColumn("BuildingName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBuildingName);
-                this.columnMSCampus = new global::System.Data.DataColumn("MSCampus", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMSCampus);
-                this.columnParticipationCampus = new global::System.Data.DataColumn("ParticipationCampus", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnParticipationCampus);
-                this.columnTotalSeats = new global::System.Data.DataColumn("TotalSeats", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotalSeats);
-                this.columnSqFt = new global::System.Data.DataColumn("SqFt", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSqFt);
-                this.columnLat = new global::System.Data.DataColumn("Lat", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLat);
-                this.columnLong = new global::System.Data.DataColumn("Long", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLong);
+                this.columnprofit_center_id = new global::System.Data.DataColumn("profit_center_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprofit_center_id);
+                this.columnprofit_center_name = new global::System.Data.DataColumn("profit_center_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprofit_center_name);
+                this.columnUnit = new global::System.Data.DataColumn("Unit", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUnit);
+                this.columnGroup = new global::System.Data.DataColumn("Group", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGroup);
+                this.columnUnit_Number = new global::System.Data.DataColumn("Unit_Number", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUnit_Number);
+                this.columnLatitude = new global::System.Data.DataColumn("Latitude", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLatitude);
+                this.columnLongitude = new global::System.Data.DataColumn("Longitude", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLongitude);
+                this.columnAddress = new global::System.Data.DataColumn("Address", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAddress);
+                this.columnCity = new global::System.Data.DataColumn("City", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCity);
+                this.columnState = new global::System.Data.DataColumn("State", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnState);
+                this.columnZIP_Code = new global::System.Data.DataColumn("ZIP Code", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnZIP_Code);
+                this.columnDM = new global::System.Data.DataColumn("DM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDM);
+                this.columnFlashType = new global::System.Data.DataColumn("FlashType", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFlashType);
+                this.columnTotalSqFt = new global::System.Data.DataColumn("TotalSqFt", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalSqFt);
+                this.columnBOHSqFt = new global::System.Data.DataColumn("BOHSqFt", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBOHSqFt);
+                this.columnFOHSqFt = new global::System.Data.DataColumn("FOHSqFt", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFOHSqFt);
+                this.columnEspressoSqFt = new global::System.Data.DataColumn("EspressoSqFt", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEspressoSqFt);
+                this.columnMSNeighborhood = new global::System.Data.DataColumn("MSNeighborhood", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMSNeighborhood);
+                this.columnParticipationNeighborhood = new global::System.Data.DataColumn("ParticipationNeighborhood", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnParticipationNeighborhood);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnPID}, true));
-                this.columnPID.AutoIncrement = true;
-                this.columnPID.AutoIncrementSeed = -1;
-                this.columnPID.AutoIncrementStep = -1;
-                this.columnPID.AllowDBNull = false;
-                this.columnPID.ReadOnly = true;
-                this.columnPID.Unique = true;
-                this.columnBuildingName.AllowDBNull = false;
-                this.columnBuildingName.MaxLength = 64;
-                this.columnMSCampus.AllowDBNull = false;
-                this.columnMSCampus.MaxLength = 50;
-                this.columnParticipationCampus.AllowDBNull = false;
-                this.columnParticipationCampus.MaxLength = 50;
-                this.columnTotalSeats.AllowDBNull = false;
-                this.columnSqFt.AllowDBNull = false;
+                                this.columnprofit_center_id,
+                                this.columnUnit_Number}, true));
+                this.columnprofit_center_id.AllowDBNull = false;
+                this.columnprofit_center_name.MaxLength = 50;
+                this.columnUnit.MaxLength = 50;
+                this.columnGroup.MaxLength = 50;
+                this.columnUnit_Number.AllowDBNull = false;
+                this.columnAddress.MaxLength = 255;
+                this.columnCity.MaxLength = 50;
+                this.columnState.MaxLength = 2;
+                this.columnZIP_Code.MaxLength = 5;
+                this.columnDM.MaxLength = 50;
+                this.columnMSNeighborhood.MaxLength = 2147483647;
+                this.columnParticipationNeighborhood.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MasterBuildingListRow NewMasterBuildingListRow() {
-                return ((MasterBuildingListRow)(this.NewRow()));
+            public LOCATIONSRow NewLOCATIONSRow() {
+                return ((LOCATIONSRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new MasterBuildingListRow(builder);
+                return new LOCATIONSRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(MasterBuildingListRow);
+                return typeof(LOCATIONSRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.MasterBuildingListRowChanged != null)) {
-                    this.MasterBuildingListRowChanged(this, new MasterBuildingListRowChangeEvent(((MasterBuildingListRow)(e.Row)), e.Action));
+                if ((this.LOCATIONSRowChanged != null)) {
+                    this.LOCATIONSRowChanged(this, new LOCATIONSRowChangeEvent(((LOCATIONSRow)(e.Row)), e.Action));
                 }
             }
             
@@ -547,8 +720,8 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.MasterBuildingListRowChanging != null)) {
-                    this.MasterBuildingListRowChanging(this, new MasterBuildingListRowChangeEvent(((MasterBuildingListRow)(e.Row)), e.Action));
+                if ((this.LOCATIONSRowChanging != null)) {
+                    this.LOCATIONSRowChanging(this, new LOCATIONSRowChangeEvent(((LOCATIONSRow)(e.Row)), e.Action));
                 }
             }
             
@@ -556,8 +729,8 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.MasterBuildingListRowDeleted != null)) {
-                    this.MasterBuildingListRowDeleted(this, new MasterBuildingListRowChangeEvent(((MasterBuildingListRow)(e.Row)), e.Action));
+                if ((this.LOCATIONSRowDeleted != null)) {
+                    this.LOCATIONSRowDeleted(this, new LOCATIONSRowChangeEvent(((LOCATIONSRow)(e.Row)), e.Action));
                 }
             }
             
@@ -565,14 +738,14 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.MasterBuildingListRowDeleting != null)) {
-                    this.MasterBuildingListRowDeleting(this, new MasterBuildingListRowChangeEvent(((MasterBuildingListRow)(e.Row)), e.Action));
+                if ((this.LOCATIONSRowDeleting != null)) {
+                    this.LOCATIONSRowDeleting(this, new LOCATIONSRowChangeEvent(((LOCATIONSRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveMasterBuildingListRow(MasterBuildingListRow row) {
+            public void RemoveLOCATIONSRow(LOCATIONSRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -599,7 +772,7 @@ namespace MenuAggregator {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "MasterBuildingListDataTable";
+                attribute2.FixedValue = "LOCATIONSDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -643,137 +816,513 @@ namespace MenuAggregator {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class MasterBuildingListRow : global::System.Data.DataRow {
+        public partial class LOCATIONSRow : global::System.Data.DataRow {
             
-            private MasterBuildingListDataTable tableMasterBuildingList;
+            private LOCATIONSDataTable tableLOCATIONS;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal MasterBuildingListRow(global::System.Data.DataRowBuilder rb) : 
+            internal LOCATIONSRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableMasterBuildingList = ((MasterBuildingListDataTable)(this.Table));
+                this.tableLOCATIONS = ((LOCATIONSDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public long PID {
+            public int profit_center_id {
                 get {
-                    return ((long)(this[this.tableMasterBuildingList.PIDColumn]));
+                    return ((int)(this[this.tableLOCATIONS.profit_center_idColumn]));
                 }
                 set {
-                    this[this.tableMasterBuildingList.PIDColumn] = value;
+                    this[this.tableLOCATIONS.profit_center_idColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string BuildingName {
-                get {
-                    return ((string)(this[this.tableMasterBuildingList.BuildingNameColumn]));
-                }
-                set {
-                    this[this.tableMasterBuildingList.BuildingNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string MSCampus {
-                get {
-                    return ((string)(this[this.tableMasterBuildingList.MSCampusColumn]));
-                }
-                set {
-                    this[this.tableMasterBuildingList.MSCampusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string ParticipationCampus {
-                get {
-                    return ((string)(this[this.tableMasterBuildingList.ParticipationCampusColumn]));
-                }
-                set {
-                    this[this.tableMasterBuildingList.ParticipationCampusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int TotalSeats {
-                get {
-                    return ((int)(this[this.tableMasterBuildingList.TotalSeatsColumn]));
-                }
-                set {
-                    this[this.tableMasterBuildingList.TotalSeatsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public long SqFt {
-                get {
-                    return ((long)(this[this.tableMasterBuildingList.SqFtColumn]));
-                }
-                set {
-                    this[this.tableMasterBuildingList.SqFtColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal Lat {
+            public string profit_center_name {
                 get {
                     try {
-                        return ((decimal)(this[this.tableMasterBuildingList.LatColumn]));
+                        return ((string)(this[this.tableLOCATIONS.profit_center_nameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Lat\' in table \'MasterBuildingList\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'profit_center_name\' in table \'LOCATIONS\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMasterBuildingList.LatColumn] = value;
+                    this[this.tableLOCATIONS.profit_center_nameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal Long {
+            public string Unit {
                 get {
                     try {
-                        return ((decimal)(this[this.tableMasterBuildingList.LongColumn]));
+                        return ((string)(this[this.tableLOCATIONS.UnitColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Long\' in table \'MasterBuildingList\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Unit\' in table \'LOCATIONS\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMasterBuildingList.LongColumn] = value;
+                    this[this.tableLOCATIONS.UnitColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsLatNull() {
-                return this.IsNull(this.tableMasterBuildingList.LatColumn);
+            public string Group {
+                get {
+                    try {
+                        return ((string)(this[this.tableLOCATIONS.GroupColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Group\' in table \'LOCATIONS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableLOCATIONS.GroupColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetLatNull() {
-                this[this.tableMasterBuildingList.LatColumn] = global::System.Convert.DBNull;
+            public int Unit_Number {
+                get {
+                    return ((int)(this[this.tableLOCATIONS.Unit_NumberColumn]));
+                }
+                set {
+                    this[this.tableLOCATIONS.Unit_NumberColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsLongNull() {
-                return this.IsNull(this.tableMasterBuildingList.LongColumn);
+            public decimal Latitude {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableLOCATIONS.LatitudeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Latitude\' in table \'LOCATIONS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableLOCATIONS.LatitudeColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetLongNull() {
-                this[this.tableMasterBuildingList.LongColumn] = global::System.Convert.DBNull;
+            public decimal Longitude {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableLOCATIONS.LongitudeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Longitude\' in table \'LOCATIONS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableLOCATIONS.LongitudeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Address {
+                get {
+                    try {
+                        return ((string)(this[this.tableLOCATIONS.AddressColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Address\' in table \'LOCATIONS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableLOCATIONS.AddressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string City {
+                get {
+                    try {
+                        return ((string)(this[this.tableLOCATIONS.CityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'City\' in table \'LOCATIONS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableLOCATIONS.CityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string State {
+                get {
+                    try {
+                        return ((string)(this[this.tableLOCATIONS.StateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'State\' in table \'LOCATIONS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableLOCATIONS.StateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ZIP_Code {
+                get {
+                    try {
+                        return ((string)(this[this.tableLOCATIONS.ZIP_CodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ZIP Code\' in table \'LOCATIONS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableLOCATIONS.ZIP_CodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string DM {
+                get {
+                    try {
+                        return ((string)(this[this.tableLOCATIONS.DMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DM\' in table \'LOCATIONS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableLOCATIONS.DMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public byte FlashType {
+                get {
+                    try {
+                        return ((byte)(this[this.tableLOCATIONS.FlashTypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FlashType\' in table \'LOCATIONS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableLOCATIONS.FlashTypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public long TotalSqFt {
+                get {
+                    try {
+                        return ((long)(this[this.tableLOCATIONS.TotalSqFtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalSqFt\' in table \'LOCATIONS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableLOCATIONS.TotalSqFtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public long BOHSqFt {
+                get {
+                    try {
+                        return ((long)(this[this.tableLOCATIONS.BOHSqFtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BOHSqFt\' in table \'LOCATIONS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableLOCATIONS.BOHSqFtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public long FOHSqFt {
+                get {
+                    try {
+                        return ((long)(this[this.tableLOCATIONS.FOHSqFtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FOHSqFt\' in table \'LOCATIONS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableLOCATIONS.FOHSqFtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public long EspressoSqFt {
+                get {
+                    try {
+                        return ((long)(this[this.tableLOCATIONS.EspressoSqFtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'EspressoSqFt\' in table \'LOCATIONS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableLOCATIONS.EspressoSqFtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string MSNeighborhood {
+                get {
+                    try {
+                        return ((string)(this[this.tableLOCATIONS.MSNeighborhoodColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MSNeighborhood\' in table \'LOCATIONS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableLOCATIONS.MSNeighborhoodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ParticipationNeighborhood {
+                get {
+                    try {
+                        return ((string)(this[this.tableLOCATIONS.ParticipationNeighborhoodColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ParticipationNeighborhood\' in table \'LOCATIONS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableLOCATIONS.ParticipationNeighborhoodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Isprofit_center_nameNull() {
+                return this.IsNull(this.tableLOCATIONS.profit_center_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Setprofit_center_nameNull() {
+                this[this.tableLOCATIONS.profit_center_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsUnitNull() {
+                return this.IsNull(this.tableLOCATIONS.UnitColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetUnitNull() {
+                this[this.tableLOCATIONS.UnitColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsGroupNull() {
+                return this.IsNull(this.tableLOCATIONS.GroupColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetGroupNull() {
+                this[this.tableLOCATIONS.GroupColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsLatitudeNull() {
+                return this.IsNull(this.tableLOCATIONS.LatitudeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetLatitudeNull() {
+                this[this.tableLOCATIONS.LatitudeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsLongitudeNull() {
+                return this.IsNull(this.tableLOCATIONS.LongitudeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetLongitudeNull() {
+                this[this.tableLOCATIONS.LongitudeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsAddressNull() {
+                return this.IsNull(this.tableLOCATIONS.AddressColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetAddressNull() {
+                this[this.tableLOCATIONS.AddressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsCityNull() {
+                return this.IsNull(this.tableLOCATIONS.CityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetCityNull() {
+                this[this.tableLOCATIONS.CityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsStateNull() {
+                return this.IsNull(this.tableLOCATIONS.StateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetStateNull() {
+                this[this.tableLOCATIONS.StateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsZIP_CodeNull() {
+                return this.IsNull(this.tableLOCATIONS.ZIP_CodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetZIP_CodeNull() {
+                this[this.tableLOCATIONS.ZIP_CodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDMNull() {
+                return this.IsNull(this.tableLOCATIONS.DMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDMNull() {
+                this[this.tableLOCATIONS.DMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsFlashTypeNull() {
+                return this.IsNull(this.tableLOCATIONS.FlashTypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetFlashTypeNull() {
+                this[this.tableLOCATIONS.FlashTypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsTotalSqFtNull() {
+                return this.IsNull(this.tableLOCATIONS.TotalSqFtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetTotalSqFtNull() {
+                this[this.tableLOCATIONS.TotalSqFtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsBOHSqFtNull() {
+                return this.IsNull(this.tableLOCATIONS.BOHSqFtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetBOHSqFtNull() {
+                this[this.tableLOCATIONS.BOHSqFtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsFOHSqFtNull() {
+                return this.IsNull(this.tableLOCATIONS.FOHSqFtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetFOHSqFtNull() {
+                this[this.tableLOCATIONS.FOHSqFtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsEspressoSqFtNull() {
+                return this.IsNull(this.tableLOCATIONS.EspressoSqFtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetEspressoSqFtNull() {
+                this[this.tableLOCATIONS.EspressoSqFtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsMSNeighborhoodNull() {
+                return this.IsNull(this.tableLOCATIONS.MSNeighborhoodColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetMSNeighborhoodNull() {
+                this[this.tableLOCATIONS.MSNeighborhoodColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsParticipationNeighborhoodNull() {
+                return this.IsNull(this.tableLOCATIONS.ParticipationNeighborhoodColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetParticipationNeighborhoodNull() {
+                this[this.tableLOCATIONS.ParticipationNeighborhoodColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -781,22 +1330,22 @@ namespace MenuAggregator {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class MasterBuildingListRowChangeEvent : global::System.EventArgs {
+        public class LOCATIONSRowChangeEvent : global::System.EventArgs {
             
-            private MasterBuildingListRow eventRow;
+            private LOCATIONSRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MasterBuildingListRowChangeEvent(MasterBuildingListRow row, global::System.Data.DataRowAction action) {
+            public LOCATIONSRowChangeEvent(LOCATIONSRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MasterBuildingListRow Row {
+            public LOCATIONSRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -824,7 +1373,7 @@ namespace MenuAggregator.BIDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class MasterBuildingListTableAdapter : global::System.ComponentModel.Component {
+    public partial class LOCATIONSTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -838,7 +1387,7 @@ namespace MenuAggregator.BIDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public MasterBuildingListTableAdapter() {
+        public LOCATIONSTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -935,65 +1484,170 @@ namespace MenuAggregator.BIDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "MasterBuildingList";
-            tableMapping.ColumnMappings.Add("PID", "PID");
-            tableMapping.ColumnMappings.Add("BuildingName", "BuildingName");
-            tableMapping.ColumnMappings.Add("MSCampus", "MSCampus");
-            tableMapping.ColumnMappings.Add("ParticipationCampus", "ParticipationCampus");
-            tableMapping.ColumnMappings.Add("TotalSeats", "TotalSeats");
-            tableMapping.ColumnMappings.Add("SqFt", "SqFt");
-            tableMapping.ColumnMappings.Add("Lat", "Lat");
-            tableMapping.ColumnMappings.Add("Long", "Long");
+            tableMapping.DataSetTable = "LOCATIONS";
+            tableMapping.ColumnMappings.Add("profit_center_id", "profit_center_id");
+            tableMapping.ColumnMappings.Add("profit_center_name", "profit_center_name");
+            tableMapping.ColumnMappings.Add("Unit", "Unit");
+            tableMapping.ColumnMappings.Add("Group", "Group");
+            tableMapping.ColumnMappings.Add("Unit_Number", "Unit_Number");
+            tableMapping.ColumnMappings.Add("Latitude", "Latitude");
+            tableMapping.ColumnMappings.Add("Longitude", "Longitude");
+            tableMapping.ColumnMappings.Add("Address", "Address");
+            tableMapping.ColumnMappings.Add("City", "City");
+            tableMapping.ColumnMappings.Add("State", "State");
+            tableMapping.ColumnMappings.Add("ZIP Code", "ZIP Code");
+            tableMapping.ColumnMappings.Add("DM", "DM");
+            tableMapping.ColumnMappings.Add("FlashType", "FlashType");
+            tableMapping.ColumnMappings.Add("TotalSqFt", "TotalSqFt");
+            tableMapping.ColumnMappings.Add("BOHSqFt", "BOHSqFt");
+            tableMapping.ColumnMappings.Add("FOHSqFt", "FOHSqFt");
+            tableMapping.ColumnMappings.Add("EspressoSqFt", "EspressoSqFt");
+            tableMapping.ColumnMappings.Add("MSNeighborhood", "MSNeighborhood");
+            tableMapping.ColumnMappings.Add("ParticipationNeighborhood", "ParticipationNeighborhood");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[MasterBuildingList] WHERE (([PID] = @Original_PID) AND ([BuildingName] = @Original_BuildingName) AND ([MSCampus] = @Original_MSCampus) AND ([ParticipationCampus] = @Original_ParticipationCampus) AND ([TotalSeats] = @Original_TotalSeats) AND ([SqFt] = @Original_SqFt) AND ((@IsNull_Lat = 1 AND [Lat] IS NULL) OR ([Lat] = @Original_Lat)) AND ((@IsNull_Long = 1 AND [Long] IS NULL) OR ([Long] = @Original_Long)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[LOCATIONS] WHERE (([profit_center_id] = @Original_profit_center_id) AND ((@IsNull_profit_center_name = 1 AND [profit_center_name] IS NULL) OR ([profit_center_name] = @Original_profit_center_name)) AND ((@IsNull_Unit = 1 AND [Unit] IS NULL) OR ([Unit] = @Original_Unit)) AND ((@IsNull_Group = 1 AND [Group] IS NULL) OR ([Group] = @Original_Group)) AND ([Unit_Number] = @Original_Unit_Number) AND ((@IsNull_Latitude = 1 AND [Latitude] IS NULL) OR ([Latitude] = @Original_Latitude)) AND ((@IsNull_Longitude = 1 AND [Longitude] IS NULL) OR ([Longitude] = @Original_Longitude)) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)) AND ((@IsNull_City = 1 AND [City] IS NULL) OR ([City] = @Original_City)) AND ((@IsNull_State = 1 AND [State] IS NULL) OR ([State] = @Original_State)) AND ((@IsNull_ZIP_Code = 1 AND [ZIP Code] IS NULL) OR ([ZIP Code] = @Original_ZIP_Code)) AND ((@IsNull_DM = 1 AND [DM] IS NULL) OR ([DM] = @Original_DM)) AND ((@IsNull_FlashType = 1 AND [FlashType] IS NULL) OR ([FlashType] = @Original_FlashType)) AND ((@IsNull_TotalSqFt = 1 AND [TotalSqFt] IS NULL) OR ([TotalSqFt] = @Original_TotalSqFt)) AND ((@IsNull_BOHSqFt = 1 AND [BOHSqFt] IS NULL) OR ([BOHSqFt] = @Original_BOHSqFt)) AND ((@IsNull_FOHSqFt = 1 AND [FOHSqFt] IS NULL) OR ([FOHSqFt] = @Original_FOHSqFt)) AND ((@IsNull_EspressoSqFt = 1 AND [EspressoSqFt] IS NULL) OR ([EspressoSqFt] = @Original_EspressoSqFt)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PID", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BuildingName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BuildingName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MSCampus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MSCampus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ParticipationCampus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ParticipationCampus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalSeats", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalSeats", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SqFt", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SqFt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Lat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Lat", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Lat", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 6, "Lat", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Long", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Long", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Long", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 6, "Long", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_profit_center_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "profit_center_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_profit_center_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "profit_center_name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_profit_center_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "profit_center_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Unit", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Unit", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Unit", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Unit", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Group", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Group", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Group", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Group", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Unit_Number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Unit_Number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Latitude", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Latitude", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Latitude", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 7, "Latitude", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Longitude", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Longitude", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Longitude", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 7, "Longitude", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Address", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_City", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "City", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_City", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "City", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_State", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "State", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_State", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "State", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ZIP_Code", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZIP Code", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ZIP_Code", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZIP Code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DM", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DM", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DM", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FlashType", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FlashType", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FlashType", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FlashType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TotalSqFt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalSqFt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalSqFt", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalSqFt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BOHSqFt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BOHSqFt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BOHSqFt", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BOHSqFt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FOHSqFt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FOHSqFt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FOHSqFt", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FOHSqFt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_EspressoSqFt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EspressoSqFt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EspressoSqFt", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EspressoSqFt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[MasterBuildingList] ([BuildingName], [MSCampus], [ParticipationCampus], [TotalSeats], [SqFt], [Lat], [Long]) VALUES (@BuildingName, @MSCampus, @ParticipationCampus, @TotalSeats, @SqFt, @Lat, @Long);
-SELECT PID, BuildingName, MSCampus, ParticipationCampus, TotalSeats, SqFt, Lat, Long FROM MasterBuildingList WHERE (PID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[LOCATIONS] ([profit_center_id], [profit_center_name], [Unit], [Group], [Unit_Number], [Latitude], [Longitude], [Address], [City], [State], [ZIP Code], [DM], [FlashType], [TotalSqFt], [BOHSqFt], [FOHSqFt], [EspressoSqFt], [MSNeighborhood], [ParticipationNeighborhood]) VALUES (@profit_center_id, @profit_center_name, @Unit, @Group, @Unit_Number, @Latitude, @Longitude, @Address, @City, @State, @ZIP_Code, @DM, @FlashType, @TotalSqFt, @BOHSqFt, @FOHSqFt, @EspressoSqFt, @MSNeighborhood, @ParticipationNeighborhood);
+SELECT profit_center_id, profit_center_name, Unit, [Group], Unit_Number, Latitude, Longitude, Address, City, State, [ZIP Code], DM, FlashType, TotalSqFt, BOHSqFt, FOHSqFt, EspressoSqFt, MSNeighborhood, ParticipationNeighborhood FROM LOCATIONS WHERE (Unit_Number = @Unit_Number) AND (profit_center_id = @profit_center_id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BuildingName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BuildingName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MSCampus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MSCampus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ParticipationCampus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ParticipationCampus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalSeats", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalSeats", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SqFt", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SqFt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Lat", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 6, "Lat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Long", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 6, "Long", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@profit_center_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "profit_center_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@profit_center_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "profit_center_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Unit", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Unit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Group", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Group", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Unit_Number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Unit_Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Latitude", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 7, "Latitude", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Longitude", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 7, "Longitude", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@City", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "City", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@State", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "State", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ZIP_Code", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZIP Code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DM", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FlashType", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FlashType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalSqFt", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalSqFt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BOHSqFt", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BOHSqFt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FOHSqFt", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FOHSqFt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EspressoSqFt", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EspressoSqFt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MSNeighborhood", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MSNeighborhood", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ParticipationNeighborhood", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ParticipationNeighborhood", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[MasterBuildingList] SET [BuildingName] = @BuildingName, [MSCampus] = @MSCampus, [ParticipationCampus] = @ParticipationCampus, [TotalSeats] = @TotalSeats, [SqFt] = @SqFt, [Lat] = @Lat, [Long] = @Long WHERE (([PID] = @Original_PID) AND ([BuildingName] = @Original_BuildingName) AND ([MSCampus] = @Original_MSCampus) AND ([ParticipationCampus] = @Original_ParticipationCampus) AND ([TotalSeats] = @Original_TotalSeats) AND ([SqFt] = @Original_SqFt) AND ((@IsNull_Lat = 1 AND [Lat] IS NULL) OR ([Lat] = @Original_Lat)) AND ((@IsNull_Long = 1 AND [Long] IS NULL) OR ([Long] = @Original_Long)));
-SELECT PID, BuildingName, MSCampus, ParticipationCampus, TotalSeats, SqFt, Lat, Long FROM MasterBuildingList WHERE (PID = @PID)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[LOCATIONS] SET [profit_center_id] = @profit_center_id, [profit_cent" +
+                "er_name] = @profit_center_name, [Unit] = @Unit, [Group] = @Group, [Unit_Number] " +
+                "= @Unit_Number, [Latitude] = @Latitude, [Longitude] = @Longitude, [Address] = @A" +
+                "ddress, [City] = @City, [State] = @State, [ZIP Code] = @ZIP_Code, [DM] = @DM, [F" +
+                "lashType] = @FlashType, [TotalSqFt] = @TotalSqFt, [BOHSqFt] = @BOHSqFt, [FOHSqFt" +
+                "] = @FOHSqFt, [EspressoSqFt] = @EspressoSqFt, [MSNeighborhood] = @MSNeighborhood" +
+                ", [ParticipationNeighborhood] = @ParticipationNeighborhood WHERE (([profit_cente" +
+                "r_id] = @Original_profit_center_id) AND ((@IsNull_profit_center_name = 1 AND [pr" +
+                "ofit_center_name] IS NULL) OR ([profit_center_name] = @Original_profit_center_na" +
+                "me)) AND ((@IsNull_Unit = 1 AND [Unit] IS NULL) OR ([Unit] = @Original_Unit)) AN" +
+                "D ((@IsNull_Group = 1 AND [Group] IS NULL) OR ([Group] = @Original_Group)) AND (" +
+                "[Unit_Number] = @Original_Unit_Number) AND ((@IsNull_Latitude = 1 AND [Latitude]" +
+                " IS NULL) OR ([Latitude] = @Original_Latitude)) AND ((@IsNull_Longitude = 1 AND " +
+                "[Longitude] IS NULL) OR ([Longitude] = @Original_Longitude)) AND ((@IsNull_Addre" +
+                "ss = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)) AND ((@IsNull_" +
+                "City = 1 AND [City] IS NULL) OR ([City] = @Original_City)) AND ((@IsNull_State =" +
+                " 1 AND [State] IS NULL) OR ([State] = @Original_State)) AND ((@IsNull_ZIP_Code =" +
+                " 1 AND [ZIP Code] IS NULL) OR ([ZIP Code] = @Original_ZIP_Code)) AND ((@IsNull_D" +
+                "M = 1 AND [DM] IS NULL) OR ([DM] = @Original_DM)) AND ((@IsNull_FlashType = 1 AN" +
+                "D [FlashType] IS NULL) OR ([FlashType] = @Original_FlashType)) AND ((@IsNull_Tot" +
+                "alSqFt = 1 AND [TotalSqFt] IS NULL) OR ([TotalSqFt] = @Original_TotalSqFt)) AND " +
+                "((@IsNull_BOHSqFt = 1 AND [BOHSqFt] IS NULL) OR ([BOHSqFt] = @Original_BOHSqFt))" +
+                " AND ((@IsNull_FOHSqFt = 1 AND [FOHSqFt] IS NULL) OR ([FOHSqFt] = @Original_FOHS" +
+                "qFt)) AND ((@IsNull_EspressoSqFt = 1 AND [EspressoSqFt] IS NULL) OR ([EspressoSq" +
+                "Ft] = @Original_EspressoSqFt)));\r\nSELECT profit_center_id, profit_center_name, U" +
+                "nit, [Group], Unit_Number, Latitude, Longitude, Address, City, State, [ZIP Code]" +
+                ", DM, FlashType, TotalSqFt, BOHSqFt, FOHSqFt, EspressoSqFt, MSNeighborhood, Part" +
+                "icipationNeighborhood FROM LOCATIONS WHERE (Unit_Number = @Unit_Number) AND (pro" +
+                "fit_center_id = @profit_center_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BuildingName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BuildingName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MSCampus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MSCampus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ParticipationCampus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ParticipationCampus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalSeats", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalSeats", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SqFt", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SqFt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Lat", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 6, "Lat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Long", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 6, "Long", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PID", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BuildingName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BuildingName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MSCampus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MSCampus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ParticipationCampus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ParticipationCampus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalSeats", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalSeats", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SqFt", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SqFt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Lat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Lat", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Lat", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 6, "Lat", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Long", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Long", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Long", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 6, "Long", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PID", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "PID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@profit_center_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "profit_center_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@profit_center_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "profit_center_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Unit", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Unit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Group", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Group", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Unit_Number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Unit_Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Latitude", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 7, "Latitude", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Longitude", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 7, "Longitude", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@City", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "City", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@State", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "State", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ZIP_Code", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZIP Code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DM", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FlashType", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FlashType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalSqFt", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalSqFt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BOHSqFt", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BOHSqFt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FOHSqFt", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FOHSqFt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EspressoSqFt", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EspressoSqFt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MSNeighborhood", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MSNeighborhood", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ParticipationNeighborhood", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ParticipationNeighborhood", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_profit_center_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "profit_center_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_profit_center_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "profit_center_name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_profit_center_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "profit_center_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Unit", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Unit", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Unit", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Unit", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Group", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Group", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Group", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Group", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Unit_Number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Unit_Number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Latitude", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Latitude", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Latitude", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 7, "Latitude", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Longitude", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Longitude", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Longitude", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 7, "Longitude", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Address", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_City", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "City", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_City", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "City", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_State", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "State", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_State", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "State", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ZIP_Code", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZIP Code", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ZIP_Code", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZIP Code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DM", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DM", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DM", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FlashType", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FlashType", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FlashType", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FlashType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TotalSqFt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalSqFt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalSqFt", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalSqFt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BOHSqFt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BOHSqFt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BOHSqFt", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BOHSqFt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FOHSqFt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FOHSqFt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FOHSqFt", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FOHSqFt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_EspressoSqFt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EspressoSqFt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EspressoSqFt", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EspressoSqFt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1006,19 +1660,23 @@ SELECT PID, BuildingName, MSCampus, ParticipationCampus, TotalSeats, SqFt, Lat, 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT PID, BuildingName, MSCampus, ParticipationCampus, TotalSeats, SqFt, Lat, L" +
-                "ong FROM dbo.MasterBuildingList";
+            this._commandCollection[0].CommandText = @"SELECT profit_center_id, profit_center_name, Unit, [Group], Unit_Number, Latitude, Longitude, Address, City, State, [ZIP Code], DM, FlashType, TotalSqFt, BOHSqFt, FOHSqFt, EspressoSqFt, MSNeighborhood, ParticipationNeighborhood FROM dbo.LOCATIONS
+WHERE [Group] = 'Cafes'";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT Address, BOHSqFt, City, DM, EspressoSqFt, FOHSqFt, FlashType, [Group], Latitude, Longitude, MSNeighborhood, ParticipationNeighborhood, State, TotalSqFt, Unit, Unit_Number, [ZIP Code], profit_center_id, profit_center_name FROM LOCATIONS WHERE ([Group] = 'Cafes')";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(BIDataSet.MasterBuildingListDataTable dataTable) {
+        public virtual int Fill(BIDataSet.LOCATIONSDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1031,9 +1689,9 @@ SELECT PID, BuildingName, MSCampus, ParticipationCampus, TotalSeats, SqFt, Lat, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual BIDataSet.MasterBuildingListDataTable GetData() {
+        public virtual BIDataSet.LOCATIONSDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            BIDataSet.MasterBuildingListDataTable dataTable = new BIDataSet.MasterBuildingListDataTable();
+            BIDataSet.LOCATIONSDataTable dataTable = new BIDataSet.LOCATIONSDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1041,7 +1699,31 @@ SELECT PID, BuildingName, MSCampus, ParticipationCampus, TotalSeats, SqFt, Lat, 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(BIDataSet.MasterBuildingListDataTable dataTable) {
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int CafeOnlyFill(BIDataSet.LOCATIONSDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual BIDataSet.LOCATIONSDataTable GetDataBy() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            BIDataSet.LOCATIONSDataTable dataTable = new BIDataSet.LOCATIONSDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(BIDataSet.LOCATIONSDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -1049,7 +1731,7 @@ SELECT PID, BuildingName, MSCampus, ParticipationCampus, TotalSeats, SqFt, Lat, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(BIDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "MasterBuildingList");
+            return this.Adapter.Update(dataSet, "LOCATIONS");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1071,43 +1753,145 @@ SELECT PID, BuildingName, MSCampus, ParticipationCampus, TotalSeats, SqFt, Lat, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(long Original_PID, string Original_BuildingName, string Original_MSCampus, string Original_ParticipationCampus, int Original_TotalSeats, long Original_SqFt, global::System.Nullable<decimal> Original_Lat, global::System.Nullable<decimal> Original_Long) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_PID));
-            if ((Original_BuildingName == null)) {
-                throw new global::System.ArgumentNullException("Original_BuildingName");
+        public virtual int Delete(
+                    int Original_profit_center_id, 
+                    string Original_profit_center_name, 
+                    string Original_Unit, 
+                    string Original_Group, 
+                    int Original_Unit_Number, 
+                    global::System.Nullable<decimal> Original_Latitude, 
+                    global::System.Nullable<decimal> Original_Longitude, 
+                    string Original_Address, 
+                    string Original_City, 
+                    string Original_State, 
+                    string Original_ZIP_Code, 
+                    string Original_DM, 
+                    global::System.Nullable<byte> Original_FlashType, 
+                    global::System.Nullable<long> Original_TotalSqFt, 
+                    global::System.Nullable<long> Original_BOHSqFt, 
+                    global::System.Nullable<long> Original_FOHSqFt, 
+                    global::System.Nullable<long> Original_EspressoSqFt) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_profit_center_id));
+            if ((Original_profit_center_name == null)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_BuildingName));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_profit_center_name));
             }
-            if ((Original_MSCampus == null)) {
-                throw new global::System.ArgumentNullException("Original_MSCampus");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_MSCampus));
-            }
-            if ((Original_ParticipationCampus == null)) {
-                throw new global::System.ArgumentNullException("Original_ParticipationCampus");
+            if ((Original_Unit == null)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_ParticipationCampus));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Unit));
             }
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_TotalSeats));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((long)(Original_SqFt));
-            if ((Original_Lat.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((decimal)(Original_Lat.Value));
+            if ((Original_Group == null)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Group));
             }
-            if ((Original_Long.HasValue == true)) {
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_Unit_Number));
+            if ((Original_Latitude.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((decimal)(Original_Long.Value));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((decimal)(Original_Latitude.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Longitude.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((decimal)(Original_Longitude.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Address == null)) {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_Address));
+            }
+            if ((Original_City == null)) {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_City));
+            }
+            if ((Original_State == null)) {
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_State));
+            }
+            if ((Original_ZIP_Code == null)) {
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_ZIP_Code));
+            }
+            if ((Original_DM == null)) {
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_DM));
+            }
+            if ((Original_FlashType.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((byte)(Original_FlashType.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            if ((Original_TotalSqFt.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((long)(Original_TotalSqFt.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            if ((Original_BOHSqFt.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((long)(Original_BOHSqFt.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FOHSqFt.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((long)(Original_FOHSqFt.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            if ((Original_EspressoSqFt.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((long)(Original_EspressoSqFt.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1129,38 +1913,129 @@ SELECT PID, BuildingName, MSCampus, ParticipationCampus, TotalSeats, SqFt, Lat, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string BuildingName, string MSCampus, string ParticipationCampus, int TotalSeats, long SqFt, global::System.Nullable<decimal> Lat, global::System.Nullable<decimal> Long) {
-            if ((BuildingName == null)) {
-                throw new global::System.ArgumentNullException("BuildingName");
+        public virtual int Insert(
+                    int profit_center_id, 
+                    string profit_center_name, 
+                    string Unit, 
+                    string Group, 
+                    int Unit_Number, 
+                    global::System.Nullable<decimal> Latitude, 
+                    global::System.Nullable<decimal> Longitude, 
+                    string Address, 
+                    string City, 
+                    string State, 
+                    string ZIP_Code, 
+                    string DM, 
+                    global::System.Nullable<byte> FlashType, 
+                    global::System.Nullable<long> TotalSqFt, 
+                    global::System.Nullable<long> BOHSqFt, 
+                    global::System.Nullable<long> FOHSqFt, 
+                    global::System.Nullable<long> EspressoSqFt, 
+                    string MSNeighborhood, 
+                    string ParticipationNeighborhood) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(profit_center_id));
+            if ((profit_center_name == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(BuildingName));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(profit_center_name));
             }
-            if ((MSCampus == null)) {
-                throw new global::System.ArgumentNullException("MSCampus");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(MSCampus));
-            }
-            if ((ParticipationCampus == null)) {
-                throw new global::System.ArgumentNullException("ParticipationCampus");
+            if ((Unit == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(ParticipationCampus));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Unit));
             }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(TotalSeats));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((long)(SqFt));
-            if ((Lat.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(Lat.Value));
+            if ((Group == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Group));
+            }
+            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(Unit_Number));
+            if ((Latitude.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(Latitude.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((Long.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(Long.Value));
+            if ((Longitude.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(Longitude.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Address == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Address));
+            }
+            if ((City == null)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(City));
+            }
+            if ((State == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(State));
+            }
+            if ((ZIP_Code == null)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(ZIP_Code));
+            }
+            if ((DM == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(DM));
+            }
+            if ((FlashType.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((byte)(FlashType.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((TotalSqFt.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((long)(TotalSqFt.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((BOHSqFt.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((long)(BOHSqFt.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((FOHSqFt.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((long)(FOHSqFt.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            if ((EspressoSqFt.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((long)(EspressoSqFt.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((MSNeighborhood == null)) {
+                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(MSNeighborhood));
+            }
+            if ((ParticipationNeighborhood == null)) {
+                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(ParticipationNeighborhood));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1183,92 +2058,268 @@ SELECT PID, BuildingName, MSCampus, ParticipationCampus, TotalSeats, SqFt, Lat, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    string BuildingName, 
-                    string MSCampus, 
-                    string ParticipationCampus, 
-                    int TotalSeats, 
-                    long SqFt, 
-                    global::System.Nullable<decimal> Lat, 
-                    global::System.Nullable<decimal> Long, 
-                    long Original_PID, 
-                    string Original_BuildingName, 
-                    string Original_MSCampus, 
-                    string Original_ParticipationCampus, 
-                    int Original_TotalSeats, 
-                    long Original_SqFt, 
-                    global::System.Nullable<decimal> Original_Lat, 
-                    global::System.Nullable<decimal> Original_Long, 
-                    long PID) {
-            if ((BuildingName == null)) {
-                throw new global::System.ArgumentNullException("BuildingName");
+                    int profit_center_id, 
+                    string profit_center_name, 
+                    string Unit, 
+                    string Group, 
+                    int Unit_Number, 
+                    global::System.Nullable<decimal> Latitude, 
+                    global::System.Nullable<decimal> Longitude, 
+                    string Address, 
+                    string City, 
+                    string State, 
+                    string ZIP_Code, 
+                    string DM, 
+                    global::System.Nullable<byte> FlashType, 
+                    global::System.Nullable<long> TotalSqFt, 
+                    global::System.Nullable<long> BOHSqFt, 
+                    global::System.Nullable<long> FOHSqFt, 
+                    global::System.Nullable<long> EspressoSqFt, 
+                    string MSNeighborhood, 
+                    string ParticipationNeighborhood, 
+                    int Original_profit_center_id, 
+                    string Original_profit_center_name, 
+                    string Original_Unit, 
+                    string Original_Group, 
+                    int Original_Unit_Number, 
+                    global::System.Nullable<decimal> Original_Latitude, 
+                    global::System.Nullable<decimal> Original_Longitude, 
+                    string Original_Address, 
+                    string Original_City, 
+                    string Original_State, 
+                    string Original_ZIP_Code, 
+                    string Original_DM, 
+                    global::System.Nullable<byte> Original_FlashType, 
+                    global::System.Nullable<long> Original_TotalSqFt, 
+                    global::System.Nullable<long> Original_BOHSqFt, 
+                    global::System.Nullable<long> Original_FOHSqFt, 
+                    global::System.Nullable<long> Original_EspressoSqFt) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(profit_center_id));
+            if ((profit_center_name == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(BuildingName));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(profit_center_name));
             }
-            if ((MSCampus == null)) {
-                throw new global::System.ArgumentNullException("MSCampus");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(MSCampus));
-            }
-            if ((ParticipationCampus == null)) {
-                throw new global::System.ArgumentNullException("ParticipationCampus");
+            if ((Unit == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(ParticipationCampus));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Unit));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(TotalSeats));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((long)(SqFt));
-            if ((Lat.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Lat.Value));
+            if ((Group == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Group));
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Unit_Number));
+            if ((Latitude.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Latitude.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((Long.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(Long.Value));
+            if ((Longitude.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(Longitude.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((long)(Original_PID));
-            if ((Original_BuildingName == null)) {
-                throw new global::System.ArgumentNullException("Original_BuildingName");
+            if ((Address == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_BuildingName));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Address));
             }
-            if ((Original_MSCampus == null)) {
-                throw new global::System.ArgumentNullException("Original_MSCampus");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_MSCampus));
-            }
-            if ((Original_ParticipationCampus == null)) {
-                throw new global::System.ArgumentNullException("Original_ParticipationCampus");
+            if ((City == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_ParticipationCampus));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(City));
             }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_TotalSeats));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((long)(Original_SqFt));
-            if ((Original_Lat.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(Original_Lat.Value));
+            if ((State == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(State));
+            }
+            if ((ZIP_Code == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(ZIP_Code));
+            }
+            if ((DM == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(DM));
+            }
+            if ((FlashType.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((byte)(FlashType.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((TotalSqFt.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((long)(TotalSqFt.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((BOHSqFt.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((long)(BOHSqFt.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((Original_Long.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(Original_Long.Value));
+            if ((FOHSqFt.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((long)(FOHSqFt.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            if ((EspressoSqFt.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((long)(EspressoSqFt.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((long)(PID));
+            if ((MSNeighborhood == null)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(MSNeighborhood));
+            }
+            if ((ParticipationNeighborhood == null)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(ParticipationNeighborhood));
+            }
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_profit_center_id));
+            if ((Original_profit_center_name == null)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_profit_center_name));
+            }
+            if ((Original_Unit == null)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Unit));
+            }
+            if ((Original_Group == null)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_Group));
+            }
+            this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(Original_Unit_Number));
+            if ((Original_Latitude.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((decimal)(Original_Latitude.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Longitude.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((decimal)(Original_Longitude.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Address == null)) {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_Address));
+            }
+            if ((Original_City == null)) {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_City));
+            }
+            if ((Original_State == null)) {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_State));
+            }
+            if ((Original_ZIP_Code == null)) {
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_ZIP_Code));
+            }
+            if ((Original_DM == null)) {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_DM));
+            }
+            if ((Original_FlashType.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((byte)(Original_FlashType.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
+            }
+            if ((Original_TotalSqFt.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((long)(Original_TotalSqFt.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
+            }
+            if ((Original_BOHSqFt.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((long)(Original_BOHSqFt.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FOHSqFt.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((long)(Original_FOHSqFt.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
+            }
+            if ((Original_EspressoSqFt.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((long)(Original_EspressoSqFt.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[50].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1289,8 +2340,42 @@ SELECT PID, BuildingName, MSCampus, ParticipationCampus, TotalSeats, SqFt, Lat, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string BuildingName, string MSCampus, string ParticipationCampus, int TotalSeats, long SqFt, global::System.Nullable<decimal> Lat, global::System.Nullable<decimal> Long, long Original_PID, string Original_BuildingName, string Original_MSCampus, string Original_ParticipationCampus, int Original_TotalSeats, long Original_SqFt, global::System.Nullable<decimal> Original_Lat, global::System.Nullable<decimal> Original_Long) {
-            return this.Update(BuildingName, MSCampus, ParticipationCampus, TotalSeats, SqFt, Lat, Long, Original_PID, Original_BuildingName, Original_MSCampus, Original_ParticipationCampus, Original_TotalSeats, Original_SqFt, Original_Lat, Original_Long, Original_PID);
+        public virtual int Update(
+                    string profit_center_name, 
+                    string Unit, 
+                    string Group, 
+                    global::System.Nullable<decimal> Latitude, 
+                    global::System.Nullable<decimal> Longitude, 
+                    string Address, 
+                    string City, 
+                    string State, 
+                    string ZIP_Code, 
+                    string DM, 
+                    global::System.Nullable<byte> FlashType, 
+                    global::System.Nullable<long> TotalSqFt, 
+                    global::System.Nullable<long> BOHSqFt, 
+                    global::System.Nullable<long> FOHSqFt, 
+                    global::System.Nullable<long> EspressoSqFt, 
+                    string MSNeighborhood, 
+                    string ParticipationNeighborhood, 
+                    int Original_profit_center_id, 
+                    string Original_profit_center_name, 
+                    string Original_Unit, 
+                    string Original_Group, 
+                    int Original_Unit_Number, 
+                    global::System.Nullable<decimal> Original_Latitude, 
+                    global::System.Nullable<decimal> Original_Longitude, 
+                    string Original_Address, 
+                    string Original_City, 
+                    string Original_State, 
+                    string Original_ZIP_Code, 
+                    string Original_DM, 
+                    global::System.Nullable<byte> Original_FlashType, 
+                    global::System.Nullable<long> Original_TotalSqFt, 
+                    global::System.Nullable<long> Original_BOHSqFt, 
+                    global::System.Nullable<long> Original_FOHSqFt, 
+                    global::System.Nullable<long> Original_EspressoSqFt) {
+            return this.Update(Original_profit_center_id, profit_center_name, Unit, Group, Original_Unit_Number, Latitude, Longitude, Address, City, State, ZIP_Code, DM, FlashType, TotalSqFt, BOHSqFt, FOHSqFt, EspressoSqFt, MSNeighborhood, ParticipationNeighborhood, Original_profit_center_id, Original_profit_center_name, Original_Unit, Original_Group, Original_Unit_Number, Original_Latitude, Original_Longitude, Original_Address, Original_City, Original_State, Original_ZIP_Code, Original_DM, Original_FlashType, Original_TotalSqFt, Original_BOHSqFt, Original_FOHSqFt, Original_EspressoSqFt);
         }
     }
     
@@ -1306,7 +2391,7 @@ SELECT PID, BuildingName, MSCampus, ParticipationCampus, TotalSeats, SqFt, Lat, 
         
         private UpdateOrderOption _updateOrder;
         
-        private MasterBuildingListTableAdapter _masterBuildingListTableAdapter;
+        private LOCATIONSTableAdapter _lOCATIONSTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1328,12 +2413,12 @@ SELECT PID, BuildingName, MSCampus, ParticipationCampus, TotalSeats, SqFt, Lat, 
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public MasterBuildingListTableAdapter MasterBuildingListTableAdapter {
+        public LOCATIONSTableAdapter LOCATIONSTableAdapter {
             get {
-                return this._masterBuildingListTableAdapter;
+                return this._lOCATIONSTableAdapter;
             }
             set {
-                this._masterBuildingListTableAdapter = value;
+                this._lOCATIONSTableAdapter = value;
             }
         }
         
@@ -1356,9 +2441,9 @@ SELECT PID, BuildingName, MSCampus, ParticipationCampus, TotalSeats, SqFt, Lat, 
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._masterBuildingListTableAdapter != null) 
-                            && (this._masterBuildingListTableAdapter.Connection != null))) {
-                    return this._masterBuildingListTableAdapter.Connection;
+                if (((this._lOCATIONSTableAdapter != null) 
+                            && (this._lOCATIONSTableAdapter.Connection != null))) {
+                    return this._lOCATIONSTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1373,7 +2458,7 @@ SELECT PID, BuildingName, MSCampus, ParticipationCampus, TotalSeats, SqFt, Lat, 
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._masterBuildingListTableAdapter != null)) {
+                if ((this._lOCATIONSTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1387,12 +2472,12 @@ SELECT PID, BuildingName, MSCampus, ParticipationCampus, TotalSeats, SqFt, Lat, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateUpdatedRows(BIDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._masterBuildingListTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.MasterBuildingList.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._lOCATIONSTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.LOCATIONS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._masterBuildingListTableAdapter.Update(updatedRows));
+                    result = (result + this._lOCATIONSTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1406,11 +2491,11 @@ SELECT PID, BuildingName, MSCampus, ParticipationCampus, TotalSeats, SqFt, Lat, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateInsertedRows(BIDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._masterBuildingListTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.MasterBuildingList.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._lOCATIONSTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.LOCATIONS.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._masterBuildingListTableAdapter.Update(addedRows));
+                    result = (result + this._lOCATIONSTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1424,11 +2509,11 @@ SELECT PID, BuildingName, MSCampus, ParticipationCampus, TotalSeats, SqFt, Lat, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateDeletedRows(BIDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._masterBuildingListTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.MasterBuildingList.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._lOCATIONSTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.LOCATIONS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._masterBuildingListTableAdapter.Update(deletedRows));
+                    result = (result + this._lOCATIONSTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1471,8 +2556,8 @@ SELECT PID, BuildingName, MSCampus, ParticipationCampus, TotalSeats, SqFt, Lat, 
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._masterBuildingListTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._masterBuildingListTableAdapter.Connection) == false))) {
+            if (((this._lOCATIONSTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._lOCATIONSTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -1508,13 +2593,13 @@ SELECT PID, BuildingName, MSCampus, ParticipationCampus, TotalSeats, SqFt, Lat, 
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._masterBuildingListTableAdapter != null)) {
-                    revertConnections.Add(this._masterBuildingListTableAdapter, this._masterBuildingListTableAdapter.Connection);
-                    this._masterBuildingListTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._masterBuildingListTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._masterBuildingListTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._masterBuildingListTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._masterBuildingListTableAdapter.Adapter);
+                if ((this._lOCATIONSTableAdapter != null)) {
+                    revertConnections.Add(this._lOCATIONSTableAdapter, this._lOCATIONSTableAdapter.Connection);
+                    this._lOCATIONSTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._lOCATIONSTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._lOCATIONSTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._lOCATIONSTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._lOCATIONSTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1575,9 +2660,9 @@ SELECT PID, BuildingName, MSCampus, ParticipationCampus, TotalSeats, SqFt, Lat, 
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._masterBuildingListTableAdapter != null)) {
-                    this._masterBuildingListTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._masterBuildingListTableAdapter]));
-                    this._masterBuildingListTableAdapter.Transaction = null;
+                if ((this._lOCATIONSTableAdapter != null)) {
+                    this._lOCATIONSTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._lOCATIONSTableAdapter]));
+                    this._lOCATIONSTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

@@ -460,6 +460,8 @@ namespace MenuAggregator {
             
             private global::System.Data.DataColumn columnisDaily;
             
+            private global::System.Data.DataColumn columnpriceEditable;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public _MenuBuilder_ConceptsDataTable() {
@@ -519,6 +521,14 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn priceEditableColumn {
+                get {
+                    return this.columnpriceEditable;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -554,12 +564,13 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_ConceptsRow Add_MenuBuilder_ConceptsRow(string stationName, byte isDaily) {
+            public _MenuBuilder_ConceptsRow Add_MenuBuilder_ConceptsRow(string stationName, byte isDaily, byte priceEditable) {
                 _MenuBuilder_ConceptsRow row_MenuBuilder_ConceptsRow = ((_MenuBuilder_ConceptsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         stationName,
-                        isDaily};
+                        isDaily,
+                        priceEditable};
                 row_MenuBuilder_ConceptsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(row_MenuBuilder_ConceptsRow);
                 return row_MenuBuilder_ConceptsRow;
@@ -585,6 +596,7 @@ namespace MenuAggregator {
                 this.columnPID = base.Columns["PID"];
                 this.columnstationName = base.Columns["stationName"];
                 this.columnisDaily = base.Columns["isDaily"];
+                this.columnpriceEditable = base.Columns["priceEditable"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -596,6 +608,8 @@ namespace MenuAggregator {
                 base.Columns.Add(this.columnstationName);
                 this.columnisDaily = new global::System.Data.DataColumn("isDaily", typeof(byte), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnisDaily);
+                this.columnpriceEditable = new global::System.Data.DataColumn("priceEditable", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpriceEditable);
                 this.columnPID.AutoIncrement = true;
                 this.columnPID.AutoIncrementSeed = -1;
                 this.columnPID.AutoIncrementStep = -1;
@@ -1298,6 +1312,8 @@ namespace MenuAggregator {
             
             private global::System.Data.DataColumn columnUserName;
             
+            private global::System.Data.DataColumn columnadminLevel;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public _MenuBuilder_UsersDataTable() {
@@ -1365,6 +1381,14 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn adminLevelColumn {
+                get {
+                    return this.columnadminLevel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1400,13 +1424,14 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_UsersRow Add_MenuBuilder_UsersRow(string UserId, string CafeName, string UserName) {
+            public _MenuBuilder_UsersRow Add_MenuBuilder_UsersRow(string UserId, string CafeName, string UserName, int adminLevel) {
                 _MenuBuilder_UsersRow row_MenuBuilder_UsersRow = ((_MenuBuilder_UsersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         UserId,
                         CafeName,
-                        UserName};
+                        UserName,
+                        adminLevel};
                 row_MenuBuilder_UsersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(row_MenuBuilder_UsersRow);
                 return row_MenuBuilder_UsersRow;
@@ -1433,6 +1458,7 @@ namespace MenuAggregator {
                 this.columnUserId = base.Columns["UserId"];
                 this.columnCafeName = base.Columns["CafeName"];
                 this.columnUserName = base.Columns["UserName"];
+                this.columnadminLevel = base.Columns["adminLevel"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1446,6 +1472,8 @@ namespace MenuAggregator {
                 base.Columns.Add(this.columnCafeName);
                 this.columnUserName = new global::System.Data.DataColumn("UserName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUserName);
+                this.columnadminLevel = new global::System.Data.DataColumn("adminLevel", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnadminLevel);
                 this.columnPID.AutoIncrement = true;
                 this.columnPID.AutoIncrementSeed = -1;
                 this.columnPID.AutoIncrementStep = -1;
@@ -1890,6 +1918,12 @@ namespace MenuAggregator {
             
             private global::System.Data.DataColumn columnNotes;
             
+            private global::System.Data.DataColumn columnlastMenuItem;
+            
+            private global::System.Data.DataColumn columnisChanged;
+            
+            private global::System.Data.DataColumn columnisComplete;
+            
             private global::System.Data.DataColumn columndateEdit;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1999,6 +2033,30 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn lastMenuItemColumn {
+                get {
+                    return this.columnlastMenuItem;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn isChangedColumn {
+                get {
+                    return this.columnisChanged;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn isCompleteColumn {
+                get {
+                    return this.columnisComplete;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn dateEditColumn {
                 get {
                     return this.columndateEdit;
@@ -2042,7 +2100,7 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_WeeklyMenusRow Add_MenuBuilder_WeeklyMenusRow(int Period, int Week, string Day, string Cafe, string conceptName, string menuItem, string Price, string Notes, System.DateTime dateEdit) {
+            public _MenuBuilder_WeeklyMenusRow Add_MenuBuilder_WeeklyMenusRow(int Period, int Week, string Day, string Cafe, string conceptName, string menuItem, string Price, string Notes, string lastMenuItem, int isChanged, string isComplete, System.DateTime dateEdit) {
                 _MenuBuilder_WeeklyMenusRow row_MenuBuilder_WeeklyMenusRow = ((_MenuBuilder_WeeklyMenusRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2054,6 +2112,9 @@ namespace MenuAggregator {
                         menuItem,
                         Price,
                         Notes,
+                        lastMenuItem,
+                        isChanged,
+                        isComplete,
                         dateEdit};
                 row_MenuBuilder_WeeklyMenusRow.ItemArray = columnValuesArray;
                 this.Rows.Add(row_MenuBuilder_WeeklyMenusRow);
@@ -2086,6 +2147,9 @@ namespace MenuAggregator {
                 this.columnmenuItem = base.Columns["menuItem"];
                 this.columnPrice = base.Columns["Price"];
                 this.columnNotes = base.Columns["Notes"];
+                this.columnlastMenuItem = base.Columns["lastMenuItem"];
+                this.columnisChanged = base.Columns["isChanged"];
+                this.columnisComplete = base.Columns["isComplete"];
                 this.columndateEdit = base.Columns["dateEdit"];
             }
             
@@ -2110,6 +2174,12 @@ namespace MenuAggregator {
                 base.Columns.Add(this.columnPrice);
                 this.columnNotes = new global::System.Data.DataColumn("Notes", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNotes);
+                this.columnlastMenuItem = new global::System.Data.DataColumn("lastMenuItem", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlastMenuItem);
+                this.columnisChanged = new global::System.Data.DataColumn("isChanged", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnisChanged);
+                this.columnisComplete = new global::System.Data.DataColumn("isComplete", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnisComplete);
                 this.columndateEdit = new global::System.Data.DataColumn("dateEdit", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndateEdit);
                 this.columnPID.AutoIncrement = true;
@@ -2123,6 +2193,7 @@ namespace MenuAggregator {
                 this.columnmenuItem.MaxLength = 50;
                 this.columnPrice.MaxLength = 50;
                 this.columnNotes.MaxLength = 2147483647;
+                this.columnlastMenuItem.MaxLength = 50;
                 this.ExtendedProperties.Add("Generator_TableVarName", "_tableMenuBuilder_WeeklyMenus");
                 this.ExtendedProperties.Add("Generator_UserTableName", "MenuBuilder.WeeklyMenus");
             }
@@ -2305,6 +2376,22 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public byte priceEditable {
+                get {
+                    try {
+                        return ((byte)(this[this._tableMenuBuilder_Concepts.priceEditableColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'priceEditable\' in table \'MenuBuilder.Concepts\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this._tableMenuBuilder_Concepts.priceEditableColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsisDailyNull() {
                 return this.IsNull(this._tableMenuBuilder_Concepts.isDailyColumn);
             }
@@ -2313,6 +2400,18 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetisDailyNull() {
                 this[this._tableMenuBuilder_Concepts.isDailyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IspriceEditableNull() {
+                return this.IsNull(this._tableMenuBuilder_Concepts.priceEditableColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetpriceEditableNull() {
+                this[this._tableMenuBuilder_Concepts.priceEditableColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2527,6 +2626,22 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int adminLevel {
+                get {
+                    try {
+                        return ((int)(this[this._tableMenuBuilder_Users.adminLevelColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'adminLevel\' in table \'MenuBuilder.Users\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this._tableMenuBuilder_Users.adminLevelColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsUserIdNull() {
                 return this.IsNull(this._tableMenuBuilder_Users.UserIdColumn);
             }
@@ -2559,6 +2674,18 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetUserNameNull() {
                 this[this._tableMenuBuilder_Users.UserNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsadminLevelNull() {
+                return this.IsNull(this._tableMenuBuilder_Users.adminLevelColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetadminLevelNull() {
+                this[this._tableMenuBuilder_Users.adminLevelColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2799,6 +2926,55 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string lastMenuItem {
+                get {
+                    try {
+                        return ((string)(this[this._tableMenuBuilder_WeeklyMenus.lastMenuItemColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'lastMenuItem\' in table \'MenuBuilder.WeeklyMenus\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this._tableMenuBuilder_WeeklyMenus.lastMenuItemColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int isChanged {
+                get {
+                    try {
+                        return ((int)(this[this._tableMenuBuilder_WeeklyMenus.isChangedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'isChanged\' in table \'MenuBuilder.WeeklyMenus\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this._tableMenuBuilder_WeeklyMenus.isChangedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string isComplete {
+                get {
+                    try {
+                        return ((string)(this[this._tableMenuBuilder_WeeklyMenus.isCompleteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'isComplete\' in table \'MenuBuilder.WeeklyMenus\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this._tableMenuBuilder_WeeklyMenus.isCompleteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public System.DateTime dateEdit {
                 get {
                     try {
@@ -2907,6 +3083,42 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetNotesNull() {
                 this[this._tableMenuBuilder_WeeklyMenus.NotesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IslastMenuItemNull() {
+                return this.IsNull(this._tableMenuBuilder_WeeklyMenus.lastMenuItemColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetlastMenuItemNull() {
+                this[this._tableMenuBuilder_WeeklyMenus.lastMenuItemColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsisChangedNull() {
+                return this.IsNull(this._tableMenuBuilder_WeeklyMenus.isChangedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetisChangedNull() {
+                this[this._tableMenuBuilder_WeeklyMenus.isChangedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsisCompleteNull() {
+                return this.IsNull(this._tableMenuBuilder_WeeklyMenus.isCompleteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetisCompleteNull() {
+                this[this._tableMenuBuilder_WeeklyMenus.isCompleteColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3254,14 +3466,16 @@ namespace MenuAggregator.MenuBuilderDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("PID", "PID");
             tableMapping.ColumnMappings.Add("stationName", "stationName");
             tableMapping.ColumnMappings.Add("isDaily", "isDaily");
+            tableMapping.ColumnMappings.Add("priceEditable", "priceEditable");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [MenuBuilder.Concepts] ([stationName], [isDaily]) VALUES (@stationNam" +
-                "e, @isDaily)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [MenuBuilder.Concepts] ([stationName], [isDaily], [priceEditable]) VA" +
+                "LUES (@stationName, @isDaily, @priceEditable)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stationName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stationName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isDaily", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "isDaily", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@priceEditable", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "priceEditable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3274,10 +3488,10 @@ namespace MenuAggregator.MenuBuilderDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT PID, stationName, isDaily FROM [MenuBuilder.Concepts]";
+            this._commandCollection[0].CommandText = "SELECT PID, stationName, isDaily, priceEditable FROM [MenuBuilder.Concepts]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -3286,6 +3500,12 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
                          [MenuBuilder.BuiltCafes] ON [MenuBuilder.Concepts].PID = [MenuBuilder.BuiltCafes].conceptId AND [MenuBuilder.BuiltCafes].Cafe = @Cafe";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cafe", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cafe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT PID, stationName, isDaily, priceEditable \r\nFROM [MenuBuilder.Concepts]\r\nWH" +
+                "ERE (stationName = @conceptName)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@conceptName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "stationName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3351,6 +3571,42 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int GetPriceEditable(MenuBuilderDataSet._MenuBuilder_ConceptsDataTable dataTable, string conceptName) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((conceptName == null)) {
+                throw new global::System.ArgumentNullException("conceptName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(conceptName));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual MenuBuilderDataSet._MenuBuilder_ConceptsDataTable GetDataBy1(string conceptName) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((conceptName == null)) {
+                throw new global::System.ArgumentNullException("conceptName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(conceptName));
+            }
+            MenuBuilderDataSet._MenuBuilder_ConceptsDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_ConceptsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(MenuBuilderDataSet._MenuBuilder_ConceptsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
@@ -3381,7 +3637,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string stationName, global::System.Nullable<byte> isDaily) {
+        public virtual int Insert(string stationName, global::System.Nullable<byte> isDaily, global::System.Nullable<long> priceEditable) {
             if ((stationName == null)) {
                 throw new global::System.ArgumentNullException("stationName");
             }
@@ -3393,6 +3649,12 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((priceEditable.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((long)(priceEditable.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4045,15 +4307,17 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
             tableMapping.ColumnMappings.Add("UserId", "UserId");
             tableMapping.ColumnMappings.Add("CafeName", "CafeName");
             tableMapping.ColumnMappings.Add("UserName", "UserName");
+            tableMapping.ColumnMappings.Add("adminLevel", "adminLevel");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [MenuBuilder.Users] ([UserId], [CafeName], [UserName]) VALUES (@UserI" +
-                "d, @CafeName, @UserName)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [MenuBuilder.Users] ([UserId], [CafeName], [UserName], [adminLevel]) " +
+                "VALUES (@UserId, @CafeName, @UserName, @adminLevel)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CafeName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CafeName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@adminLevel", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "adminLevel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4069,23 +4333,23 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT PID, UserId, CafeName, UserName FROM [MenuBuilder.Users]";
+            this._commandCollection[0].CommandText = "SELECT PID, UserId, CafeName, UserName, adminLevel FROM [MenuBuilder.Users]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT PID, UserId, CafeName, UserName FROM [MenuBuilder.Users] WHERE UserName = " +
-                "@UserName";
+            this._commandCollection[1].CommandText = "SELECT PID, UserId, CafeName, UserName, adminLevel FROM [MenuBuilder.Users] WHERE" +
+                " (UserName = @UserName)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT CafeName  FROM [MenuBuilder.Users] WHERE CafeName = @cafe";
+            this._commandCollection[2].CommandText = "SELECT CafeName, adminLevel FROM [MenuBuilder.Users] WHERE (CafeName = @cafe)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cafe", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CafeName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT        UserName, CafeName\r\nFROM            [MenuBuilder.Users]\r\nWHERE     " +
-                "   (UserName = @UserName)";
+            this._commandCollection[3].CommandText = "SELECT UserName, CafeName, adminLevel FROM [MenuBuilder.Users] WHERE (UserName = " +
+                "@UserName)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -4255,7 +4519,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string UserId, string CafeName, string UserName) {
+        public virtual int Insert(string UserId, string CafeName, string UserName, global::System.Nullable<int> adminLevel) {
             if ((UserId == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -4273,6 +4537,12 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(UserName));
+            }
+            if ((adminLevel.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(adminLevel.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4785,13 +5055,14 @@ LEFT JOIN [MenuBuilder.Concepts] ON [MenuBuilder.BuiltCafes].conceptId = [MenuBu
             tableMapping.ColumnMappings.Add("menuItem", "menuItem");
             tableMapping.ColumnMappings.Add("Price", "Price");
             tableMapping.ColumnMappings.Add("Notes", "Notes");
+            tableMapping.ColumnMappings.Add("lastMenuItem", "lastMenuItem");
+            tableMapping.ColumnMappings.Add("isChanged", "isChanged");
+            tableMapping.ColumnMappings.Add("isComplete", "isComplete");
             tableMapping.ColumnMappings.Add("dateEdit", "dateEdit");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [MenuBuilder.WeeklyMenus] ([Period], [Week], [Day], [Cafe], [conceptN" +
-                "ame], [menuItem], [Price], [Notes], [dateEdit]) VALUES (@Period, @Week, @Day, @C" +
-                "afe, @conceptName, @menuItem, @Price, @Notes, @dateEdit)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [MenuBuilder.WeeklyMenus] ([Period], [Week], [Day], [Cafe], [conceptName], [menuItem], [Price], [Notes], [lastMenuItem], [isChanged], [isComplete], [dateEdit]) VALUES (@Period, @Week, @Day, @Cafe, @conceptName, @menuItem, @Price, @Notes, @lastMenuItem, @isChanged, @isComplete, @dateEdit)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Period", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Week", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Week", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4801,7 +5072,10 @@ LEFT JOIN [MenuBuilder.Concepts] ON [MenuBuilder.BuiltCafes].conceptId = [MenuBu
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@menuItem", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "menuItem", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Notes", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Notes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateEdit", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateEdit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lastMenuItem", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "lastMenuItem", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isChanged", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "isChanged", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isComplete", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "isComplete", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateEdit", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateEdit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4814,12 +5088,87 @@ LEFT JOIN [MenuBuilder.Concepts] ON [MenuBuilder.BuiltCafes].conceptId = [MenuBu
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[10];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT PID, Period, Week, Day, Cafe, conceptName, menuItem, Price, Notes, dateEdi" +
-                "t FROM [MenuBuilder.WeeklyMenus]";
+            this._commandCollection[0].CommandText = "SELECT PID, Period, Week, Day, Cafe, conceptName, menuItem, Price, Notes, lastMen" +
+                "uItem, isChanged, isComplete, dateEdit FROM [MenuBuilder.WeeklyMenus]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT Cafe, Day, Notes, PID, Period, Price, Week, conceptName, isChanged, lastMenuItem, menuItem, isComplete, dateEdit FROM [MenuBuilder.WeeklyMenus] WHERE (conceptName = @conceptName) AND (Period = @currentPeriod) AND (Week = @currentWeek) AND (Cafe = @cafe)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@conceptName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "conceptName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@currentPeriod", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@currentWeek", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Week", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cafe", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cafe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT TOP 1 Cafe, Day, Notes, PID, Period, Price, Week, conceptName, isChanged, lastMenuItem, menuItem, isComplete, dateEdit FROM [MenuBuilder.WeeklyMenus] 
+WHERE (conceptName = @conceptName) AND (Period = @currentPeriod) AND (Week = @currentWeek) AND (Cafe = @cafe)
+ORDER BY dateEdit DESC";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@conceptName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "conceptName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@currentPeriod", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@currentWeek", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Week", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cafe", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cafe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT Cafe, Day, Notes, PID, Period, Price, Week, conceptName, isChanged, lastMe" +
+                "nuItem, menuItem, isComplete, dateEdit FROM [MenuBuilder.WeeklyMenus] WHERE (Caf" +
+                "e = @Cafe) AND (isChanged = 1)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cafe", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cafe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "SELECT Cafe, Day, Notes, PID, Period, Price, Week, conceptName, isChanged, lastMe" +
+                "nuItem, menuItem, isComplete, dateEdit FROM [MenuBuilder.WeeklyMenus] WHERE (Caf" +
+                "e = @Cafe) AND (isChanged = 1) AND (Period = @period) AND (Week = @week)";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cafe", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cafe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@period", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@week", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Week", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "SELECT TOP (1) Period, Week, isComplete, dateEdit FROM [MenuBuilder.WeeklyMenus] " +
+                "WHERE (conceptName = @conceptName) AND (Cafe = @cafe) ORDER BY Period DESC, Week" +
+                " DESC";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@conceptName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "conceptName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cafe", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cafe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = "SELECT Cafe, Day, Notes, PID, Period, Price, Week, conceptName, isChanged, lastMe" +
+                "nuItem, menuItem, isComplete, dateEdit FROM [MenuBuilder.WeeklyMenus] WHERE (Caf" +
+                "e = @Cafe) AND (conceptName = @conceptName)";
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cafe", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cafe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@conceptName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "conceptName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[7].Connection = this.Connection;
+            this._commandCollection[7].CommandText = "SELECT DISTINCT Cafe\r\nFROM            [MenuBuilder.WeeklyMenus]\r\nWHERE        (Pe" +
+                "riod = @Period) AND (Week = @Week) AND (isChanged = 1)";
+            this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Period", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Week", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Week", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[8].Connection = this.Connection;
+            this._commandCollection[8].CommandText = "UPDATE [MenuBuilder.WeeklyMenus]\r\nSET isChanged = 0\r\nWHERE (Period = @Period) AND" +
+                " (Week = @Week) AND (Day = @day) AND (menuItem = @menuItem)";
+            this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Period", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Week", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Week", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@day", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Day", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@menuItem", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "menuItem", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[9].Connection = this.Connection;
+            this._commandCollection[9].CommandText = "UPDATE [MenuBuilder.WeeklyMenus]\r\nSET isComplete = \'Done\'\r\nWHERE (Period = @Perio" +
+                "d) AND (Week = @Week) AND (Day = @day) AND (menuItem = @menuItem)";
+            this._commandCollection[9].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Period", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Week", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Week", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@day", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Day", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@menuItem", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "menuItem", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4841,6 +5190,390 @@ LEFT JOIN [MenuBuilder.Concepts] ON [MenuBuilder.BuiltCafes].conceptId = [MenuBu
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillComboBox(MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable, string conceptName, global::System.Nullable<int> currentPeriod, global::System.Nullable<int> currentWeek, string cafe) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((conceptName == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(conceptName));
+            }
+            if ((currentPeriod.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(currentPeriod.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((currentWeek.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(currentWeek.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((cafe == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(cafe));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable GetDataBy3(string conceptName, global::System.Nullable<int> currentPeriod, global::System.Nullable<int> currentWeek, string cafe) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((conceptName == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(conceptName));
+            }
+            if ((currentPeriod.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(currentPeriod.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((currentWeek.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(currentWeek.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((cafe == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(cafe));
+            }
+            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillComboBoxCompare(MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable, string conceptName, global::System.Nullable<int> currentPeriod, global::System.Nullable<int> currentWeek, string cafe) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((conceptName == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(conceptName));
+            }
+            if ((currentPeriod.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(currentPeriod.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((currentWeek.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(currentWeek.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((cafe == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(cafe));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable GetDataBy8(string conceptName, global::System.Nullable<int> currentPeriod, global::System.Nullable<int> currentWeek, string cafe) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((conceptName == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(conceptName));
+            }
+            if ((currentPeriod.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(currentPeriod.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((currentWeek.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(currentWeek.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((cafe == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(cafe));
+            }
+            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillDataGrid(MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable, string Cafe) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((Cafe == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Cafe));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable GetDataBy2(string Cafe) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((Cafe == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Cafe));
+            }
+            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillDataGridByDate(MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable, string Cafe, global::System.Nullable<int> period, global::System.Nullable<int> week) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((Cafe == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Cafe));
+            }
+            if ((period.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(period.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((week.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(week.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable GetDataBy7(string Cafe, global::System.Nullable<int> period, global::System.Nullable<int> week) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((Cafe == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Cafe));
+            }
+            if ((period.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(period.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((week.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(week.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int GetLastWeek(MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable, string conceptName, string cafe) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            if ((conceptName == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(conceptName));
+            }
+            if ((cafe == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(cafe));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable GetDataBy4(string conceptName, string cafe) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            if ((conceptName == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(conceptName));
+            }
+            if ((cafe == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(cafe));
+            }
+            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int GetMenuItemForLastMenu(MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable, string Cafe, string conceptName) {
+            this.Adapter.SelectCommand = this.CommandCollection[6];
+            if ((Cafe == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Cafe));
+            }
+            if ((conceptName == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(conceptName));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable GetDataBy1(string Cafe, string conceptName) {
+            this.Adapter.SelectCommand = this.CommandCollection[6];
+            if ((Cafe == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Cafe));
+            }
+            if ((conceptName == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(conceptName));
+            }
+            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int MakeBackendButtons(MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable, global::System.Nullable<int> Period, global::System.Nullable<int> Week) {
+            this.Adapter.SelectCommand = this.CommandCollection[7];
+            if ((Period.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Period.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((Week.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Week.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable GetDataBy(global::System.Nullable<int> Period, global::System.Nullable<int> Week) {
+            this.Adapter.SelectCommand = this.CommandCollection[7];
+            if ((Period.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Period.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((Week.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Week.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -4879,7 +5612,7 @@ LEFT JOIN [MenuBuilder.Concepts] ON [MenuBuilder.BuiltCafes].conceptId = [MenuBu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> Period, global::System.Nullable<int> Week, string Day, string Cafe, string conceptName, string menuItem, string Price, string Notes, global::System.Nullable<global::System.DateTime> dateEdit) {
+        public virtual int Insert(global::System.Nullable<int> Period, global::System.Nullable<int> Week, string Day, string Cafe, string conceptName, string menuItem, string Price, string Notes, string lastMenuItem, global::System.Nullable<int> isChanged, string isComplete, global::System.Nullable<global::System.DateTime> dateEdit) {
             if ((Period.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Period.Value));
             }
@@ -4928,11 +5661,29 @@ LEFT JOIN [MenuBuilder.Concepts] ON [MenuBuilder.BuiltCafes].conceptId = [MenuBu
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Notes));
             }
-            if ((dateEdit.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(dateEdit.Value));
+            if ((lastMenuItem == null)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(lastMenuItem));
+            }
+            if ((isChanged.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((int)(isChanged.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((isComplete == null)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(isComplete));
+            }
+            if ((dateEdit.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((System.DateTime)(dateEdit.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4948,6 +5699,100 @@ LEFT JOIN [MenuBuilder.Concepts] ON [MenuBuilder.BuiltCafes].conceptId = [MenuBu
                     this.Adapter.InsertCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateIsChanged(global::System.Nullable<int> Period, global::System.Nullable<int> Week, string day, string menuItem) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[8];
+            if ((Period.HasValue == true)) {
+                command.Parameters[0].Value = ((int)(Period.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((Week.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(Week.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((day == null)) {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[2].Value = ((string)(day));
+            }
+            if ((menuItem == null)) {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[3].Value = ((string)(menuItem));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateIsComplete(global::System.Nullable<int> Period, global::System.Nullable<int> Week, string day, string menuItem) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[9];
+            if ((Period.HasValue == true)) {
+                command.Parameters[0].Value = ((int)(Period.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((Week.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(Week.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((day == null)) {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[2].Value = ((string)(day));
+            }
+            if ((menuItem == null)) {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[3].Value = ((string)(menuItem));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

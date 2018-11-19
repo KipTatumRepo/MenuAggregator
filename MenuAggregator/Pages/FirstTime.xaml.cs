@@ -25,6 +25,7 @@ namespace MenuAggregator.Pages
         private string User;
         private string UserName;
         int CafeBuilt;
+        int AdminLevel;
         private CheckBox conceptCheckBox;
         private List<int> activeConcepts = new List<int>();
         BIDataSet ds = new BIDataSet();
@@ -40,19 +41,29 @@ namespace MenuAggregator.Pages
             InitializeComponent();
 
             #region Database Stuff
-            BIDataSetTableAdapters.MasterBuildingListTableAdapter cafeAdapter = new BIDataSetTableAdapters.MasterBuildingListTableAdapter();
+            BIDataSetTableAdapters.LOCATIONSTableAdapter cafeAdapter = new BIDataSetTableAdapters.LOCATIONSTableAdapter();
+            BIDataSet.LOCATIONSDataTable table = new BIDataSet.LOCATIONSDataTable();
             MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter conceptAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
-            cafeAdapter.Fill(ds.MasterBuildingList);
+            try
+            {
+                cafeAdapter.Fill(table);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+                
+
             conceptAdapter.Fill(ds1._MenuBuilder_Concepts);
             #endregion
 
             //Greet User with user V-
-            topRow.Text = "Hello " + User + " This is your first time using the program, please select your cafe from the options below";
+            topRow.Text = "Hello " + User + " I see this is your first time using the program, please select your cafe from the options below";
 
             //build combobox with all available cafes from MasterBuildingList in DB
-            foreach (DataRow row in ds.MasterBuildingList)
+            foreach (DataRow row in table) //ds.LOCATIONS)
             {
-                cafeCombobox.Items.Add(row[1]);
+                cafeCombobox.Items.Add(row[2]);
             }
             
             //add checkboxes to screen after a cafe is selected
@@ -106,7 +117,7 @@ namespace MenuAggregator.Pages
             else if (cafeCombobox.SelectedItem != null)
             {
                 thirdRow.Visibility = Visibility.Visible;
-                thirdRow.Text = "Great please select the stations that are CURRENTLY available at " + Cafe;
+                thirdRow.Text = "Great, now please select the stations that are CURRENTLY available at " + Cafe;
                 conceptWrapPanel.Visibility = Visibility.Visible;
             }
             //This make userId however, this might be useless
@@ -120,10 +131,15 @@ namespace MenuAggregator.Pages
             MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter userAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter();
             MenuBuilderDataSetTableAdapters.MenuBuilder_BuiltCafesTableAdapter cafeAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_BuiltCafesTableAdapter();
 
+            if (User == "v-datatu" || User == "v-chluzi" || User == "v-brif" || User == "v-laive")
+            {
+                AdminLevel = 1;
+            }
+            
             if (CafeBuilt <= 0)
             {
                 
-                userAdapter.Insert(UserName, Cafe, User);
+                userAdapter.Insert(UserName, Cafe, User, AdminLevel);
 
                 for (int j = 0; j <= activeConcepts.Count() - 1; j++)
                 {
@@ -133,7 +149,7 @@ namespace MenuAggregator.Pages
 
             else
             {
-                userAdapter.Insert(UserName, Cafe, User);
+                userAdapter.Insert(UserName, Cafe, User, AdminLevel);
             }
 
             MainWindow.Cafe = Cafe;

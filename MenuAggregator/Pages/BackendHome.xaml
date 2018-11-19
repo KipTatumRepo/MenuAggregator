@@ -1,0 +1,73 @@
+﻿<Page x:Class="MenuAggregator.Pages.BackendHome"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MenuAggregator.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1400"
+      Title="BackendHome">
+
+    <Grid x:Name="mainGrid">
+                <Grid.RowDefinitions>
+                <RowDefinition Height="71*" />
+                <RowDefinition Height="600*"/>
+                <RowDefinition Height="71*"/>
+            </Grid.RowDefinitions>
+            <ToolBar x:Name="tlbFlash" HorizontalAlignment="Stretch" Margin="5,13,5,8" Grid.Row="0" VerticalAlignment="Center" Height="50"/>
+            <Grid x:Name="secondRowGrid" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="71*"/>
+                    <RowDefinition Height="576*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="LightSlateGray" BorderThickness="1" CornerRadius="8" Margin="10,10,10,10" Background="AliceBlue" Grid.Row="1">
+                    <ScrollViewer x:Name="MyScrollViewer" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" Margin="0,6,0,6" Grid.Row="3" Grid.RowSpan="2">
+                        <StackPanel x:Name="withChangesStackPanel" Height="Auto" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" Background="AliceBlue" Grid.RowSpan="2" />
+                    </ScrollViewer>
+                </Border>
+                <Border Grid.Column="1" BorderBrush="LightSlateGray" BorderThickness="1" CornerRadius="8" Margin="10,10,10,10" Background="AliceBlue" Grid.Row="1">
+                    <ScrollViewer x:Name="MenuScrollViewer" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" Margin="0,6,0,9" Grid.Row="3" Grid.RowSpan="2">
+                        <DataGrid x:Name="backEndDataGrid" Grid.Row="1" Margin="10,10,10,10" AutoGenerateColumns="False" CanUserAddRows="False" SelectionUnit="FullRow">
+                            <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="conceptName" Header="Concept" Binding="{Binding conceptName}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
+                            <DataGridTextColumn x:Name="day" Header="Day" Binding="{Binding Day}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}" />
+                            <DataGridTextColumn x:Name="lastWeekMenuItem" Header="Last Week's Item" Binding="{Binding lastMenuItem}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
+                            <DataGridTextColumn x:Name="menuItem" Header="This Week's Item" Binding="{Binding menuItem}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
+                            <DataGridTextColumn x:Name="price" Header="Price" Binding="{Binding Price}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
+                            <DataGridTextColumn x:Name="notes" Header="Notes" Binding="{Binding Notes}" Width="*" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}" FontSize="12" >
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="TextWrapping" Value="Wrap"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn x:Name="time" Header="Date" Binding="{Binding dateEdit, StringFormat='{}{0:MM/dd h:mm:ss t}'}" Width=".25*" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}" FontSize="12" />
+                        </DataGrid.Columns>
+                        </DataGrid>
+                    </ScrollViewer>
+                </Border>
+                <TextBox HorizontalAlignment="Stretch" Height="50" Margin="10,0,10,0" TextWrapping="Wrap" Text="Cafe's With Changes" VerticalAlignment="Center" Grid.Column="0" TextAlignment="Center"  FontSize="25" IsReadOnly="True" />
+                <TextBox x:Name="cafeNameTextBox" Grid.Column="1" HorizontalAlignment="Stretch" Height="50" Margin="10,0,10,0" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center"  FontSize="25" IsReadOnly="True"/>
+            </Grid>
+        <Grid x:Name="buttonGrid" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="dbButton" Content="Update Database" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="175" Height="Auto" Style="{StaticResource custButton1}" Click="dbButton_Click"/>
+            <Button x:Name="cafeButton" Content="Go To Cafe View" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="175" Height="Auto" Style="{StaticResource custButton1}" Click="cafeButton_Click"/>
+            <Button x:Name="exitButton" Content="Exit" Grid.Column="6"  Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="175" Height="{Binding ElementName=cafeButton, Path=ActualHeight}" Style="{StaticResource custButton1}" Click="exitButton_Click"/>
+        </Grid>
+
+    </Grid>
+    
+</Page>

@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,28 +23,75 @@ namespace MenuAggregator
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static string UserName = Environment.UserName; // "haah";   //"v-fitatu";  
+        public static string UserName = Environment.UserName;   
         public static string Cafe;
         public static int numberOfCafes;
+        public static int IsAdmin;
+        
         public MainWindow()
         {
-            
-            MenuBuilderDataSet ds = new MenuBuilderDataSet();
-            MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter userAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter();
+            try
+            { 
+                MenuBuilderDataSet ds = new MenuBuilderDataSet();
+                MenuBuilderDataSet._MenuBuilder_UsersDataTable table = new MenuBuilderDataSet._MenuBuilder_UsersDataTable();
+                MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter userAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter();
 
-            InitializeComponent();
+                InitializeComponent();
 
-            numberOfCafes = userAdapter.IsAuth(ds._MenuBuilder_Users, UserName);
-            if ( numberOfCafes >= 1)
-            {
-                mainFrame.Source = new Uri("pages\\Home.xaml", UriKind.Relative);
-                Cafe = ds._MenuBuilder_Users.Rows[0][2].ToString();
+                userAdapter.IsAuth(table, UserName);
+                numberOfCafes = table.Count;
+
+                if(table.Count >= 1)
+                { 
+                    string isAdmin = table.Rows[0][4].ToString();
+                    IsAdmin = Int32.Parse(isAdmin);
+                }
+
+                if (IsAdmin == 1)
+                {
+                    mainFrame.Source = new Uri("pages\\BackendHome.xaml", UriKind.Relative);
+                }
+
+                else if ( numberOfCafes >= 1)
+                {
+                    mainFrame.Source = new Uri("pages\\Home.xaml", UriKind.Relative);
+                    Cafe = table.Rows[0][2].ToString(); //ds._MenuBuilder_Users.Rows[0][2].ToString();
+                }
+                else
+                {
+                    mainFrame.Source = new Uri("pages\\FirstTime.xaml", UriKind.Relative);
+                }
+                
             }
-            else
+            catch (Exception ex)
             {
-                mainFrame.Source = new Uri("pages\\FirstTime.xaml", UriKind.Relative);
+                MessageBox.Show("There was a problem trying to load the first page: \n" + ex);
             }
-
         }
+
+        /*private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            string to = "v-datatu@microsoft.com";
+            string from = "anything@anything.com";
+            string subject = Cafe + "'s menu has been updated!";
+            string body = "how to get the values we need to format this";
+            string server = "smtp.gmail.com";
+            string login = "kiptatum@gmail.com";
+            string pword = "lucius6500";
+
+            var smptClient = new SmtpClient(server, 587)
+            {
+                Credentials = new NetworkCredential(login, pword),
+                EnableSsl = true
+
+            };
+
+            MailMessage message = new MailMessage(to, from, subject, body);
+
+            smptClient.Send(message);
+            
+            
+
+        }*/
     }
 }

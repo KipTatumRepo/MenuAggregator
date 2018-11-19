@@ -11,8 +11,18 @@ using System.Windows.Media;
 
 namespace MenuAggregator.Classes
 {
-    public class PeriodChooser : DockPanel
+    public class PeriodChooser : DockPanel, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(PropertyChangedEventArgs e)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, e);
+            }
+        }
+
         private int _currentperiod;
         private WeekChooser Week;
         public int HeldPeriod;
@@ -29,7 +39,7 @@ namespace MenuAggregator.Classes
                 _currentperiod = value;
                 foreach (Border b in Children)
                 {
-                    //b.Tag = "Label"; // force the tag for the border to be Label
+                    
                     if (b.Tag == null)
                     {
                         TextBlock tb = (TextBlock)b.Child;
@@ -47,13 +57,14 @@ namespace MenuAggregator.Classes
                         }
                     }
                 }
+                NotifyPropertyChanged(new PropertyChangedEventArgs("Week"));
             }
         }
 
         public int MinPeriod { get; set; }
         public int MaxPeriod { get; set; }
         public bool SelectAllEnabled;
-        //public WeekChooser RelatedWeek = WeekChooser.
+        
         public int SelectedCount { get; set; }
 
         public PeriodChooser(WeekChooser w, int minP, int maxP, int curP)
@@ -64,7 +75,7 @@ namespace MenuAggregator.Classes
             MaxPeriod = maxP;
 
             Border BorderLabel = new Border() { BorderBrush = Brushes.Black, VerticalAlignment = VerticalAlignment.Center, Name = "brdLabel", Tag = "Label" };
-            TextBlock TextLabel = new TextBlock() { Text = "     MS Period: ", TextAlignment = TextAlignment.Center, HorizontalAlignment = HorizontalAlignment.Center, FontSize = 24, Name = "tbLabel", Tag = "Label" };
+            TextBlock TextLabel = new TextBlock() { Text = "     Month: ", TextAlignment = TextAlignment.Center, HorizontalAlignment = HorizontalAlignment.Center, FontSize = 24, Name = "tbLabel", Tag = "Label" };
             BorderLabel.Child = TextLabel;
             Children.Add(BorderLabel);
 
@@ -72,8 +83,7 @@ namespace MenuAggregator.Classes
             {
                 Border brdPeriod = new Border() { BorderBrush = Brushes.Black, Width = 40, VerticalAlignment = VerticalAlignment.Center, Name = "brdP" + ct };
                 TextBlock tbPeriod = new TextBlock() { Text = ct.ToString(), TextAlignment = TextAlignment.Center, HorizontalAlignment = HorizontalAlignment.Center, FontSize = 24, Tag = ct, Name = "tbP" + ct };
-                /*if ((ct < MinPeriod) | (ct > MaxPeriod))
-                    brdPeriod.IsEnabled = false;*/
+                
                 brdPeriod.MouseEnter += HoverOverPeriod;
                 tbPeriod.MouseEnter += HoverOverPeriod;
                 brdPeriod.MouseLeave += LeavePeriod;
@@ -128,17 +138,6 @@ namespace MenuAggregator.Classes
                 CurrentPeriod = int.Parse(tb.Text);
             else if (CurrentPeriod != 0)
                 Reset();
-            /*if (CurrentPeriod < MaxPeriod)
-            {
-                Week.MaxWeek = GetMaxWeeks(CurrentPeriod);
-                Week.CurrentWeek = 1;
-            }
-            else
-            {
-                Week.MaxWeek = GetCurrentWeek(Strings.FormatDateTime(DateTime.Now(), DateFormat.ShortDate));
-                Week.CurrentWeek = GetCurrentWeek(Strings.FormatDateTime(DateTime.Now(), DateFormat.ShortDate));
-            }*/
-            //Week.EnableWeeks();
         }
 
         public void Reset()
@@ -163,7 +162,7 @@ namespace MenuAggregator.Classes
                 if (brd.Tag == null)
                 {
                     TextBlock tb = (TextBlock)brd.Child;
-                    //if ((FormatNumber(tb.Tag, 0) < MinWeek) | (FormatNumber(tb.Tag, 0) > MaxWeek))
+                   
                     if (int.Parse(tb.Text) < 0 || int.Parse(tb.Text) > 5)
                     {
                         brd.IsEnabled = false;
