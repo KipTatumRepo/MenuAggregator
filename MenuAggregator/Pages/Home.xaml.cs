@@ -27,35 +27,29 @@ namespace MenuAggregator.Pages
     public partial class Home : Page
     {
         #region Variable initialization
-        //static DateTime test = new DateTime(2018, 11, 5, 00, 00, 00);
-        //static DateTime today = test;    
-        static DateTime today = DateTime.Now;
-        static DateTime firstOfMonth = new DateTime(today.Year, today.Month, 1);
-        static DateTime endOfMonth = new DateTime(today.Year,
-                                           today.Month,
-                                                        DateTime.DaysInMonth(today.Year,
-                                                                 today.Month));
-        PeriodChooser Pk;
-        static WeekChooser Wk;
-        WeekChooser WkObject = new WeekChooser(0, 0, 0);
-        
-        PeriodChooser PkObject = new PeriodChooser(Wk, 0,0,0);
+
+
+        //WeekChooser WkObject = new WeekChooser(0, 0, 0);
+        //PeriodChooser PkObject = new PeriodChooser(MainWindow.Wk, 0,0,0);
+
+        static WeekChooser WkObject = MainWindow.Wk;
+        PeriodChooser PkObject = MainWindow.Pk;
         public string isWeekly;
         
-        int minWeek = 1;
+        
         int k = 0;
         int l = 0;
-        int currentPeriod;
-        static int currentWeek;
+        
+        
         string itemToAdd;
-        int isChanged = 0;
-        public static int mondayCount = 0;
+        int isChanged;
+        
         int insertCount;
         string selectedConceptName;
         string cafe;
         //string notes;
         int? BID;
-        int textBoxHasValue = 0;
+        //int textBoxHasValue = 0;
 
         List<string> items = new List<string>();
         List<string> price = new List<string>();
@@ -86,11 +80,11 @@ namespace MenuAggregator.Pages
 
         public Home()
         {
-            
+
             InitializeComponent();
 
             cafe = MainWindow.Cafe;
-           
+
             try
             {
                 #region Database Stuff
@@ -103,7 +97,7 @@ namespace MenuAggregator.Pages
                 da.Fill(ds._MenuBuilder_Concepts);
                 #endregion
 
-                
+
                 if (MainWindow.numberOfCafes <= 1 && MainWindow.IsAdmin != 1)
                 {
                     MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter builtCafeAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
@@ -166,40 +160,34 @@ namespace MenuAggregator.Pages
 
                     multipleCafeCombobox.Visibility = Visibility.Visible;
                     multipleCafeCombobox.SelectedItem = -1;
-                    
+
 
                 }
                 #endregion
 
-                CountMonday countMonday = new CountMonday();
                
-                mondayCount = countMonday.CountMondays(firstOfMonth, endOfMonth);
-
-                currentPeriod = GetPeriod(today);
-
-                if (currentWeek == 0)
-                {
-                    currentWeek = GetWeek();
-                    Wk = new WeekChooser(minWeek, mondayCount, currentWeek);
-                }
-                else
-                {
-                    Wk = new WeekChooser(0, mondayCount, 5);
-                }
-                
-                Pk = new PeriodChooser(Wk, 1, 12, currentPeriod);
                 string space = "             ";
 
                 Separator sep = new Separator();
-                tlbFlash.Items.Add(Pk);
+                //tlbFlash.Items.Add(Pk);
+                //tlbFlash.Items.Add(space);
+                //tlbFlash.Items.Add(sep);
+                //tlbFlash.Items.Add(space);
+                //tlbFlash.Items.Add(Wk);
+                //Pk.SelectAllEnabled = true;
+
+                //PkObject = Pk;
+                //WkObject = Wk;
+
+                tlbFlash.Items.Add(PkObject);
                 tlbFlash.Items.Add(space);
                 tlbFlash.Items.Add(sep);
                 tlbFlash.Items.Add(space);
-                tlbFlash.Items.Add(Wk);
-                Pk.SelectAllEnabled = true;
+                tlbFlash.Items.Add(WkObject);
+                PkObject.SelectAllEnabled = true;
 
-                PkObject = Pk;
-                WkObject = Wk;
+                //PkObject = Pk;
+                //WkObject = Wk;
             }
 
             catch (Exception ex)
@@ -219,8 +207,8 @@ namespace MenuAggregator.Pages
             int i = 0;
             int gridRowCount;
             string concept = conceptName;
-            string sFillCBPeriod;
-            string sFillCBWeek;
+            //string sFillCBPeriod;
+            //string sFillCBWeek;
             int fillCBPeriod = 0;
             int fillCBWeek = 0;
 
@@ -250,8 +238,10 @@ namespace MenuAggregator.Pages
 
             if (periodWeekTable.Rows.Count >= 1)
             {
-                fillCBPeriod = Pk.CurrentPeriod; 
-                fillCBWeek = Wk.CurrentWeek - 1; 
+                //fillCBPeriod = Pk.CurrentPeriod; 
+                //fillCBWeek = Wk.CurrentWeek - 1; 
+                fillCBPeriod = PkObject.CurrentPeriod;
+                fillCBWeek = WkObject.CurrentWeek - 1;
             }
 
             //create a table and fill with all prices
@@ -262,11 +252,11 @@ namespace MenuAggregator.Pages
             DataTable subMenuTable = ds._MenuBuilder_SubMenus as DataTable;
             subMenuAdapter.FillByConceptId(ds._MenuBuilder_SubMenus, bid);
 
-            //since with got the previous week and period above we create a table that fills with items from the previous week
+            //since we got the previous week and period above we create a table that fills with items from the previous week
             MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable table = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
             MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable compareTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
             weeklyMenuAdapter.FillComboBox(table, conceptName, fillCBPeriod, fillCBWeek, cafe);
-            weeklyMenuAdapter.FillComboBoxCompare(compareTable, conceptName, fillCBPeriod, Wk.CurrentWeek, cafe);
+            weeklyMenuAdapter.FillComboBoxCompare(compareTable, conceptName, fillCBPeriod, WkObject.CurrentWeek/*Wk.CurrentWeek*/, cafe);
             
 
             //Look at the conepts table to determine if the the price of this concept is editable by the cafe
@@ -494,39 +484,9 @@ namespace MenuAggregator.Pages
             return button;
         }
 
+        
 
-        public static int GetPeriod(DateTime today)
-        {
-
-            string dayOfWeek = today.DayOfWeek.ToString();
-            int returnedPeriod = 0;
-            int currentPeriod;
-            string sMonth;
-            DateTime addSevenDays = today.AddDays(7);
-            if (dayOfWeek == "Monday" && today >= addSevenDays)
-            {
-                sMonth = DateTime.Today.AddMonths(-1).ToString("MM");
-                currentPeriod = Convert.ToInt32(sMonth);
-                returnedPeriod = currentPeriod;
-                currentWeek = 5;
-            }
-            else
-            {
-                sMonth = DateTime.Now.ToString("MM");
-                currentPeriod = Convert.ToInt32(sMonth);
-                returnedPeriod = currentPeriod;
-                currentWeek = 0;
-            }
-
-            return returnedPeriod;
-        }
-
-        public static int GetWeek()
-        {
-            CountMonday monday = new CountMonday();
-            int currentMonday = monday.CountMondays(firstOfMonth, today);
-            return currentMonday;
-        }
+        
 
         //This will extract the values from the dictionary and put in a list for iterating through
         private List<string> GetDictionaryItem(Dictionary<string, string> d)
@@ -704,8 +664,10 @@ namespace MenuAggregator.Pages
             setNotesTBDisplayList.Clear();
             setPriceCBDisplayList.Clear();
             k = 0;
-            Wk.PropertyChanged += new PropertyChangedEventHandler(WeekChanged);
-            Pk.PropertyChanged += new PropertyChangedEventHandler(PeriodChanged);
+            //Wk.PropertyChanged += new PropertyChangedEventHandler(WeekChanged);
+            //Pk.PropertyChanged += new PropertyChangedEventHandler(PeriodChanged);
+            WkObject.PropertyChanged += new PropertyChangedEventHandler(WeekChanged);
+            PkObject.PropertyChanged += new PropertyChangedEventHandler(PeriodChanged);
         }
 
         //when a selection from the menu box is made the value is put into a dictionary(where the name of the combobox is the key and the selected value is the value) so that if the selection is changed(either right away or later)
@@ -839,7 +801,7 @@ namespace MenuAggregator.Pages
                         {
                             int u = 0;
                             isChangedLists = GetIsChangedFromDictionary(dictionaryListIsChanged, i);
-                            menuAdapter.Insert(PkObject.CurrentPeriod, WkObject.CurrentWeek, dayNames[dayNameiterator], cafe, buttonNames[0], getItem(menuItemToAdd, addIterator), getItem(priceItemToAdd, addIterator), getItem(notesToAdd, addIterator), getItem(LastWeekMenuList, addIterator), isChangedLists[j], "Open", today);
+                            menuAdapter.Insert(PkObject.CurrentPeriod, WkObject.CurrentWeek, dayNames[dayNameiterator], cafe, buttonNames[0], getItem(menuItemToAdd, addIterator), getItem(priceItemToAdd, addIterator), getItem(notesToAdd, addIterator), getItem(LastWeekMenuList, addIterator), isChangedLists[j], "Open", MainWindow.today, MainWindow.thisYear);
                             addIterator++;
                             u++;
 
@@ -1083,12 +1045,14 @@ namespace MenuAggregator.Pages
 
         }
 
-        #endregion
-
         private void backendButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(
                 new Uri("Pages/BAckendHome.xaml", UriKind.Relative));
         }
+
+        #endregion
+
+
     }
 }

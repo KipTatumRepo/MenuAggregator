@@ -26,19 +26,22 @@ namespace MenuAggregator.Pages
     {
         //static DateTime test = new DateTime(2019, 11, 7, 00, 00, 00);
         //static DateTime today = test;
-        static DateTime today = DateTime.Today;
-        static DateTime firstOfMonth = new DateTime(today.Year, today.Month, 1);
-        static DateTime endOfMonth = new DateTime(today.Year,
-                                           today.Month,
-                                                        DateTime.DaysInMonth(today.Year,
-                                                                 today.Month));
+        //static DateTime today = DateTime.Today;
+        //static DateTime firstOfMonth = new DateTime(today.Year, today.Month, 1);
+        //static DateTime endOfMonth = new DateTime(today.Year,
+        //                                   today.Month,
+        //                                                DateTime.DaysInMonth(today.Year,
+        //                                                         today.Month));
         public static string NavigateFrom;
-        PeriodChooser Pk;
-        static WeekChooser Wk;
-        WeekChooser WkObject = new WeekChooser(0,0,0);
-        PeriodChooser PkObject = new PeriodChooser(Wk,0,0,0);
-        int currentPeriod;
-        static int currentWeek;
+        //PeriodChooser PkObject;
+        //static WeekChooser WkObject;
+
+        static WeekChooser WkObject = MainWindow.Wk;
+        PeriodChooser PkObject = MainWindow.Pk;
+        //WeekChooser WkObject = new WeekChooser(0,0,0);
+        //PeriodChooser PkObject = new PeriodChooser(Wk,0,0,0);
+        //int currentPeriod;
+        //static int currentWeek;
         int minWeek = 1;
         public static int mondayCount = 0;
         public string Cafe;
@@ -53,34 +56,42 @@ namespace MenuAggregator.Pages
 
             CountMonday countMonday = new CountMonday();
 
-            mondayCount = countMonday.CountMondays(firstOfMonth, endOfMonth);
+            //mondayCount = countMonday.CountMondays(firstOfMonth, endOfMonth);
 
-            currentPeriod = GetPeriod(today);
+            //currentPeriod = GetPeriod(today);
 
-            if (currentWeek == 0)
-            {
-                currentWeek = GetWeek();
-                Wk = new WeekChooser(minWeek, mondayCount, currentWeek);
-            }
-            else
-            {
-                Wk = new WeekChooser(0, mondayCount, 5);
-            }
-            Pk = new PeriodChooser(Wk, 1, currentPeriod, currentPeriod);
+            //if (currentWeek == 0)
+            //{
+            //    currentWeek = GetWeek();
+            //    Wk = new WeekChooser(minWeek, mondayCount, currentWeek);
+            //}
+            //else
+            //{
+            //    Wk = new WeekChooser(0, mondayCount, 5);
+            //}
+            //Pk = new PeriodChooser(Wk, 1, currentPeriod, currentPeriod);
             string space = "             ";
-
-            currentWeek = Wk.CurrentWeek;
-            currentPeriod = Pk.CurrentPeriod;
-
             Separator sep = new Separator();
-            tlbFlash.Items.Add(Pk);
+
+            tlbFlash.Items.Add(PkObject);
             tlbFlash.Items.Add(space);
             tlbFlash.Items.Add(sep);
             tlbFlash.Items.Add(space);
-            tlbFlash.Items.Add(Wk);
-            Pk.SelectAllEnabled = true;
+            tlbFlash.Items.Add(WkObject);
+            PkObject.SelectAllEnabled = true;
 
-            weeklyMenuAdapter.MakeBackendButtons(ds._MenuBuilder_WeeklyMenus, currentPeriod, currentWeek);
+            //currentWeek = Wk.CurrentWeek;
+            //currentPeriod = Pk.CurrentPeriod;
+
+
+            //tlbFlash.Items.Add(Pk);
+            //tlbFlash.Items.Add(space);
+            //tlbFlash.Items.Add(sep);
+            //tlbFlash.Items.Add(space);
+            //tlbFlash.Items.Add(Wk);
+            //Pk.SelectAllEnabled = true;
+
+            weeklyMenuAdapter.MakeBackendButtons(ds._MenuBuilder_WeeklyMenus, MainWindow.currentPeriod, MainWindow.currentWeek/*currentPeriod, currentWeek*/);
 
             int i = 0;
             foreach (var row in ds._MenuBuilder_WeeklyMenus)
@@ -101,11 +112,13 @@ namespace MenuAggregator.Pages
                 CellTemplate = new DataTemplate() { VisualTree = buttonTemplate }
                  
             });
-            Wk.PropertyChanged += new PropertyChangedEventHandler(WeekChanged);
-            Pk.PropertyChanged += new PropertyChangedEventHandler(PeriodChanged);
+            //Wk.PropertyChanged += new PropertyChangedEventHandler(WeekChanged);
+            //Pk.PropertyChanged += new PropertyChangedEventHandler(PeriodChanged);
+            WkObject.PropertyChanged += new PropertyChangedEventHandler(WeekChanged);
+            PkObject.PropertyChanged += new PropertyChangedEventHandler(PeriodChanged);
         }
 
-        
+
         private NewButton CreateButton(MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dt, int i)
         {
            
@@ -145,38 +158,38 @@ namespace MenuAggregator.Pages
 
         }
 
-        public static int GetPeriod(DateTime today)
-        {
+        //public static int GetPeriod(DateTime today)
+        //{
 
-            string dayOfWeek = today.DayOfWeek.ToString();
-            int returnedPeriod = 0;
-            int currentPeriod;
-            string sMonth;
-            if (dayOfWeek == "Monday" && today >= today.AddDays(7))
-            {
-                sMonth = DateTime.Today.AddMonths(-1).ToString("MM");
-                currentPeriod = Convert.ToInt32(sMonth);
-                returnedPeriod = currentPeriod;
-                currentWeek = 5;
+        //    string dayOfWeek = today.DayOfWeek.ToString();
+        //    int returnedPeriod = 0;
+        //    int currentPeriod;
+        //    string sMonth;
+        //    if (dayOfWeek == "Monday" && today >= today.AddDays(7))
+        //    {
+        //        sMonth = DateTime.Today.AddMonths(-1).ToString("MM");
+        //        currentPeriod = Convert.ToInt32(sMonth);
+        //        returnedPeriod = currentPeriod;
+        //        currentWeek = 5;
 
-            }
-            else
-            {
-                sMonth = DateTime.Now.ToString("MM");
-                currentPeriod = Convert.ToInt32(sMonth);
-                returnedPeriod = currentPeriod;
-                currentWeek = 0;
-            }
+        //    }
+        //    else
+        //    {
+        //        sMonth = DateTime.Now.ToString("MM");
+        //        currentPeriod = Convert.ToInt32(sMonth);
+        //        returnedPeriod = currentPeriod;
+        //        currentWeek = 0;
+        //    }
 
-            return returnedPeriod;
-        }
+        //    return returnedPeriod;
+        //}
 
-        public static int GetWeek()
-        {
-            CountMonday monday = new CountMonday();
-            int currentMonday = monday.CountMondays(firstOfMonth, today);
-            return currentMonday;
-        }
+        //public static int GetWeek()
+        //{
+        //    CountMonday monday = new CountMonday();
+        //    int currentMonday = monday.CountMondays(firstOfMonth, today);
+        //    return currentMonday;
+        //}
 
         private void dataGridButton_Click(object sender, RoutedEventArgs e)
         {
@@ -190,8 +203,8 @@ namespace MenuAggregator.Pages
             var menuItemToUpdate = (menuItem.Column.GetCellContent(menuItem.Item) as TextBlock).Text;
            
             MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter updateRow = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
-            updateRow.UpdateIsChanged(currentPeriod, currentWeek, dayToUpdate, menuItemToUpdate);
-            updateRow.UpdateIsComplete(currentPeriod, currentWeek, dayToUpdate, menuItemToUpdate);
+            updateRow.UpdateIsChanged(/*currentPeriod, currentWeek,*/PkObject.CurrentPeriod, WkObject.CurrentWeek, dayToUpdate, menuItemToUpdate);
+            updateRow.UpdateIsComplete(/*currentPeriod, currentWeek,*/PkObject.CurrentPeriod, WkObject.CurrentWeek, dayToUpdate, menuItemToUpdate);
             button.IsEnabled = false;
             button.Content = "Done";
         }
@@ -231,8 +244,8 @@ namespace MenuAggregator.Pages
             
             MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable table = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
             MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
-            weeklyMenuAdapter.FillDataGridByDate(table, Cafe, Pk.CurrentPeriod, Wk.CurrentWeek);
-            weeklyMenuAdapter.MakeBackendButtons(ds._MenuBuilder_WeeklyMenus, Pk.CurrentPeriod, Wk.CurrentWeek);
+            weeklyMenuAdapter.FillDataGridByDate(table, Cafe, PkObject.CurrentPeriod, WkObject.CurrentWeek /*Pk.CurrentPeriod, Wk.CurrentWeek*/);
+            weeklyMenuAdapter.MakeBackendButtons(ds._MenuBuilder_WeeklyMenus, PkObject.CurrentPeriod, WkObject.CurrentWeek /*Pk.CurrentPeriod, Wk.CurrentWeek*/);
             int i = 0;
             foreach (var row in ds._MenuBuilder_WeeklyMenus)
             {
@@ -249,8 +262,8 @@ namespace MenuAggregator.Pages
 
             MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable table = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
             MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
-            weeklyMenuAdapter.FillDataGridByDate(table, Cafe, Pk.CurrentPeriod, Wk.CurrentWeek);
-            weeklyMenuAdapter.MakeBackendButtons(ds._MenuBuilder_WeeklyMenus, Pk.CurrentPeriod, Wk.CurrentWeek);
+            weeklyMenuAdapter.FillDataGridByDate(table, Cafe, PkObject.CurrentPeriod, WkObject.CurrentWeek /*Pk.CurrentPeriod, Wk.CurrentWeek*/);
+            weeklyMenuAdapter.MakeBackendButtons(ds._MenuBuilder_WeeklyMenus, PkObject.CurrentPeriod, WkObject.CurrentWeek /*Pk.CurrentPeriod, Wk.CurrentWeek*/);
             int i = 0;
             foreach (var row in ds._MenuBuilder_WeeklyMenus)
             {
