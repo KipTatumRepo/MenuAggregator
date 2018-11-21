@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MenuAggregator.Classes;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -23,11 +24,26 @@ namespace MenuAggregator
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static string UserName = Environment.UserName;   
+        public static PeriodChooser Pk;
+        public static WeekChooser Wk;
+        int minWeek = 1;
+        public static string UserName = Environment.UserName;
+        //static DateTime test = new DateTime(2018, 12, 3, 00, 00, 00);
+        //public static DateTime today = test;
+        public static DateTime today = DateTime.Now;
+        public static int thisYear = today.Year;
+        static DateTime firstOfMonth = new DateTime(today.Year, today.Month, 1);
+        static DateTime endOfMonth = new DateTime(today.Year,
+                                           today.Month,
+                                                        DateTime.DaysInMonth(today.Year,
+                                                                 today.Month));
         public static string Cafe;
         public static int numberOfCafes;
         public static int IsAdmin;
-        
+        public static int mondayCount = 0;
+        public static int currentPeriod;
+        public static int currentWeek;
+
         public MainWindow()
         {
             try
@@ -37,6 +53,24 @@ namespace MenuAggregator
                 MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter userAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter();
 
                 InitializeComponent();
+
+                CountMonday countMonday = new CountMonday();
+
+                mondayCount = countMonday.CountMondays(firstOfMonth, endOfMonth);
+
+                currentPeriod = GetPeriod(today);
+
+                if (currentWeek == 0)
+                {
+                    currentWeek = GetWeek();
+                    Wk = new WeekChooser(minWeek, mondayCount, currentWeek);
+                }
+                else
+                {
+                    Wk = new WeekChooser(0, mondayCount, 5);
+                }
+
+                Pk = new PeriodChooser(Wk, 1, 12, currentPeriod);
 
                 userAdapter.IsAuth(table, UserName);
                 numberOfCafes = table.Count;
@@ -55,7 +89,7 @@ namespace MenuAggregator
                 else if ( numberOfCafes >= 1)
                 {
                     mainFrame.Source = new Uri("pages\\Home.xaml", UriKind.Relative);
-                    Cafe = table.Rows[0][2].ToString(); //ds._MenuBuilder_Users.Rows[0][2].ToString();
+                    Cafe = table.Rows[0][2].ToString(); 
                 }
                 else
                 {
@@ -69,29 +103,37 @@ namespace MenuAggregator
             }
         }
 
-        /*private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        public static int GetPeriod(DateTime today)
         {
-            string to = "v-datatu@microsoft.com";
-            string from = "anything@anything.com";
-            string subject = Cafe + "'s menu has been updated!";
-            string body = "how to get the values we need to format this";
-            string server = "smtp.gmail.com";
-            string login = "kiptatum@gmail.com";
-            string pword = "lucius6500";
 
-            var smptClient = new SmtpClient(server, 587)
+            string dayOfWeek = today.DayOfWeek.ToString();
+            int returnedPeriod = 0;
+            int currentPeriod;
+            string sMonth;
+            DateTime addSevenDays = today.AddDays(7);
+            if (dayOfWeek == "Monday" && today >= addSevenDays)
             {
-                Credentials = new NetworkCredential(login, pword),
-                EnableSsl = true
+                sMonth = DateTime.Today.AddMonths(-1).ToString("MM");
+                currentPeriod = Convert.ToInt32(sMonth);
+                returnedPeriod = currentPeriod;
+                currentWeek = 5;
+            }
+            else
+            {
+                sMonth = DateTime.Now.ToString("MM");
+                currentPeriod = Convert.ToInt32(sMonth);
+                returnedPeriod = currentPeriod;
+                currentWeek = 0;
+            }
 
-            };
+            return returnedPeriod;
+        }
 
-            MailMessage message = new MailMessage(to, from, subject, body);
-
-            smptClient.Send(message);
-            
-            
-
-        }*/
+        public static int GetWeek()
+        {
+            CountMonday monday = new CountMonday();
+            int currentMonday = monday.CountMondays(firstOfMonth, today);
+            return currentMonday;
+        }
     }
 }
