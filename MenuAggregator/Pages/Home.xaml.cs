@@ -28,10 +28,6 @@ namespace MenuAggregator.Pages
     {
         #region Variable initialization
 
-
-        //WeekChooser WkObject = new WeekChooser(0, 0, 0);
-        //PeriodChooser PkObject = new PeriodChooser(MainWindow.Wk, 0,0,0);
-
         static WeekChooser WkObject = MainWindow.Wk;
         PeriodChooser PkObject = MainWindow.Pk;
         public string isWeekly;
@@ -47,9 +43,9 @@ namespace MenuAggregator.Pages
         int insertCount;
         string selectedConceptName;
         string cafe;
-        //string notes;
+       
         int? BID;
-        //int textBoxHasValue = 0;
+       
 
         List<string> items = new List<string>();
         List<string> price = new List<string>();
@@ -63,6 +59,7 @@ namespace MenuAggregator.Pages
         List<string> setNotesTBDisplayList = new List<string>();
         List<int?> listIsChanged = new List<int?>();
         List<int> returnList = new List<int>();
+        List<NewGroupBox> groupBoxes = new List<NewGroupBox>();
         Dictionary<string, string> dictionaryMenuItemToAdd = new Dictionary<string, string>();
         Dictionary<string, string> dictionaryPriceItemToAdd = new Dictionary<string, string>();
         Dictionary<string, string> dictionaryTextItemToAdd = new Dictionary<string, string>();
@@ -76,6 +73,9 @@ namespace MenuAggregator.Pages
 
         MenuBuilderDataSet ds = new MenuBuilderDataSet();
         DataTable dt = new DataTable();
+        MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable nowTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+        MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable previousTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+
         #endregion
 
         public Home()
@@ -164,21 +164,11 @@ namespace MenuAggregator.Pages
 
                 }
                 #endregion
-
                
+                //add Period and Week Chooser to top of the page
                 string space = "             ";
-
                 Separator sep = new Separator();
-                //tlbFlash.Items.Add(Pk);
-                //tlbFlash.Items.Add(space);
-                //tlbFlash.Items.Add(sep);
-                //tlbFlash.Items.Add(space);
-                //tlbFlash.Items.Add(Wk);
-                //Pk.SelectAllEnabled = true;
-
-                //PkObject = Pk;
-                //WkObject = Wk;
-
+               
                 tlbFlash.Items.Add(PkObject);
                 tlbFlash.Items.Add(space);
                 tlbFlash.Items.Add(sep);
@@ -186,8 +176,6 @@ namespace MenuAggregator.Pages
                 tlbFlash.Items.Add(WkObject);
                 PkObject.SelectAllEnabled = true;
 
-                //PkObject = Pk;
-                //WkObject = Wk;
             }
 
             catch (Exception ex)
@@ -196,19 +184,16 @@ namespace MenuAggregator.Pages
             }
 
         }
-
        
         #region Custom Methods
 
         //Build groupbox fill with 2 comboboxes; 1 for menu items and 1 for price.  Also fill with on textbox for notes.  bid parameter is for
         //determining how many groupboxes we need, 1 for weekly menu, 5 for daily menuu
-        private NewGroupBox BuildGroupBox(string day, /*List<string> item, List<string> price, string notes, */int? bid, int j, string conceptName)
+        private NewGroupBox BuildGroupBox(string day, int? bid, int j, string conceptName)
         {
             int i = 0;
             int gridRowCount;
             string concept = conceptName;
-            //string sFillCBPeriod;
-            //string sFillCBWeek;
             int fillCBPeriod = 0;
             int fillCBWeek = 0;
 
@@ -232,17 +217,21 @@ namespace MenuAggregator.Pages
             MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
             MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter conceptsAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
 
-            //we need to get last period and week to set text in comboboxes and textboxes 
-            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable periodWeekTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
-            weeklyMenuAdapter.GetLastWeek(periodWeekTable, selectedConceptName, cafe);
+            
+            //MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable nowTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            //MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable previousTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
 
-            if (periodWeekTable.Rows.Count >= 1)
-            {
-                //fillCBPeriod = Pk.CurrentPeriod; 
-                //fillCBWeek = Wk.CurrentWeek - 1; 
-                fillCBPeriod = PkObject.CurrentPeriod;
-                fillCBWeek = WkObject.CurrentWeek - 1;
-            }
+           
+
+            //we need to get last period and week to set text in comboboxes and textboxes 
+            //MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable periodWeekTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            //weeklyMenuAdapter.GetLastWeek(periodWeekTable, selectedConceptName, cafe);
+
+            //if (periodWeekTable.Rows.Count >= 1)
+            //{
+            //    fillCBPeriod = PkObject.CurrentPeriod;
+            //    fillCBWeek = WkObject.CurrentWeek - 1;
+            //}
 
             //create a table and fill with all prices
             priceAdapter.Fill(ds._MenuBuilder_Price);
@@ -253,10 +242,10 @@ namespace MenuAggregator.Pages
             subMenuAdapter.FillByConceptId(ds._MenuBuilder_SubMenus, bid);
 
             //since we got the previous week and period above we create a table that fills with items from the previous week
-            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable table = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
-            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable compareTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
-            weeklyMenuAdapter.FillComboBox(table, conceptName, fillCBPeriod, fillCBWeek, cafe);
-            weeklyMenuAdapter.FillComboBoxCompare(compareTable, conceptName, fillCBPeriod, WkObject.CurrentWeek/*Wk.CurrentWeek*/, cafe);
+            //MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable table = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            //MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable compareTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            //weeklyMenuAdapter.FillComboBox(table, conceptName, fillCBPeriod, fillCBWeek, cafe);
+            //weeklyMenuAdapter.FillComboBoxCompare(compareTable, conceptName, PkObject.CurrentPeriod, WkObject.CurrentWeek/*Wk.CurrentWeek*/, cafe);
             
 
             //Look at the conepts table to determine if the the price of this concept is editable by the cafe
@@ -266,29 +255,36 @@ namespace MenuAggregator.Pages
             DataRow cTableRow = cTable.Rows[0];
 
             string priceEditable = cTableRow["priceEditable"].ToString();
-           
-            //if there is no data in the weekly menus table associated with the concept
-            if (table.Rows.Count == 0)
+
+            //acreate a table with items from the current week.  If this table has values in it then we need to use it to fill comboboxes
+            weeklyMenuAdapter.FillComboBoxCompare(nowTable, gridRowCount, conceptName, PkObject.CurrentPeriod, WkObject.CurrentWeek, cafe, day);
+            
+            if (nowTable.Count >= 1)
             {
-                setMenuCBDispalyList.Add("Select Menu");
-                setPriceCBDisplayList.Add("Price");
-                setNotesTBDisplayList.Add("");
+                foreach (DataRow rows in nowTable)
+                {
+                    setMenuCBDispalyList.Add(rows["menuItem"].ToString());
+                    setPriceCBDisplayList.Add(rows["Price"].ToString());
+                    setNotesTBDisplayList.Add(rows["Notes"].ToString());
+                }
             }
             else
             {
-                if (compareTable.Count < 1)
+                weeklyMenuAdapter.FillComboBox(previousTable, gridRowCount, conceptName, PkObject.CurrentPeriod, WkObject.CurrentWeek - 1, cafe, day);
+
+                if (previousTable.Count <= 0)
                 {
-                    foreach (DataRow rows in table)
-                    {
-                        setMenuCBDispalyList.Add(rows["menuItem"].ToString());
-                        setPriceCBDisplayList.Add(rows["Price"].ToString());
-                        setNotesTBDisplayList.Add(rows["Notes"].ToString());
+                    for(int z = 0; z <= gridRowCount; z++)
+                    { 
+                    setMenuCBDispalyList.Add("Select Menu");
+                    setPriceCBDisplayList.Add("Price");
+                    setNotesTBDisplayList.Add("");
                     }
                 }
                 else
-                {
-                    foreach(DataRow rows in compareTable)
-                    {
+                { 
+                    foreach (DataRow rows in previousTable)
+                    { 
                         setMenuCBDispalyList.Add(rows["menuItem"].ToString());
                         setPriceCBDisplayList.Add(rows["Price"].ToString());
                         setNotesTBDisplayList.Add(rows["Notes"].ToString());
@@ -303,6 +299,7 @@ namespace MenuAggregator.Pages
             box.FontSize = 24;
             box.Height = 98;
             box.IsChanged = 0;
+            box.Tag = concept + "," + day + "," + PkObject.CurrentPeriod + "," + WkObject.CurrentWeek;
             Grid grid = new Grid();
             ColumnDefinition column1 = new ColumnDefinition();
             column1.Width = new GridLength(235);
@@ -315,7 +312,6 @@ namespace MenuAggregator.Pages
             grid.ColumnDefinitions.Add(column3);
 
             int gridRow = 0;
-            //int gridColumn = 0;
             for (int c = 0; c <= gridRowCount - 1; c++)
             {
 
@@ -326,21 +322,31 @@ namespace MenuAggregator.Pages
                     row1.Height = new GridLength(40);
                     RowDefinition row2 = new RowDefinition();
                     row2.Height = new GridLength(40);
-                   
-                  
+
+
                     grid.RowDefinitions.Add(row1);
                     grid.RowDefinitions.Add(row2);
-                    
 
-                    if (table.Rows.Count == 0)
-                    {
-                        for (int z = 0; z <= 1; z++)
-                        {
-                            setMenuCBDispalyList.Add("Select Menu");
-                            setPriceCBDisplayList.Add("Price");
-                            setNotesTBDisplayList.Add("");
-                        }
-                    }
+
+                    //if (table.Rows.Count == 0)
+                    //{
+                    //    for (int z = 0; z <= 1; z++)
+                    //    {
+                    //        setMenuCBDispalyList.Add("Select Menu");
+                    //        setPriceCBDisplayList.Add("Price");
+                    //        setNotesTBDisplayList.Add("");
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    foreach (DataRow rows in table)
+                    //    {
+                    //        setMenuCBDispalyList.Add(rows["menuItem"].ToString());
+                    //        setPriceCBDisplayList.Add(rows["Price"].ToString());
+                    //        setNotesTBDisplayList.Add(rows["Notes"].ToString());
+                    //    }
+                    //}
+
                 }
                 else if (gridRowCount == 2)
                 {
@@ -349,22 +355,22 @@ namespace MenuAggregator.Pages
                     row1.Height = new GridLength(40);
 
                     grid.RowDefinitions.Add(row1);
-                   
-                    setMenuCBDispalyList.Add("Select Menu");
-                    setPriceCBDisplayList.Add("Price");
-                    setNotesTBDisplayList.Add("");
-                     
+
+                    //setMenuCBDispalyList.Add("Select Menu");
+                    //setPriceCBDisplayList.Add("Price");
+                    //setNotesTBDisplayList.Add("");
+
                 }
                 else
                 {
                     box.Height = 80;
-                    
-                    if (table.Rows.Count == 0)
-                    {
-                        setMenuCBDispalyList.Add("Select Menu");
-                        setPriceCBDisplayList.Add("Price");
-                        setNotesTBDisplayList.Add("");
-                    }
+
+                    //if (table.Rows.Count == 0)
+                    //{
+                    //    setMenuCBDispalyList.Add("Select Menu");
+                    //    setPriceCBDisplayList.Add("Price");
+                    //    setNotesTBDisplayList.Add("");
+                    //}
                 }
 
                 ComboBox menucb = new ComboBox();
@@ -445,9 +451,6 @@ namespace MenuAggregator.Pages
                 Grid.SetRow(textObject, c);
                 grid.Children.Add(textObject);
 
-                //menucb.SelectedItem = -1;
-                //pricecb.SelectedItem = -1;
-
                 menucb.AddHandler(ComboBox.SelectionChangedEvent, new SelectionChangedEventHandler(menucb_SelectionChanged));
                 pricecb.AddHandler(ComboBox.SelectionChangedEvent, new SelectionChangedEventHandler(pricecb_SelectionChanged));
                 text.AddHandler(TextBox.LostKeyboardFocusEvent, new KeyboardFocusChangedEventHandler(text_LostFocus));
@@ -462,7 +465,8 @@ namespace MenuAggregator.Pages
             //add grid to groupbox
             box.Content = grid;
             i++;
-            
+
+            groupBoxes.Add(box);
             return box;
         }
 
@@ -483,10 +487,6 @@ namespace MenuAggregator.Pages
 
             return button;
         }
-
-        
-
-        
 
         //This will extract the values from the dictionary and put in a list for iterating through
         private List<string> GetDictionaryItem(Dictionary<string, string> d)
@@ -615,35 +615,30 @@ namespace MenuAggregator.Pages
                             string day = "Monday";
                             itemStackPanel.Children.Add(BuildGroupBox(day, b.Bid, j, selectedConceptName));
                             dayNames.Add(day);
-                            //l++;
                         }
                         else if (j == 1)
                         {
                             string day = "Tuesday";
                             itemStackPanel.Children.Add(BuildGroupBox(day, b.Bid, j, selectedConceptName));
                             dayNames.Add(day);
-                            //l++;
                         }
                         else if (j == 2)
                         {
                             string day = "Wednesday";
                             itemStackPanel.Children.Add(BuildGroupBox(day, b.Bid, j, selectedConceptName));
                             dayNames.Add(day);
-                            //l++;
                         }
                         else if (j == 3)
                         {
                             string day = "Thursday";
                             itemStackPanel.Children.Add(BuildGroupBox(day,  b.Bid, j, selectedConceptName));
                             dayNames.Add(day);
-                            //l++;
                         }
                         else if (j == 4)
                         {
                             string day = "Friday";
                             itemStackPanel.Children.Add(BuildGroupBox(day,  b.Bid, j, selectedConceptName));
                             dayNames.Add(day);
-                            //l = 0;
                         }
                     }
                 }
@@ -664,8 +659,7 @@ namespace MenuAggregator.Pages
             setNotesTBDisplayList.Clear();
             setPriceCBDisplayList.Clear();
             k = 0;
-            //Wk.PropertyChanged += new PropertyChangedEventHandler(WeekChanged);
-            //Pk.PropertyChanged += new PropertyChangedEventHandler(PeriodChanged);
+            
             WkObject.PropertyChanged += new PropertyChangedEventHandler(WeekChanged);
             PkObject.PropertyChanged += new PropertyChangedEventHandler(PeriodChanged);
         }
@@ -705,7 +699,6 @@ namespace MenuAggregator.Pages
                     dictionaryListIsChanged.Add(selectedCBTag, 1);
                 }
             }
-            //listIsChanged.Add(isChanged);
         }
 
         private void pricecb_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -743,7 +736,6 @@ namespace MenuAggregator.Pages
                     dictionaryListIsChanged.Add(selectedCBTag, 1);
                 }
             }
-            //listIsChanged.Add(isChanged);
         }
 
         private void text_LostFocus(object sender, RoutedEventArgs e)
@@ -765,8 +757,12 @@ namespace MenuAggregator.Pages
             MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter menuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
             
             conceptStackPanel.Visibility = Visibility.Visible;
+            //NewGroupBox newbox = groupBoxes[1];
+            //int isChanged = newbox.IsChanged;
 
             {
+                //int openPeriod = MainWindow.currentPeriod;
+                //int openWeek = MainWindow.currentWeek;
                 List<string> LastWeekMenuList = new List<string>();
                 List<int> isChangedLists = new List<int>();
                 int numberOfDayIterator = 0;
@@ -789,14 +785,11 @@ namespace MenuAggregator.Pages
                         LastWeekMenuList.Add(row[6].ToString());
                     }
 
-                    //int t = 0;
                     int dayNameiterator = 0;
                     int addIterator = 0;
                     
-                    for (int i = 0; i <= numberOfDayIterator; i++) //4
+                    for (int i = 0; i <= numberOfDayIterator; i++) 
                     {
-                       
-
                         for (int j = 0; j <= insertCount - 1; j++)
                         {
                             int u = 0;
@@ -811,6 +804,7 @@ namespace MenuAggregator.Pages
                             }
                             isChanged = 0;
                         }
+                        //isChangedLists.Clear();
                     }
                     MessageBox.Show(buttonNames[0] + " Has been updated");
                     
@@ -871,6 +865,9 @@ namespace MenuAggregator.Pages
             BID = null;
             dayNames.Clear();
             buttonNames.Clear();
+            setMenuCBDispalyList.Clear();
+            setNotesTBDisplayList.Clear();
+            setPriceCBDisplayList.Clear();
             menuItemToAdd.Clear();
             priceItemToAdd.Clear();
             notesToAdd.Clear();
@@ -890,7 +887,7 @@ namespace MenuAggregator.Pages
         private void copyButton_Click(object sender, RoutedEventArgs e)
         {
             ComboBox cb = new ComboBox();
-            //cb = ;
+            
         }
 
         private void WeekChanged(object sender, PropertyChangedEventArgs e)
@@ -901,7 +898,6 @@ namespace MenuAggregator.Pages
             setMenuCBDispalyList.Clear();
             setNotesTBDisplayList.Clear();
             setPriceCBDisplayList.Clear();
-            //buttonNames.Clear();
             menuItemToAdd.Clear();
             priceItemToAdd.Clear();
             notesToAdd.Clear();
@@ -926,47 +922,41 @@ namespace MenuAggregator.Pages
                     if (j == 0)
                     {
                         string day = "Monday";
-                        itemStackPanel.Children.Add(BuildGroupBox(day, /*items, price, notes, */ BID, j, selectedConceptName));
+                        itemStackPanel.Children.Add(BuildGroupBox(day, BID, j, selectedConceptName));
                         dayNames.Add(day);
-                        //l++;
                     }
                     else if (j == 1)
                     {
                         string day = "Tuesday";
-                        itemStackPanel.Children.Add(BuildGroupBox(day, /*items, price, notes, */ BID, j, selectedConceptName));
+                        itemStackPanel.Children.Add(BuildGroupBox(day, BID, j, selectedConceptName));
                         dayNames.Add(day);
-                        //l++;
                     }
                     else if (j == 2)
                     {
                         string day = "Wednesday";
-                        itemStackPanel.Children.Add(BuildGroupBox(day, /*items, price, notes, */ BID, j, selectedConceptName));
+                        itemStackPanel.Children.Add(BuildGroupBox(day, BID, j, selectedConceptName));
                         dayNames.Add(day);
-                        //l++;
                     }
                     else if (j == 3)
                     {
                         string day = "Thursday";
-                        itemStackPanel.Children.Add(BuildGroupBox(day, /*items, price, notes, */ BID, j, selectedConceptName));
+                        itemStackPanel.Children.Add(BuildGroupBox(day, BID, j, selectedConceptName));
                         dayNames.Add(day);
-                        //l++;
                     }
                     else if (j == 4)
                     {
                         string day = "Friday";
-                        itemStackPanel.Children.Add(BuildGroupBox(day, /*items, price, notes, */ BID, j, selectedConceptName));
+                        itemStackPanel.Children.Add(BuildGroupBox(day, BID, j, selectedConceptName));
                         dayNames.Add(day);
-                        //l = 0;
                     }
                 }
             }
             else
             {
                 string day = "Weekly";
-                itemStackPanel.Children.Add(BuildGroupBox(day, /*items, price, notes, */ BID, 0, selectedConceptName));
+                itemStackPanel.Children.Add(BuildGroupBox(day, BID, 0, selectedConceptName));
                 dayNames.Add(day);
             }
-           
         }
 
         private void PeriodChanged(object sender, PropertyChangedEventArgs e)
@@ -1047,6 +1037,8 @@ namespace MenuAggregator.Pages
 
         private void backendButton_Click(object sender, RoutedEventArgs e)
         {
+            tlbFlash.Items.Remove(PkObject);
+            tlbFlash.Items.Remove(WkObject);
             NavigationService.Navigate(
                 new Uri("Pages/BAckendHome.xaml", UriKind.Relative));
         }
