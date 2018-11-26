@@ -401,6 +401,8 @@ namespace MenuAggregator.Pages
 
                     menucb.Items.Add(row[1]);
                 }
+                menucb.Items.Add("PROMO");
+                menucb.Items.Add("Station Closed");
 
                 //add price text from price table to combobox
                 foreach (DataRow row in priceTable.Rows)
