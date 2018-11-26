@@ -35,8 +35,8 @@
                             <DataGrid.Columns>
                             <DataGridTextColumn x:Name="conceptName" Header="Concept" Binding="{Binding conceptName}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
                             <DataGridTextColumn x:Name="day" Header="Day" Binding="{Binding Day}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}" />
-                            <DataGridTextColumn x:Name="lastWeekMenuItem" Header="Last Week's Item" Binding="{Binding lastMenuItem}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
-                            <DataGridTextColumn x:Name="menuItem" Header="This Week's Item" Binding="{Binding menuItem}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
+                            <DataGridTextColumn x:Name="lastWeekMenuItem" Header="Last Week's Item" Binding="{Binding lastMenuItem}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}" Width="170"/>
+                            <DataGridTextColumn x:Name="menuItem" Header="This Week's Item" Binding="{Binding menuItem}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}" Width="170"/>
                             <DataGridTextColumn x:Name="price" Header="Price" Binding="{Binding Price}" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}"/>
                             <DataGridTextColumn x:Name="notes" Header="Notes" Binding="{Binding Notes}" Width="*" HeaderStyle="{StaticResource CenterGridHeader}" CellStyle="{StaticResource CenterCellText}" FontSize="12" >
                                 <DataGridTextColumn.ElementStyle>

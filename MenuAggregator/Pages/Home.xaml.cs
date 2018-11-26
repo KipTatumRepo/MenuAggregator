@@ -274,9 +274,12 @@ namespace MenuAggregator.Pages
 
                 if (previousTable.Count <= 0)
                 {
+                    for(int z = 0; z <= gridRowCount; z++)
+                    { 
                     setMenuCBDispalyList.Add("Select Menu");
                     setPriceCBDisplayList.Add("Price");
                     setNotesTBDisplayList.Add("");
+                    }
                 }
                 else
                 { 
@@ -754,8 +757,8 @@ namespace MenuAggregator.Pages
             MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter menuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
             
             conceptStackPanel.Visibility = Visibility.Visible;
-            NewGroupBox newbox = groupBoxes[1];
-            int isChanged = newbox.IsChanged;
+            //NewGroupBox newbox = groupBoxes[1];
+            //int isChanged = newbox.IsChanged;
 
             {
                 //int openPeriod = MainWindow.currentPeriod;

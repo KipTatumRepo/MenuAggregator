@@ -63,10 +63,11 @@ namespace MenuAggregator.Pages
             buttonTemplate.SetBinding(Button.ContentProperty, new Binding("isComplete"));
             buttonTemplate.AddHandler(Button.ClickEvent, new RoutedEventHandler(dataGridButton_Click));
 
-            
+
             backEndDataGrid.Columns.Add(new DataGridTemplateColumn()
             {
                 Header = "Updated",
+                HeaderStyle = FindResource("CenterGridHeader") as Style,
                 CellTemplate = new DataTemplate() { VisualTree = buttonTemplate }
                  
             });
