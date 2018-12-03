@@ -194,6 +194,7 @@ namespace MenuAggregator.Pages
             string concept = conceptName;
             int fillCBPeriod = 0;
             int fillCBWeek = 0;
+            DataTable useMe = new DataTable();
 
             if (concept == "Chefs Table")
             {
@@ -254,7 +255,7 @@ namespace MenuAggregator.Pages
 
             string priceEditable = cTableRow["priceEditable"].ToString();
 
-            //acreate a table with items from the current week.  If this table has values in it then we need to use it to fill comboboxes
+            //create a table with items from the current week.  If this table has values in it then we need to use it to fill comboboxes
             weeklyMenuAdapter.FillComboBoxCompare(nowTable, gridRowCount, conceptName, PkObject.CurrentPeriod, WkObject.CurrentWeek, cafe, day);
             
             if (nowTable.Count >= 1)
@@ -265,6 +266,7 @@ namespace MenuAggregator.Pages
                     setPriceCBDisplayList.Add(rows["Price"].ToString());
                     setNotesTBDisplayList.Add(rows["Notes"].ToString());
                 }
+                useMe = nowTable;
             }
             else
             {
@@ -288,6 +290,7 @@ namespace MenuAggregator.Pages
                         setNotesTBDisplayList.Add(rows["Notes"].ToString());
                     }
                 }
+                useMe = previousTable;
             }
 
             NewGroupBox box = new NewGroupBox(); //change back to GroupBox
@@ -321,30 +324,27 @@ namespace MenuAggregator.Pages
                     RowDefinition row2 = new RowDefinition();
                     row2.Height = new GridLength(40);
 
-
                     grid.RowDefinitions.Add(row1);
                     grid.RowDefinitions.Add(row2);
 
-
-                    //if (table.Rows.Count == 0)
-                    //{
-                    //    for (int z = 0; z <= 1; z++)
-                    //    {
-                    //        setMenuCBDispalyList.Add("Select Menu");
-                    //        setPriceCBDisplayList.Add("Price");
-                    //        setNotesTBDisplayList.Add("");
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //    foreach (DataRow rows in table)
-                    //    {
-                    //        setMenuCBDispalyList.Add(rows["menuItem"].ToString());
-                    //        setPriceCBDisplayList.Add(rows["Price"].ToString());
-                    //        setNotesTBDisplayList.Add(rows["Notes"].ToString());
-                    //    }
-                    //}
-
+                    if (useMe.Rows.Count < 3)//== 0)
+                    {
+                        for (int z = 0; z < (3 - useMe.Rows.Count)/*z <= 1*/; z++)
+                        {
+                            setMenuCBDispalyList.Add("Select Menu");
+                            setPriceCBDisplayList.Add("Price");
+                            setNotesTBDisplayList.Add("");
+                        }
+                    }
+                    else
+                    {
+                        foreach (DataRow rows in useMe.Rows)
+                        {
+                            setMenuCBDispalyList.Add(rows["menuItem"].ToString());
+                            setPriceCBDisplayList.Add(rows["Price"].ToString());
+                            setNotesTBDisplayList.Add(rows["Notes"].ToString());
+                        }
+                    }
                 }
                 else if (gridRowCount == 2)
                 {
@@ -354,21 +354,21 @@ namespace MenuAggregator.Pages
 
                     grid.RowDefinitions.Add(row1);
 
-                    //setMenuCBDispalyList.Add("Select Menu");
-                    //setPriceCBDisplayList.Add("Price");
-                    //setNotesTBDisplayList.Add("");
+                    setMenuCBDispalyList.Add("Select Menu");
+                    setPriceCBDisplayList.Add("Price");
+                    setNotesTBDisplayList.Add("");
 
                 }
                 else
                 {
                     box.Height = 80;
 
-                    //if (table.Rows.Count == 0)
-                    //{
-                    //    setMenuCBDispalyList.Add("Select Menu");
-                    //    setPriceCBDisplayList.Add("Price");
-                    //    setNotesTBDisplayList.Add("");
-                    //}
+                    if (useMe.Rows.Count == 0)
+                    {
+                        setMenuCBDispalyList.Add("Select Menu");
+                        setPriceCBDisplayList.Add("Price");
+                        setNotesTBDisplayList.Add("");
+                    }
                 }
 
                 ComboBox menucb = new ComboBox();
