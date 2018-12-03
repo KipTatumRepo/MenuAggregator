@@ -46,6 +46,7 @@ namespace MenuAggregator
 
         public MainWindow()
         {
+           
             try
             { 
                 MenuBuilderDataSet ds = new MenuBuilderDataSet();
@@ -75,8 +76,8 @@ namespace MenuAggregator
                 userAdapter.IsAuth(table, UserName);
                 numberOfCafes = table.Count;
 
-                if(table.Count >= 1)
-                { 
+                if (table.Count >= 1)
+                {
                     string isAdmin = table.Rows[0][4].ToString();
                     IsAdmin = Int32.Parse(isAdmin);
                 }
@@ -105,7 +106,6 @@ namespace MenuAggregator
 
         public static int GetPeriod(DateTime today)
         {
-
             string dayOfWeek = today.DayOfWeek.ToString();
             int returnedPeriod = 0;
             int currentPeriod;

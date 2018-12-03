@@ -52,7 +52,6 @@ namespace MenuAggregator.Pages
             {
                 MessageBox.Show(ex.ToString());
             }
-                
 
             conceptAdapter.Fill(ds1._MenuBuilder_Concepts);
             #endregion

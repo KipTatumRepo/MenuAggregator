@@ -14,7 +14,7 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>\\compasspowerbi\businessintelligence\MenuAggregator\</PublishUrl>
+    <PublishUrl>\\compasspowerbi\CompassBIApplications\MenuAggregator\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -24,10 +24,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>\\compasspowerbi\businessintelligence\MenuAggregator\</InstallUrl>
+    <InstallUrl>\\compasspowerbi\CompassBIApplications\MenuAggregator\</InstallUrl>
     <ProductName>Menu Aggregator</ProductName>
     <PublisherName>Compass Business Intelligence</PublisherName>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>8</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -98,6 +98,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BIDataSet.cs">
+      <DependentUpon>BIDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="BIDataSet.Designer.cs">
       <AutoGen>True</AutoGen>

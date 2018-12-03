@@ -26,8 +26,6 @@
         </Style>
         <!-- End Data Grid Styling-->
 
-       
-
         <Style TargetType="{x:Type StackPanel}">
             <Style.Resources>
                 <Style TargetType="{x:Type Border}">

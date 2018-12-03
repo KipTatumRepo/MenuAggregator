@@ -160,8 +160,6 @@ namespace MenuAggregator.Pages
 
                     multipleCafeCombobox.Visibility = Visibility.Visible;
                     multipleCafeCombobox.SelectedItem = -1;
-
-
                 }
                 #endregion
                
