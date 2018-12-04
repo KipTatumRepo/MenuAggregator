@@ -5153,7 +5153,7 @@ LEFT JOIN [MenuBuilder.Concepts] ON [MenuBuilder.BuiltCafes].conceptId = [MenuBu
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = @"SELECT    TOP(@gridRowCount)    Cafe, Day, Notes, PID, Period, Price, Week, conceptName, isChanged, lastMenuItem, menuItem, isComplete, dateEdit, Year
 FROM            [MenuBuilder.WeeklyMenus]
-WHERE        (conceptName = @conceptName) AND (Period = @currentPeriod) AND (Week = @currentWeek) AND (Cafe = @cafe) AND (Day = @day) AND (isChanged = 1)
+WHERE        (conceptName = @conceptName) AND (Period = @currentPeriod) AND (Week = @currentWeek) AND (Cafe = @cafe) AND (Day = @day) 
 ORDER BY dateEdit DESC, PID DESC";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@gridRowCount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
