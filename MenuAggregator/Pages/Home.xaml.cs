@@ -119,9 +119,9 @@ namespace MenuAggregator.Pages
                     if (BackendHome.NavigateFrom == "BackendHome")
                     {
                         BIDataSet ds = new BIDataSet();
-                        BIDataSetTableAdapters.LOCATIONSTableAdapter builtCafes = new BIDataSetTableAdapters.LOCATIONSTableAdapter();
-                        BIDataSet.LOCATIONSDataTable cafeTable = new BIDataSet.LOCATIONSDataTable();
-                        builtCafes.Fill(cafeTable);
+                        BIDataSetTableAdapters.CostCentersTableAdapter builtCafes = new BIDataSetTableAdapters.CostCentersTableAdapter();
+                        BIDataSet.CostCentersDataTable cafeTable = new BIDataSet.CostCentersDataTable();
+                        builtCafes.CafeFillOnly(cafeTable);
 
                         multipleCafeCombobox.FontSize = 24;
                         headerTextBox.Width = 690;
@@ -131,7 +131,7 @@ namespace MenuAggregator.Pages
 
                         foreach (DataRow row in cafeTable)
                         {
-                            multipleCafeCombobox.Items.Add(row[2].ToString());
+                            multipleCafeCombobox.Items.Add(row[4].ToString());
                         }
                         backendButton.Visibility = Visibility.Visible;
                     }
