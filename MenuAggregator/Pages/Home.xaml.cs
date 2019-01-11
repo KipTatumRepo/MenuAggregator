@@ -31,19 +31,13 @@ namespace MenuAggregator.Pages
         static WeekChooser WkObject = MainWindow.Wk;
         PeriodChooser PkObject = MainWindow.Pk;
         public string isWeekly;
-        
-        
         int k = 0;
         int l = 0;
-        
-        
         string itemToAdd;
         int isChanged;
-        
         int insertCount;
         string selectedConceptName;
         string cafe;
-       
         int? BID;
         int pWeek;
         int pPeriod;

@@ -31,6 +31,11 @@ namespace MenuAggregator.Pages
         public static int mondayCount = 0;
         public string Cafe;
         MenuBuilderDataSet ds = new MenuBuilderDataSet();
+        BIDataSet biDs = new BIDataSet();
+        BIDataSet.CostCentersDataTable table = new BIDataSet.CostCentersDataTable();
+        MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable thisWeeksMenus = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+        List<string> builtCafes = new List<string>();
+        TextBox tb;
 
         public BackendHome()
         {
@@ -38,6 +43,8 @@ namespace MenuAggregator.Pages
             Tag = "BackendHome";
             
             MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
+            MenuBuilderDataSetTableAdapters.MenuBuilder_BuiltCafesTableAdapter builtCafesTA = new MenuBuilderDataSetTableAdapters.MenuBuilder_BuiltCafesTableAdapter();
+            BIDataSetTableAdapters.CostCentersTableAdapter adapter = new BIDataSetTableAdapters.CostCentersTableAdapter();
 
             string space = "             ";
             Separator sep = new Separator();
@@ -50,6 +57,7 @@ namespace MenuAggregator.Pages
             PkObjectBack.SelectAllEnabled = true;
 
             weeklyMenuAdapter.MakeBackendButtons(ds._MenuBuilder_WeeklyMenus, MainWindow.currentPeriod, MainWindow.currentWeek);
+            weeklyMenuAdapter.GetAllMenuThisWeek(thisWeeksMenus, MainWindow.currentPeriod, MainWindow.currentWeek);
 
             int i = 0;
             foreach (var row in ds._MenuBuilder_WeeklyMenus)
@@ -73,12 +81,35 @@ namespace MenuAggregator.Pages
             });
             WkObjectBack.PropertyChanged += new PropertyChangedEventHandler(WeekChanged);
             PkObjectBack.PropertyChanged += new PropertyChangedEventHandler(PeriodChanged);
-        }
+            
+            adapter.CafeFillOnly(table);
 
+            foreach (var cafe in table)
+            {
+                tb = new TextBox();
+                tb.Width = 100;
+                tb.TextAlignment = TextAlignment.Center;
+                tb.FontSize = 14;
+                tb.Tag = cafe[4];
+                tb.Background = Brushes.Red;
+                tb.Foreground = Brushes.White;
+                builtCafes.Add(cafe[4].ToString());
+                tb.Text = cafe[4].ToString();
+                cafeBoxes.Children.Add(tb);
+
+                foreach (var currentMenu in thisWeeksMenus) //ds._MenuBuilder_WeeklyMenus)
+                {
+                    string currentCafe = currentMenu[4].ToString();
+                    if (tb.Tag.ToString() == currentCafe)
+                    {
+                        tb.Background = Brushes.Green;
+                    }
+                }
+            }
+        }
 
         private NewButton CreateButton(MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dt, int i)
         {
-           
             string bid;
             NewButton button = new NewButton();
             Style style = FindResource("custButton") as Style;
@@ -108,7 +139,6 @@ namespace MenuAggregator.Pages
             weeklyMenuAdapter.FillDataGrid(table, Cafe);
 
             backEndDataGrid.ItemsSource = table;
-
         }
 
         private void dataGridButton_Click(object sender, RoutedEventArgs e)
