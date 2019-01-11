@@ -41,18 +41,18 @@ namespace MenuAggregator.Pages
             InitializeComponent();
 
             #region Database Stuff
-            BIDataSetTableAdapters.LOCATIONSTableAdapter cafeAdapter = new BIDataSetTableAdapters.LOCATIONSTableAdapter();
-            BIDataSet.LOCATIONSDataTable table = new BIDataSet.LOCATIONSDataTable();
+            BIDataSetTableAdapters.CostCentersTableAdapter cafeAdapter = new BIDataSetTableAdapters.CostCentersTableAdapter();
+            BIDataSet.CostCentersDataTable table = new BIDataSet.CostCentersDataTable();
             MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter conceptAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
             try
             {
-                cafeAdapter.Fill(table);
+                cafeAdapter.CafeFillOnly(table);
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-                
 
             conceptAdapter.Fill(ds1._MenuBuilder_Concepts);
             #endregion
@@ -60,10 +60,10 @@ namespace MenuAggregator.Pages
             //Greet User with user V-
             topRow.Text = "Hello " + User + " I see this is your first time using the program, please select your cafe from the options below";
 
-            //build combobox with all available cafes from MasterBuildingList in DB
+            //build combobox with all available cafes from Operations.CostCenters in DB
             foreach (DataRow row in table) //ds.LOCATIONS)
             {
-                cafeCombobox.Items.Add(row[2]);
+                cafeCombobox.Items.Add(row[4]);
             }
             
             //add checkboxes to screen after a cafe is selected
@@ -72,7 +72,6 @@ namespace MenuAggregator.Pages
                 conceptCheckBox = MakeCheckbox(ds1._MenuBuilder_Concepts, i);
                 i++;
             }
-
         }
 
         #region Custom Methods

@@ -10,6 +10,7 @@ namespace MenuAggregator.Classes
     public class NewGroupBox : GroupBox
     {
         private int _isChanged;
+       
 
         public int IsChanged
         {
@@ -23,8 +24,11 @@ namespace MenuAggregator.Classes
             }
         }
 
+        
+
         public NewGroupBox()
         {
+            
             IsChanged = _isChanged;
         }
 

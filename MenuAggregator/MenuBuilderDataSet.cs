@@ -16,6 +16,10 @@ namespace MenuAggregator
 
 namespace MenuAggregator.MenuBuilderDataSetTableAdapters
 {
+    partial class MenuBuilder_SubMenusTableAdapter
+    {
+    }
+
     partial class MenuBuilder_ConceptsTableAdapter
     {
     }
