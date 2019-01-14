@@ -5209,7 +5209,7 @@ ORDER BY dateEdit DESC, PID DESC";
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
             this._commandCollection[5].CommandText = "SELECT DISTINCT Cafe\r\nFROM            [MenuBuilder.WeeklyMenus]\r\nWHERE        (Pe" +
-                "riod = @Period) AND (Week = @Week)";
+                "riod = @Period) AND (Week = @Week) AND (isChanged = \'1\')";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Period", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Week", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Week", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

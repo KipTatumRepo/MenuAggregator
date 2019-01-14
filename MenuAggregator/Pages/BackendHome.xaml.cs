@@ -36,12 +36,15 @@ namespace MenuAggregator.Pages
         MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable thisWeeksMenus = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
         List<string> builtCafes = new List<string>();
         TextBox tb;
+        //MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
+        //MenuBuilderDataSetTableAdapters.MenuBuilder_BuiltCafesTableAdapter builtCafesTA = new MenuBuilderDataSetTableAdapters.MenuBuilder_BuiltCafesTableAdapter();
+        //BIDataSetTableAdapters.CostCentersTableAdapter adapter = new BIDataSetTableAdapters.CostCentersTableAdapter();
 
         public BackendHome()
         {
             InitializeComponent();
             Tag = "BackendHome";
-            
+
             MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
             MenuBuilderDataSetTableAdapters.MenuBuilder_BuiltCafesTableAdapter builtCafesTA = new MenuBuilderDataSetTableAdapters.MenuBuilder_BuiltCafesTableAdapter();
             BIDataSetTableAdapters.CostCentersTableAdapter adapter = new BIDataSetTableAdapters.CostCentersTableAdapter();
@@ -224,6 +227,21 @@ namespace MenuAggregator.Pages
                 i++;
             }
             backEndDataGrid.ItemsSource = table;
+        }
+
+        private void RefreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable table = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
+
+            weeklyMenuAdapter.FillDataGrid(table, Cafe);
+
+            backEndDataGrid.ItemsSource = table;
+
+            if (table.Count == 0)
+            {
+                tb.Background = Brushes.Red;
+            }
         }
     }
 }
