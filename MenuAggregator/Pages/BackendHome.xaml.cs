@@ -244,10 +244,20 @@ namespace MenuAggregator.Pages
             }
             else
             {
+                withChangesStackPanel.Children.Clear();
                 newBox.Background = Brushes.Red;
                 textBoxes.RemoveAt(getBox);
                 textBoxes.Insert(getBox, newBox);
                 backEndDataGrid.ItemsSource = table;
+                weeklyMenuAdapter.MakeBackendButtons(ds._MenuBuilder_WeeklyMenus, MainWindow.currentPeriod, MainWindow.currentWeek);
+                int i = 0;
+                foreach (var row in ds._MenuBuilder_WeeklyMenus)
+                {
+                    NewButton button = CreateButton(ds._MenuBuilder_WeeklyMenus, i);
+                    withChangesStackPanel.Children.Add(button);
+                    i++;
+                }
+
             }
         }
     }
