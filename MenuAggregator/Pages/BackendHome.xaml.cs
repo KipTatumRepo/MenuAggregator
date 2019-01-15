@@ -38,9 +38,6 @@ namespace MenuAggregator.Pages
         List<string> builtCafes = new List<string>();
         List<TextBox> textBoxes = new List<TextBox>();
         TextBox tb;
-        //MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
-        //MenuBuilderDataSetTableAdapters.MenuBuilder_BuiltCafesTableAdapter builtCafesTA = new MenuBuilderDataSetTableAdapters.MenuBuilder_BuiltCafesTableAdapter();
-        //BIDataSetTableAdapters.CostCentersTableAdapter adapter = new BIDataSetTableAdapters.CostCentersTableAdapter();
 
         public BackendHome()
         {
