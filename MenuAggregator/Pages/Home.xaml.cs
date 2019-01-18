@@ -544,7 +544,9 @@ namespace MenuAggregator.Pages
             selectedConceptName = b.Content.ToString();
             itemStackPanel.Children.Clear();
             conceptStackPanel.Visibility = Visibility.Collapsed;
+            exitButton.Visibility = Visibility.Collapsed;
             cancelButton.Visibility = Visibility.Visible;
+            saveButton.Visibility = Visibility.Visible;
             isWeekly = b.Tag.ToString();
 
             if (b != null)
@@ -772,8 +774,10 @@ namespace MenuAggregator.Pages
             dictionaryTextItemToAdd.Clear();
             dictionaryListIsChanged.Clear();
             itemStackPanel.Children.Clear();
-            cancelButton.Visibility = Visibility.Hidden;
-            
+            cancelButton.Visibility = Visibility.Collapsed;
+            saveButton.Visibility = Visibility.Collapsed;
+            exitButton.Visibility = Visibility.Visible;
+
         }
 
         private void multipleCafeCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -823,7 +827,9 @@ namespace MenuAggregator.Pages
             dictionaryListIsChanged.Clear();
             l = 0;
             conceptStackPanel.Visibility = Visibility.Visible;
-            cancelButton.Visibility = Visibility.Hidden;
+            cancelButton.Visibility = Visibility.Collapsed;
+            saveButton.Visibility = Visibility.Collapsed;
+            exitButton.Visibility = Visibility.Visible;
             menuInput.Text = "";
         }
 
@@ -985,6 +991,12 @@ namespace MenuAggregator.Pages
             NavigationService.Navigate(
                 new Uri("Pages/BAckendHome.xaml", UriKind.Relative));
         }
+
+        private void exitButton_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
+
 
         #endregion
 
