@@ -340,15 +340,16 @@ namespace MenuAggregator.Pages
                 dictionaryTextItemToAdd.Add(text.Tag.ToString(), text.Text);
 
                 //add menu name from sub menu table to the combobox
+                menucb.Items.Add(" ");
                 foreach (DataRow row in subMenuTable.Rows)
                 {
-
                     menucb.Items.Add(row[1]);
                 }
                 menucb.Items.Add("PROMO");
                 menucb.Items.Add("Station Closed");
 
                 //add price text from price table to combobox
+                pricecb.Items.Add(" ");
                 foreach (DataRow row in priceTable.Rows)
                 {
                     pricecb.Items.Add(row[1]);
