@@ -27,7 +27,7 @@
     <InstallUrl>\\compasspowerbi\CompassBIApplications\MenuAggregator\</InstallUrl>
     <ProductName>Menu Aggregator</ProductName>
     <PublisherName>Compass Business Intelligence</PublisherName>
-    <ApplicationRevision>12</ApplicationRevision>
+    <ApplicationRevision>14</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>

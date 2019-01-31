@@ -30,18 +30,20 @@ namespace MenuAggregator.Pages
         int minWeek = 1;
         public static int mondayCount = 0;
         public string Cafe;
+        string greenCafe;
         MenuBuilderDataSet ds = new MenuBuilderDataSet();
         BIDataSet biDs = new BIDataSet();
         BIDataSet.CostCentersDataTable table = new BIDataSet.CostCentersDataTable();
         MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable thisWeeksMenus = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
         List<string> builtCafes = new List<string>();
+        List<TextBox> textBoxes = new List<TextBox>();
         TextBox tb;
 
         public BackendHome()
         {
             InitializeComponent();
             Tag = "BackendHome";
-            
+
             MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
             MenuBuilderDataSetTableAdapters.MenuBuilder_BuiltCafesTableAdapter builtCafesTA = new MenuBuilderDataSetTableAdapters.MenuBuilder_BuiltCafesTableAdapter();
             BIDataSetTableAdapters.CostCentersTableAdapter adapter = new BIDataSetTableAdapters.CostCentersTableAdapter();
@@ -71,7 +73,6 @@ namespace MenuAggregator.Pages
             buttonTemplate.SetBinding(Button.ContentProperty, new Binding("isComplete"));
             buttonTemplate.AddHandler(Button.ClickEvent, new RoutedEventHandler(dataGridButton_Click));
 
-
             backEndDataGrid.Columns.Add(new DataGridTemplateColumn()
             {
                 Header = "Updated",
@@ -96,6 +97,7 @@ namespace MenuAggregator.Pages
                 builtCafes.Add(cafe[4].ToString());
                 tb.Text = cafe[4].ToString();
                 cafeBoxes.Children.Add(tb);
+                textBoxes.Add(tb);
 
                 foreach (var currentMenu in thisWeeksMenus) //ds._MenuBuilder_WeeklyMenus)
                 {
@@ -135,6 +137,7 @@ namespace MenuAggregator.Pages
             Cafe = b.Content.ToString();
 
             cafeNameTextBox.Text = Cafe;
+            greenCafe = Cafe;
 
             weeklyMenuAdapter.FillDataGrid(table, Cafe);
 
@@ -224,6 +227,38 @@ namespace MenuAggregator.Pages
                 i++;
             }
             backEndDataGrid.ItemsSource = table;
+        }
+
+        private void RefreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable table = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
+           
+            int getBox = builtCafes.IndexOf(greenCafe);
+            TextBox newBox = textBoxes[getBox];
+            weeklyMenuAdapter.FillDataGrid(table, Cafe);
+
+            if (table.Count != 0)
+            {
+                backEndDataGrid.ItemsSource = table;
+            }
+            else
+            {
+                withChangesStackPanel.Children.Clear();
+                newBox.Background = Brushes.Red;
+                textBoxes.RemoveAt(getBox);
+                textBoxes.Insert(getBox, newBox);
+                backEndDataGrid.ItemsSource = table;
+                weeklyMenuAdapter.MakeBackendButtons(ds._MenuBuilder_WeeklyMenus, MainWindow.currentPeriod, MainWindow.currentWeek);
+                int i = 0;
+                foreach (var row in ds._MenuBuilder_WeeklyMenus)
+                {
+                    NewButton button = CreateButton(ds._MenuBuilder_WeeklyMenus, i);
+                    withChangesStackPanel.Children.Add(button);
+                    i++;
+                }
+
+            }
         }
     }
 }
