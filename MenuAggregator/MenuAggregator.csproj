@@ -27,7 +27,7 @@
     <InstallUrl>\\compasspowerbi\CompassBIApplications\MenuAggregator\</InstallUrl>
     <ProductName>Menu Aggregator</ProductName>
     <PublisherName>Compass Business Intelligence</PublisherName>
-    <ApplicationRevision>15</ApplicationRevision>
+    <ApplicationRevision>18</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -216,6 +216,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="WinAggIcons.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Aggregator.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
