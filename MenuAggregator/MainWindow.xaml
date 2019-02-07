@@ -13,6 +13,7 @@
         FontFamily="Segoe UI Emoji"
         WindowStartupLocation="CenterScreen"
         Title="Menu Aggregator"
+        Icon="WinAggIcons.ico"
         >
     <Grid Background="OldLace">
         <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden"/>
