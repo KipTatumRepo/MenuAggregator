@@ -44,5 +44,25 @@ namespace MenuAggregator.Properties {
                 return ((string)(this["BIConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=KIPS;Initial Catalog=MenuBuilder;Integrated Security=True")]
+        public string MenuBuilderConnectionString {
+            get {
+                return ((string)(this["MenuBuilderConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=KIPS;Initial Catalog=BI;Integrated Security=True")]
+        public string BIConnectionString1 {
+            get {
+                return ((string)(this["BIConnectionString1"]));
+            }
+        }
     }
 }

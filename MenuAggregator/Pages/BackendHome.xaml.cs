@@ -3,19 +3,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace MenuAggregator.Pages
 {
@@ -31,10 +24,10 @@ namespace MenuAggregator.Pages
         public static int mondayCount = 0;
         public string Cafe;
         string greenCafe;
-        MenuBuilderDataSet ds = new MenuBuilderDataSet();
-        BIDataSet biDs = new BIDataSet();
-        BIDataSet.CostCentersDataTable table = new BIDataSet.CostCentersDataTable();
-        MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable thisWeeksMenus = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+        MenuBuilderDataSetUpdate ds = new MenuBuilderDataSetUpdate();
+        BIDataSetUpdate biDs = new BIDataSetUpdate();
+        BIDataSetUpdate.CostCentersDataTable table = new BIDataSetUpdate.CostCentersDataTable();
+        MenuBuilderDataSetUpdate.WeeklyMenusDataTable thisWeeksMenus = new MenuBuilderDataSetUpdate.WeeklyMenusDataTable();
         List<string> builtCafes = new List<string>();
         List<TextBox> textBoxes = new List<TextBox>();
         TextBox tb;
@@ -44,9 +37,9 @@ namespace MenuAggregator.Pages
             InitializeComponent();
             Tag = "BackendHome";
 
-            MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
-            MenuBuilderDataSetTableAdapters.MenuBuilder_BuiltCafesTableAdapter builtCafesTA = new MenuBuilderDataSetTableAdapters.MenuBuilder_BuiltCafesTableAdapter();
-            BIDataSetTableAdapters.CostCentersTableAdapter adapter = new BIDataSetTableAdapters.CostCentersTableAdapter();
+            MenuBuilderDataSetUpdateTableAdapters.WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetUpdateTableAdapters.WeeklyMenusTableAdapter();
+			MenuBuilderDataSetUpdateTableAdapters.BuiltCafesTableAdapter builtCafesTA = new MenuBuilderDataSetUpdateTableAdapters.BuiltCafesTableAdapter();
+			BIDataSetUpdateTableAdapters.CostCentersTableAdapter adapter = new BIDataSetUpdateTableAdapters.CostCentersTableAdapter();
 
             string space = "             ";
             Separator sep = new Separator();
@@ -58,13 +51,13 @@ namespace MenuAggregator.Pages
             tlbFlash.Items.Add(WkObjectBack);
             PkObjectBack.SelectAllEnabled = true;
 
-            weeklyMenuAdapter.MakeBackendButtons(ds._MenuBuilder_WeeklyMenus, MainWindow.currentPeriod, MainWindow.currentWeek);
+            weeklyMenuAdapter.MakeBackendButtons(ds.WeeklyMenus, MainWindow.currentPeriod, MainWindow.currentWeek);
             weeklyMenuAdapter.GetAllMenuThisWeek(thisWeeksMenus, MainWindow.currentPeriod, MainWindow.currentWeek);
 
             int i = 0;
-            foreach (var row in ds._MenuBuilder_WeeklyMenus)
+            foreach (var row in ds.WeeklyMenus)
             {
-                NewButton button = CreateButton(ds._MenuBuilder_WeeklyMenus, i);
+                NewButton button = CreateButton(ds.WeeklyMenus, i);
                 withChangesStackPanel.Children.Add(button);
                 i++;
             }
@@ -110,7 +103,7 @@ namespace MenuAggregator.Pages
             }
         }
 
-        private NewButton CreateButton(MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dt, int i)
+        private NewButton CreateButton(MenuBuilderDataSetUpdate.WeeklyMenusDataTable dt, int i)
         {
             string bid;
             NewButton button = new NewButton();
@@ -130,8 +123,8 @@ namespace MenuAggregator.Pages
         private void ChangedMenuButton_Click(object sender, RoutedEventArgs e)
         {
             NewButton b = new NewButton();
-            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable table = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
-            MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
+            MenuBuilderDataSetUpdate.WeeklyMenusDataTable table = new MenuBuilderDataSetUpdate.WeeklyMenusDataTable();
+			MenuBuilderDataSetUpdateTableAdapters.WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetUpdateTableAdapters.WeeklyMenusTableAdapter();
 
             b = e.OriginalSource as NewButton;
             Cafe = b.Content.ToString();
@@ -154,8 +147,8 @@ namespace MenuAggregator.Pages
             
             var dayToUpdate = (Day.Column.GetCellContent(Day.Item) as TextBlock).Text;
             var menuItemToUpdate = (menuItem.Column.GetCellContent(menuItem.Item) as TextBlock).Text;
-           
-            MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter updateRow = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
+
+			MenuBuilderDataSetUpdateTableAdapters.WeeklyMenusTableAdapter updateRow = new MenuBuilderDataSetUpdateTableAdapters.WeeklyMenusTableAdapter();
             updateRow.UpdateIsChanged(PkObjectBack.CurrentPeriod, WkObjectBack.CurrentWeek, dayToUpdate, menuItemToUpdate);
             updateRow.UpdateIsComplete(PkObjectBack.CurrentPeriod, WkObjectBack.CurrentWeek, dayToUpdate, menuItemToUpdate);
             button.IsEnabled = false;
@@ -192,14 +185,14 @@ namespace MenuAggregator.Pages
         {
             withChangesStackPanel.Children.Clear();
             
-            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable table = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
-            MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
+            MenuBuilderDataSetUpdate.WeeklyMenusDataTable table = new MenuBuilderDataSetUpdate.WeeklyMenusDataTable();
+			MenuBuilderDataSetUpdateTableAdapters.WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetUpdateTableAdapters.WeeklyMenusTableAdapter();
             weeklyMenuAdapter.FillDataGridByDate(table, Cafe, PkObjectBack.CurrentPeriod, WkObjectBack.CurrentWeek);
-            weeklyMenuAdapter.MakeBackendButtons(ds._MenuBuilder_WeeklyMenus, PkObjectBack.CurrentPeriod, WkObjectBack.CurrentWeek);
+            weeklyMenuAdapter.MakeBackendButtons(ds.WeeklyMenus, PkObjectBack.CurrentPeriod, WkObjectBack.CurrentWeek);
             int i = 0;
-            foreach (var row in ds._MenuBuilder_WeeklyMenus)
+            foreach (var row in ds.WeeklyMenus)
             {
-                NewButton button = CreateButton(ds._MenuBuilder_WeeklyMenus, i);
+                NewButton button = CreateButton(ds.WeeklyMenus, i);
                 withChangesStackPanel.Children.Add(button);
                 i++;
             }
@@ -210,14 +203,14 @@ namespace MenuAggregator.Pages
         {
             withChangesStackPanel.Children.Clear();
 
-            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable table = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
-            MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
+			MenuBuilderDataSetUpdate.WeeklyMenusDataTable table = new MenuBuilderDataSetUpdate.WeeklyMenusDataTable();
+			MenuBuilderDataSetUpdateTableAdapters.WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetUpdateTableAdapters.WeeklyMenusTableAdapter();
             weeklyMenuAdapter.FillDataGridByDate(table, Cafe, PkObjectBack.CurrentPeriod, WkObjectBack.CurrentWeek);
-            weeklyMenuAdapter.MakeBackendButtons(ds._MenuBuilder_WeeklyMenus, PkObjectBack.CurrentPeriod, WkObjectBack.CurrentWeek);
+            weeklyMenuAdapter.MakeBackendButtons(ds.WeeklyMenus, PkObjectBack.CurrentPeriod, WkObjectBack.CurrentWeek);
             int i = 0;
-            foreach (var row in ds._MenuBuilder_WeeklyMenus)
+            foreach (var row in ds.WeeklyMenus)
             {
-                NewButton button = CreateButton(ds._MenuBuilder_WeeklyMenus, i);
+                NewButton button = CreateButton(ds.WeeklyMenus, i);
                 withChangesStackPanel.Children.Add(button);
                 i++;
             }
@@ -226,8 +219,8 @@ namespace MenuAggregator.Pages
 
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
-            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable table = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
-            MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
+			MenuBuilderDataSetUpdate.WeeklyMenusDataTable table = new MenuBuilderDataSetUpdate.WeeklyMenusDataTable();
+			MenuBuilderDataSetUpdateTableAdapters.WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetUpdateTableAdapters.WeeklyMenusTableAdapter();
            
             int getBox = builtCafes.IndexOf(greenCafe);
             TextBox newBox = textBoxes[getBox];
@@ -244,11 +237,11 @@ namespace MenuAggregator.Pages
                 textBoxes.RemoveAt(getBox);
                 textBoxes.Insert(getBox, newBox);
                 backEndDataGrid.ItemsSource = table;
-                weeklyMenuAdapter.MakeBackendButtons(ds._MenuBuilder_WeeklyMenus, MainWindow.currentPeriod, MainWindow.currentWeek);
+                weeklyMenuAdapter.MakeBackendButtons(ds.WeeklyMenus, MainWindow.currentPeriod, MainWindow.currentWeek);
                 int i = 0;
-                foreach (var row in ds._MenuBuilder_WeeklyMenus)
+                foreach (var row in ds.WeeklyMenus)
                 {
-                    NewButton button = CreateButton(ds._MenuBuilder_WeeklyMenus, i);
+                    NewButton button = CreateButton(ds.WeeklyMenus, i);
                     withChangesStackPanel.Children.Add(button);
                     i++;
                 }

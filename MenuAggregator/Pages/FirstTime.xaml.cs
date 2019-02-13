@@ -28,8 +28,8 @@ namespace MenuAggregator.Pages
         int AdminLevel;
         private CheckBox conceptCheckBox;
         private List<int> activeConcepts = new List<int>();
-        BIDataSet ds = new BIDataSet();
-        MenuBuilderDataSet ds1 = new MenuBuilderDataSet();
+        BIDataSetUpdate ds = new BIDataSetUpdate();
+        MenuBuilderDataSetUpdate ds1 = new MenuBuilderDataSetUpdate();
 
         public FirstTime()
         {
@@ -41,9 +41,9 @@ namespace MenuAggregator.Pages
             InitializeComponent();
 
             #region Database Stuff
-            BIDataSetTableAdapters.CostCentersTableAdapter cafeAdapter = new BIDataSetTableAdapters.CostCentersTableAdapter();
-            BIDataSet.CostCentersDataTable table = new BIDataSet.CostCentersDataTable();
-            MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter conceptAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
+            BIDataSetUpdateTableAdapters.CostCentersTableAdapter cafeAdapter = new BIDataSetUpdateTableAdapters.CostCentersTableAdapter();
+            BIDataSetUpdate.CostCentersDataTable table = new BIDataSetUpdate.CostCentersDataTable();
+            MenuBuilderDataSetUpdateTableAdapters.ConceptsTableAdapter conceptAdapter = new MenuBuilderDataSetUpdateTableAdapters.ConceptsTableAdapter();
             try
             {
                 cafeAdapter.CafeFillOnly(table);
@@ -54,7 +54,7 @@ namespace MenuAggregator.Pages
                 MessageBox.Show(ex.ToString());
             }
 
-            conceptAdapter.Fill(ds1._MenuBuilder_Concepts);
+            conceptAdapter.Fill(ds1.Concepts);
             #endregion
 
             //Greet User with user V-
@@ -67,9 +67,9 @@ namespace MenuAggregator.Pages
             }
             
             //add checkboxes to screen after a cafe is selected
-            foreach (DataRow row in ds1._MenuBuilder_Concepts)
+            foreach (DataRow row in ds1.Concepts)//ds1._MenuBuilder_Concepts)
             {
-                conceptCheckBox = MakeCheckbox(ds1._MenuBuilder_Concepts, i);
+				conceptCheckBox = MakeCheckbox(ds1.Concepts, i);//ds1._MenuBuilder_Concepts, i);
                 i++;
             }
         }
@@ -77,7 +77,7 @@ namespace MenuAggregator.Pages
         #region Custom Methods
         //To make a checkbox, get all concepts from Concept Table and assign to Content
         //The built checkbox then gets added to a Wrap Panel as a child
-        private CheckBox MakeCheckbox(MenuBuilderDataSet._MenuBuilder_ConceptsDataTable ds, int i)
+        private CheckBox MakeCheckbox(MenuBuilderDataSetUpdate.ConceptsDataTable ds, int i)
         {
             CheckBox conceptCheckBox = new CheckBox();
             conceptCheckBox.Margin = new Thickness(0, 0, 25, 15);
@@ -99,12 +99,12 @@ namespace MenuAggregator.Pages
         //If the cafe is not built, checkboxes with concepts will appear to build the cafe. the cafe will be added to BuiltCafes table and the user will be added to the Users table.
         private void cafeCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MenuBuilderDataSetTableAdapters.MenuBuilder_BuiltCafesTableAdapter builtCafeAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_BuiltCafesTableAdapter();
+            MenuBuilderDataSetUpdateTableAdapters.BuiltCafesTableAdapter builtCafeAdapter = new MenuBuilderDataSetUpdateTableAdapters.BuiltCafesTableAdapter();
 
             Cafe = cafeCombobox.SelectedItem.ToString();
 
             //This checks to see if cafe is built, if the returned int is > 0 there are rows in the DB and therefore the cafe exists
-            CafeBuilt = builtCafeAdapter.SeeIfCafeExists(ds1._MenuBuilder_BuiltCafes, Cafe);
+            CafeBuilt = builtCafeAdapter.SeeIfCafeExists(ds1.BuiltCafes, Cafe);
 
             if (CafeBuilt >= 1)
             {
@@ -127,10 +127,10 @@ namespace MenuAggregator.Pages
         //insert user into Users table
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter userAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter();
-            MenuBuilderDataSetTableAdapters.MenuBuilder_BuiltCafesTableAdapter cafeAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_BuiltCafesTableAdapter();
+            MenuBuilderDataSetUpdateTableAdapters.UsersTableAdapter userAdapter = new MenuBuilderDataSetUpdateTableAdapters.UsersTableAdapter();
+			MenuBuilderDataSetUpdateTableAdapters.BuiltCafesTableAdapter cafeAdapter = new MenuBuilderDataSetUpdateTableAdapters.BuiltCafesTableAdapter();
 
-            if (User == "v-datatu" || User == "v-chluzi" || User == "v-brif" || User == "v-laive")
+            if (User == "kipta" || User == "v-chluzi" || User == "v-brif" || User == "v-laive")
             {
                 AdminLevel = 1;
             }

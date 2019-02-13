@@ -65,10 +65,10 @@ namespace MenuAggregator.Pages
         List<GroupBox> gbList = new List<GroupBox>();
         TextBlock tb = new TextBlock();
 
-        MenuBuilderDataSet ds = new MenuBuilderDataSet();
+        MenuBuilderDataSetUpdate ds = new MenuBuilderDataSetUpdate();
         DataTable dt = new DataTable();
-        MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable nowTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
-        MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable previousTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+        MenuBuilderDataSetUpdate.WeeklyMenusDataTable nowTable = new MenuBuilderDataSetUpdate.WeeklyMenusDataTable();
+        MenuBuilderDataSetUpdate.WeeklyMenusDataTable previousTable = new MenuBuilderDataSetUpdate.WeeklyMenusDataTable();
 
         #endregion
 
@@ -83,19 +83,19 @@ namespace MenuAggregator.Pages
             {
                 #region Database Stuff
 
-                MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter da = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
-                MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter usersTableAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter();
+                MenuBuilderDataSetUpdateTableAdapters.ConceptsTableAdapter da = new MenuBuilderDataSetUpdateTableAdapters.ConceptsTableAdapter();
+				MenuBuilderDataSetUpdateTableAdapters.UsersTableAdapter usersTableAdapter = new MenuBuilderDataSetUpdateTableAdapters.UsersTableAdapter();
 
-                MenuBuilderDataSet._MenuBuilder_UsersDataTable userTable = new MenuBuilderDataSet._MenuBuilder_UsersDataTable();
+                MenuBuilderDataSetUpdate.UsersDataTable userTable = new MenuBuilderDataSetUpdate.UsersDataTable();
 
-                da.Fill(ds._MenuBuilder_Concepts);
+                da.Fill(ds.Concepts);
                 #endregion
 
 
                 if (MainWindow.numberOfCafes <= 1 && MainWindow.IsAdmin != 1)
                 {
-                    MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter builtCafeAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
-                    MenuBuilderDataSet._MenuBuilder_ConceptsDataTable table = new MenuBuilderDataSet._MenuBuilder_ConceptsDataTable();
+					MenuBuilderDataSetUpdateTableAdapters.ConceptsTableAdapter builtCafeAdapter = new MenuBuilderDataSetUpdateTableAdapters.ConceptsTableAdapter();
+					MenuBuilderDataSetUpdate.ConceptsDataTable table = new MenuBuilderDataSetUpdate.ConceptsDataTable();
 
                     //Fill Textbox at top of screen with Cafe name
                     headerTextBox.Text = cafe;
@@ -116,9 +116,9 @@ namespace MenuAggregator.Pages
                 {
                     if (BackendHome.NavigateFrom == "BackendHome")
                     {
-                        BIDataSet ds = new BIDataSet();
-                        BIDataSetTableAdapters.CostCentersTableAdapter builtCafes = new BIDataSetTableAdapters.CostCentersTableAdapter();
-                        BIDataSet.CostCentersDataTable cafeTable = new BIDataSet.CostCentersDataTable();
+                        BIDataSetUpdate ds = new BIDataSetUpdate();
+                        BIDataSetUpdateTableAdapters.CostCentersTableAdapter builtCafes = new BIDataSetUpdateTableAdapters.CostCentersTableAdapter();
+                        BIDataSetUpdate.CostCentersDataTable cafeTable = new BIDataSetUpdate.CostCentersDataTable();
                         builtCafes.CafeFillOnly(cafeTable);
 
                         multipleCafeCombobox.FontSize = 24;
@@ -201,13 +201,13 @@ namespace MenuAggregator.Pages
             }
             insertCount = gridRowCount;
             
-            MenuBuilderDataSetTableAdapters.MenuBuilder_PriceTableAdapter priceAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_PriceTableAdapter();
-            MenuBuilderDataSetTableAdapters.MenuBuilder_SubMenusTableAdapter subMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_SubMenusTableAdapter();
-            MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
-            MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter conceptsAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
+            MenuBuilderDataSetUpdateTableAdapters.PriceTableAdapter priceAdapter = new MenuBuilderDataSetUpdateTableAdapters.PriceTableAdapter();
+            MenuBuilderDataSetUpdateTableAdapters.SubMenusTableAdapter subMenuAdapter = new MenuBuilderDataSetUpdateTableAdapters.SubMenusTableAdapter();
+            MenuBuilderDataSetUpdateTableAdapters.WeeklyMenusTableAdapter weeklyMenuAdapter = new MenuBuilderDataSetUpdateTableAdapters.WeeklyMenusTableAdapter();
+            MenuBuilderDataSetUpdateTableAdapters.ConceptsTableAdapter conceptsAdapter = new MenuBuilderDataSetUpdateTableAdapters.ConceptsTableAdapter();
 
             //we need to get last period and week to set text in comboboxes and textboxes 
-            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable periodWeekTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            MenuBuilderDataSetUpdate.WeeklyMenusDataTable periodWeekTable = new MenuBuilderDataSetUpdate.WeeklyMenusDataTable();
             weeklyMenuAdapter.GetLastWeek(periodWeekTable, selectedConceptName, cafe);
 
             if (periodWeekTable.Rows.Count >= 1)
@@ -220,15 +220,15 @@ namespace MenuAggregator.Pages
             }
 
             //create a table and fill with all prices
-            priceAdapter.Fill(ds._MenuBuilder_Price);
-            DataTable priceTable = ds._MenuBuilder_Price as DataTable;
+            priceAdapter.Fill(ds.Price);
+            DataTable priceTable = ds.Price as DataTable;
 
             //create a table that only fills with menu items associated with the button pressed
-            DataTable subMenuTable = ds._MenuBuilder_SubMenus as DataTable;
-            subMenuAdapter.FillByConceptId(ds._MenuBuilder_SubMenus, bid);
+            DataTable subMenuTable = ds.SubMenus as DataTable;
+            subMenuAdapter.FillByConceptId(ds.SubMenus, bid);
 
             //Look at the conepts table to determine if the the price of this concept is editable by the cafe
-            MenuBuilderDataSet._MenuBuilder_ConceptsDataTable cTable = new MenuBuilderDataSet._MenuBuilder_ConceptsDataTable();
+            MenuBuilderDataSetUpdate.ConceptsDataTable cTable = new MenuBuilderDataSetUpdate.ConceptsDataTable();
             conceptsAdapter.GetPriceEditable(cTable, conceptName);
 
             DataRow cTableRow = cTable.Rows[0];
@@ -415,7 +415,7 @@ namespace MenuAggregator.Pages
         }
 
         //creates buttons of custom type NewButton which as assignable bid.  Takes a MenuBuilder.ConceptsDataTable and counter as parameters
-        private NewButton CreateButton(MenuBuilderDataSet._MenuBuilder_ConceptsDataTable ds, int i) 
+        private NewButton CreateButton(MenuBuilderDataSetUpdate.ConceptsDataTable ds, int i) 
         {
             string bid;
             NewButton button = new NewButton();
@@ -700,15 +700,11 @@ namespace MenuAggregator.Pages
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
             l = 0;
-            MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter menuAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_WeeklyMenusTableAdapter();
+			MenuBuilderDataSetUpdateTableAdapters.WeeklyMenusTableAdapter menuAdapter = new MenuBuilderDataSetUpdateTableAdapters.WeeklyMenusTableAdapter();
             
             conceptStackPanel.Visibility = Visibility.Visible;
-            //NewGroupBox newbox = groupBoxes[1];
-            //int isChanged = newbox.IsChanged;
-
+            
             {
-                //int openPeriod = MainWindow.currentPeriod;
-                //int openWeek = MainWindow.currentWeek;
                 List<string> LastWeekMenuList = new List<string>();
                 List<int> isChangedLists = new List<int>();
                 int numberOfDayIterator = 0;
@@ -724,9 +720,9 @@ namespace MenuAggregator.Pages
                 try
                 {
                     //need to get last weeks menu items to insert into current weeks row
-                    menuAdapter.GetMenuItemForLastMenu(ds._MenuBuilder_WeeklyMenus, cafe, buttonNames[0]);
+                    menuAdapter.GetMenuItemForLastMenu(ds.WeeklyMenus, cafe, buttonNames[0]);
 
-                    foreach (DataRow row in ds._MenuBuilder_WeeklyMenus.Rows)
+                    foreach (DataRow row in ds.WeeklyMenus.Rows)
                     {
                         LastWeekMenuList.Add(row[6].ToString());
                     }
@@ -740,7 +736,7 @@ namespace MenuAggregator.Pages
                         {
                             int u = 0;
                             isChangedLists = GetIsChangedFromDictionary(dictionaryListIsChanged, i);
-                            menuAdapter.Insert(PkObject.CurrentPeriod, WkObject.CurrentWeek, dayNames[dayNameiterator], cafe, buttonNames[0], getItem(menuItemToAdd, addIterator), getItem(priceItemToAdd, addIterator), getItem(notesToAdd, addIterator), getItem(LastWeekMenuList, addIterator), isChangedLists[j], "Open", MainWindow.today, MainWindow.thisYear);
+                            menuAdapter.Insert(PkObject.CurrentPeriod, WkObject.CurrentWeek, dayNames[dayNameiterator], cafe, buttonNames[0], getItem(menuItemToAdd, addIterator), getItem(priceItemToAdd, addIterator), getItem(notesToAdd, addIterator), getItem(LastWeekMenuList, addIterator), "Open", MainWindow.today, MainWindow.thisYear, isChangedLists[j]);
                             addIterator++;
                             u++;
 
@@ -750,7 +746,7 @@ namespace MenuAggregator.Pages
                             }
                             isChanged = 0;
                         }
-                        //isChangedLists.Clear();
+                        
                     }
                     MessageBox.Show(buttonNames[0] + " Has been updated");
                     
@@ -785,8 +781,8 @@ namespace MenuAggregator.Pages
         {
             try
             {
-                MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter builtCafeAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_ConceptsTableAdapter();
-                MenuBuilderDataSet._MenuBuilder_ConceptsDataTable table = new MenuBuilderDataSet._MenuBuilder_ConceptsDataTable();
+                MenuBuilderDataSetUpdateTableAdapters.ConceptsTableAdapter builtCafeAdapter = new MenuBuilderDataSetUpdateTableAdapters.ConceptsTableAdapter();
+                MenuBuilderDataSetUpdate.ConceptsDataTable table = new MenuBuilderDataSetUpdate.ConceptsDataTable();
                 builtCafeAdapter.FillByCafe(table, multipleCafeCombobox.SelectedItem.ToString());
                 headerTextBox.Text = "Cafe " + multipleCafeCombobox.SelectedItem.ToString();
 

@@ -20,27 +20,27 @@ namespace MenuAggregator {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("MenuBuilderDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("MenuBuilderDataSetUpdate")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class MenuBuilderDataSet : global::System.Data.DataSet {
+    public partial class MenuBuilderDataSetUpdate : global::System.Data.DataSet {
         
-        private _MenuBuilder_ConceptsDataTable _tableMenuBuilder_Concepts;
+        private BuiltCafesDataTable tableBuiltCafes;
         
-        private _MenuBuilder_PriceDataTable _tableMenuBuilder_Price;
+        private ConceptsDataTable tableConcepts;
         
-        private _MenuBuilder_SubMenusDataTable _tableMenuBuilder_SubMenus;
+        private PriceDataTable tablePrice;
         
-        private _MenuBuilder_UsersDataTable _tableMenuBuilder_Users;
+        private SubMenusDataTable tableSubMenus;
         
-        private _MenuBuilder_BuiltCafesDataTable _tableMenuBuilder_BuiltCafes;
+        private UsersDataTable tableUsers;
         
-        private _MenuBuilder_WeeklyMenusDataTable _tableMenuBuilder_WeeklyMenus;
+        private WeeklyMenusDataTable tableWeeklyMenus;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public MenuBuilderDataSet() {
+        public MenuBuilderDataSetUpdate() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -51,7 +51,7 @@ namespace MenuAggregator {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected MenuBuilderDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected MenuBuilderDataSetUpdate(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -64,23 +64,23 @@ namespace MenuAggregator {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["MenuBuilder.Concepts"] != null)) {
-                    base.Tables.Add(new _MenuBuilder_ConceptsDataTable(ds.Tables["MenuBuilder.Concepts"]));
+                if ((ds.Tables["BuiltCafes"] != null)) {
+                    base.Tables.Add(new BuiltCafesDataTable(ds.Tables["BuiltCafes"]));
                 }
-                if ((ds.Tables["MenuBuilder.Price"] != null)) {
-                    base.Tables.Add(new _MenuBuilder_PriceDataTable(ds.Tables["MenuBuilder.Price"]));
+                if ((ds.Tables["Concepts"] != null)) {
+                    base.Tables.Add(new ConceptsDataTable(ds.Tables["Concepts"]));
                 }
-                if ((ds.Tables["MenuBuilder.SubMenus"] != null)) {
-                    base.Tables.Add(new _MenuBuilder_SubMenusDataTable(ds.Tables["MenuBuilder.SubMenus"]));
+                if ((ds.Tables["Price"] != null)) {
+                    base.Tables.Add(new PriceDataTable(ds.Tables["Price"]));
                 }
-                if ((ds.Tables["MenuBuilder.Users"] != null)) {
-                    base.Tables.Add(new _MenuBuilder_UsersDataTable(ds.Tables["MenuBuilder.Users"]));
+                if ((ds.Tables["SubMenus"] != null)) {
+                    base.Tables.Add(new SubMenusDataTable(ds.Tables["SubMenus"]));
                 }
-                if ((ds.Tables["MenuBuilder.BuiltCafes"] != null)) {
-                    base.Tables.Add(new _MenuBuilder_BuiltCafesDataTable(ds.Tables["MenuBuilder.BuiltCafes"]));
+                if ((ds.Tables["Users"] != null)) {
+                    base.Tables.Add(new UsersDataTable(ds.Tables["Users"]));
                 }
-                if ((ds.Tables["MenuBuilder.WeeklyMenus"] != null)) {
-                    base.Tables.Add(new _MenuBuilder_WeeklyMenusDataTable(ds.Tables["MenuBuilder.WeeklyMenus"]));
+                if ((ds.Tables["WeeklyMenus"] != null)) {
+                    base.Tables.Add(new WeeklyMenusDataTable(ds.Tables["WeeklyMenus"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -104,9 +104,9 @@ namespace MenuAggregator {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public _MenuBuilder_ConceptsDataTable _MenuBuilder_Concepts {
+        public BuiltCafesDataTable BuiltCafes {
             get {
-                return this._tableMenuBuilder_Concepts;
+                return this.tableBuiltCafes;
             }
         }
         
@@ -114,9 +114,9 @@ namespace MenuAggregator {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public _MenuBuilder_PriceDataTable _MenuBuilder_Price {
+        public ConceptsDataTable Concepts {
             get {
-                return this._tableMenuBuilder_Price;
+                return this.tableConcepts;
             }
         }
         
@@ -124,9 +124,9 @@ namespace MenuAggregator {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public _MenuBuilder_SubMenusDataTable _MenuBuilder_SubMenus {
+        public PriceDataTable Price {
             get {
-                return this._tableMenuBuilder_SubMenus;
+                return this.tablePrice;
             }
         }
         
@@ -134,9 +134,9 @@ namespace MenuAggregator {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public _MenuBuilder_UsersDataTable _MenuBuilder_Users {
+        public SubMenusDataTable SubMenus {
             get {
-                return this._tableMenuBuilder_Users;
+                return this.tableSubMenus;
             }
         }
         
@@ -144,9 +144,9 @@ namespace MenuAggregator {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public _MenuBuilder_BuiltCafesDataTable _MenuBuilder_BuiltCafes {
+        public UsersDataTable Users {
             get {
-                return this._tableMenuBuilder_BuiltCafes;
+                return this.tableUsers;
             }
         }
         
@@ -154,9 +154,9 @@ namespace MenuAggregator {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public _MenuBuilder_WeeklyMenusDataTable _MenuBuilder_WeeklyMenus {
+        public WeeklyMenusDataTable WeeklyMenus {
             get {
-                return this._tableMenuBuilder_WeeklyMenus;
+                return this.tableWeeklyMenus;
             }
         }
         
@@ -202,7 +202,7 @@ namespace MenuAggregator {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            MenuBuilderDataSet cln = ((MenuBuilderDataSet)(base.Clone()));
+            MenuBuilderDataSetUpdate cln = ((MenuBuilderDataSetUpdate)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -227,23 +227,23 @@ namespace MenuAggregator {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["MenuBuilder.Concepts"] != null)) {
-                    base.Tables.Add(new _MenuBuilder_ConceptsDataTable(ds.Tables["MenuBuilder.Concepts"]));
+                if ((ds.Tables["BuiltCafes"] != null)) {
+                    base.Tables.Add(new BuiltCafesDataTable(ds.Tables["BuiltCafes"]));
                 }
-                if ((ds.Tables["MenuBuilder.Price"] != null)) {
-                    base.Tables.Add(new _MenuBuilder_PriceDataTable(ds.Tables["MenuBuilder.Price"]));
+                if ((ds.Tables["Concepts"] != null)) {
+                    base.Tables.Add(new ConceptsDataTable(ds.Tables["Concepts"]));
                 }
-                if ((ds.Tables["MenuBuilder.SubMenus"] != null)) {
-                    base.Tables.Add(new _MenuBuilder_SubMenusDataTable(ds.Tables["MenuBuilder.SubMenus"]));
+                if ((ds.Tables["Price"] != null)) {
+                    base.Tables.Add(new PriceDataTable(ds.Tables["Price"]));
                 }
-                if ((ds.Tables["MenuBuilder.Users"] != null)) {
-                    base.Tables.Add(new _MenuBuilder_UsersDataTable(ds.Tables["MenuBuilder.Users"]));
+                if ((ds.Tables["SubMenus"] != null)) {
+                    base.Tables.Add(new SubMenusDataTable(ds.Tables["SubMenus"]));
                 }
-                if ((ds.Tables["MenuBuilder.BuiltCafes"] != null)) {
-                    base.Tables.Add(new _MenuBuilder_BuiltCafesDataTable(ds.Tables["MenuBuilder.BuiltCafes"]));
+                if ((ds.Tables["Users"] != null)) {
+                    base.Tables.Add(new UsersDataTable(ds.Tables["Users"]));
                 }
-                if ((ds.Tables["MenuBuilder.WeeklyMenus"] != null)) {
-                    base.Tables.Add(new _MenuBuilder_WeeklyMenusDataTable(ds.Tables["MenuBuilder.WeeklyMenus"]));
+                if ((ds.Tables["WeeklyMenus"] != null)) {
+                    base.Tables.Add(new WeeklyMenusDataTable(ds.Tables["WeeklyMenus"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -278,40 +278,40 @@ namespace MenuAggregator {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         internal void InitVars(bool initTable) {
-            this._tableMenuBuilder_Concepts = ((_MenuBuilder_ConceptsDataTable)(base.Tables["MenuBuilder.Concepts"]));
+            this.tableBuiltCafes = ((BuiltCafesDataTable)(base.Tables["BuiltCafes"]));
             if ((initTable == true)) {
-                if ((this._tableMenuBuilder_Concepts != null)) {
-                    this._tableMenuBuilder_Concepts.InitVars();
+                if ((this.tableBuiltCafes != null)) {
+                    this.tableBuiltCafes.InitVars();
                 }
             }
-            this._tableMenuBuilder_Price = ((_MenuBuilder_PriceDataTable)(base.Tables["MenuBuilder.Price"]));
+            this.tableConcepts = ((ConceptsDataTable)(base.Tables["Concepts"]));
             if ((initTable == true)) {
-                if ((this._tableMenuBuilder_Price != null)) {
-                    this._tableMenuBuilder_Price.InitVars();
+                if ((this.tableConcepts != null)) {
+                    this.tableConcepts.InitVars();
                 }
             }
-            this._tableMenuBuilder_SubMenus = ((_MenuBuilder_SubMenusDataTable)(base.Tables["MenuBuilder.SubMenus"]));
+            this.tablePrice = ((PriceDataTable)(base.Tables["Price"]));
             if ((initTable == true)) {
-                if ((this._tableMenuBuilder_SubMenus != null)) {
-                    this._tableMenuBuilder_SubMenus.InitVars();
+                if ((this.tablePrice != null)) {
+                    this.tablePrice.InitVars();
                 }
             }
-            this._tableMenuBuilder_Users = ((_MenuBuilder_UsersDataTable)(base.Tables["MenuBuilder.Users"]));
+            this.tableSubMenus = ((SubMenusDataTable)(base.Tables["SubMenus"]));
             if ((initTable == true)) {
-                if ((this._tableMenuBuilder_Users != null)) {
-                    this._tableMenuBuilder_Users.InitVars();
+                if ((this.tableSubMenus != null)) {
+                    this.tableSubMenus.InitVars();
                 }
             }
-            this._tableMenuBuilder_BuiltCafes = ((_MenuBuilder_BuiltCafesDataTable)(base.Tables["MenuBuilder.BuiltCafes"]));
+            this.tableUsers = ((UsersDataTable)(base.Tables["Users"]));
             if ((initTable == true)) {
-                if ((this._tableMenuBuilder_BuiltCafes != null)) {
-                    this._tableMenuBuilder_BuiltCafes.InitVars();
+                if ((this.tableUsers != null)) {
+                    this.tableUsers.InitVars();
                 }
             }
-            this._tableMenuBuilder_WeeklyMenus = ((_MenuBuilder_WeeklyMenusDataTable)(base.Tables["MenuBuilder.WeeklyMenus"]));
+            this.tableWeeklyMenus = ((WeeklyMenusDataTable)(base.Tables["WeeklyMenus"]));
             if ((initTable == true)) {
-                if ((this._tableMenuBuilder_WeeklyMenus != null)) {
-                    this._tableMenuBuilder_WeeklyMenus.InitVars();
+                if ((this.tableWeeklyMenus != null)) {
+                    this.tableWeeklyMenus.InitVars();
                 }
             }
         }
@@ -319,58 +319,58 @@ namespace MenuAggregator {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "MenuBuilderDataSet";
+            this.DataSetName = "MenuBuilderDataSetUpdate";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/MenuBuilderDataSet.xsd";
+            this.Namespace = "http://tempuri.org/MenuBuilderDataSetUpdate.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this._tableMenuBuilder_Concepts = new _MenuBuilder_ConceptsDataTable();
-            base.Tables.Add(this._tableMenuBuilder_Concepts);
-            this._tableMenuBuilder_Price = new _MenuBuilder_PriceDataTable();
-            base.Tables.Add(this._tableMenuBuilder_Price);
-            this._tableMenuBuilder_SubMenus = new _MenuBuilder_SubMenusDataTable();
-            base.Tables.Add(this._tableMenuBuilder_SubMenus);
-            this._tableMenuBuilder_Users = new _MenuBuilder_UsersDataTable();
-            base.Tables.Add(this._tableMenuBuilder_Users);
-            this._tableMenuBuilder_BuiltCafes = new _MenuBuilder_BuiltCafesDataTable();
-            base.Tables.Add(this._tableMenuBuilder_BuiltCafes);
-            this._tableMenuBuilder_WeeklyMenus = new _MenuBuilder_WeeklyMenusDataTable();
-            base.Tables.Add(this._tableMenuBuilder_WeeklyMenus);
+            this.tableBuiltCafes = new BuiltCafesDataTable();
+            base.Tables.Add(this.tableBuiltCafes);
+            this.tableConcepts = new ConceptsDataTable();
+            base.Tables.Add(this.tableConcepts);
+            this.tablePrice = new PriceDataTable();
+            base.Tables.Add(this.tablePrice);
+            this.tableSubMenus = new SubMenusDataTable();
+            base.Tables.Add(this.tableSubMenus);
+            this.tableUsers = new UsersDataTable();
+            base.Tables.Add(this.tableUsers);
+            this.tableWeeklyMenus = new WeeklyMenusDataTable();
+            base.Tables.Add(this.tableWeeklyMenus);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerialize_MenuBuilder_Concepts() {
+        private bool ShouldSerializeBuiltCafes() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerialize_MenuBuilder_Price() {
+        private bool ShouldSerializeConcepts() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerialize_MenuBuilder_SubMenus() {
+        private bool ShouldSerializePrice() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerialize_MenuBuilder_Users() {
+        private bool ShouldSerializeSubMenus() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerialize_MenuBuilder_BuiltCafes() {
+        private bool ShouldSerializeUsers() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerialize_MenuBuilder_WeeklyMenus() {
+        private bool ShouldSerializeWeeklyMenus() {
             return false;
         }
         
@@ -385,7 +385,7 @@ namespace MenuAggregator {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            MenuBuilderDataSet ds = new MenuBuilderDataSet();
+            MenuBuilderDataSetUpdate ds = new MenuBuilderDataSetUpdate();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -430,42 +430,40 @@ namespace MenuAggregator {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void _MenuBuilder_ConceptsRowChangeEventHandler(object sender, _MenuBuilder_ConceptsRowChangeEvent e);
+        public delegate void BuiltCafesRowChangeEventHandler(object sender, BuiltCafesRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void _MenuBuilder_PriceRowChangeEventHandler(object sender, _MenuBuilder_PriceRowChangeEvent e);
+        public delegate void ConceptsRowChangeEventHandler(object sender, ConceptsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void _MenuBuilder_SubMenusRowChangeEventHandler(object sender, _MenuBuilder_SubMenusRowChangeEvent e);
+        public delegate void PriceRowChangeEventHandler(object sender, PriceRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void _MenuBuilder_UsersRowChangeEventHandler(object sender, _MenuBuilder_UsersRowChangeEvent e);
+        public delegate void SubMenusRowChangeEventHandler(object sender, SubMenusRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void _MenuBuilder_BuiltCafesRowChangeEventHandler(object sender, _MenuBuilder_BuiltCafesRowChangeEvent e);
+        public delegate void UsersRowChangeEventHandler(object sender, UsersRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void _MenuBuilder_WeeklyMenusRowChangeEventHandler(object sender, _MenuBuilder_WeeklyMenusRowChangeEvent e);
+        public delegate void WeeklyMenusRowChangeEventHandler(object sender, WeeklyMenusRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class _MenuBuilder_ConceptsDataTable : global::System.Data.TypedTableBase<_MenuBuilder_ConceptsRow> {
+        public partial class BuiltCafesDataTable : global::System.Data.TypedTableBase<BuiltCafesRow> {
             
             private global::System.Data.DataColumn columnPID;
             
-            private global::System.Data.DataColumn columnstationName;
+            private global::System.Data.DataColumn columnCafe;
             
-            private global::System.Data.DataColumn columnisDaily;
-            
-            private global::System.Data.DataColumn columnpriceEditable;
+            private global::System.Data.DataColumn columnconceptId;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_ConceptsDataTable() {
-                this.TableName = "MenuBuilder.Concepts";
+            public BuiltCafesDataTable() {
+                this.TableName = "BuiltCafes";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -473,7 +471,7 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal _MenuBuilder_ConceptsDataTable(global::System.Data.DataTable table) {
+            internal BuiltCafesDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -490,7 +488,290 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected _MenuBuilder_ConceptsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected BuiltCafesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn PIDColumn {
+                get {
+                    return this.columnPID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CafeColumn {
+                get {
+                    return this.columnCafe;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn conceptIdColumn {
+                get {
+                    return this.columnconceptId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public BuiltCafesRow this[int index] {
+                get {
+                    return ((BuiltCafesRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event BuiltCafesRowChangeEventHandler BuiltCafesRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event BuiltCafesRowChangeEventHandler BuiltCafesRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event BuiltCafesRowChangeEventHandler BuiltCafesRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event BuiltCafesRowChangeEventHandler BuiltCafesRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddBuiltCafesRow(BuiltCafesRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public BuiltCafesRow AddBuiltCafesRow(string Cafe, int conceptId) {
+                BuiltCafesRow rowBuiltCafesRow = ((BuiltCafesRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        Cafe,
+                        conceptId};
+                rowBuiltCafesRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowBuiltCafesRow);
+                return rowBuiltCafesRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                BuiltCafesDataTable cln = ((BuiltCafesDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new BuiltCafesDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnPID = base.Columns["PID"];
+                this.columnCafe = base.Columns["Cafe"];
+                this.columnconceptId = base.Columns["conceptId"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnPID = new global::System.Data.DataColumn("PID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPID);
+                this.columnCafe = new global::System.Data.DataColumn("Cafe", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCafe);
+                this.columnconceptId = new global::System.Data.DataColumn("conceptId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnconceptId);
+                this.columnPID.AutoIncrement = true;
+                this.columnPID.AutoIncrementSeed = -1;
+                this.columnPID.AutoIncrementStep = -1;
+                this.columnPID.AllowDBNull = false;
+                this.columnPID.ReadOnly = true;
+                this.columnCafe.MaxLength = 50;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public BuiltCafesRow NewBuiltCafesRow() {
+                return ((BuiltCafesRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new BuiltCafesRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(BuiltCafesRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.BuiltCafesRowChanged != null)) {
+                    this.BuiltCafesRowChanged(this, new BuiltCafesRowChangeEvent(((BuiltCafesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.BuiltCafesRowChanging != null)) {
+                    this.BuiltCafesRowChanging(this, new BuiltCafesRowChangeEvent(((BuiltCafesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.BuiltCafesRowDeleted != null)) {
+                    this.BuiltCafesRowDeleted(this, new BuiltCafesRowChangeEvent(((BuiltCafesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.BuiltCafesRowDeleting != null)) {
+                    this.BuiltCafesRowDeleting(this, new BuiltCafesRowChangeEvent(((BuiltCafesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemoveBuiltCafesRow(BuiltCafesRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                MenuBuilderDataSetUpdate ds = new MenuBuilderDataSetUpdate();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "BuiltCafesDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ConceptsDataTable : global::System.Data.TypedTableBase<ConceptsRow> {
+            
+            private global::System.Data.DataColumn columnPID;
+            
+            private global::System.Data.DataColumn columnstationName;
+            
+            private global::System.Data.DataColumn columnisDaily;
+            
+            private global::System.Data.DataColumn columnpriceEditable;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ConceptsDataTable() {
+                this.TableName = "Concepts";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal ConceptsDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected ConceptsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -538,48 +819,48 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_ConceptsRow this[int index] {
+            public ConceptsRow this[int index] {
                 get {
-                    return ((_MenuBuilder_ConceptsRow)(this.Rows[index]));
+                    return ((ConceptsRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_ConceptsRowChangeEventHandler _MenuBuilder_ConceptsRowChanging;
+            public event ConceptsRowChangeEventHandler ConceptsRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_ConceptsRowChangeEventHandler _MenuBuilder_ConceptsRowChanged;
+            public event ConceptsRowChangeEventHandler ConceptsRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_ConceptsRowChangeEventHandler _MenuBuilder_ConceptsRowDeleting;
+            public event ConceptsRowChangeEventHandler ConceptsRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_ConceptsRowChangeEventHandler _MenuBuilder_ConceptsRowDeleted;
+            public event ConceptsRowChangeEventHandler ConceptsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Add_MenuBuilder_ConceptsRow(_MenuBuilder_ConceptsRow row) {
+            public void AddConceptsRow(ConceptsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_ConceptsRow Add_MenuBuilder_ConceptsRow(string stationName, byte isDaily, byte priceEditable) {
-                _MenuBuilder_ConceptsRow row_MenuBuilder_ConceptsRow = ((_MenuBuilder_ConceptsRow)(this.NewRow()));
+            public ConceptsRow AddConceptsRow(string stationName, byte isDaily, byte priceEditable) {
+                ConceptsRow rowConceptsRow = ((ConceptsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         stationName,
                         isDaily,
                         priceEditable};
-                row_MenuBuilder_ConceptsRow.ItemArray = columnValuesArray;
-                this.Rows.Add(row_MenuBuilder_ConceptsRow);
-                return row_MenuBuilder_ConceptsRow;
+                rowConceptsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowConceptsRow);
+                return rowConceptsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                _MenuBuilder_ConceptsDataTable cln = ((_MenuBuilder_ConceptsDataTable)(base.Clone()));
+                ConceptsDataTable cln = ((ConceptsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -587,7 +868,7 @@ namespace MenuAggregator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new _MenuBuilder_ConceptsDataTable();
+                return new ConceptsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -602,7 +883,7 @@ namespace MenuAggregator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnPID = new global::System.Data.DataColumn("PID", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnPID = new global::System.Data.DataColumn("PID", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPID);
                 this.columnstationName = new global::System.Data.DataColumn("stationName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstationName);
@@ -615,36 +896,33 @@ namespace MenuAggregator {
                 this.columnPID.AutoIncrementStep = -1;
                 this.columnPID.AllowDBNull = false;
                 this.columnPID.ReadOnly = true;
-                this.columnstationName.AllowDBNull = false;
                 this.columnstationName.MaxLength = 50;
-                this.ExtendedProperties.Add("Generator_TableVarName", "_tableMenuBuilder_Concepts");
-                this.ExtendedProperties.Add("Generator_UserTableName", "MenuBuilder.Concepts");
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_ConceptsRow New_MenuBuilder_ConceptsRow() {
-                return ((_MenuBuilder_ConceptsRow)(this.NewRow()));
+            public ConceptsRow NewConceptsRow() {
+                return ((ConceptsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new _MenuBuilder_ConceptsRow(builder);
+                return new ConceptsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(_MenuBuilder_ConceptsRow);
+                return typeof(ConceptsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this._MenuBuilder_ConceptsRowChanged != null)) {
-                    this._MenuBuilder_ConceptsRowChanged(this, new _MenuBuilder_ConceptsRowChangeEvent(((_MenuBuilder_ConceptsRow)(e.Row)), e.Action));
+                if ((this.ConceptsRowChanged != null)) {
+                    this.ConceptsRowChanged(this, new ConceptsRowChangeEvent(((ConceptsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -652,8 +930,8 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this._MenuBuilder_ConceptsRowChanging != null)) {
-                    this._MenuBuilder_ConceptsRowChanging(this, new _MenuBuilder_ConceptsRowChangeEvent(((_MenuBuilder_ConceptsRow)(e.Row)), e.Action));
+                if ((this.ConceptsRowChanging != null)) {
+                    this.ConceptsRowChanging(this, new ConceptsRowChangeEvent(((ConceptsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -661,8 +939,8 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this._MenuBuilder_ConceptsRowDeleted != null)) {
-                    this._MenuBuilder_ConceptsRowDeleted(this, new _MenuBuilder_ConceptsRowChangeEvent(((_MenuBuilder_ConceptsRow)(e.Row)), e.Action));
+                if ((this.ConceptsRowDeleted != null)) {
+                    this.ConceptsRowDeleted(this, new ConceptsRowChangeEvent(((ConceptsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -670,14 +948,14 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this._MenuBuilder_ConceptsRowDeleting != null)) {
-                    this._MenuBuilder_ConceptsRowDeleting(this, new _MenuBuilder_ConceptsRowChangeEvent(((_MenuBuilder_ConceptsRow)(e.Row)), e.Action));
+                if ((this.ConceptsRowDeleting != null)) {
+                    this.ConceptsRowDeleting(this, new ConceptsRowChangeEvent(((ConceptsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Remove_MenuBuilder_ConceptsRow(_MenuBuilder_ConceptsRow row) {
+            public void RemoveConceptsRow(ConceptsRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -686,7 +964,7 @@ namespace MenuAggregator {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                MenuBuilderDataSet ds = new MenuBuilderDataSet();
+                MenuBuilderDataSetUpdate ds = new MenuBuilderDataSetUpdate();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -704,7 +982,7 @@ namespace MenuAggregator {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "_MenuBuilder_ConceptsDataTable";
+                attribute2.FixedValue = "ConceptsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -750,7 +1028,7 @@ namespace MenuAggregator {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class _MenuBuilder_PriceDataTable : global::System.Data.TypedTableBase<_MenuBuilder_PriceRow> {
+        public partial class PriceDataTable : global::System.Data.TypedTableBase<PriceRow> {
             
             private global::System.Data.DataColumn columnPID;
             
@@ -758,8 +1036,8 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_PriceDataTable() {
-                this.TableName = "MenuBuilder.Price";
+            public PriceDataTable() {
+                this.TableName = "Price";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -767,7 +1045,7 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal _MenuBuilder_PriceDataTable(global::System.Data.DataTable table) {
+            internal PriceDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -784,7 +1062,7 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected _MenuBuilder_PriceDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected PriceDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -816,46 +1094,46 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_PriceRow this[int index] {
+            public PriceRow this[int index] {
                 get {
-                    return ((_MenuBuilder_PriceRow)(this.Rows[index]));
+                    return ((PriceRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_PriceRowChangeEventHandler _MenuBuilder_PriceRowChanging;
+            public event PriceRowChangeEventHandler PriceRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_PriceRowChangeEventHandler _MenuBuilder_PriceRowChanged;
+            public event PriceRowChangeEventHandler PriceRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_PriceRowChangeEventHandler _MenuBuilder_PriceRowDeleting;
+            public event PriceRowChangeEventHandler PriceRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_PriceRowChangeEventHandler _MenuBuilder_PriceRowDeleted;
+            public event PriceRowChangeEventHandler PriceRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Add_MenuBuilder_PriceRow(_MenuBuilder_PriceRow row) {
+            public void AddPriceRow(PriceRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_PriceRow Add_MenuBuilder_PriceRow(string price) {
-                _MenuBuilder_PriceRow row_MenuBuilder_PriceRow = ((_MenuBuilder_PriceRow)(this.NewRow()));
+            public PriceRow AddPriceRow(string price) {
+                PriceRow rowPriceRow = ((PriceRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         price};
-                row_MenuBuilder_PriceRow.ItemArray = columnValuesArray;
-                this.Rows.Add(row_MenuBuilder_PriceRow);
-                return row_MenuBuilder_PriceRow;
+                rowPriceRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowPriceRow);
+                return rowPriceRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                _MenuBuilder_PriceDataTable cln = ((_MenuBuilder_PriceDataTable)(base.Clone()));
+                PriceDataTable cln = ((PriceDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -863,7 +1141,7 @@ namespace MenuAggregator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new _MenuBuilder_PriceDataTable();
+                return new PriceDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -876,7 +1154,7 @@ namespace MenuAggregator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnPID = new global::System.Data.DataColumn("PID", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnPID = new global::System.Data.DataColumn("PID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPID);
                 this.columnprice = new global::System.Data.DataColumn("price", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprice);
@@ -886,34 +1164,32 @@ namespace MenuAggregator {
                 this.columnPID.AllowDBNull = false;
                 this.columnPID.ReadOnly = true;
                 this.columnprice.MaxLength = 7;
-                this.ExtendedProperties.Add("Generator_TableVarName", "_tableMenuBuilder_Price");
-                this.ExtendedProperties.Add("Generator_UserTableName", "MenuBuilder.Price");
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_PriceRow New_MenuBuilder_PriceRow() {
-                return ((_MenuBuilder_PriceRow)(this.NewRow()));
+            public PriceRow NewPriceRow() {
+                return ((PriceRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new _MenuBuilder_PriceRow(builder);
+                return new PriceRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(_MenuBuilder_PriceRow);
+                return typeof(PriceRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this._MenuBuilder_PriceRowChanged != null)) {
-                    this._MenuBuilder_PriceRowChanged(this, new _MenuBuilder_PriceRowChangeEvent(((_MenuBuilder_PriceRow)(e.Row)), e.Action));
+                if ((this.PriceRowChanged != null)) {
+                    this.PriceRowChanged(this, new PriceRowChangeEvent(((PriceRow)(e.Row)), e.Action));
                 }
             }
             
@@ -921,8 +1197,8 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this._MenuBuilder_PriceRowChanging != null)) {
-                    this._MenuBuilder_PriceRowChanging(this, new _MenuBuilder_PriceRowChangeEvent(((_MenuBuilder_PriceRow)(e.Row)), e.Action));
+                if ((this.PriceRowChanging != null)) {
+                    this.PriceRowChanging(this, new PriceRowChangeEvent(((PriceRow)(e.Row)), e.Action));
                 }
             }
             
@@ -930,8 +1206,8 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this._MenuBuilder_PriceRowDeleted != null)) {
-                    this._MenuBuilder_PriceRowDeleted(this, new _MenuBuilder_PriceRowChangeEvent(((_MenuBuilder_PriceRow)(e.Row)), e.Action));
+                if ((this.PriceRowDeleted != null)) {
+                    this.PriceRowDeleted(this, new PriceRowChangeEvent(((PriceRow)(e.Row)), e.Action));
                 }
             }
             
@@ -939,14 +1215,14 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this._MenuBuilder_PriceRowDeleting != null)) {
-                    this._MenuBuilder_PriceRowDeleting(this, new _MenuBuilder_PriceRowChangeEvent(((_MenuBuilder_PriceRow)(e.Row)), e.Action));
+                if ((this.PriceRowDeleting != null)) {
+                    this.PriceRowDeleting(this, new PriceRowChangeEvent(((PriceRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Remove_MenuBuilder_PriceRow(_MenuBuilder_PriceRow row) {
+            public void RemovePriceRow(PriceRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -955,7 +1231,7 @@ namespace MenuAggregator {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                MenuBuilderDataSet ds = new MenuBuilderDataSet();
+                MenuBuilderDataSetUpdate ds = new MenuBuilderDataSetUpdate();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -973,7 +1249,7 @@ namespace MenuAggregator {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "_MenuBuilder_PriceDataTable";
+                attribute2.FixedValue = "PriceDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1019,7 +1295,7 @@ namespace MenuAggregator {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class _MenuBuilder_SubMenusDataTable : global::System.Data.TypedTableBase<_MenuBuilder_SubMenusRow> {
+        public partial class SubMenusDataTable : global::System.Data.TypedTableBase<SubMenusRow> {
             
             private global::System.Data.DataColumn columnPID;
             
@@ -1029,8 +1305,8 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_SubMenusDataTable() {
-                this.TableName = "MenuBuilder.SubMenus";
+            public SubMenusDataTable() {
+                this.TableName = "SubMenus";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1038,7 +1314,7 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal _MenuBuilder_SubMenusDataTable(global::System.Data.DataTable table) {
+            internal SubMenusDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1055,7 +1331,7 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected _MenuBuilder_SubMenusDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected SubMenusDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -1095,47 +1371,47 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_SubMenusRow this[int index] {
+            public SubMenusRow this[int index] {
                 get {
-                    return ((_MenuBuilder_SubMenusRow)(this.Rows[index]));
+                    return ((SubMenusRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_SubMenusRowChangeEventHandler _MenuBuilder_SubMenusRowChanging;
+            public event SubMenusRowChangeEventHandler SubMenusRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_SubMenusRowChangeEventHandler _MenuBuilder_SubMenusRowChanged;
+            public event SubMenusRowChangeEventHandler SubMenusRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_SubMenusRowChangeEventHandler _MenuBuilder_SubMenusRowDeleting;
+            public event SubMenusRowChangeEventHandler SubMenusRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_SubMenusRowChangeEventHandler _MenuBuilder_SubMenusRowDeleted;
+            public event SubMenusRowChangeEventHandler SubMenusRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Add_MenuBuilder_SubMenusRow(_MenuBuilder_SubMenusRow row) {
+            public void AddSubMenusRow(SubMenusRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_SubMenusRow Add_MenuBuilder_SubMenusRow(string menuName, long conceptId) {
-                _MenuBuilder_SubMenusRow row_MenuBuilder_SubMenusRow = ((_MenuBuilder_SubMenusRow)(this.NewRow()));
+            public SubMenusRow AddSubMenusRow(string menuName, int conceptId) {
+                SubMenusRow rowSubMenusRow = ((SubMenusRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         menuName,
                         conceptId};
-                row_MenuBuilder_SubMenusRow.ItemArray = columnValuesArray;
-                this.Rows.Add(row_MenuBuilder_SubMenusRow);
-                return row_MenuBuilder_SubMenusRow;
+                rowSubMenusRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSubMenusRow);
+                return rowSubMenusRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                _MenuBuilder_SubMenusDataTable cln = ((_MenuBuilder_SubMenusDataTable)(base.Clone()));
+                SubMenusDataTable cln = ((SubMenusDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1143,7 +1419,7 @@ namespace MenuAggregator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new _MenuBuilder_SubMenusDataTable();
+                return new SubMenusDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1157,11 +1433,11 @@ namespace MenuAggregator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnPID = new global::System.Data.DataColumn("PID", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnPID = new global::System.Data.DataColumn("PID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPID);
                 this.columnmenuName = new global::System.Data.DataColumn("menuName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmenuName);
-                this.columnconceptId = new global::System.Data.DataColumn("conceptId", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnconceptId = new global::System.Data.DataColumn("conceptId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnconceptId);
                 this.columnPID.AutoIncrement = true;
                 this.columnPID.AutoIncrementSeed = -1;
@@ -1169,34 +1445,32 @@ namespace MenuAggregator {
                 this.columnPID.AllowDBNull = false;
                 this.columnPID.ReadOnly = true;
                 this.columnmenuName.MaxLength = 150;
-                this.ExtendedProperties.Add("Generator_TableVarName", "_tableMenuBuilder_SubMenus");
-                this.ExtendedProperties.Add("Generator_UserTableName", "MenuBuilder.SubMenus");
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_SubMenusRow New_MenuBuilder_SubMenusRow() {
-                return ((_MenuBuilder_SubMenusRow)(this.NewRow()));
+            public SubMenusRow NewSubMenusRow() {
+                return ((SubMenusRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new _MenuBuilder_SubMenusRow(builder);
+                return new SubMenusRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(_MenuBuilder_SubMenusRow);
+                return typeof(SubMenusRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this._MenuBuilder_SubMenusRowChanged != null)) {
-                    this._MenuBuilder_SubMenusRowChanged(this, new _MenuBuilder_SubMenusRowChangeEvent(((_MenuBuilder_SubMenusRow)(e.Row)), e.Action));
+                if ((this.SubMenusRowChanged != null)) {
+                    this.SubMenusRowChanged(this, new SubMenusRowChangeEvent(((SubMenusRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1204,8 +1478,8 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this._MenuBuilder_SubMenusRowChanging != null)) {
-                    this._MenuBuilder_SubMenusRowChanging(this, new _MenuBuilder_SubMenusRowChangeEvent(((_MenuBuilder_SubMenusRow)(e.Row)), e.Action));
+                if ((this.SubMenusRowChanging != null)) {
+                    this.SubMenusRowChanging(this, new SubMenusRowChangeEvent(((SubMenusRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1213,8 +1487,8 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this._MenuBuilder_SubMenusRowDeleted != null)) {
-                    this._MenuBuilder_SubMenusRowDeleted(this, new _MenuBuilder_SubMenusRowChangeEvent(((_MenuBuilder_SubMenusRow)(e.Row)), e.Action));
+                if ((this.SubMenusRowDeleted != null)) {
+                    this.SubMenusRowDeleted(this, new SubMenusRowChangeEvent(((SubMenusRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1222,14 +1496,14 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this._MenuBuilder_SubMenusRowDeleting != null)) {
-                    this._MenuBuilder_SubMenusRowDeleting(this, new _MenuBuilder_SubMenusRowChangeEvent(((_MenuBuilder_SubMenusRow)(e.Row)), e.Action));
+                if ((this.SubMenusRowDeleting != null)) {
+                    this.SubMenusRowDeleting(this, new SubMenusRowChangeEvent(((SubMenusRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Remove_MenuBuilder_SubMenusRow(_MenuBuilder_SubMenusRow row) {
+            public void RemoveSubMenusRow(SubMenusRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1238,7 +1512,7 @@ namespace MenuAggregator {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                MenuBuilderDataSet ds = new MenuBuilderDataSet();
+                MenuBuilderDataSetUpdate ds = new MenuBuilderDataSetUpdate();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1256,7 +1530,7 @@ namespace MenuAggregator {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "_MenuBuilder_SubMenusDataTable";
+                attribute2.FixedValue = "SubMenusDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1302,7 +1576,7 @@ namespace MenuAggregator {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class _MenuBuilder_UsersDataTable : global::System.Data.TypedTableBase<_MenuBuilder_UsersRow> {
+        public partial class UsersDataTable : global::System.Data.TypedTableBase<UsersRow> {
             
             private global::System.Data.DataColumn columnPID;
             
@@ -1316,8 +1590,8 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_UsersDataTable() {
-                this.TableName = "MenuBuilder.Users";
+            public UsersDataTable() {
+                this.TableName = "Users";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1325,7 +1599,7 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal _MenuBuilder_UsersDataTable(global::System.Data.DataTable table) {
+            internal UsersDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1342,7 +1616,7 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected _MenuBuilder_UsersDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected UsersDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -1398,49 +1672,49 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_UsersRow this[int index] {
+            public UsersRow this[int index] {
                 get {
-                    return ((_MenuBuilder_UsersRow)(this.Rows[index]));
+                    return ((UsersRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_UsersRowChangeEventHandler _MenuBuilder_UsersRowChanging;
+            public event UsersRowChangeEventHandler UsersRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_UsersRowChangeEventHandler _MenuBuilder_UsersRowChanged;
+            public event UsersRowChangeEventHandler UsersRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_UsersRowChangeEventHandler _MenuBuilder_UsersRowDeleting;
+            public event UsersRowChangeEventHandler UsersRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_UsersRowChangeEventHandler _MenuBuilder_UsersRowDeleted;
+            public event UsersRowChangeEventHandler UsersRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Add_MenuBuilder_UsersRow(_MenuBuilder_UsersRow row) {
+            public void AddUsersRow(UsersRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_UsersRow Add_MenuBuilder_UsersRow(string UserId, string CafeName, string UserName, int adminLevel) {
-                _MenuBuilder_UsersRow row_MenuBuilder_UsersRow = ((_MenuBuilder_UsersRow)(this.NewRow()));
+            public UsersRow AddUsersRow(string UserId, string CafeName, string UserName, int adminLevel) {
+                UsersRow rowUsersRow = ((UsersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         UserId,
                         CafeName,
                         UserName,
                         adminLevel};
-                row_MenuBuilder_UsersRow.ItemArray = columnValuesArray;
-                this.Rows.Add(row_MenuBuilder_UsersRow);
-                return row_MenuBuilder_UsersRow;
+                rowUsersRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowUsersRow);
+                return rowUsersRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                _MenuBuilder_UsersDataTable cln = ((_MenuBuilder_UsersDataTable)(base.Clone()));
+                UsersDataTable cln = ((UsersDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1448,7 +1722,7 @@ namespace MenuAggregator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new _MenuBuilder_UsersDataTable();
+                return new UsersDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1464,7 +1738,7 @@ namespace MenuAggregator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnPID = new global::System.Data.DataColumn("PID", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnPID = new global::System.Data.DataColumn("PID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPID);
                 this.columnUserId = new global::System.Data.DataColumn("UserId", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUserId);
@@ -1482,34 +1756,32 @@ namespace MenuAggregator {
                 this.columnUserId.MaxLength = 125;
                 this.columnCafeName.MaxLength = 50;
                 this.columnUserName.MaxLength = 50;
-                this.ExtendedProperties.Add("Generator_TableVarName", "_tableMenuBuilder_Users");
-                this.ExtendedProperties.Add("Generator_UserTableName", "MenuBuilder.Users");
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_UsersRow New_MenuBuilder_UsersRow() {
-                return ((_MenuBuilder_UsersRow)(this.NewRow()));
+            public UsersRow NewUsersRow() {
+                return ((UsersRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new _MenuBuilder_UsersRow(builder);
+                return new UsersRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(_MenuBuilder_UsersRow);
+                return typeof(UsersRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this._MenuBuilder_UsersRowChanged != null)) {
-                    this._MenuBuilder_UsersRowChanged(this, new _MenuBuilder_UsersRowChangeEvent(((_MenuBuilder_UsersRow)(e.Row)), e.Action));
+                if ((this.UsersRowChanged != null)) {
+                    this.UsersRowChanged(this, new UsersRowChangeEvent(((UsersRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1517,8 +1789,8 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this._MenuBuilder_UsersRowChanging != null)) {
-                    this._MenuBuilder_UsersRowChanging(this, new _MenuBuilder_UsersRowChangeEvent(((_MenuBuilder_UsersRow)(e.Row)), e.Action));
+                if ((this.UsersRowChanging != null)) {
+                    this.UsersRowChanging(this, new UsersRowChangeEvent(((UsersRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1526,8 +1798,8 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this._MenuBuilder_UsersRowDeleted != null)) {
-                    this._MenuBuilder_UsersRowDeleted(this, new _MenuBuilder_UsersRowChangeEvent(((_MenuBuilder_UsersRow)(e.Row)), e.Action));
+                if ((this.UsersRowDeleted != null)) {
+                    this.UsersRowDeleted(this, new UsersRowChangeEvent(((UsersRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1535,14 +1807,14 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this._MenuBuilder_UsersRowDeleting != null)) {
-                    this._MenuBuilder_UsersRowDeleting(this, new _MenuBuilder_UsersRowChangeEvent(((_MenuBuilder_UsersRow)(e.Row)), e.Action));
+                if ((this.UsersRowDeleting != null)) {
+                    this.UsersRowDeleting(this, new UsersRowChangeEvent(((UsersRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Remove_MenuBuilder_UsersRow(_MenuBuilder_UsersRow row) {
+            public void RemoveUsersRow(UsersRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1551,7 +1823,7 @@ namespace MenuAggregator {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                MenuBuilderDataSet ds = new MenuBuilderDataSet();
+                MenuBuilderDataSetUpdate ds = new MenuBuilderDataSetUpdate();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1569,7 +1841,7 @@ namespace MenuAggregator {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "_MenuBuilder_UsersDataTable";
+                attribute2.FixedValue = "UsersDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1615,290 +1887,7 @@ namespace MenuAggregator {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class _MenuBuilder_BuiltCafesDataTable : global::System.Data.TypedTableBase<_MenuBuilder_BuiltCafesRow> {
-            
-            private global::System.Data.DataColumn columnPID;
-            
-            private global::System.Data.DataColumn columnCafe;
-            
-            private global::System.Data.DataColumn columnconceptId;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_BuiltCafesDataTable() {
-                this.TableName = "MenuBuilder.BuiltCafes";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal _MenuBuilder_BuiltCafesDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected _MenuBuilder_BuiltCafesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn PIDColumn {
-                get {
-                    return this.columnPID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn CafeColumn {
-                get {
-                    return this.columnCafe;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn conceptIdColumn {
-                get {
-                    return this.columnconceptId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_BuiltCafesRow this[int index] {
-                get {
-                    return ((_MenuBuilder_BuiltCafesRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_BuiltCafesRowChangeEventHandler _MenuBuilder_BuiltCafesRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_BuiltCafesRowChangeEventHandler _MenuBuilder_BuiltCafesRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_BuiltCafesRowChangeEventHandler _MenuBuilder_BuiltCafesRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_BuiltCafesRowChangeEventHandler _MenuBuilder_BuiltCafesRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Add_MenuBuilder_BuiltCafesRow(_MenuBuilder_BuiltCafesRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_BuiltCafesRow Add_MenuBuilder_BuiltCafesRow(string Cafe, long conceptId) {
-                _MenuBuilder_BuiltCafesRow row_MenuBuilder_BuiltCafesRow = ((_MenuBuilder_BuiltCafesRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        Cafe,
-                        conceptId};
-                row_MenuBuilder_BuiltCafesRow.ItemArray = columnValuesArray;
-                this.Rows.Add(row_MenuBuilder_BuiltCafesRow);
-                return row_MenuBuilder_BuiltCafesRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                _MenuBuilder_BuiltCafesDataTable cln = ((_MenuBuilder_BuiltCafesDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new _MenuBuilder_BuiltCafesDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal void InitVars() {
-                this.columnPID = base.Columns["PID"];
-                this.columnCafe = base.Columns["Cafe"];
-                this.columnconceptId = base.Columns["conceptId"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            private void InitClass() {
-                this.columnPID = new global::System.Data.DataColumn("PID", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPID);
-                this.columnCafe = new global::System.Data.DataColumn("Cafe", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCafe);
-                this.columnconceptId = new global::System.Data.DataColumn("conceptId", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnconceptId);
-                this.columnPID.AutoIncrement = true;
-                this.columnPID.AutoIncrementSeed = -1;
-                this.columnPID.AutoIncrementStep = -1;
-                this.columnPID.AllowDBNull = false;
-                this.columnPID.ReadOnly = true;
-                this.columnCafe.MaxLength = 50;
-                this.ExtendedProperties.Add("Generator_TableVarName", "_tableMenuBuilder_BuiltCafes");
-                this.ExtendedProperties.Add("Generator_UserTableName", "MenuBuilder.BuiltCafes");
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_BuiltCafesRow New_MenuBuilder_BuiltCafesRow() {
-                return ((_MenuBuilder_BuiltCafesRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new _MenuBuilder_BuiltCafesRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(_MenuBuilder_BuiltCafesRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this._MenuBuilder_BuiltCafesRowChanged != null)) {
-                    this._MenuBuilder_BuiltCafesRowChanged(this, new _MenuBuilder_BuiltCafesRowChangeEvent(((_MenuBuilder_BuiltCafesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this._MenuBuilder_BuiltCafesRowChanging != null)) {
-                    this._MenuBuilder_BuiltCafesRowChanging(this, new _MenuBuilder_BuiltCafesRowChangeEvent(((_MenuBuilder_BuiltCafesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this._MenuBuilder_BuiltCafesRowDeleted != null)) {
-                    this._MenuBuilder_BuiltCafesRowDeleted(this, new _MenuBuilder_BuiltCafesRowChangeEvent(((_MenuBuilder_BuiltCafesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this._MenuBuilder_BuiltCafesRowDeleting != null)) {
-                    this._MenuBuilder_BuiltCafesRowDeleting(this, new _MenuBuilder_BuiltCafesRowChangeEvent(((_MenuBuilder_BuiltCafesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Remove_MenuBuilder_BuiltCafesRow(_MenuBuilder_BuiltCafesRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                MenuBuilderDataSet ds = new MenuBuilderDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "_MenuBuilder_BuiltCafesDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class _MenuBuilder_WeeklyMenusDataTable : global::System.Data.TypedTableBase<_MenuBuilder_WeeklyMenusRow> {
+        public partial class WeeklyMenusDataTable : global::System.Data.TypedTableBase<WeeklyMenusRow> {
             
             private global::System.Data.DataColumn columnPID;
             
@@ -1920,18 +1909,18 @@ namespace MenuAggregator {
             
             private global::System.Data.DataColumn columnlastMenuItem;
             
-            private global::System.Data.DataColumn columnisChanged;
-            
             private global::System.Data.DataColumn columnisComplete;
             
             private global::System.Data.DataColumn columndateEdit;
             
             private global::System.Data.DataColumn columnYear;
             
+            private global::System.Data.DataColumn columnisChanged;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_WeeklyMenusDataTable() {
-                this.TableName = "MenuBuilder.WeeklyMenus";
+            public WeeklyMenusDataTable() {
+                this.TableName = "WeeklyMenus";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1939,7 +1928,7 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal _MenuBuilder_WeeklyMenusDataTable(global::System.Data.DataTable table) {
+            internal WeeklyMenusDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1956,7 +1945,7 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected _MenuBuilder_WeeklyMenusDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected WeeklyMenusDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -2043,14 +2032,6 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn isChangedColumn {
-                get {
-                    return this.columnisChanged;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn isCompleteColumn {
                 get {
                     return this.columnisComplete;
@@ -2075,6 +2056,14 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn isChangedColumn {
+                get {
+                    return this.columnisChanged;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2084,34 +2073,34 @@ namespace MenuAggregator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_WeeklyMenusRow this[int index] {
+            public WeeklyMenusRow this[int index] {
                 get {
-                    return ((_MenuBuilder_WeeklyMenusRow)(this.Rows[index]));
+                    return ((WeeklyMenusRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_WeeklyMenusRowChangeEventHandler _MenuBuilder_WeeklyMenusRowChanging;
+            public event WeeklyMenusRowChangeEventHandler WeeklyMenusRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_WeeklyMenusRowChangeEventHandler _MenuBuilder_WeeklyMenusRowChanged;
+            public event WeeklyMenusRowChangeEventHandler WeeklyMenusRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_WeeklyMenusRowChangeEventHandler _MenuBuilder_WeeklyMenusRowDeleting;
+            public event WeeklyMenusRowChangeEventHandler WeeklyMenusRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event _MenuBuilder_WeeklyMenusRowChangeEventHandler _MenuBuilder_WeeklyMenusRowDeleted;
+            public event WeeklyMenusRowChangeEventHandler WeeklyMenusRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Add_MenuBuilder_WeeklyMenusRow(_MenuBuilder_WeeklyMenusRow row) {
+            public void AddWeeklyMenusRow(WeeklyMenusRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_WeeklyMenusRow Add_MenuBuilder_WeeklyMenusRow(int Period, int Week, string Day, string Cafe, string conceptName, string menuItem, string Price, string Notes, string lastMenuItem, int isChanged, string isComplete, System.DateTime dateEdit, long Year) {
-                _MenuBuilder_WeeklyMenusRow row_MenuBuilder_WeeklyMenusRow = ((_MenuBuilder_WeeklyMenusRow)(this.NewRow()));
+            public WeeklyMenusRow AddWeeklyMenusRow(int Period, int Week, string Day, string Cafe, string conceptName, string menuItem, string Price, string Notes, string lastMenuItem, string isComplete, System.DateTime dateEdit, int Year, int isChanged) {
+                WeeklyMenusRow rowWeeklyMenusRow = ((WeeklyMenusRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Period,
@@ -2123,19 +2112,19 @@ namespace MenuAggregator {
                         Price,
                         Notes,
                         lastMenuItem,
-                        isChanged,
                         isComplete,
                         dateEdit,
-                        Year};
-                row_MenuBuilder_WeeklyMenusRow.ItemArray = columnValuesArray;
-                this.Rows.Add(row_MenuBuilder_WeeklyMenusRow);
-                return row_MenuBuilder_WeeklyMenusRow;
+                        Year,
+                        isChanged};
+                rowWeeklyMenusRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowWeeklyMenusRow);
+                return rowWeeklyMenusRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                _MenuBuilder_WeeklyMenusDataTable cln = ((_MenuBuilder_WeeklyMenusDataTable)(base.Clone()));
+                WeeklyMenusDataTable cln = ((WeeklyMenusDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -2143,7 +2132,7 @@ namespace MenuAggregator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new _MenuBuilder_WeeklyMenusDataTable();
+                return new WeeklyMenusDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2159,16 +2148,16 @@ namespace MenuAggregator {
                 this.columnPrice = base.Columns["Price"];
                 this.columnNotes = base.Columns["Notes"];
                 this.columnlastMenuItem = base.Columns["lastMenuItem"];
-                this.columnisChanged = base.Columns["isChanged"];
                 this.columnisComplete = base.Columns["isComplete"];
                 this.columndateEdit = base.Columns["dateEdit"];
                 this.columnYear = base.Columns["Year"];
+                this.columnisChanged = base.Columns["isChanged"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnPID = new global::System.Data.DataColumn("PID", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnPID = new global::System.Data.DataColumn("PID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPID);
                 this.columnPeriod = new global::System.Data.DataColumn("Period", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPeriod);
@@ -2188,14 +2177,14 @@ namespace MenuAggregator {
                 base.Columns.Add(this.columnNotes);
                 this.columnlastMenuItem = new global::System.Data.DataColumn("lastMenuItem", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnlastMenuItem);
-                this.columnisChanged = new global::System.Data.DataColumn("isChanged", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnisChanged);
                 this.columnisComplete = new global::System.Data.DataColumn("isComplete", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnisComplete);
                 this.columndateEdit = new global::System.Data.DataColumn("dateEdit", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndateEdit);
-                this.columnYear = new global::System.Data.DataColumn("Year", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnYear = new global::System.Data.DataColumn("Year", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnYear);
+                this.columnisChanged = new global::System.Data.DataColumn("isChanged", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnisChanged);
                 this.columnPID.AutoIncrement = true;
                 this.columnPID.AutoIncrementSeed = -1;
                 this.columnPID.AutoIncrementStep = -1;
@@ -2208,34 +2197,33 @@ namespace MenuAggregator {
                 this.columnPrice.MaxLength = 50;
                 this.columnNotes.MaxLength = 2147483647;
                 this.columnlastMenuItem.MaxLength = 50;
-                this.ExtendedProperties.Add("Generator_TableVarName", "_tableMenuBuilder_WeeklyMenus");
-                this.ExtendedProperties.Add("Generator_UserTableName", "MenuBuilder.WeeklyMenus");
+                this.columnisComplete.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_WeeklyMenusRow New_MenuBuilder_WeeklyMenusRow() {
-                return ((_MenuBuilder_WeeklyMenusRow)(this.NewRow()));
+            public WeeklyMenusRow NewWeeklyMenusRow() {
+                return ((WeeklyMenusRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new _MenuBuilder_WeeklyMenusRow(builder);
+                return new WeeklyMenusRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(_MenuBuilder_WeeklyMenusRow);
+                return typeof(WeeklyMenusRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this._MenuBuilder_WeeklyMenusRowChanged != null)) {
-                    this._MenuBuilder_WeeklyMenusRowChanged(this, new _MenuBuilder_WeeklyMenusRowChangeEvent(((_MenuBuilder_WeeklyMenusRow)(e.Row)), e.Action));
+                if ((this.WeeklyMenusRowChanged != null)) {
+                    this.WeeklyMenusRowChanged(this, new WeeklyMenusRowChangeEvent(((WeeklyMenusRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2243,8 +2231,8 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this._MenuBuilder_WeeklyMenusRowChanging != null)) {
-                    this._MenuBuilder_WeeklyMenusRowChanging(this, new _MenuBuilder_WeeklyMenusRowChangeEvent(((_MenuBuilder_WeeklyMenusRow)(e.Row)), e.Action));
+                if ((this.WeeklyMenusRowChanging != null)) {
+                    this.WeeklyMenusRowChanging(this, new WeeklyMenusRowChangeEvent(((WeeklyMenusRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2252,8 +2240,8 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this._MenuBuilder_WeeklyMenusRowDeleted != null)) {
-                    this._MenuBuilder_WeeklyMenusRowDeleted(this, new _MenuBuilder_WeeklyMenusRowChangeEvent(((_MenuBuilder_WeeklyMenusRow)(e.Row)), e.Action));
+                if ((this.WeeklyMenusRowDeleted != null)) {
+                    this.WeeklyMenusRowDeleted(this, new WeeklyMenusRowChangeEvent(((WeeklyMenusRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2261,14 +2249,14 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this._MenuBuilder_WeeklyMenusRowDeleting != null)) {
-                    this._MenuBuilder_WeeklyMenusRowDeleting(this, new _MenuBuilder_WeeklyMenusRowChangeEvent(((_MenuBuilder_WeeklyMenusRow)(e.Row)), e.Action));
+                if ((this.WeeklyMenusRowDeleting != null)) {
+                    this.WeeklyMenusRowDeleting(this, new WeeklyMenusRowChangeEvent(((WeeklyMenusRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Remove_MenuBuilder_WeeklyMenusRow(_MenuBuilder_WeeklyMenusRow row) {
+            public void RemoveWeeklyMenusRow(WeeklyMenusRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -2277,7 +2265,7 @@ namespace MenuAggregator {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                MenuBuilderDataSet ds = new MenuBuilderDataSet();
+                MenuBuilderDataSetUpdate ds = new MenuBuilderDataSetUpdate();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2295,7 +2283,7 @@ namespace MenuAggregator {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "_MenuBuilder_WeeklyMenusDataTable";
+                attribute2.FixedValue = "WeeklyMenusDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2339,25 +2327,107 @@ namespace MenuAggregator {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class _MenuBuilder_ConceptsRow : global::System.Data.DataRow {
+        public partial class BuiltCafesRow : global::System.Data.DataRow {
             
-            private _MenuBuilder_ConceptsDataTable _tableMenuBuilder_Concepts;
+            private BuiltCafesDataTable tableBuiltCafes;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal _MenuBuilder_ConceptsRow(global::System.Data.DataRowBuilder rb) : 
+            internal BuiltCafesRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this._tableMenuBuilder_Concepts = ((_MenuBuilder_ConceptsDataTable)(this.Table));
+                this.tableBuiltCafes = ((BuiltCafesDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public long PID {
+            public int PID {
                 get {
-                    return ((long)(this[this._tableMenuBuilder_Concepts.PIDColumn]));
+                    return ((int)(this[this.tableBuiltCafes.PIDColumn]));
                 }
                 set {
-                    this[this._tableMenuBuilder_Concepts.PIDColumn] = value;
+                    this[this.tableBuiltCafes.PIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Cafe {
+                get {
+                    try {
+                        return ((string)(this[this.tableBuiltCafes.CafeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cafe\' in table \'BuiltCafes\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBuiltCafes.CafeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int conceptId {
+                get {
+                    try {
+                        return ((int)(this[this.tableBuiltCafes.conceptIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'conceptId\' in table \'BuiltCafes\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBuiltCafes.conceptIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsCafeNull() {
+                return this.IsNull(this.tableBuiltCafes.CafeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetCafeNull() {
+                this[this.tableBuiltCafes.CafeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsconceptIdNull() {
+                return this.IsNull(this.tableBuiltCafes.conceptIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetconceptIdNull() {
+                this[this.tableBuiltCafes.conceptIdColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class ConceptsRow : global::System.Data.DataRow {
+            
+            private ConceptsDataTable tableConcepts;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal ConceptsRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableConcepts = ((ConceptsDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public short PID {
+                get {
+                    return ((short)(this[this.tableConcepts.PIDColumn]));
+                }
+                set {
+                    this[this.tableConcepts.PIDColumn] = value;
                 }
             }
             
@@ -2365,10 +2435,15 @@ namespace MenuAggregator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string stationName {
                 get {
-                    return ((string)(this[this._tableMenuBuilder_Concepts.stationNameColumn]));
+                    try {
+                        return ((string)(this[this.tableConcepts.stationNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'stationName\' in table \'Concepts\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this._tableMenuBuilder_Concepts.stationNameColumn] = value;
+                    this[this.tableConcepts.stationNameColumn] = value;
                 }
             }
             
@@ -2377,14 +2452,14 @@ namespace MenuAggregator {
             public byte isDaily {
                 get {
                     try {
-                        return ((byte)(this[this._tableMenuBuilder_Concepts.isDailyColumn]));
+                        return ((byte)(this[this.tableConcepts.isDailyColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'isDaily\' in table \'MenuBuilder.Concepts\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'isDaily\' in table \'Concepts\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableMenuBuilder_Concepts.isDailyColumn] = value;
+                    this[this.tableConcepts.isDailyColumn] = value;
                 }
             }
             
@@ -2393,64 +2468,76 @@ namespace MenuAggregator {
             public byte priceEditable {
                 get {
                     try {
-                        return ((byte)(this[this._tableMenuBuilder_Concepts.priceEditableColumn]));
+                        return ((byte)(this[this.tableConcepts.priceEditableColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'priceEditable\' in table \'MenuBuilder.Concepts\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'priceEditable\' in table \'Concepts\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableMenuBuilder_Concepts.priceEditableColumn] = value;
+                    this[this.tableConcepts.priceEditableColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsstationNameNull() {
+                return this.IsNull(this.tableConcepts.stationNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetstationNameNull() {
+                this[this.tableConcepts.stationNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsisDailyNull() {
-                return this.IsNull(this._tableMenuBuilder_Concepts.isDailyColumn);
+                return this.IsNull(this.tableConcepts.isDailyColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetisDailyNull() {
-                this[this._tableMenuBuilder_Concepts.isDailyColumn] = global::System.Convert.DBNull;
+                this[this.tableConcepts.isDailyColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IspriceEditableNull() {
-                return this.IsNull(this._tableMenuBuilder_Concepts.priceEditableColumn);
+                return this.IsNull(this.tableConcepts.priceEditableColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetpriceEditableNull() {
-                this[this._tableMenuBuilder_Concepts.priceEditableColumn] = global::System.Convert.DBNull;
+                this[this.tableConcepts.priceEditableColumn] = global::System.Convert.DBNull;
             }
         }
         
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class _MenuBuilder_PriceRow : global::System.Data.DataRow {
+        public partial class PriceRow : global::System.Data.DataRow {
             
-            private _MenuBuilder_PriceDataTable _tableMenuBuilder_Price;
+            private PriceDataTable tablePrice;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal _MenuBuilder_PriceRow(global::System.Data.DataRowBuilder rb) : 
+            internal PriceRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this._tableMenuBuilder_Price = ((_MenuBuilder_PriceDataTable)(this.Table));
+                this.tablePrice = ((PriceDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public long PID {
+            public int PID {
                 get {
-                    return ((long)(this[this._tableMenuBuilder_Price.PIDColumn]));
+                    return ((int)(this[this.tablePrice.PIDColumn]));
                 }
                 set {
-                    this[this._tableMenuBuilder_Price.PIDColumn] = value;
+                    this[this.tablePrice.PIDColumn] = value;
                 }
             }
             
@@ -2459,52 +2546,52 @@ namespace MenuAggregator {
             public string price {
                 get {
                     try {
-                        return ((string)(this[this._tableMenuBuilder_Price.priceColumn]));
+                        return ((string)(this[this.tablePrice.priceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'price\' in table \'MenuBuilder.Price\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'price\' in table \'Price\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableMenuBuilder_Price.priceColumn] = value;
+                    this[this.tablePrice.priceColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IspriceNull() {
-                return this.IsNull(this._tableMenuBuilder_Price.priceColumn);
+                return this.IsNull(this.tablePrice.priceColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetpriceNull() {
-                this[this._tableMenuBuilder_Price.priceColumn] = global::System.Convert.DBNull;
+                this[this.tablePrice.priceColumn] = global::System.Convert.DBNull;
             }
         }
         
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class _MenuBuilder_SubMenusRow : global::System.Data.DataRow {
+        public partial class SubMenusRow : global::System.Data.DataRow {
             
-            private _MenuBuilder_SubMenusDataTable _tableMenuBuilder_SubMenus;
+            private SubMenusDataTable tableSubMenus;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal _MenuBuilder_SubMenusRow(global::System.Data.DataRowBuilder rb) : 
+            internal SubMenusRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this._tableMenuBuilder_SubMenus = ((_MenuBuilder_SubMenusDataTable)(this.Table));
+                this.tableSubMenus = ((SubMenusDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public long PID {
+            public int PID {
                 get {
-                    return ((long)(this[this._tableMenuBuilder_SubMenus.PIDColumn]));
+                    return ((int)(this[this.tableSubMenus.PIDColumn]));
                 }
                 set {
-                    this[this._tableMenuBuilder_SubMenus.PIDColumn] = value;
+                    this[this.tableSubMenus.PIDColumn] = value;
                 }
             }
             
@@ -2513,80 +2600,80 @@ namespace MenuAggregator {
             public string menuName {
                 get {
                     try {
-                        return ((string)(this[this._tableMenuBuilder_SubMenus.menuNameColumn]));
+                        return ((string)(this[this.tableSubMenus.menuNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'menuName\' in table \'MenuBuilder.SubMenus\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'menuName\' in table \'SubMenus\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableMenuBuilder_SubMenus.menuNameColumn] = value;
+                    this[this.tableSubMenus.menuNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public long conceptId {
+            public int conceptId {
                 get {
                     try {
-                        return ((long)(this[this._tableMenuBuilder_SubMenus.conceptIdColumn]));
+                        return ((int)(this[this.tableSubMenus.conceptIdColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'conceptId\' in table \'MenuBuilder.SubMenus\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'conceptId\' in table \'SubMenus\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableMenuBuilder_SubMenus.conceptIdColumn] = value;
+                    this[this.tableSubMenus.conceptIdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsmenuNameNull() {
-                return this.IsNull(this._tableMenuBuilder_SubMenus.menuNameColumn);
+                return this.IsNull(this.tableSubMenus.menuNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetmenuNameNull() {
-                this[this._tableMenuBuilder_SubMenus.menuNameColumn] = global::System.Convert.DBNull;
+                this[this.tableSubMenus.menuNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsconceptIdNull() {
-                return this.IsNull(this._tableMenuBuilder_SubMenus.conceptIdColumn);
+                return this.IsNull(this.tableSubMenus.conceptIdColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetconceptIdNull() {
-                this[this._tableMenuBuilder_SubMenus.conceptIdColumn] = global::System.Convert.DBNull;
+                this[this.tableSubMenus.conceptIdColumn] = global::System.Convert.DBNull;
             }
         }
         
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class _MenuBuilder_UsersRow : global::System.Data.DataRow {
+        public partial class UsersRow : global::System.Data.DataRow {
             
-            private _MenuBuilder_UsersDataTable _tableMenuBuilder_Users;
+            private UsersDataTable tableUsers;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal _MenuBuilder_UsersRow(global::System.Data.DataRowBuilder rb) : 
+            internal UsersRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this._tableMenuBuilder_Users = ((_MenuBuilder_UsersDataTable)(this.Table));
+                this.tableUsers = ((UsersDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public long PID {
+            public int PID {
                 get {
-                    return ((long)(this[this._tableMenuBuilder_Users.PIDColumn]));
+                    return ((int)(this[this.tableUsers.PIDColumn]));
                 }
                 set {
-                    this[this._tableMenuBuilder_Users.PIDColumn] = value;
+                    this[this.tableUsers.PIDColumn] = value;
                 }
             }
             
@@ -2595,14 +2682,14 @@ namespace MenuAggregator {
             public string UserId {
                 get {
                     try {
-                        return ((string)(this[this._tableMenuBuilder_Users.UserIdColumn]));
+                        return ((string)(this[this.tableUsers.UserIdColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'UserId\' in table \'MenuBuilder.Users\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'UserId\' in table \'Users\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableMenuBuilder_Users.UserIdColumn] = value;
+                    this[this.tableUsers.UserIdColumn] = value;
                 }
             }
             
@@ -2611,14 +2698,14 @@ namespace MenuAggregator {
             public string CafeName {
                 get {
                     try {
-                        return ((string)(this[this._tableMenuBuilder_Users.CafeNameColumn]));
+                        return ((string)(this[this.tableUsers.CafeNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CafeName\' in table \'MenuBuilder.Users\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CafeName\' in table \'Users\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableMenuBuilder_Users.CafeNameColumn] = value;
+                    this[this.tableUsers.CafeNameColumn] = value;
                 }
             }
             
@@ -2627,14 +2714,14 @@ namespace MenuAggregator {
             public string UserName {
                 get {
                     try {
-                        return ((string)(this[this._tableMenuBuilder_Users.UserNameColumn]));
+                        return ((string)(this[this.tableUsers.UserNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'UserName\' in table \'MenuBuilder.Users\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'UserName\' in table \'Users\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableMenuBuilder_Users.UserNameColumn] = value;
+                    this[this.tableUsers.UserNameColumn] = value;
                 }
             }
             
@@ -2643,170 +2730,88 @@ namespace MenuAggregator {
             public int adminLevel {
                 get {
                     try {
-                        return ((int)(this[this._tableMenuBuilder_Users.adminLevelColumn]));
+                        return ((int)(this[this.tableUsers.adminLevelColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'adminLevel\' in table \'MenuBuilder.Users\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'adminLevel\' in table \'Users\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableMenuBuilder_Users.adminLevelColumn] = value;
+                    this[this.tableUsers.adminLevelColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsUserIdNull() {
-                return this.IsNull(this._tableMenuBuilder_Users.UserIdColumn);
+                return this.IsNull(this.tableUsers.UserIdColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetUserIdNull() {
-                this[this._tableMenuBuilder_Users.UserIdColumn] = global::System.Convert.DBNull;
+                this[this.tableUsers.UserIdColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsCafeNameNull() {
-                return this.IsNull(this._tableMenuBuilder_Users.CafeNameColumn);
+                return this.IsNull(this.tableUsers.CafeNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetCafeNameNull() {
-                this[this._tableMenuBuilder_Users.CafeNameColumn] = global::System.Convert.DBNull;
+                this[this.tableUsers.CafeNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsUserNameNull() {
-                return this.IsNull(this._tableMenuBuilder_Users.UserNameColumn);
+                return this.IsNull(this.tableUsers.UserNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetUserNameNull() {
-                this[this._tableMenuBuilder_Users.UserNameColumn] = global::System.Convert.DBNull;
+                this[this.tableUsers.UserNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsadminLevelNull() {
-                return this.IsNull(this._tableMenuBuilder_Users.adminLevelColumn);
+                return this.IsNull(this.tableUsers.adminLevelColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetadminLevelNull() {
-                this[this._tableMenuBuilder_Users.adminLevelColumn] = global::System.Convert.DBNull;
+                this[this.tableUsers.adminLevelColumn] = global::System.Convert.DBNull;
             }
         }
         
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class _MenuBuilder_BuiltCafesRow : global::System.Data.DataRow {
+        public partial class WeeklyMenusRow : global::System.Data.DataRow {
             
-            private _MenuBuilder_BuiltCafesDataTable _tableMenuBuilder_BuiltCafes;
+            private WeeklyMenusDataTable tableWeeklyMenus;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal _MenuBuilder_BuiltCafesRow(global::System.Data.DataRowBuilder rb) : 
+            internal WeeklyMenusRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this._tableMenuBuilder_BuiltCafes = ((_MenuBuilder_BuiltCafesDataTable)(this.Table));
+                this.tableWeeklyMenus = ((WeeklyMenusDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public long PID {
+            public int PID {
                 get {
-                    return ((long)(this[this._tableMenuBuilder_BuiltCafes.PIDColumn]));
+                    return ((int)(this[this.tableWeeklyMenus.PIDColumn]));
                 }
                 set {
-                    this[this._tableMenuBuilder_BuiltCafes.PIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Cafe {
-                get {
-                    try {
-                        return ((string)(this[this._tableMenuBuilder_BuiltCafes.CafeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cafe\' in table \'MenuBuilder.BuiltCafes\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this._tableMenuBuilder_BuiltCafes.CafeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public long conceptId {
-                get {
-                    try {
-                        return ((long)(this[this._tableMenuBuilder_BuiltCafes.conceptIdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'conceptId\' in table \'MenuBuilder.BuiltCafes\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this._tableMenuBuilder_BuiltCafes.conceptIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsCafeNull() {
-                return this.IsNull(this._tableMenuBuilder_BuiltCafes.CafeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetCafeNull() {
-                this[this._tableMenuBuilder_BuiltCafes.CafeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsconceptIdNull() {
-                return this.IsNull(this._tableMenuBuilder_BuiltCafes.conceptIdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetconceptIdNull() {
-                this[this._tableMenuBuilder_BuiltCafes.conceptIdColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class _MenuBuilder_WeeklyMenusRow : global::System.Data.DataRow {
-            
-            private _MenuBuilder_WeeklyMenusDataTable _tableMenuBuilder_WeeklyMenus;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal _MenuBuilder_WeeklyMenusRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this._tableMenuBuilder_WeeklyMenus = ((_MenuBuilder_WeeklyMenusDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public long PID {
-                get {
-                    return ((long)(this[this._tableMenuBuilder_WeeklyMenus.PIDColumn]));
-                }
-                set {
-                    this[this._tableMenuBuilder_WeeklyMenus.PIDColumn] = value;
+                    this[this.tableWeeklyMenus.PIDColumn] = value;
                 }
             }
             
@@ -2815,14 +2820,14 @@ namespace MenuAggregator {
             public int Period {
                 get {
                     try {
-                        return ((int)(this[this._tableMenuBuilder_WeeklyMenus.PeriodColumn]));
+                        return ((int)(this[this.tableWeeklyMenus.PeriodColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Period\' in table \'MenuBuilder.WeeklyMenus\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Period\' in table \'WeeklyMenus\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableMenuBuilder_WeeklyMenus.PeriodColumn] = value;
+                    this[this.tableWeeklyMenus.PeriodColumn] = value;
                 }
             }
             
@@ -2831,14 +2836,14 @@ namespace MenuAggregator {
             public int Week {
                 get {
                     try {
-                        return ((int)(this[this._tableMenuBuilder_WeeklyMenus.WeekColumn]));
+                        return ((int)(this[this.tableWeeklyMenus.WeekColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Week\' in table \'MenuBuilder.WeeklyMenus\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Week\' in table \'WeeklyMenus\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableMenuBuilder_WeeklyMenus.WeekColumn] = value;
+                    this[this.tableWeeklyMenus.WeekColumn] = value;
                 }
             }
             
@@ -2847,14 +2852,14 @@ namespace MenuAggregator {
             public string Day {
                 get {
                     try {
-                        return ((string)(this[this._tableMenuBuilder_WeeklyMenus.DayColumn]));
+                        return ((string)(this[this.tableWeeklyMenus.DayColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Day\' in table \'MenuBuilder.WeeklyMenus\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Day\' in table \'WeeklyMenus\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableMenuBuilder_WeeklyMenus.DayColumn] = value;
+                    this[this.tableWeeklyMenus.DayColumn] = value;
                 }
             }
             
@@ -2863,14 +2868,14 @@ namespace MenuAggregator {
             public string Cafe {
                 get {
                     try {
-                        return ((string)(this[this._tableMenuBuilder_WeeklyMenus.CafeColumn]));
+                        return ((string)(this[this.tableWeeklyMenus.CafeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cafe\' in table \'MenuBuilder.WeeklyMenus\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cafe\' in table \'WeeklyMenus\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableMenuBuilder_WeeklyMenus.CafeColumn] = value;
+                    this[this.tableWeeklyMenus.CafeColumn] = value;
                 }
             }
             
@@ -2879,14 +2884,14 @@ namespace MenuAggregator {
             public string conceptName {
                 get {
                     try {
-                        return ((string)(this[this._tableMenuBuilder_WeeklyMenus.conceptNameColumn]));
+                        return ((string)(this[this.tableWeeklyMenus.conceptNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'conceptName\' in table \'MenuBuilder.WeeklyMenus\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'conceptName\' in table \'WeeklyMenus\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableMenuBuilder_WeeklyMenus.conceptNameColumn] = value;
+                    this[this.tableWeeklyMenus.conceptNameColumn] = value;
                 }
             }
             
@@ -2895,14 +2900,14 @@ namespace MenuAggregator {
             public string menuItem {
                 get {
                     try {
-                        return ((string)(this[this._tableMenuBuilder_WeeklyMenus.menuItemColumn]));
+                        return ((string)(this[this.tableWeeklyMenus.menuItemColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'menuItem\' in table \'MenuBuilder.WeeklyMenus\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'menuItem\' in table \'WeeklyMenus\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableMenuBuilder_WeeklyMenus.menuItemColumn] = value;
+                    this[this.tableWeeklyMenus.menuItemColumn] = value;
                 }
             }
             
@@ -2911,14 +2916,14 @@ namespace MenuAggregator {
             public string Price {
                 get {
                     try {
-                        return ((string)(this[this._tableMenuBuilder_WeeklyMenus.PriceColumn]));
+                        return ((string)(this[this.tableWeeklyMenus.PriceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Price\' in table \'MenuBuilder.WeeklyMenus\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Price\' in table \'WeeklyMenus\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableMenuBuilder_WeeklyMenus.PriceColumn] = value;
+                    this[this.tableWeeklyMenus.PriceColumn] = value;
                 }
             }
             
@@ -2927,14 +2932,14 @@ namespace MenuAggregator {
             public string Notes {
                 get {
                     try {
-                        return ((string)(this[this._tableMenuBuilder_WeeklyMenus.NotesColumn]));
+                        return ((string)(this[this.tableWeeklyMenus.NotesColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Notes\' in table \'MenuBuilder.WeeklyMenus\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Notes\' in table \'WeeklyMenus\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableMenuBuilder_WeeklyMenus.NotesColumn] = value;
+                    this[this.tableWeeklyMenus.NotesColumn] = value;
                 }
             }
             
@@ -2943,31 +2948,14 @@ namespace MenuAggregator {
             public string lastMenuItem {
                 get {
                     try {
-                        return ((string)(this[this._tableMenuBuilder_WeeklyMenus.lastMenuItemColumn]));
+                        return ((string)(this[this.tableWeeklyMenus.lastMenuItemColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'lastMenuItem\' in table \'MenuBuilder.WeeklyMenus\' is DBNull." +
-                                "", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'lastMenuItem\' in table \'WeeklyMenus\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableMenuBuilder_WeeklyMenus.lastMenuItemColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int isChanged {
-                get {
-                    try {
-                        return ((int)(this[this._tableMenuBuilder_WeeklyMenus.isChangedColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'isChanged\' in table \'MenuBuilder.WeeklyMenus\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this._tableMenuBuilder_WeeklyMenus.isChangedColumn] = value;
+                    this[this.tableWeeklyMenus.lastMenuItemColumn] = value;
                 }
             }
             
@@ -2976,14 +2964,14 @@ namespace MenuAggregator {
             public string isComplete {
                 get {
                     try {
-                        return ((string)(this[this._tableMenuBuilder_WeeklyMenus.isCompleteColumn]));
+                        return ((string)(this[this.tableWeeklyMenus.isCompleteColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'isComplete\' in table \'MenuBuilder.WeeklyMenus\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'isComplete\' in table \'WeeklyMenus\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableMenuBuilder_WeeklyMenus.isCompleteColumn] = value;
+                    this[this.tableWeeklyMenus.isCompleteColumn] = value;
                 }
             }
             
@@ -2992,187 +2980,203 @@ namespace MenuAggregator {
             public System.DateTime dateEdit {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this._tableMenuBuilder_WeeklyMenus.dateEditColumn]));
+                        return ((global::System.DateTime)(this[this.tableWeeklyMenus.dateEditColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'dateEdit\' in table \'MenuBuilder.WeeklyMenus\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'dateEdit\' in table \'WeeklyMenus\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableMenuBuilder_WeeklyMenus.dateEditColumn] = value;
+                    this[this.tableWeeklyMenus.dateEditColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public long Year {
+            public int Year {
                 get {
                     try {
-                        return ((long)(this[this._tableMenuBuilder_WeeklyMenus.YearColumn]));
+                        return ((int)(this[this.tableWeeklyMenus.YearColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Year\' in table \'MenuBuilder.WeeklyMenus\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Year\' in table \'WeeklyMenus\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableMenuBuilder_WeeklyMenus.YearColumn] = value;
+                    this[this.tableWeeklyMenus.YearColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int isChanged {
+                get {
+                    try {
+                        return ((int)(this[this.tableWeeklyMenus.isChangedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'isChanged\' in table \'WeeklyMenus\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeeklyMenus.isChangedColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsPeriodNull() {
-                return this.IsNull(this._tableMenuBuilder_WeeklyMenus.PeriodColumn);
+                return this.IsNull(this.tableWeeklyMenus.PeriodColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetPeriodNull() {
-                this[this._tableMenuBuilder_WeeklyMenus.PeriodColumn] = global::System.Convert.DBNull;
+                this[this.tableWeeklyMenus.PeriodColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsWeekNull() {
-                return this.IsNull(this._tableMenuBuilder_WeeklyMenus.WeekColumn);
+                return this.IsNull(this.tableWeeklyMenus.WeekColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetWeekNull() {
-                this[this._tableMenuBuilder_WeeklyMenus.WeekColumn] = global::System.Convert.DBNull;
+                this[this.tableWeeklyMenus.WeekColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsDayNull() {
-                return this.IsNull(this._tableMenuBuilder_WeeklyMenus.DayColumn);
+                return this.IsNull(this.tableWeeklyMenus.DayColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetDayNull() {
-                this[this._tableMenuBuilder_WeeklyMenus.DayColumn] = global::System.Convert.DBNull;
+                this[this.tableWeeklyMenus.DayColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsCafeNull() {
-                return this.IsNull(this._tableMenuBuilder_WeeklyMenus.CafeColumn);
+                return this.IsNull(this.tableWeeklyMenus.CafeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetCafeNull() {
-                this[this._tableMenuBuilder_WeeklyMenus.CafeColumn] = global::System.Convert.DBNull;
+                this[this.tableWeeklyMenus.CafeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsconceptNameNull() {
-                return this.IsNull(this._tableMenuBuilder_WeeklyMenus.conceptNameColumn);
+                return this.IsNull(this.tableWeeklyMenus.conceptNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetconceptNameNull() {
-                this[this._tableMenuBuilder_WeeklyMenus.conceptNameColumn] = global::System.Convert.DBNull;
+                this[this.tableWeeklyMenus.conceptNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsmenuItemNull() {
-                return this.IsNull(this._tableMenuBuilder_WeeklyMenus.menuItemColumn);
+                return this.IsNull(this.tableWeeklyMenus.menuItemColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetmenuItemNull() {
-                this[this._tableMenuBuilder_WeeklyMenus.menuItemColumn] = global::System.Convert.DBNull;
+                this[this.tableWeeklyMenus.menuItemColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsPriceNull() {
-                return this.IsNull(this._tableMenuBuilder_WeeklyMenus.PriceColumn);
+                return this.IsNull(this.tableWeeklyMenus.PriceColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetPriceNull() {
-                this[this._tableMenuBuilder_WeeklyMenus.PriceColumn] = global::System.Convert.DBNull;
+                this[this.tableWeeklyMenus.PriceColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsNotesNull() {
-                return this.IsNull(this._tableMenuBuilder_WeeklyMenus.NotesColumn);
+                return this.IsNull(this.tableWeeklyMenus.NotesColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetNotesNull() {
-                this[this._tableMenuBuilder_WeeklyMenus.NotesColumn] = global::System.Convert.DBNull;
+                this[this.tableWeeklyMenus.NotesColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IslastMenuItemNull() {
-                return this.IsNull(this._tableMenuBuilder_WeeklyMenus.lastMenuItemColumn);
+                return this.IsNull(this.tableWeeklyMenus.lastMenuItemColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetlastMenuItemNull() {
-                this[this._tableMenuBuilder_WeeklyMenus.lastMenuItemColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsisChangedNull() {
-                return this.IsNull(this._tableMenuBuilder_WeeklyMenus.isChangedColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetisChangedNull() {
-                this[this._tableMenuBuilder_WeeklyMenus.isChangedColumn] = global::System.Convert.DBNull;
+                this[this.tableWeeklyMenus.lastMenuItemColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsisCompleteNull() {
-                return this.IsNull(this._tableMenuBuilder_WeeklyMenus.isCompleteColumn);
+                return this.IsNull(this.tableWeeklyMenus.isCompleteColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetisCompleteNull() {
-                this[this._tableMenuBuilder_WeeklyMenus.isCompleteColumn] = global::System.Convert.DBNull;
+                this[this.tableWeeklyMenus.isCompleteColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdateEditNull() {
-                return this.IsNull(this._tableMenuBuilder_WeeklyMenus.dateEditColumn);
+                return this.IsNull(this.tableWeeklyMenus.dateEditColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetdateEditNull() {
-                this[this._tableMenuBuilder_WeeklyMenus.dateEditColumn] = global::System.Convert.DBNull;
+                this[this.tableWeeklyMenus.dateEditColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsYearNull() {
-                return this.IsNull(this._tableMenuBuilder_WeeklyMenus.YearColumn);
+                return this.IsNull(this.tableWeeklyMenus.YearColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetYearNull() {
-                this[this._tableMenuBuilder_WeeklyMenus.YearColumn] = global::System.Convert.DBNull;
+                this[this.tableWeeklyMenus.YearColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsisChangedNull() {
+                return this.IsNull(this.tableWeeklyMenus.isChangedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetisChangedNull() {
+                this[this.tableWeeklyMenus.isChangedColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3180,22 +3184,22 @@ namespace MenuAggregator {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class _MenuBuilder_ConceptsRowChangeEvent : global::System.EventArgs {
+        public class BuiltCafesRowChangeEvent : global::System.EventArgs {
             
-            private _MenuBuilder_ConceptsRow eventRow;
+            private BuiltCafesRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_ConceptsRowChangeEvent(_MenuBuilder_ConceptsRow row, global::System.Data.DataRowAction action) {
+            public BuiltCafesRowChangeEvent(BuiltCafesRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_ConceptsRow Row {
+            public BuiltCafesRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3214,22 +3218,22 @@ namespace MenuAggregator {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class _MenuBuilder_PriceRowChangeEvent : global::System.EventArgs {
+        public class ConceptsRowChangeEvent : global::System.EventArgs {
             
-            private _MenuBuilder_PriceRow eventRow;
+            private ConceptsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_PriceRowChangeEvent(_MenuBuilder_PriceRow row, global::System.Data.DataRowAction action) {
+            public ConceptsRowChangeEvent(ConceptsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_PriceRow Row {
+            public ConceptsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3248,22 +3252,22 @@ namespace MenuAggregator {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class _MenuBuilder_SubMenusRowChangeEvent : global::System.EventArgs {
+        public class PriceRowChangeEvent : global::System.EventArgs {
             
-            private _MenuBuilder_SubMenusRow eventRow;
+            private PriceRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_SubMenusRowChangeEvent(_MenuBuilder_SubMenusRow row, global::System.Data.DataRowAction action) {
+            public PriceRowChangeEvent(PriceRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_SubMenusRow Row {
+            public PriceRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3282,22 +3286,22 @@ namespace MenuAggregator {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class _MenuBuilder_UsersRowChangeEvent : global::System.EventArgs {
+        public class SubMenusRowChangeEvent : global::System.EventArgs {
             
-            private _MenuBuilder_UsersRow eventRow;
+            private SubMenusRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_UsersRowChangeEvent(_MenuBuilder_UsersRow row, global::System.Data.DataRowAction action) {
+            public SubMenusRowChangeEvent(SubMenusRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_UsersRow Row {
+            public SubMenusRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3316,22 +3320,22 @@ namespace MenuAggregator {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class _MenuBuilder_BuiltCafesRowChangeEvent : global::System.EventArgs {
+        public class UsersRowChangeEvent : global::System.EventArgs {
             
-            private _MenuBuilder_BuiltCafesRow eventRow;
+            private UsersRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_BuiltCafesRowChangeEvent(_MenuBuilder_BuiltCafesRow row, global::System.Data.DataRowAction action) {
+            public UsersRowChangeEvent(UsersRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_BuiltCafesRow Row {
+            public UsersRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3350,22 +3354,22 @@ namespace MenuAggregator {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class _MenuBuilder_WeeklyMenusRowChangeEvent : global::System.EventArgs {
+        public class WeeklyMenusRowChangeEvent : global::System.EventArgs {
             
-            private _MenuBuilder_WeeklyMenusRow eventRow;
+            private WeeklyMenusRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_WeeklyMenusRowChangeEvent(_MenuBuilder_WeeklyMenusRow row, global::System.Data.DataRowAction action) {
+            public WeeklyMenusRowChangeEvent(WeeklyMenusRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public _MenuBuilder_WeeklyMenusRow Row {
+            public WeeklyMenusRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3381,7 +3385,7 @@ namespace MenuAggregator {
         }
     }
 }
-namespace MenuAggregator.MenuBuilderDataSetTableAdapters {
+namespace MenuAggregator.MenuBuilderDataSetUpdateTableAdapters {
     
     
     /// <summary>
@@ -3393,7 +3397,7 @@ namespace MenuAggregator.MenuBuilderDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class MenuBuilder_ConceptsTableAdapter : global::System.ComponentModel.Component {
+    public partial class BuiltCafesTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -3407,7 +3411,7 @@ namespace MenuAggregator.MenuBuilderDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public MenuBuilder_ConceptsTableAdapter() {
+        public BuiltCafesTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -3504,57 +3508,62 @@ namespace MenuAggregator.MenuBuilderDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "MenuBuilder.Concepts";
+            tableMapping.DataSetTable = "BuiltCafes";
             tableMapping.ColumnMappings.Add("PID", "PID");
-            tableMapping.ColumnMappings.Add("stationName", "stationName");
-            tableMapping.ColumnMappings.Add("isDaily", "isDaily");
-            tableMapping.ColumnMappings.Add("priceEditable", "priceEditable");
+            tableMapping.ColumnMappings.Add("Cafe", "Cafe");
+            tableMapping.ColumnMappings.Add("conceptId", "conceptId");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [MenuBuilder.Concepts] ([stationName], [isDaily], [priceEditable]) VA" +
-                "LUES (@stationName, @isDaily, @priceEditable)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[BuiltCafes] ([Cafe], [conceptId]) VALUES (@Cafe, @conceptId)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stationName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stationName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isDaily", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "isDaily", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@priceEditable", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "priceEditable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cafe", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cafe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@conceptId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "conceptId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::MenuAggregator.Properties.Settings.Default.MenuAggregatorConnectionString;
+            this._connection.ConnectionString = global::MenuAggregator.Properties.Settings.Default.MenuBuilderConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT PID, stationName, isDaily, priceEditable FROM [MenuBuilder.Concepts]";
+            this._commandCollection[0].CommandText = "SELECT PID, Cafe, conceptId FROM dbo.BuiltCafes";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        [MenuBuilder.Concepts].PID, [MenuBuilder.Concepts].stationName, [MenuBuilder.Concepts].isDaily, [MenuBuilder.BuiltCafes].Cafe
-FROM            [MenuBuilder.Concepts] INNER JOIN
-                         [MenuBuilder.BuiltCafes] ON [MenuBuilder.Concepts].PID = [MenuBuilder.BuiltCafes].conceptId AND [MenuBuilder.BuiltCafes].Cafe = @Cafe";
+            this._commandCollection[1].CommandText = "SELECT PID, Cafe, conceptId FROM dbo.[BuiltCafes] WHERE Cafe = @Cafe";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cafe", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cafe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT PID, stationName, isDaily, priceEditable \r\nFROM [MenuBuilder.Concepts]\r\nWH" +
-                "ERE (stationName = @conceptName)";
+            this._commandCollection[2].CommandText = "SELECT dbo.[BuiltCafes].conceptId, dbo.[Concepts].PID, dbo.[Concepts].stationName" +
+                ", dbo.[Concepts].isDaily  \r\nFROM dbo.[BuiltCafes] \r\nLEFT JOIN [Concepts] ON [Bui" +
+                "ltCafes].conceptId = [Concepts].PID AND\r\n[BuiltCafes].Cafe = @Cafe";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@conceptName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "stationName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cafe", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cafe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT DISTINCT  Cafe\r\n FROM dbo.[BuiltCafes]";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "SELECT Cafe FROM [BuiltCafes] WHERE Cafe = @Cafe";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cafe", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cafe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(MenuBuilderDataSet._MenuBuilder_ConceptsDataTable dataTable) {
+        public virtual int Fill(MenuBuilderDataSetUpdate.BuiltCafesDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3567,9 +3576,9 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual MenuBuilderDataSet._MenuBuilder_ConceptsDataTable GetData() {
+        public virtual MenuBuilderDataSetUpdate.BuiltCafesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            MenuBuilderDataSet._MenuBuilder_ConceptsDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_ConceptsDataTable();
+            MenuBuilderDataSetUpdate.BuiltCafesDataTable dataTable = new MenuBuilderDataSetUpdate.BuiltCafesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3578,7 +3587,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByCafe(MenuBuilderDataSet._MenuBuilder_ConceptsDataTable dataTable, string Cafe) {
+        public virtual int FillByCafe(MenuBuilderDataSetUpdate.BuiltCafesDataTable dataTable, string Cafe) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((Cafe == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -3597,7 +3606,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual MenuBuilderDataSet._MenuBuilder_ConceptsDataTable GetDataBy(string Cafe) {
+        public virtual MenuBuilderDataSetUpdate.BuiltCafesDataTable GetDataBy(string Cafe) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((Cafe == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -3605,7 +3614,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Cafe));
             }
-            MenuBuilderDataSet._MenuBuilder_ConceptsDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_ConceptsDataTable();
+            MenuBuilderDataSetUpdate.BuiltCafesDataTable dataTable = new MenuBuilderDataSetUpdate.BuiltCafesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3614,13 +3623,13 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int GetPriceEditable(MenuBuilderDataSet._MenuBuilder_ConceptsDataTable dataTable, string conceptName) {
+        public virtual int FillConcepts(MenuBuilderDataSetUpdate.BuiltCafesDataTable dataTable, string Cafe) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((conceptName == null)) {
-                throw new global::System.ArgumentNullException("conceptName");
+            if ((Cafe == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(conceptName));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Cafe));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3633,15 +3642,15 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual MenuBuilderDataSet._MenuBuilder_ConceptsDataTable GetDataBy1(string conceptName) {
+        public virtual MenuBuilderDataSetUpdate.BuiltCafesDataTable GetDataBy1(string Cafe) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((conceptName == null)) {
-                throw new global::System.ArgumentNullException("conceptName");
+            if ((Cafe == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(conceptName));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Cafe));
             }
-            MenuBuilderDataSet._MenuBuilder_ConceptsDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_ConceptsDataTable();
+            MenuBuilderDataSetUpdate.BuiltCafesDataTable dataTable = new MenuBuilderDataSetUpdate.BuiltCafesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3649,15 +3658,75 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(MenuBuilderDataSet._MenuBuilder_ConceptsDataTable dataTable) {
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int GetDistinctCafes(MenuBuilderDataSetUpdate.BuiltCafesDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual MenuBuilderDataSetUpdate.BuiltCafesDataTable GetDataBy2() {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            MenuBuilderDataSetUpdate.BuiltCafesDataTable dataTable = new MenuBuilderDataSetUpdate.BuiltCafesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int SeeIfCafeExists(MenuBuilderDataSetUpdate.BuiltCafesDataTable dataTable, string Cafe) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((Cafe == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Cafe));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual MenuBuilderDataSetUpdate.BuiltCafesDataTable GetDataBy3(string Cafe) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((Cafe == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Cafe));
+            }
+            MenuBuilderDataSetUpdate.BuiltCafesDataTable dataTable = new MenuBuilderDataSetUpdate.BuiltCafesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(MenuBuilderDataSetUpdate.BuiltCafesDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(MenuBuilderDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "MenuBuilder.Concepts");
+        public virtual int Update(MenuBuilderDataSetUpdate dataSet) {
+            return this.Adapter.Update(dataSet, "BuiltCafes");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3679,9 +3748,335 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string stationName, global::System.Nullable<byte> isDaily, global::System.Nullable<long> priceEditable) {
+        public virtual int Insert(string Cafe, global::System.Nullable<int> conceptId) {
+            if ((Cafe == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Cafe));
+            }
+            if ((conceptId.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(conceptId.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class ConceptsTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public ConceptsTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Concepts";
+            tableMapping.ColumnMappings.Add("PID", "PID");
+            tableMapping.ColumnMappings.Add("stationName", "stationName");
+            tableMapping.ColumnMappings.Add("isDaily", "isDaily");
+            tableMapping.ColumnMappings.Add("priceEditable", "priceEditable");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Concepts] ([stationName], [isDaily], [priceEditable]) VALUES (" +
+                "@stationName, @isDaily, @priceEditable)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stationName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stationName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isDaily", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "isDaily", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@priceEditable", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "priceEditable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::MenuAggregator.Properties.Settings.Default.MenuBuilderConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT PID, stationName, isDaily, priceEditable FROM dbo.Concepts";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        [Concepts].PID, [Concepts].stationName, [Concepts].isDaily, [BuiltC" +
+                "afes].Cafe\r\nFROM            [Concepts] INNER JOIN\r\n                         [Bui" +
+                "ltCafes] ON [Concepts].PID = [BuiltCafes].conceptId AND [BuiltCafes].Cafe = @Caf" +
+                "e";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cafe", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cafe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT PID, stationName, isDaily, priceEditable \r\nFROM [Concepts]\r\nWHERE (station" +
+                "Name = @conceptName)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@conceptName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "stationName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(MenuBuilderDataSetUpdate.ConceptsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual MenuBuilderDataSetUpdate.ConceptsDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            MenuBuilderDataSetUpdate.ConceptsDataTable dataTable = new MenuBuilderDataSetUpdate.ConceptsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByCafe(MenuBuilderDataSetUpdate.ConceptsDataTable dataTable, string Cafe) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Cafe == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Cafe));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual MenuBuilderDataSetUpdate.ConceptsDataTable GetDataBy(string Cafe) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Cafe == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Cafe));
+            }
+            MenuBuilderDataSetUpdate.ConceptsDataTable dataTable = new MenuBuilderDataSetUpdate.ConceptsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int GetPriceEditable(MenuBuilderDataSetUpdate.ConceptsDataTable dataTable, string conceptName) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((conceptName == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(conceptName));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual MenuBuilderDataSetUpdate.ConceptsDataTable GetDataBy1(string conceptName) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((conceptName == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(conceptName));
+            }
+            MenuBuilderDataSetUpdate.ConceptsDataTable dataTable = new MenuBuilderDataSetUpdate.ConceptsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(MenuBuilderDataSetUpdate.ConceptsDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(MenuBuilderDataSetUpdate dataSet) {
+            return this.Adapter.Update(dataSet, "Concepts");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string stationName, global::System.Nullable<byte> isDaily, global::System.Nullable<byte> priceEditable) {
             if ((stationName == null)) {
-                throw new global::System.ArgumentNullException("stationName");
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(stationName));
@@ -3693,7 +4088,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             if ((priceEditable.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((long)(priceEditable.Value));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((byte)(priceEditable.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -3724,7 +4119,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class MenuBuilder_PriceTableAdapter : global::System.ComponentModel.Component {
+    public partial class PriceTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -3738,7 +4133,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public MenuBuilder_PriceTableAdapter() {
+        public PriceTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -3835,13 +4230,13 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "MenuBuilder.Price";
+            tableMapping.DataSetTable = "Price";
             tableMapping.ColumnMappings.Add("PID", "PID");
             tableMapping.ColumnMappings.Add("price", "price");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[MenuBuilder.Price] ([price]) VALUES (@price)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Price] ([price]) VALUES (@price)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@price", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -3850,7 +4245,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::MenuAggregator.Properties.Settings.Default.MenuAggregatorConnectionString;
+            this._connection.ConnectionString = global::MenuAggregator.Properties.Settings.Default.MenuBuilderConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3859,7 +4254,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT PID, price FROM dbo.[MenuBuilder.Price]";
+            this._commandCollection[0].CommandText = "SELECT PID, price FROM dbo.Price";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3867,7 +4262,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(MenuBuilderDataSet._MenuBuilder_PriceDataTable dataTable) {
+        public virtual int Fill(MenuBuilderDataSetUpdate.PriceDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3880,9 +4275,9 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual MenuBuilderDataSet._MenuBuilder_PriceDataTable GetData() {
+        public virtual MenuBuilderDataSetUpdate.PriceDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            MenuBuilderDataSet._MenuBuilder_PriceDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_PriceDataTable();
+            MenuBuilderDataSetUpdate.PriceDataTable dataTable = new MenuBuilderDataSetUpdate.PriceDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3890,15 +4285,15 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(MenuBuilderDataSet._MenuBuilder_PriceDataTable dataTable) {
+        public virtual int Update(MenuBuilderDataSetUpdate.PriceDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(MenuBuilderDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "MenuBuilder.Price");
+        public virtual int Update(MenuBuilderDataSetUpdate dataSet) {
+            return this.Adapter.Update(dataSet, "Price");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3953,7 +4348,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class MenuBuilder_SubMenusTableAdapter : global::System.ComponentModel.Component {
+    public partial class SubMenusTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -3967,7 +4362,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public MenuBuilder_SubMenusTableAdapter() {
+        public SubMenusTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -4064,25 +4459,25 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "MenuBuilder.SubMenus";
+            tableMapping.DataSetTable = "SubMenus";
             tableMapping.ColumnMappings.Add("PID", "PID");
             tableMapping.ColumnMappings.Add("menuName", "menuName");
             tableMapping.ColumnMappings.Add("conceptId", "conceptId");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[MenuBuilder.SubMenus] ([menuName], [conceptId]) VALUES (@menuN" +
-                "ame, @conceptId)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[SubMenus] ([menuName], [conceptId]) VALUES (@menuName, @concep" +
+                "tId)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@menuName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "menuName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@conceptId", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "conceptId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@conceptId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "conceptId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::MenuAggregator.Properties.Settings.Default.MenuAggregatorConnectionString;
+            this._connection.ConnectionString = global::MenuAggregator.Properties.Settings.Default.MenuBuilderConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4091,22 +4486,21 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT PID, menuName, conceptId FROM dbo.[MenuBuilder.SubMenus] ORDER BY menuName" +
-                " ASC";
+            this._commandCollection[0].CommandText = "SELECT PID, menuName, conceptId FROM dbo.SubMenus";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT PID, conceptId, menuName FROM [MenuBuilder.SubMenus] WHERE (conceptId = @c" +
-                "onceptId) ORDER BY menuName ASC";
+            this._commandCollection[1].CommandText = "SELECT PID, conceptId, menuName FROM [SubMenus] WHERE (conceptId = @conceptId) OR" +
+                "DER BY menuName ASC";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@conceptId", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "conceptId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@conceptId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "conceptId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(MenuBuilderDataSet._MenuBuilder_SubMenusDataTable dataTable) {
+        public virtual int Fill(MenuBuilderDataSetUpdate.SubMenusDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4119,9 +4513,9 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual MenuBuilderDataSet._MenuBuilder_SubMenusDataTable GetData() {
+        public virtual MenuBuilderDataSetUpdate.SubMenusDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            MenuBuilderDataSet._MenuBuilder_SubMenusDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_SubMenusDataTable();
+            MenuBuilderDataSetUpdate.SubMenusDataTable dataTable = new MenuBuilderDataSetUpdate.SubMenusDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4130,10 +4524,10 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByConceptId(MenuBuilderDataSet._MenuBuilder_SubMenusDataTable dataTable, global::System.Nullable<long> conceptId) {
+        public virtual int FillByConceptId(MenuBuilderDataSetUpdate.SubMenusDataTable dataTable, global::System.Nullable<int> conceptId) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((conceptId.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((long)(conceptId.Value));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(conceptId.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -4149,15 +4543,15 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual MenuBuilderDataSet._MenuBuilder_SubMenusDataTable GetDataBy(global::System.Nullable<long> conceptId) {
+        public virtual MenuBuilderDataSetUpdate.SubMenusDataTable GetDataBy(global::System.Nullable<int> conceptId) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((conceptId.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((long)(conceptId.Value));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(conceptId.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            MenuBuilderDataSet._MenuBuilder_SubMenusDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_SubMenusDataTable();
+            MenuBuilderDataSetUpdate.SubMenusDataTable dataTable = new MenuBuilderDataSetUpdate.SubMenusDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4165,15 +4559,15 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(MenuBuilderDataSet._MenuBuilder_SubMenusDataTable dataTable) {
+        public virtual int Update(MenuBuilderDataSetUpdate.SubMenusDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(MenuBuilderDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "MenuBuilder.SubMenus");
+        public virtual int Update(MenuBuilderDataSetUpdate dataSet) {
+            return this.Adapter.Update(dataSet, "SubMenus");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4195,7 +4589,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string menuName, global::System.Nullable<long> conceptId) {
+        public virtual int Insert(string menuName, global::System.Nullable<int> conceptId) {
             if ((menuName == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -4203,7 +4597,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(menuName));
             }
             if ((conceptId.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((long)(conceptId.Value));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(conceptId.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -4234,7 +4628,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class MenuBuilder_UsersTableAdapter : global::System.ComponentModel.Component {
+    public partial class UsersTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -4248,7 +4642,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public MenuBuilder_UsersTableAdapter() {
+        public UsersTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -4345,7 +4739,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "MenuBuilder.Users";
+            tableMapping.DataSetTable = "Users";
             tableMapping.ColumnMappings.Add("PID", "PID");
             tableMapping.ColumnMappings.Add("UserId", "UserId");
             tableMapping.ColumnMappings.Add("CafeName", "CafeName");
@@ -4354,8 +4748,8 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [MenuBuilder.Users] ([UserId], [CafeName], [UserName], [adminLevel]) " +
-                "VALUES (@UserId, @CafeName, @UserName, @adminLevel)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Users] ([UserId], [CafeName], [UserName], [adminLevel]) VALUES" +
+                " (@UserId, @CafeName, @UserName, @adminLevel)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CafeName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CafeName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4367,7 +4761,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::MenuAggregator.Properties.Settings.Default.MenuAggregatorConnectionString;
+            this._connection.ConnectionString = global::MenuAggregator.Properties.Settings.Default.MenuBuilderConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4376,23 +4770,22 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT PID, UserId, CafeName, UserName, adminLevel FROM [MenuBuilder.Users]";
+            this._commandCollection[0].CommandText = "SELECT PID, UserId, CafeName, UserName, adminLevel FROM dbo.Users";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT PID, UserId, CafeName, UserName, adminLevel FROM [MenuBuilder.Users] WHERE" +
-                " (UserName = @UserName)";
+            this._commandCollection[1].CommandText = "SELECT PID, UserId, CafeName, UserName, adminLevel FROM [Users] WHERE (UserName =" +
+                " @UserName)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT CafeName, adminLevel FROM [MenuBuilder.Users] WHERE (CafeName = @cafe)";
+            this._commandCollection[2].CommandText = "SELECT CafeName, adminLevel FROM [Users] WHERE (CafeName = @cafe)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cafe", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CafeName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT UserName, CafeName, adminLevel FROM [MenuBuilder.Users] WHERE (UserName = " +
-                "@UserName)";
+            this._commandCollection[3].CommandText = "SELECT UserName, CafeName, adminLevel FROM [Users] WHERE (UserName = @UserName)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -4401,7 +4794,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(MenuBuilderDataSet._MenuBuilder_UsersDataTable dataTable) {
+        public virtual int Fill(MenuBuilderDataSetUpdate.UsersDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4414,9 +4807,9 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual MenuBuilderDataSet._MenuBuilder_UsersDataTable GetData() {
+        public virtual MenuBuilderDataSetUpdate.UsersDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            MenuBuilderDataSet._MenuBuilder_UsersDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_UsersDataTable();
+            MenuBuilderDataSetUpdate.UsersDataTable dataTable = new MenuBuilderDataSetUpdate.UsersDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4425,7 +4818,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int IsAuth(MenuBuilderDataSet._MenuBuilder_UsersDataTable dataTable, string UserName) {
+        public virtual int IsAuth(MenuBuilderDataSetUpdate.UsersDataTable dataTable, string UserName) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((UserName == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -4444,7 +4837,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual MenuBuilderDataSet._MenuBuilder_UsersDataTable GetDataBy(string UserName) {
+        public virtual MenuBuilderDataSetUpdate.UsersDataTable GetDataBy(string UserName) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((UserName == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -4452,7 +4845,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(UserName));
             }
-            MenuBuilderDataSet._MenuBuilder_UsersDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_UsersDataTable();
+            MenuBuilderDataSetUpdate.UsersDataTable dataTable = new MenuBuilderDataSetUpdate.UsersDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4461,7 +4854,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int SeeIfCafeExists(MenuBuilderDataSet._MenuBuilder_UsersDataTable dataTable, string cafe) {
+        public virtual int SeeIfCafeExists(MenuBuilderDataSetUpdate.UsersDataTable dataTable, string cafe) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((cafe == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -4480,7 +4873,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual MenuBuilderDataSet._MenuBuilder_UsersDataTable GetDataBy1(string cafe) {
+        public virtual MenuBuilderDataSetUpdate.UsersDataTable GetDataBy1(string cafe) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((cafe == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -4488,7 +4881,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(cafe));
             }
-            MenuBuilderDataSet._MenuBuilder_UsersDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_UsersDataTable();
+            MenuBuilderDataSetUpdate.UsersDataTable dataTable = new MenuBuilderDataSetUpdate.UsersDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4497,7 +4890,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int UserHasMultipleCafes(MenuBuilderDataSet._MenuBuilder_UsersDataTable dataTable, string UserName) {
+        public virtual int UserHasMultipleCafes(MenuBuilderDataSetUpdate.UsersDataTable dataTable, string UserName) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((UserName == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -4516,7 +4909,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual MenuBuilderDataSet._MenuBuilder_UsersDataTable GetDataBy2(string UserName) {
+        public virtual MenuBuilderDataSetUpdate.UsersDataTable GetDataBy2(string UserName) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((UserName == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -4524,7 +4917,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(UserName));
             }
-            MenuBuilderDataSet._MenuBuilder_UsersDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_UsersDataTable();
+            MenuBuilderDataSetUpdate.UsersDataTable dataTable = new MenuBuilderDataSetUpdate.UsersDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4532,15 +4925,15 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(MenuBuilderDataSet._MenuBuilder_UsersDataTable dataTable) {
+        public virtual int Update(MenuBuilderDataSetUpdate.UsersDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(MenuBuilderDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "MenuBuilder.Users");
+        public virtual int Update(MenuBuilderDataSetUpdate dataSet) {
+            return this.Adapter.Update(dataSet, "Users");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4613,7 +5006,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class MenuBuilder_BuiltCafesTableAdapter : global::System.ComponentModel.Component {
+    public partial class WeeklyMenusTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -4627,7 +5020,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public MenuBuilder_BuiltCafesTableAdapter() {
+        public WeeklyMenusTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -4724,399 +5117,7 @@ FROM            [MenuBuilder.Concepts] INNER JOIN
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "MenuBuilder.BuiltCafes";
-            tableMapping.ColumnMappings.Add("PID", "PID");
-            tableMapping.ColumnMappings.Add("Cafe", "Cafe");
-            tableMapping.ColumnMappings.Add("conceptId", "conceptId");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[MenuBuilder.BuiltCafes] ([Cafe], [conceptId]) VALUES (@Cafe, @" +
-                "conceptId)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cafe", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cafe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@conceptId", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "conceptId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::MenuAggregator.Properties.Settings.Default.MenuAggregatorConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT PID, Cafe, conceptId FROM dbo.[MenuBuilder.BuiltCafes]";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT PID, Cafe, conceptId FROM dbo.[MenuBuilder.BuiltCafes] WHERE Cafe = @Cafe";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cafe", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cafe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT dbo.[MenuBuilder.BuiltCafes].conceptId, dbo.[MenuBuilder.Concepts].PID, dbo.[MenuBuilder.Concepts].stationName, dbo.[MenuBuilder.Concepts].isDaily  
-FROM dbo.[MenuBuilder.BuiltCafes] 
-LEFT JOIN [MenuBuilder.Concepts] ON [MenuBuilder.BuiltCafes].conceptId = [MenuBuilder.Concepts].PID AND
-[MenuBuilder.BuiltCafes].Cafe = @Cafe";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cafe", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cafe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT DISTINCT  Cafe\r\n FROM dbo.[MenuBuilder.BuiltCafes]";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "SELECT Cafe FROM [MenuBuilder.BuiltCafes] WHERE Cafe = @Cafe";
-            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cafe", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cafe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(MenuBuilderDataSet._MenuBuilder_BuiltCafesDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual MenuBuilderDataSet._MenuBuilder_BuiltCafesDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            MenuBuilderDataSet._MenuBuilder_BuiltCafesDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_BuiltCafesDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByCafe(MenuBuilderDataSet._MenuBuilder_BuiltCafesDataTable dataTable, string Cafe) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((Cafe == null)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Cafe));
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual MenuBuilderDataSet._MenuBuilder_BuiltCafesDataTable GetDataBy(string Cafe) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((Cafe == null)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Cafe));
-            }
-            MenuBuilderDataSet._MenuBuilder_BuiltCafesDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_BuiltCafesDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillConcepts(MenuBuilderDataSet._MenuBuilder_BuiltCafesDataTable dataTable, string Cafe) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((Cafe == null)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Cafe));
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual MenuBuilderDataSet._MenuBuilder_BuiltCafesDataTable GetDataBy1(string Cafe) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((Cafe == null)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Cafe));
-            }
-            MenuBuilderDataSet._MenuBuilder_BuiltCafesDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_BuiltCafesDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int GetDistinctCafes(MenuBuilderDataSet._MenuBuilder_BuiltCafesDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual MenuBuilderDataSet._MenuBuilder_BuiltCafesDataTable GetDataBy3() {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            MenuBuilderDataSet._MenuBuilder_BuiltCafesDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_BuiltCafesDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int SeeIfCafeExists(MenuBuilderDataSet._MenuBuilder_BuiltCafesDataTable dataTable, string Cafe) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
-            if ((Cafe == null)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Cafe));
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual MenuBuilderDataSet._MenuBuilder_BuiltCafesDataTable GetDataBy2(string Cafe) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
-            if ((Cafe == null)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Cafe));
-            }
-            MenuBuilderDataSet._MenuBuilder_BuiltCafesDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_BuiltCafesDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(MenuBuilderDataSet._MenuBuilder_BuiltCafesDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(MenuBuilderDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "MenuBuilder.BuiltCafes");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Cafe, global::System.Nullable<long> conceptId) {
-            if ((Cafe == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Cafe));
-            }
-            if ((conceptId.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((long)(conceptId.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class MenuBuilder_WeeklyMenusTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public MenuBuilder_WeeklyMenusTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "MenuBuilder.WeeklyMenus";
+            tableMapping.DataSetTable = "WeeklyMenus";
             tableMapping.ColumnMappings.Add("PID", "PID");
             tableMapping.ColumnMappings.Add("Period", "Period");
             tableMapping.ColumnMappings.Add("Week", "Week");
@@ -5127,14 +5128,14 @@ LEFT JOIN [MenuBuilder.Concepts] ON [MenuBuilder.BuiltCafes].conceptId = [MenuBu
             tableMapping.ColumnMappings.Add("Price", "Price");
             tableMapping.ColumnMappings.Add("Notes", "Notes");
             tableMapping.ColumnMappings.Add("lastMenuItem", "lastMenuItem");
-            tableMapping.ColumnMappings.Add("isChanged", "isChanged");
             tableMapping.ColumnMappings.Add("isComplete", "isComplete");
             tableMapping.ColumnMappings.Add("dateEdit", "dateEdit");
             tableMapping.ColumnMappings.Add("Year", "Year");
+            tableMapping.ColumnMappings.Add("isChanged", "isChanged");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [MenuBuilder.WeeklyMenus] ([Period], [Week], [Day], [Cafe], [conceptName], [menuItem], [Price], [Notes], [lastMenuItem], [isChanged], [isComplete], [dateEdit], [Year]) VALUES (@Period, @Week, @Day, @Cafe, @conceptName, @menuItem, @Price, @Notes, @lastMenuItem, @isChanged, @isComplete, @dateEdit, @Year)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [WeeklyMenus] ([Period], [Week], [Day], [Cafe], [conceptName], [menuItem], [Price], [Notes], [lastMenuItem], [isComplete], [dateEdit], [Year], [isChanged]) VALUES (@Period, @Week, @Day, @Cafe, @conceptName, @menuItem, @Price, @Notes, @lastMenuItem, @isComplete, @dateEdit, @Year, @isChanged)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Period", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Week", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Week", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5145,17 +5146,17 @@ LEFT JOIN [MenuBuilder.Concepts] ON [MenuBuilder.BuiltCafes].conceptId = [MenuBu
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Notes", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Notes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lastMenuItem", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "lastMenuItem", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isChanged", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "isChanged", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isComplete", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "isComplete", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateEdit", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateEdit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Year", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Year", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isChanged", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "isChanged", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::MenuAggregator.Properties.Settings.Default.MenuAggregatorConnectionString;
+            this._connection.ConnectionString = global::MenuAggregator.Properties.Settings.Default.MenuBuilderConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5165,11 +5166,11 @@ LEFT JOIN [MenuBuilder.Concepts] ON [MenuBuilder.BuiltCafes].conceptId = [MenuBu
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT PID, Period, Week, Day, Cafe, conceptName, menuItem, Price, Notes, lastMen" +
-                "uItem, isChanged, isComplete, dateEdit, Year FROM [MenuBuilder.WeeklyMenus]";
+                "uItem, isComplete, dateEdit, Year, isChanged FROM WeeklyMenus";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT TOP (@gridRowCount) Cafe, Day, Notes, PID, Period, Price, Week, conceptName, isChanged, lastMenuItem, menuItem, isComplete, dateEdit, Year FROM [MenuBuilder.WeeklyMenus] WHERE (conceptName = @conceptName) AND (Period = @currentPeriod) AND (Week = @currentWeek) AND (Cafe = @cafe) AND (Day = @day) ORDER BY dateEdit DESC, PID DESC";
+            this._commandCollection[1].CommandText = @"SELECT TOP (@gridRowCount) Cafe, Day, Notes, PID, Period, Price, Week, conceptName, lastMenuItem, menuItem, isComplete, dateEdit, Year, isChanged FROM WeeklyMenus WHERE (conceptName = @conceptName) AND (Period = @currentPeriod) AND (Week = @currentWeek) AND (Cafe = @cafe) AND (Day = @day) ORDER BY dateEdit DESC, PID DESC";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@gridRowCount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@conceptName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "conceptName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5179,10 +5180,7 @@ LEFT JOIN [MenuBuilder.Concepts] ON [MenuBuilder.BuiltCafes].conceptId = [MenuBu
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@day", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Day", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT    TOP(@gridRowCount)    Cafe, Day, Notes, PID, Period, Price, Week, conceptName, isChanged, lastMenuItem, menuItem, isComplete, dateEdit, Year
-FROM            [MenuBuilder.WeeklyMenus]
-WHERE        (conceptName = @conceptName) AND (Period = @currentPeriod) AND (Week = @currentWeek) AND (Cafe = @cafe) AND (Day = @day) 
-ORDER BY dateEdit DESC, PID DESC";
+            this._commandCollection[2].CommandText = @"SELECT TOP (@gridRowCount) Cafe, Day, Notes, PID, Period, Price, Week, conceptName, lastMenuItem, menuItem, isComplete, dateEdit, Year, isChanged FROM WeeklyMenus WHERE (conceptName = @conceptName) AND (Period = @currentPeriod) AND (Week = @currentWeek) AND (Cafe = @cafe) AND (Day = @day) ORDER BY dateEdit DESC, PID DESC";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@gridRowCount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@conceptName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "conceptName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5192,54 +5190,54 @@ ORDER BY dateEdit DESC, PID DESC";
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@day", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Day", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT Cafe, Day, Notes, PID, Period, Price, Week, conceptName, isChanged, lastMe" +
-                "nuItem, menuItem, isComplete, dateEdit, Year FROM [MenuBuilder.WeeklyMenus] WHER" +
-                "E (Cafe = @Cafe) AND (isChanged = 1)";
+            this._commandCollection[3].CommandText = "SELECT Cafe, Day, Notes, PID, Period, Price, Week, conceptName, lastMenuItem, men" +
+                "uItem, isComplete, dateEdit, Year, isChanged FROM WeeklyMenus WHERE (Cafe = @Caf" +
+                "e) AND (isChanged = 1)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cafe", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cafe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "SELECT Cafe, Day, Notes, PID, Period, Price, Week, conceptName, isChanged, lastMe" +
-                "nuItem, menuItem, isComplete, dateEdit, Year FROM [MenuBuilder.WeeklyMenus] WHER" +
-                "E (Cafe = @Cafe) AND (isChanged = 1) AND (Period = @period) AND (Week = @week)";
+            this._commandCollection[4].CommandText = "SELECT Cafe, Day, Notes, PID, Period, Price, Week, conceptName, lastMenuItem, men" +
+                "uItem, isComplete, dateEdit, Year, isChanged FROM WeeklyMenus WHERE (Cafe = @Caf" +
+                "e) AND (isChanged = 1) AND (Period = @period) AND (Week = @week)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cafe", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cafe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@period", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@week", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Week", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "SELECT DISTINCT Cafe\r\nFROM            [MenuBuilder.WeeklyMenus]\r\nWHERE        (Pe" +
-                "riod = @Period) AND (Week = @Week) AND (isChanged = \'1\')";
+            this._commandCollection[5].CommandText = "SELECT DISTINCT Cafe\r\nFROM            [WeeklyMenus]\r\nWHERE        (Period = @Peri" +
+                "od) AND (Week = @Week) AND (isChanged = \'1\')";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Period", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Week", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Week", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = "SELECT TOP (1) Period, Week, isComplete, dateEdit, Year FROM [MenuBuilder.WeeklyM" +
-                "enus] WHERE (conceptName = @conceptName) AND (Cafe = @cafe) ORDER BY Period DESC" +
-                ", Week DESC";
+            this._commandCollection[6].CommandText = "SELECT TOP (1) Period, Week, isComplete, dateEdit, Year, isChanged FROM WeeklyMen" +
+                "us WHERE (conceptName = @conceptName) AND (Cafe = @cafe) ORDER BY Period DESC, W" +
+                "eek DESC";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@conceptName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "conceptName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cafe", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cafe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[7].Connection = this.Connection;
-            this._commandCollection[7].CommandText = "SELECT Cafe, Day, Notes, PID, Period, Price, Week, conceptName, isChanged, lastMe" +
-                "nuItem, menuItem, isComplete, dateEdit, Year FROM [MenuBuilder.WeeklyMenus] WHER" +
-                "E (Cafe = @Cafe) AND (conceptName = @conceptName)";
+            this._commandCollection[7].CommandText = "SELECT Cafe, Day, Notes, PID, Period, Price, Week, conceptName, lastMenuItem, men" +
+                "uItem, isComplete, dateEdit, Year, isChanged FROM WeeklyMenus WHERE (Cafe = @Caf" +
+                "e) AND (conceptName = @conceptName)";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cafe", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cafe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@conceptName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "conceptName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[8].Connection = this.Connection;
-            this._commandCollection[8].CommandText = "SELECT DISTINCT Cafe\r\nFROM            [MenuBuilder.WeeklyMenus]\r\nWHERE        (Pe" +
-                "riod = @Period) AND (Week = @Week) AND (isChanged = 1)";
+            this._commandCollection[8].CommandText = "SELECT DISTINCT Cafe\r\nFROM            [WeeklyMenus]\r\nWHERE        (Period = @Peri" +
+                "od) AND (Week = @Week) AND (isChanged = 1)";
             this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Period", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Week", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Week", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[9].Connection = this.Connection;
-            this._commandCollection[9].CommandText = "UPDATE [MenuBuilder.WeeklyMenus]\r\nSET isChanged = 0\r\nWHERE (Period = @Period) AND" +
-                " (Week = @Week) AND (Day = @day) AND (menuItem = @menuItem)";
+            this._commandCollection[9].CommandText = "UPDATE [WeeklyMenus]\r\nSET isChanged = 0\r\nWHERE (Period = @Period) AND (Week = @We" +
+                "ek) AND (Day = @day) AND (menuItem = @menuItem)";
             this._commandCollection[9].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Period", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Week", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Week", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5247,8 +5245,8 @@ ORDER BY dateEdit DESC, PID DESC";
             this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@menuItem", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "menuItem", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[10] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[10].Connection = this.Connection;
-            this._commandCollection[10].CommandText = "UPDATE [MenuBuilder.WeeklyMenus]\r\nSET isComplete = \'Done\'\r\nWHERE (Period = @Perio" +
-                "d) AND (Week = @Week) AND (Day = @day) AND (menuItem = @menuItem)";
+            this._commandCollection[10].CommandText = "UPDATE [WeeklyMenus]\r\nSET isComplete = \'Done\'\r\nWHERE (Period = @Period) AND (Week" +
+                " = @Week) AND (Day = @day) AND (menuItem = @menuItem)";
             this._commandCollection[10].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Period", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Week", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Week", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5256,23 +5254,23 @@ ORDER BY dateEdit DESC, PID DESC";
             this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@menuItem", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "menuItem", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[11] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[11].Connection = this.Connection;
-            this._commandCollection[11].CommandText = "UPDATE  [MenuBuilder.WeeklyMenus]\r\nSET isChanged = 0\r\nWHERE (Period = @period) AN" +
-                "D (Week = @week) AND (Day = @day) AND (Cafe = @cafe) AND (conceptName = @concept" +
-                "Name) AND (PID <> @pid)\r\n";
+            this._commandCollection[11].CommandText = "UPDATE  [WeeklyMenus]\r\nSET isChanged = 0\r\nWHERE (Period = @period) AND (Week = @w" +
+                "eek) AND (Day = @day) AND (Cafe = @cafe) AND (conceptName = @conceptName) AND (P" +
+                "ID <> @pid)";
             this._commandCollection[11].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@period", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@week", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Week", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@day", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Day", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cafe", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cafe", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@conceptName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "conceptName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pid", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "PID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable) {
+        public virtual int Fill(MenuBuilderDataSetUpdate.WeeklyMenusDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5285,9 +5283,9 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable GetData() {
+        public virtual MenuBuilderDataSetUpdate.WeeklyMenusDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            MenuBuilderDataSetUpdate.WeeklyMenusDataTable dataTable = new MenuBuilderDataSetUpdate.WeeklyMenusDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5296,7 +5294,7 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillComboBox(MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable, int gridRowCount, string conceptName, global::System.Nullable<int> currentPeriod, global::System.Nullable<int> currentWeek, string cafe, string day) {
+        public virtual int FillComboBox(MenuBuilderDataSetUpdate.WeeklyMenusDataTable dataTable, int gridRowCount, string conceptName, global::System.Nullable<int> currentPeriod, global::System.Nullable<int> currentWeek, string cafe, string day) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(gridRowCount));
             if ((conceptName == null)) {
@@ -5340,7 +5338,7 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable GetDataBy3(int gridRowCount, string conceptName, global::System.Nullable<int> currentPeriod, global::System.Nullable<int> currentWeek, string cafe, string day) {
+        public virtual MenuBuilderDataSetUpdate.WeeklyMenusDataTable GetDataBy(int gridRowCount, string conceptName, global::System.Nullable<int> currentPeriod, global::System.Nullable<int> currentWeek, string cafe, string day) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(gridRowCount));
             if ((conceptName == null)) {
@@ -5373,7 +5371,7 @@ ORDER BY dateEdit DESC, PID DESC";
             else {
                 this.Adapter.SelectCommand.Parameters[5].Value = ((string)(day));
             }
-            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            MenuBuilderDataSetUpdate.WeeklyMenusDataTable dataTable = new MenuBuilderDataSetUpdate.WeeklyMenusDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5382,7 +5380,7 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillComboBoxCompare(MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable, int gridRowCount, string conceptName, global::System.Nullable<int> currentPeriod, global::System.Nullable<int> currentWeek, string cafe, string day) {
+        public virtual int FillComboBoxCompare(MenuBuilderDataSetUpdate.WeeklyMenusDataTable dataTable, int gridRowCount, string conceptName, global::System.Nullable<int> currentPeriod, global::System.Nullable<int> currentWeek, string cafe, string day) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(gridRowCount));
             if ((conceptName == null)) {
@@ -5426,7 +5424,7 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable GetDataBy8(int gridRowCount, string conceptName, global::System.Nullable<int> currentPeriod, global::System.Nullable<int> currentWeek, string cafe, string day) {
+        public virtual MenuBuilderDataSetUpdate.WeeklyMenusDataTable GetDataBy1(int gridRowCount, string conceptName, global::System.Nullable<int> currentPeriod, global::System.Nullable<int> currentWeek, string cafe, string day) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(gridRowCount));
             if ((conceptName == null)) {
@@ -5459,7 +5457,7 @@ ORDER BY dateEdit DESC, PID DESC";
             else {
                 this.Adapter.SelectCommand.Parameters[5].Value = ((string)(day));
             }
-            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            MenuBuilderDataSetUpdate.WeeklyMenusDataTable dataTable = new MenuBuilderDataSetUpdate.WeeklyMenusDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5468,7 +5466,7 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillDataGrid(MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable, string Cafe) {
+        public virtual int FillDataGrid(MenuBuilderDataSetUpdate.WeeklyMenusDataTable dataTable, string Cafe) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((Cafe == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -5487,7 +5485,7 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable GetDataBy2(string Cafe) {
+        public virtual MenuBuilderDataSetUpdate.WeeklyMenusDataTable GetDataBy2(string Cafe) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((Cafe == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -5495,7 +5493,7 @@ ORDER BY dateEdit DESC, PID DESC";
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Cafe));
             }
-            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            MenuBuilderDataSetUpdate.WeeklyMenusDataTable dataTable = new MenuBuilderDataSetUpdate.WeeklyMenusDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5504,7 +5502,7 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillDataGridByDate(MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable, string Cafe, global::System.Nullable<int> period, global::System.Nullable<int> week) {
+        public virtual int FillDataGridByDate(MenuBuilderDataSetUpdate.WeeklyMenusDataTable dataTable, string Cafe, global::System.Nullable<int> period, global::System.Nullable<int> week) {
             this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((Cafe == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -5535,7 +5533,7 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable GetDataBy7(string Cafe, global::System.Nullable<int> period, global::System.Nullable<int> week) {
+        public virtual MenuBuilderDataSetUpdate.WeeklyMenusDataTable GetDataBy3(string Cafe, global::System.Nullable<int> period, global::System.Nullable<int> week) {
             this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((Cafe == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -5555,7 +5553,7 @@ ORDER BY dateEdit DESC, PID DESC";
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            MenuBuilderDataSetUpdate.WeeklyMenusDataTable dataTable = new MenuBuilderDataSetUpdate.WeeklyMenusDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5564,7 +5562,7 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int GetAllMenuThisWeek(MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable, global::System.Nullable<int> Period, global::System.Nullable<int> Week) {
+        public virtual int GetAllMenuThisWeek(MenuBuilderDataSetUpdate.WeeklyMenusDataTable dataTable, global::System.Nullable<int> Period, global::System.Nullable<int> Week) {
             this.Adapter.SelectCommand = this.CommandCollection[5];
             if ((Period.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Period.Value));
@@ -5589,7 +5587,7 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable GetDataBy10(global::System.Nullable<int> Period, global::System.Nullable<int> Week) {
+        public virtual MenuBuilderDataSetUpdate.WeeklyMenusDataTable GetDataBy4(global::System.Nullable<int> Period, global::System.Nullable<int> Week) {
             this.Adapter.SelectCommand = this.CommandCollection[5];
             if ((Period.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Period.Value));
@@ -5603,7 +5601,7 @@ ORDER BY dateEdit DESC, PID DESC";
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            MenuBuilderDataSetUpdate.WeeklyMenusDataTable dataTable = new MenuBuilderDataSetUpdate.WeeklyMenusDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5612,7 +5610,7 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int GetLastWeek(MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable, string conceptName, string cafe) {
+        public virtual int GetLastWeek(MenuBuilderDataSetUpdate.WeeklyMenusDataTable dataTable, string conceptName, string cafe) {
             this.Adapter.SelectCommand = this.CommandCollection[6];
             if ((conceptName == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -5637,7 +5635,7 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable GetDataBy4(string conceptName, string cafe) {
+        public virtual MenuBuilderDataSetUpdate.WeeklyMenusDataTable GetDataBy5(string conceptName, string cafe) {
             this.Adapter.SelectCommand = this.CommandCollection[6];
             if ((conceptName == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -5651,7 +5649,7 @@ ORDER BY dateEdit DESC, PID DESC";
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(cafe));
             }
-            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            MenuBuilderDataSetUpdate.WeeklyMenusDataTable dataTable = new MenuBuilderDataSetUpdate.WeeklyMenusDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5660,7 +5658,7 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int GetMenuItemForLastMenu(MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable, string Cafe, string conceptName) {
+        public virtual int GetMenuItemForLastMenu(MenuBuilderDataSetUpdate.WeeklyMenusDataTable dataTable, string Cafe, string conceptName) {
             this.Adapter.SelectCommand = this.CommandCollection[7];
             if ((Cafe == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -5685,7 +5683,7 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable GetDataBy1(string Cafe, string conceptName) {
+        public virtual MenuBuilderDataSetUpdate.WeeklyMenusDataTable GetDataBy6(string Cafe, string conceptName) {
             this.Adapter.SelectCommand = this.CommandCollection[7];
             if ((Cafe == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -5699,7 +5697,7 @@ ORDER BY dateEdit DESC, PID DESC";
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(conceptName));
             }
-            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            MenuBuilderDataSetUpdate.WeeklyMenusDataTable dataTable = new MenuBuilderDataSetUpdate.WeeklyMenusDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5708,7 +5706,7 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int MakeBackendButtons(MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable, global::System.Nullable<int> Period, global::System.Nullable<int> Week) {
+        public virtual int MakeBackendButtons(MenuBuilderDataSetUpdate.WeeklyMenusDataTable dataTable, global::System.Nullable<int> Period, global::System.Nullable<int> Week) {
             this.Adapter.SelectCommand = this.CommandCollection[8];
             if ((Period.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Period.Value));
@@ -5733,7 +5731,7 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable GetDataBy(global::System.Nullable<int> Period, global::System.Nullable<int> Week) {
+        public virtual MenuBuilderDataSetUpdate.WeeklyMenusDataTable GetDataBy7(global::System.Nullable<int> Period, global::System.Nullable<int> Week) {
             this.Adapter.SelectCommand = this.CommandCollection[8];
             if ((Period.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Period.Value));
@@ -5747,7 +5745,7 @@ ORDER BY dateEdit DESC, PID DESC";
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable = new MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable();
+            MenuBuilderDataSetUpdate.WeeklyMenusDataTable dataTable = new MenuBuilderDataSetUpdate.WeeklyMenusDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5755,15 +5753,15 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(MenuBuilderDataSet._MenuBuilder_WeeklyMenusDataTable dataTable) {
+        public virtual int Update(MenuBuilderDataSetUpdate.WeeklyMenusDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(MenuBuilderDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "MenuBuilder.WeeklyMenus");
+        public virtual int Update(MenuBuilderDataSetUpdate dataSet) {
+            return this.Adapter.Update(dataSet, "WeeklyMenus");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5785,7 +5783,7 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> Period, global::System.Nullable<int> Week, string Day, string Cafe, string conceptName, string menuItem, string Price, string Notes, string lastMenuItem, global::System.Nullable<int> isChanged, string isComplete, global::System.Nullable<global::System.DateTime> dateEdit, global::System.Nullable<long> Year) {
+        public virtual int Insert(global::System.Nullable<int> Period, global::System.Nullable<int> Week, string Day, string Cafe, string conceptName, string menuItem, string Price, string Notes, string lastMenuItem, string isComplete, global::System.Nullable<global::System.DateTime> dateEdit, global::System.Nullable<int> Year, global::System.Nullable<int> isChanged) {
             if ((Period.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Period.Value));
             }
@@ -5840,26 +5838,26 @@ ORDER BY dateEdit DESC, PID DESC";
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = ((string)(lastMenuItem));
             }
-            if ((isChanged.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((int)(isChanged.Value));
-            }
-            else {
+            if ((isComplete == null)) {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((isComplete == null)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(isComplete));
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(isComplete));
             }
             if ((dateEdit.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((System.DateTime)(dateEdit.Value));
+                this.Adapter.InsertCommand.Parameters[10].Value = ((System.DateTime)(dateEdit.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Year.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((int)(Year.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
-            if ((Year.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((long)(Year.Value));
+            if ((isChanged.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((int)(isChanged.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
@@ -5978,7 +5976,7 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateQuery(global::System.Nullable<int> period, global::System.Nullable<int> week, string day, string cafe, string conceptName, long pid) {
+        public virtual int UpdateQuery(global::System.Nullable<int> period, global::System.Nullable<int> week, string day, string cafe, string conceptName, int pid) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[11];
             if ((period.HasValue == true)) {
                 command.Parameters[0].Value = ((int)(period.Value));
@@ -6010,7 +6008,7 @@ ORDER BY dateEdit DESC, PID DESC";
             else {
                 command.Parameters[4].Value = ((string)(conceptName));
             }
-            command.Parameters[5].Value = ((long)(pid));
+            command.Parameters[5].Value = ((int)(pid));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6041,17 +6039,17 @@ ORDER BY dateEdit DESC, PID DESC";
         
         private UpdateOrderOption _updateOrder;
         
-        private MenuBuilder_ConceptsTableAdapter _menuBuilder_ConceptsTableAdapter;
+        private BuiltCafesTableAdapter _builtCafesTableAdapter;
         
-        private MenuBuilder_PriceTableAdapter _menuBuilder_PriceTableAdapter;
+        private ConceptsTableAdapter _conceptsTableAdapter;
         
-        private MenuBuilder_SubMenusTableAdapter _menuBuilder_SubMenusTableAdapter;
+        private PriceTableAdapter _priceTableAdapter;
         
-        private MenuBuilder_UsersTableAdapter _menuBuilder_UsersTableAdapter;
+        private SubMenusTableAdapter _subMenusTableAdapter;
         
-        private MenuBuilder_BuiltCafesTableAdapter _menuBuilder_BuiltCafesTableAdapter;
+        private UsersTableAdapter _usersTableAdapter;
         
-        private MenuBuilder_WeeklyMenusTableAdapter _menuBuilder_WeeklyMenusTableAdapter;
+        private WeeklyMenusTableAdapter _weeklyMenusTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -6073,12 +6071,12 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public MenuBuilder_ConceptsTableAdapter MenuBuilder_ConceptsTableAdapter {
+        public BuiltCafesTableAdapter BuiltCafesTableAdapter {
             get {
-                return this._menuBuilder_ConceptsTableAdapter;
+                return this._builtCafesTableAdapter;
             }
             set {
-                this._menuBuilder_ConceptsTableAdapter = value;
+                this._builtCafesTableAdapter = value;
             }
         }
         
@@ -6087,12 +6085,12 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public MenuBuilder_PriceTableAdapter MenuBuilder_PriceTableAdapter {
+        public ConceptsTableAdapter ConceptsTableAdapter {
             get {
-                return this._menuBuilder_PriceTableAdapter;
+                return this._conceptsTableAdapter;
             }
             set {
-                this._menuBuilder_PriceTableAdapter = value;
+                this._conceptsTableAdapter = value;
             }
         }
         
@@ -6101,12 +6099,12 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public MenuBuilder_SubMenusTableAdapter MenuBuilder_SubMenusTableAdapter {
+        public PriceTableAdapter PriceTableAdapter {
             get {
-                return this._menuBuilder_SubMenusTableAdapter;
+                return this._priceTableAdapter;
             }
             set {
-                this._menuBuilder_SubMenusTableAdapter = value;
+                this._priceTableAdapter = value;
             }
         }
         
@@ -6115,12 +6113,12 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public MenuBuilder_UsersTableAdapter MenuBuilder_UsersTableAdapter {
+        public SubMenusTableAdapter SubMenusTableAdapter {
             get {
-                return this._menuBuilder_UsersTableAdapter;
+                return this._subMenusTableAdapter;
             }
             set {
-                this._menuBuilder_UsersTableAdapter = value;
+                this._subMenusTableAdapter = value;
             }
         }
         
@@ -6129,12 +6127,12 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public MenuBuilder_BuiltCafesTableAdapter MenuBuilder_BuiltCafesTableAdapter {
+        public UsersTableAdapter UsersTableAdapter {
             get {
-                return this._menuBuilder_BuiltCafesTableAdapter;
+                return this._usersTableAdapter;
             }
             set {
-                this._menuBuilder_BuiltCafesTableAdapter = value;
+                this._usersTableAdapter = value;
             }
         }
         
@@ -6143,12 +6141,12 @@ ORDER BY dateEdit DESC, PID DESC";
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public MenuBuilder_WeeklyMenusTableAdapter MenuBuilder_WeeklyMenusTableAdapter {
+        public WeeklyMenusTableAdapter WeeklyMenusTableAdapter {
             get {
-                return this._menuBuilder_WeeklyMenusTableAdapter;
+                return this._weeklyMenusTableAdapter;
             }
             set {
-                this._menuBuilder_WeeklyMenusTableAdapter = value;
+                this._weeklyMenusTableAdapter = value;
             }
         }
         
@@ -6171,29 +6169,29 @@ ORDER BY dateEdit DESC, PID DESC";
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._menuBuilder_ConceptsTableAdapter != null) 
-                            && (this._menuBuilder_ConceptsTableAdapter.Connection != null))) {
-                    return this._menuBuilder_ConceptsTableAdapter.Connection;
+                if (((this._builtCafesTableAdapter != null) 
+                            && (this._builtCafesTableAdapter.Connection != null))) {
+                    return this._builtCafesTableAdapter.Connection;
                 }
-                if (((this._menuBuilder_PriceTableAdapter != null) 
-                            && (this._menuBuilder_PriceTableAdapter.Connection != null))) {
-                    return this._menuBuilder_PriceTableAdapter.Connection;
+                if (((this._conceptsTableAdapter != null) 
+                            && (this._conceptsTableAdapter.Connection != null))) {
+                    return this._conceptsTableAdapter.Connection;
                 }
-                if (((this._menuBuilder_SubMenusTableAdapter != null) 
-                            && (this._menuBuilder_SubMenusTableAdapter.Connection != null))) {
-                    return this._menuBuilder_SubMenusTableAdapter.Connection;
+                if (((this._priceTableAdapter != null) 
+                            && (this._priceTableAdapter.Connection != null))) {
+                    return this._priceTableAdapter.Connection;
                 }
-                if (((this._menuBuilder_UsersTableAdapter != null) 
-                            && (this._menuBuilder_UsersTableAdapter.Connection != null))) {
-                    return this._menuBuilder_UsersTableAdapter.Connection;
+                if (((this._subMenusTableAdapter != null) 
+                            && (this._subMenusTableAdapter.Connection != null))) {
+                    return this._subMenusTableAdapter.Connection;
                 }
-                if (((this._menuBuilder_BuiltCafesTableAdapter != null) 
-                            && (this._menuBuilder_BuiltCafesTableAdapter.Connection != null))) {
-                    return this._menuBuilder_BuiltCafesTableAdapter.Connection;
+                if (((this._usersTableAdapter != null) 
+                            && (this._usersTableAdapter.Connection != null))) {
+                    return this._usersTableAdapter.Connection;
                 }
-                if (((this._menuBuilder_WeeklyMenusTableAdapter != null) 
-                            && (this._menuBuilder_WeeklyMenusTableAdapter.Connection != null))) {
-                    return this._menuBuilder_WeeklyMenusTableAdapter.Connection;
+                if (((this._weeklyMenusTableAdapter != null) 
+                            && (this._weeklyMenusTableAdapter.Connection != null))) {
+                    return this._weeklyMenusTableAdapter.Connection;
                 }
                 return null;
             }
@@ -6208,22 +6206,22 @@ ORDER BY dateEdit DESC, PID DESC";
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._menuBuilder_ConceptsTableAdapter != null)) {
+                if ((this._builtCafesTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._menuBuilder_PriceTableAdapter != null)) {
+                if ((this._conceptsTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._menuBuilder_SubMenusTableAdapter != null)) {
+                if ((this._priceTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._menuBuilder_UsersTableAdapter != null)) {
+                if ((this._subMenusTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._menuBuilder_BuiltCafesTableAdapter != null)) {
+                if ((this._usersTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._menuBuilder_WeeklyMenusTableAdapter != null)) {
+                if ((this._weeklyMenusTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -6235,59 +6233,59 @@ ORDER BY dateEdit DESC, PID DESC";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(MenuBuilderDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(MenuBuilderDataSetUpdate dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._menuBuilder_ConceptsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet._MenuBuilder_Concepts.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._builtCafesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.BuiltCafes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._menuBuilder_ConceptsTableAdapter.Update(updatedRows));
+                    result = (result + this._builtCafesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._menuBuilder_PriceTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet._MenuBuilder_Price.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._conceptsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Concepts.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._menuBuilder_PriceTableAdapter.Update(updatedRows));
+                    result = (result + this._conceptsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._menuBuilder_SubMenusTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet._MenuBuilder_SubMenus.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._priceTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Price.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._menuBuilder_SubMenusTableAdapter.Update(updatedRows));
+                    result = (result + this._priceTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._menuBuilder_UsersTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet._MenuBuilder_Users.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._subMenusTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.SubMenus.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._menuBuilder_UsersTableAdapter.Update(updatedRows));
+                    result = (result + this._subMenusTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._menuBuilder_BuiltCafesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet._MenuBuilder_BuiltCafes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._usersTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._menuBuilder_BuiltCafesTableAdapter.Update(updatedRows));
+                    result = (result + this._usersTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._menuBuilder_WeeklyMenusTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet._MenuBuilder_WeeklyMenus.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._weeklyMenusTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.WeeklyMenus.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._menuBuilder_WeeklyMenusTableAdapter.Update(updatedRows));
+                    result = (result + this._weeklyMenusTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -6299,53 +6297,53 @@ ORDER BY dateEdit DESC, PID DESC";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(MenuBuilderDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(MenuBuilderDataSetUpdate dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._menuBuilder_ConceptsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet._MenuBuilder_Concepts.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._builtCafesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.BuiltCafes.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._menuBuilder_ConceptsTableAdapter.Update(addedRows));
+                    result = (result + this._builtCafesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._menuBuilder_PriceTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet._MenuBuilder_Price.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._conceptsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Concepts.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._menuBuilder_PriceTableAdapter.Update(addedRows));
+                    result = (result + this._conceptsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._menuBuilder_SubMenusTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet._MenuBuilder_SubMenus.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._priceTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Price.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._menuBuilder_SubMenusTableAdapter.Update(addedRows));
+                    result = (result + this._priceTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._menuBuilder_UsersTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet._MenuBuilder_Users.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._subMenusTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.SubMenus.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._menuBuilder_UsersTableAdapter.Update(addedRows));
+                    result = (result + this._subMenusTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._menuBuilder_BuiltCafesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet._MenuBuilder_BuiltCafes.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._usersTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._menuBuilder_BuiltCafesTableAdapter.Update(addedRows));
+                    result = (result + this._usersTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._menuBuilder_WeeklyMenusTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet._MenuBuilder_WeeklyMenus.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._weeklyMenusTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.WeeklyMenus.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._menuBuilder_WeeklyMenusTableAdapter.Update(addedRows));
+                    result = (result + this._weeklyMenusTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -6357,53 +6355,53 @@ ORDER BY dateEdit DESC, PID DESC";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(MenuBuilderDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(MenuBuilderDataSetUpdate dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._menuBuilder_WeeklyMenusTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet._MenuBuilder_WeeklyMenus.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._weeklyMenusTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.WeeklyMenus.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._menuBuilder_WeeklyMenusTableAdapter.Update(deletedRows));
+                    result = (result + this._weeklyMenusTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._menuBuilder_BuiltCafesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet._MenuBuilder_BuiltCafes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._usersTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._menuBuilder_BuiltCafesTableAdapter.Update(deletedRows));
+                    result = (result + this._usersTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._menuBuilder_UsersTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet._MenuBuilder_Users.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._subMenusTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.SubMenus.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._menuBuilder_UsersTableAdapter.Update(deletedRows));
+                    result = (result + this._subMenusTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._menuBuilder_SubMenusTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet._MenuBuilder_SubMenus.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._priceTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Price.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._menuBuilder_SubMenusTableAdapter.Update(deletedRows));
+                    result = (result + this._priceTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._menuBuilder_PriceTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet._MenuBuilder_Price.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._conceptsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Concepts.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._menuBuilder_PriceTableAdapter.Update(deletedRows));
+                    result = (result + this._conceptsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._menuBuilder_ConceptsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet._MenuBuilder_Concepts.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._builtCafesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.BuiltCafes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._menuBuilder_ConceptsTableAdapter.Update(deletedRows));
+                    result = (result + this._builtCafesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -6439,40 +6437,40 @@ ORDER BY dateEdit DESC, PID DESC";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(MenuBuilderDataSet dataSet) {
+        public virtual int UpdateAll(MenuBuilderDataSetUpdate dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._menuBuilder_ConceptsTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._menuBuilder_ConceptsTableAdapter.Connection) == false))) {
+            if (((this._builtCafesTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._builtCafesTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._menuBuilder_PriceTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._menuBuilder_PriceTableAdapter.Connection) == false))) {
+            if (((this._conceptsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._conceptsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._menuBuilder_SubMenusTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._menuBuilder_SubMenusTableAdapter.Connection) == false))) {
+            if (((this._priceTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._priceTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._menuBuilder_UsersTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._menuBuilder_UsersTableAdapter.Connection) == false))) {
+            if (((this._subMenusTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._subMenusTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._menuBuilder_BuiltCafesTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._menuBuilder_BuiltCafesTableAdapter.Connection) == false))) {
+            if (((this._usersTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._usersTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._menuBuilder_WeeklyMenusTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._menuBuilder_WeeklyMenusTableAdapter.Connection) == false))) {
+            if (((this._weeklyMenusTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._weeklyMenusTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -6508,58 +6506,58 @@ ORDER BY dateEdit DESC, PID DESC";
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._menuBuilder_ConceptsTableAdapter != null)) {
-                    revertConnections.Add(this._menuBuilder_ConceptsTableAdapter, this._menuBuilder_ConceptsTableAdapter.Connection);
-                    this._menuBuilder_ConceptsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._menuBuilder_ConceptsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._menuBuilder_ConceptsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._menuBuilder_ConceptsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._menuBuilder_ConceptsTableAdapter.Adapter);
+                if ((this._builtCafesTableAdapter != null)) {
+                    revertConnections.Add(this._builtCafesTableAdapter, this._builtCafesTableAdapter.Connection);
+                    this._builtCafesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._builtCafesTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._builtCafesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._builtCafesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._builtCafesTableAdapter.Adapter);
                     }
                 }
-                if ((this._menuBuilder_PriceTableAdapter != null)) {
-                    revertConnections.Add(this._menuBuilder_PriceTableAdapter, this._menuBuilder_PriceTableAdapter.Connection);
-                    this._menuBuilder_PriceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._menuBuilder_PriceTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._menuBuilder_PriceTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._menuBuilder_PriceTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._menuBuilder_PriceTableAdapter.Adapter);
+                if ((this._conceptsTableAdapter != null)) {
+                    revertConnections.Add(this._conceptsTableAdapter, this._conceptsTableAdapter.Connection);
+                    this._conceptsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._conceptsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._conceptsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._conceptsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._conceptsTableAdapter.Adapter);
                     }
                 }
-                if ((this._menuBuilder_SubMenusTableAdapter != null)) {
-                    revertConnections.Add(this._menuBuilder_SubMenusTableAdapter, this._menuBuilder_SubMenusTableAdapter.Connection);
-                    this._menuBuilder_SubMenusTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._menuBuilder_SubMenusTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._menuBuilder_SubMenusTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._menuBuilder_SubMenusTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._menuBuilder_SubMenusTableAdapter.Adapter);
+                if ((this._priceTableAdapter != null)) {
+                    revertConnections.Add(this._priceTableAdapter, this._priceTableAdapter.Connection);
+                    this._priceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._priceTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._priceTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._priceTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._priceTableAdapter.Adapter);
                     }
                 }
-                if ((this._menuBuilder_UsersTableAdapter != null)) {
-                    revertConnections.Add(this._menuBuilder_UsersTableAdapter, this._menuBuilder_UsersTableAdapter.Connection);
-                    this._menuBuilder_UsersTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._menuBuilder_UsersTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._menuBuilder_UsersTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._menuBuilder_UsersTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._menuBuilder_UsersTableAdapter.Adapter);
+                if ((this._subMenusTableAdapter != null)) {
+                    revertConnections.Add(this._subMenusTableAdapter, this._subMenusTableAdapter.Connection);
+                    this._subMenusTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._subMenusTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._subMenusTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._subMenusTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._subMenusTableAdapter.Adapter);
                     }
                 }
-                if ((this._menuBuilder_BuiltCafesTableAdapter != null)) {
-                    revertConnections.Add(this._menuBuilder_BuiltCafesTableAdapter, this._menuBuilder_BuiltCafesTableAdapter.Connection);
-                    this._menuBuilder_BuiltCafesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._menuBuilder_BuiltCafesTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._menuBuilder_BuiltCafesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._menuBuilder_BuiltCafesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._menuBuilder_BuiltCafesTableAdapter.Adapter);
+                if ((this._usersTableAdapter != null)) {
+                    revertConnections.Add(this._usersTableAdapter, this._usersTableAdapter.Connection);
+                    this._usersTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._usersTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._usersTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._usersTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._usersTableAdapter.Adapter);
                     }
                 }
-                if ((this._menuBuilder_WeeklyMenusTableAdapter != null)) {
-                    revertConnections.Add(this._menuBuilder_WeeklyMenusTableAdapter, this._menuBuilder_WeeklyMenusTableAdapter.Connection);
-                    this._menuBuilder_WeeklyMenusTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._menuBuilder_WeeklyMenusTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._menuBuilder_WeeklyMenusTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._menuBuilder_WeeklyMenusTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._menuBuilder_WeeklyMenusTableAdapter.Adapter);
+                if ((this._weeklyMenusTableAdapter != null)) {
+                    revertConnections.Add(this._weeklyMenusTableAdapter, this._weeklyMenusTableAdapter.Connection);
+                    this._weeklyMenusTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._weeklyMenusTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._weeklyMenusTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._weeklyMenusTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._weeklyMenusTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -6620,29 +6618,29 @@ ORDER BY dateEdit DESC, PID DESC";
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._menuBuilder_ConceptsTableAdapter != null)) {
-                    this._menuBuilder_ConceptsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._menuBuilder_ConceptsTableAdapter]));
-                    this._menuBuilder_ConceptsTableAdapter.Transaction = null;
+                if ((this._builtCafesTableAdapter != null)) {
+                    this._builtCafesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._builtCafesTableAdapter]));
+                    this._builtCafesTableAdapter.Transaction = null;
                 }
-                if ((this._menuBuilder_PriceTableAdapter != null)) {
-                    this._menuBuilder_PriceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._menuBuilder_PriceTableAdapter]));
-                    this._menuBuilder_PriceTableAdapter.Transaction = null;
+                if ((this._conceptsTableAdapter != null)) {
+                    this._conceptsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._conceptsTableAdapter]));
+                    this._conceptsTableAdapter.Transaction = null;
                 }
-                if ((this._menuBuilder_SubMenusTableAdapter != null)) {
-                    this._menuBuilder_SubMenusTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._menuBuilder_SubMenusTableAdapter]));
-                    this._menuBuilder_SubMenusTableAdapter.Transaction = null;
+                if ((this._priceTableAdapter != null)) {
+                    this._priceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._priceTableAdapter]));
+                    this._priceTableAdapter.Transaction = null;
                 }
-                if ((this._menuBuilder_UsersTableAdapter != null)) {
-                    this._menuBuilder_UsersTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._menuBuilder_UsersTableAdapter]));
-                    this._menuBuilder_UsersTableAdapter.Transaction = null;
+                if ((this._subMenusTableAdapter != null)) {
+                    this._subMenusTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._subMenusTableAdapter]));
+                    this._subMenusTableAdapter.Transaction = null;
                 }
-                if ((this._menuBuilder_BuiltCafesTableAdapter != null)) {
-                    this._menuBuilder_BuiltCafesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._menuBuilder_BuiltCafesTableAdapter]));
-                    this._menuBuilder_BuiltCafesTableAdapter.Transaction = null;
+                if ((this._usersTableAdapter != null)) {
+                    this._usersTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._usersTableAdapter]));
+                    this._usersTableAdapter.Transaction = null;
                 }
-                if ((this._menuBuilder_WeeklyMenusTableAdapter != null)) {
-                    this._menuBuilder_WeeklyMenusTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._menuBuilder_WeeklyMenusTableAdapter]));
-                    this._menuBuilder_WeeklyMenusTableAdapter.Transaction = null;
+                if ((this._weeklyMenusTableAdapter != null)) {
+                    this._weeklyMenusTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._weeklyMenusTableAdapter]));
+                    this._weeklyMenusTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

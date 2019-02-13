@@ -68,7 +68,7 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>WinAggIcons.ico</ApplicationIcon>
@@ -102,13 +102,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BIDataSet.cs">
-      <DependentUpon>BIDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BIDataSet.Designer.cs">
+    <Compile Include="BIDataSetUpdate.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BIDataSet.xsd</DependentUpon>
+      <DependentUpon>BIDataSetUpdate.xsd</DependentUpon>
     </Compile>
     <Compile Include="Classes\CountMonday.cs" />
     <Compile Include="Classes\NewButton.cs" />
@@ -136,13 +133,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MenuBuilderDataSet.cs">
-      <DependentUpon>MenuBuilderDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="MenuBuilderDataSet.Designer.cs">
+    <Compile Include="MenuBuilderDataSetUpdate.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MenuBuilderDataSet.xsd</DependentUpon>
+      <DependentUpon>MenuBuilderDataSetUpdate.xsd</DependentUpon>
     </Compile>
     <Compile Include="Pages\BackendHome.xaml.cs">
       <DependentUpon>BackendHome.xaml</DependentUpon>
@@ -170,28 +164,28 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="BIDataSet.xsc">
-      <DependentUpon>BIDataSet.xsd</DependentUpon>
+    <None Include="BIDataSetUpdate.xsc">
+      <DependentUpon>BIDataSetUpdate.xsd</DependentUpon>
     </None>
-    <None Include="BIDataSet.xsd">
+    <None Include="BIDataSetUpdate.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BIDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>BIDataSetUpdate.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="BIDataSet.xss">
-      <DependentUpon>BIDataSet.xsd</DependentUpon>
+    <None Include="BIDataSetUpdate.xss">
+      <DependentUpon>BIDataSetUpdate.xsd</DependentUpon>
     </None>
     <None Include="MenuAggregator_TemporaryKey.pfx" />
-    <None Include="MenuBuilderDataSet.xsc">
-      <DependentUpon>MenuBuilderDataSet.xsd</DependentUpon>
+    <None Include="MenuBuilderDataSetUpdate.xsc">
+      <DependentUpon>MenuBuilderDataSetUpdate.xsd</DependentUpon>
     </None>
-    <None Include="MenuBuilderDataSet.xsd">
+    <None Include="MenuBuilderDataSetUpdate.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MenuBuilderDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>MenuBuilderDataSetUpdate.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="MenuBuilderDataSet.xss">
-      <DependentUpon>MenuBuilderDataSet.xsd</DependentUpon>
+    <None Include="MenuBuilderDataSetUpdate.xss">
+      <DependentUpon>MenuBuilderDataSetUpdate.xsd</DependentUpon>
     </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">

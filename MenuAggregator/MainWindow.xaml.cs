@@ -1,21 +1,7 @@
 ﻿using MenuAggregator.Classes;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Net;
-using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace MenuAggregator
 {
@@ -28,8 +14,6 @@ namespace MenuAggregator
         public static WeekChooser Wk;
         int minWeek = 1;
         public static string UserName = Environment.UserName;
-        //static DateTime test = new DateTime(2018, 12, 3, 00, 00, 00);
-        //public static DateTime today = test;
         public static DateTime today = DateTime.Now;
         public static int thisYear = today.Year;
         static DateTime firstOfMonth = new DateTime(today.Year, today.Month, 1);
@@ -49,9 +33,9 @@ namespace MenuAggregator
            
             try
             { 
-                MenuBuilderDataSet ds = new MenuBuilderDataSet();
-                MenuBuilderDataSet._MenuBuilder_UsersDataTable table = new MenuBuilderDataSet._MenuBuilder_UsersDataTable();
-                MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter userAdapter = new MenuBuilderDataSetTableAdapters.MenuBuilder_UsersTableAdapter();
+                MenuBuilderDataSetUpdate ds = new MenuBuilderDataSetUpdate();
+                MenuBuilderDataSetUpdate.UsersDataTable table = new MenuBuilderDataSetUpdate.UsersDataTable();
+                MenuBuilderDataSetUpdateTableAdapters.UsersTableAdapter userAdapter = new MenuBuilderDataSetUpdateTableAdapters.UsersTableAdapter();
 
                 InitializeComponent();
 
